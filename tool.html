@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+	<link rel="stylesheet" href="./node_modules/rangeslider-js/dist/styles.min.css">
+	<link rel="stylesheet" href="./css/styles.css" />
+	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+	<script defer src="./node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
+	<script defer src="./node_modules/isotope-cells-by-row/cells-by-row.js"></script>
+	<script defer src="./node_modules/pdfobject/pdfobject.min.js"></script>
+	<script defer src="./node_modules/html2canvas/dist/html2canvas.min.js"></script>
+    <script defer src="./node_modules/jspdf/dist/jspdf.umd.min.js"></script>
+	<script defer src="./node_modules/rangeslider-js/dist/rangeslider-js.min.js"></script>
+	<script defer src="./node_modules/js-loading-overlay/dist/js-loading-overlay.min.js"></script>
+	<script defer src="./js/BebasNeue-Regular-normal.js"></script>
+	<script defer src="./data/actions.js"></script>
+	<script defer src="./data/actors.js"></script>
+	<script defer src="./data/areas.js"></script>
+	<script defer src="./data/themes.js"></script>
+</head>
+<body>
+	<div style="width:1080px"><!-- placeholder --></div>
+	<div>
+		<h2>Wozu dient dieses Tool?</h2>
+		<p>Das nachfolgende Maßnahmentool ist als Baukasten angelegt, aus dem sich sowohl einzelne Maßnahmen als auch eine Kombination mehrerer Maßnahmen identifizieren lassen.
+			Die Maßnahmen unterscheiden sich sowohl hinsichtlich ihrer monetären und personellen Aufwendungen als auch bezüglich der benötigten Umsetzungszeiträume sowie hinsichtlich beteiligter respektive verantwortlicher Akteure.
+			Insofern lassen sich sowohl kurz- bis mittelfristige Strategien als auch langfristig angelegte Fahrpläne ableiten.
+			Je nach Fragestellung sowie Betrachtungswinkel sind andere Ansätze angebracht, die mit diesem Tool explorativ entdeckt sowie Anwenderbezogen zusammengefasst werden können.</p>
+		<hr>
+		<button id="showAllActionsBtn" type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllActions(event)">Alle Maßnahmen anzeigen</button>
+		<button type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllAreas(event)">Auswahl über Wirkungsbereich</button>
+		<button type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllActors(event)">Auswahl über Akteur</button>
+		<button type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllThemes(event)">Auswahl über Themengebiet</button>
+		<button type="button" class="btn btn-outline-light topRowBtn" id="advancedFilterBtn" data-bs-toggle="collapse" data-bs-target="#advancedFilterWrapper" aria-expanded="false" aria-controls="advancedFilterWrapper">Erweiterter Filter</button>
+		<div id="actionWrapper">
+		  </button>
+			<div class="actionHeaderBar">
+				<button class="btn btn-outline-dark me-2" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
+				<button id="createPdfBtn" class="btn btn-outline-dark me-2" onclick="createPDF()" disabled>PDF erzeugen</button>
+			</div>
+
+			<div id="advancedFilterWrapper" class="collapse">
+				<div class="row gx-0">
+					<div id="advancedFilterCol1" class="col-3 advancedFilterCol">
+						<h3>Akteur</h3>
+						<ul id="advancedFilterActorsList" class="list-unstyled">
+						</ul>
+					</div>
+					<div id="advancedFilterCol2" class="col-3 advancedFilterCol">
+						<h3>Wirkungsbereich</h3>
+						<ul id="advancedFilterAreaList" class="list-unstyled">
+						</ul>
+						<h3>Thema</h3>
+						<ul id="advancedFilterThemeList"  class="list-unstyled">
+						</ul>
+					</div>
+					<div id="advancedFilterCol3" class="col-3 advancedFilterCol">
+						<h3>
+							<label class="control control-checkbox">
+								Zeit
+								<input id="time-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
+								<div class="control_indicator"></div>
+							</label>
+						</h3>
+						<input id="time-slider" type="range" disabled>
+						<table class="sliderLabel mb-4">
+							<tody>
+								<tr>
+									<td>kurz</td>
+									<td>mittel</td>
+									<td>lang</td>
+								</tr>
+							</tody>
+						</table>
+						<h3>
+							<label class="control control-checkbox">
+								Wirkung
+								<input id="effects-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
+								<div class="control_indicator"></div>
+							</label>
+						</h3>
+						<input id="effects-slider" type="range" disabled>
+						<table class="sliderLabel mb-4">
+							<tody>
+								<tr>
+									<td>gering</td>
+									<td>mittel</td>
+									<td>hoch</td>
+								</tr>
+							</tody>
+						</table>
+						<h3>
+							<label class="control control-checkbox">
+								Herausforderungen
+								<input id="challenges-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
+								<div class="control_indicator"></div>
+							</label>
+						</h3>
+						<input id="challenges-slider" type="range" disabled>
+						<table class="sliderLabel">
+							<tody>
+								<tr>
+									<td>gering</td>
+									<td>mittel</td>
+									<td>hoch</td>
+								</tr>
+							</tody>
+						</table>
+					</div>
+					<div id="advancedFilterCol4" class="col-3 advancedFilterCol">
+						<h3>
+							<label class="control control-checkbox">
+								Personalkosten
+								<input id="personalCost-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
+								<div class="control_indicator"></div>
+							</label>
+						</h3>
+						<input id="personalCost-slider" type="range" disabled>
+						<table class="sliderLabel mb-4">
+							<tody>
+								<tr>
+									<td>gering</td>
+									<td>mittel</td>
+									<td>hoch</td>
+								</tr>
+							</tody>
+						</table>
+						<h3>
+							<label class="control control-checkbox">
+								Investitionskosten
+								<input id="investmentCost-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
+								<div class="control_indicator"></div>
+							</label>
+						</h3>
+						<input id="investmentCost-slider" type="range" disabled>
+						<table class="sliderLabel">
+							<tody>
+								<tr>
+									<td>gering</td>
+									<td>mittel</td>
+									<td>hoch</td>
+								</tr>
+							</tody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div class="overflow-auto">
+				<div class="grid"></div>
+			</div>
+			
+		</div>
+	</div>
+
+	<!-- Template for action card -->
+	<div id="actionCardTemplate" class="card action my-3 grid-item" style="display:none">
+		<div class="card-body">
+			<h5 class="card-title">
+				<img class="card-image" src="https://via.placeholder.com/440x147.webp?text=Platzhalter" /
+				data-bs-toggle='collapse' data-bs-target='' aria-expanded='false' width="100%">
+
+        		<button class='btn collapsed' type='button' data-bs-toggle='collapse'
+					data-bs-target='' aria-expanded='false'>
+				</button>
+        	</h5>
+        	<div class='actionCardBody collapse'>
+				<p class="card-text card-problem"></p>
+				<p class="card-text card-solution"></p>
+				<p class="card-text card-effects"></p>
+				<button class="btn btn-primary selectActionBtn" data-actionid="" onclick="toggleActionSelection(event)">Maßnahme ausw&auml;hlen</button>
+				<button class="btn btn-primary actionDetailsBtn" data-actionid="" onclick="showDetails(event)">Details anzeigen</button>
+        	</div>
+		</div>
+	</div>
+
+
+	<!-- Template for area card-->
+	<div id="areaCardTemplate" class="card area my-3 grid-item" style="display:none">
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<!-- <img class="card-image" src="https://via.placeholder.com/440x100.webp?text=Platzhalter" /> -->
+			<p class="card-text"></p>
+        	<button class="btn btn-primary">Maßnahmen für diesen Wirkungsbereich anzeigen</button>
+		</div>
+	</div>
+
+
+	<!-- Template for actor card -->
+	<div id="actorCardTemplate" class="card actor my-3 grid-item" style="display:none">
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<p class="card-text"></p>
+        	<button class="btn btn-primary">Maßnahmen für diesen Akteur anzeigen</button>
+		</div>
+	</div>
+
+	<!-- Template for theme card -->
+	<div id="themeCardTemplate" class="card theme my-3 grid-item" style="display:none">
+		<div class="card-body">
+			<h5 class="card-title"></h5>
+			<p class="card-text"></p>
+        	<button class="btn btn-primary">Maßnahmen für dieses Thema anzeigen</button>
+		</div>
+	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="actionDetailsModal" tabindex="-1" aria-labelledby="actionDetailsModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-xl">
+			<div class="modal-content">
+				<div class="modal-header">
+				<h5 class="modal-title" id="actionDetailsModalLabel"></h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="container-fluid">
+						<div class="row">
+							<div id="modalHeader" class="col-12">
+									<div id="proUrbanLogoWrapper">
+										<img id="proUrbanLogo" src="img/logo.png"  alt="pro urban logo">
+										<span id="actionDetailsModalNumber"></span>
+									</div>
+									<span id="actionDetailsModalTitle"></span>						
+							</div>
+						</div>
+						<div class="row">
+							<div id="bottom-left-container" class="col-8">
+								<table class="detailsTable">
+									<tbody>
+										<tr>
+											<td>Beschreibung / Kontext</td>
+											<td class="actionDetailsModalDescription"></td>
+										</tr>
+										<tr>
+											<td>Zielgruppe</td>
+											<td class="actionDetailsModalTargetgroups"></td>
+										</tr>
+										<tr>
+											<td>Beteiligte Akteur:innen</td>
+											<td class="actionDetailsModalActors"></td>
+										</tr>
+										<tr>
+											<td>Wirkung</td>
+											<td class="actionDetailsModalEffects"></td>
+										</tr>
+										<tr>
+											<td>Ausgangsproblem</td>
+											<td class="actionDetailsModalProblem"></td>
+										</tr>
+										<tr>
+											<td>Herausforderungen / Hemmnisse</td>
+											<td class="actionDetailsModalChallenges"></td></td>
+										</tr>
+										<tr>
+											<td>Lösung / Maßnahme</td>
+											<td class="actionDetailsModalSolution"></td>
+										</tr>
+										<tr>
+											<td>Wechselwirkungen mit anderen Maßnahmen</td>
+											<td class="actionDetailsModalInteractions"></td>
+										</tr>
+										<tr>
+											<td>Beispiele / Best-Practice</td>
+											<td class="actionDetailsModalExamples"></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div id="bottom-right-container" class="col-4">
+								<div id="valuationHeading">Quantitative Bewertung</div>
+								<table class="valuationTable">
+									<tbody>
+										<tr>
+											<td>Personalkosten</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Investitionskosten</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Zeithorizont</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Wirkung</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Herausforderungen / Hemmnisse</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Räumliche Reichweite</td>
+											<td></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Schlie&szlig;en</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+
+
+
+	<script src="./js/tool.js"></script>
+</body>
+</html>

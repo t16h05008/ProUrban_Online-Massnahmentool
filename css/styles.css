@@ -1,0 +1,351 @@
+:root {
+    --modal-border-color: #777;
+}
+
+body {
+    color: white;
+}
+
+.grid {
+    padding: 20px;
+    height: 80vh !important;
+}
+
+.grid-item { 
+    width: 475px;
+}
+
+.topRowBtn:hover {
+    color:black !important;
+}
+
+#actionWrapper {
+    margin-top: 15px;
+    background-color: white;
+    width: 100%;
+    padding: 0;
+}
+
+.action, .area, .actor, .theme {
+    color: black;
+}
+
+.actionHeaderBar {
+    color: black;
+    background-color: lightgray;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.card-title > button {
+    width: 100%;
+    text-align: left;
+}
+
+.card-title > button::after {
+    display: block;
+    flex-shrink: 0;
+    float: right;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-left: auto;
+    content: "";
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    transition: transform .2s ease-in-out;
+}
+
+.card-title > button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%230c63e4'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: rotate(-180deg);
+}
+
+.actionDetailsBtn {
+    float:right;
+}
+
+#actionDetailsModal {
+    color: black;
+}
+
+.detailsTable {
+    margin-top: 10px;
+}
+.detailsTable tr {
+    border-bottom: solid var(--modal-border-color) 1px;
+}
+
+.detailsTable tr:last-child {
+    border-bottom: none
+}
+
+#actionDetailsModalNumber {
+    font-size: 1.4em;
+    font-family: "Segoe UI";
+    font-weight: lighter;
+}
+
+#actionDetailsModalTitle {
+    font-family: 'Bebas Neue';
+    font-size: 2em;
+}
+
+.border-collapse {
+    border-collapse: collapse;
+}
+
+.btn:focus {
+    box-shadow: none;
+}
+
+#modalHeader {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    height: 80px;
+    background-color: #006059;
+    color: white;
+    border: solid var(--modal-border-color) 1px;
+    border-bottom: solid var(--modal-border-color) 0.5px;
+}
+
+#bottom-left-container {
+    border: solid var(--modal-border-color) 1px;
+    border-top: solid var(--modal-border-color) 0.5px;
+    border-right: solid var(--modal-border-color) 0.5px;
+}
+
+#bottom-right-container {
+    border: solid var(--modal-border-color) 1px;
+    border-top: solid var(--modal-border-color) 0.5px;
+    border-left: solid var(--modal-border-color) 0.5px;
+}
+
+#actionDetailsModalTitle {
+    margin-left: auto;
+    margin-right: auto;
+    transform: translateX(-70px);
+    font-size: 22pt;
+    max-width: 80%;
+    text-align: center;
+}
+
+
+#proUrbanLogo {
+    --height: 70px;
+    height: var(--height);
+    width: calc(var(--height) * 0.872)
+}
+
+#proUrbanLogoWrapper {
+    position: relative;
+    text-align: center;
+}
+
+#actionDetailsModalNumber {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 11pt;
+}
+
+.detailsTable tr td:first-child {
+    font-size: 12pt;
+    max-width: 150px;
+    word-wrap:break-word;
+    font-weight: 620;
+}
+
+.detailsTable tr td:nth-child(2){
+    padding-left: 30px;
+    padding-right: 15px;
+    word-wrap:break-word;
+}
+
+
+
+.detailsTable tr td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.detailsTable tr:first-child td {
+    padding-top: 0px;
+}
+
+.detailsTable tr td p:last-child,
+.detailsTable tr td ul {
+    margin-bottom: 0;
+}
+
+.detailsTable tr td ul {
+    padding-left: 1rem;
+}
+
+#valuationHeading {
+    font-size: 16pt;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+.valuationTable tr td:first-child {
+    font-size: 12pt;
+    max-width: 140px;
+    word-wrap:break-word;
+    color: black;
+}
+
+.valuationTable tr td:nth-child(2){
+    padding-left: 30px;
+    word-wrap:break-word;
+}
+
+.valuationTable tr td {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    /* border-bottom: solid var(--modal-border-color) 1px; */
+}
+
+.valuationTable tr:last-child {
+    border-bottom: none
+}
+
+.detailsTable {
+    color: black;
+}
+
+.icon {
+    display: inline-block;
+    width: 28px;
+    height: 32px;
+    image-rendering: -webkit-optimize-contrast; /* sharper icons in chrome */
+}
+
+#advancedFilterWrapper {
+    height: auto;
+    color: black;
+}
+
+.advancedFilterCol {
+    height: auto;
+    max-height: 350px;
+    padding:10px;
+}
+
+
+
+
+/** copied from https://doodlenerd.com/html-control/css-checkbox-generator */
+.control {
+    font-family: arial;
+    display: block;
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.control input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.control_indicator {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background: #e6e6e6;
+    border: 0px solid #000000;
+    border-radius: 0px;
+}
+.control:hover input ~ .control_indicator,
+.control input:focus ~ .control_indicator {
+    background: #cccccc;
+}
+
+.control input:checked ~ .control_indicator {
+    background: #7f1b3f;
+}
+
+.control input:disabled ~ .control_indicator {
+    background: #e6e6e6;
+    opacity: 0.6;
+    pointer-events: none;
+}
+.control_indicator:after {
+    box-sizing: unset;
+    content: '';
+    position: absolute;
+    display: none;
+}
+.control input:checked ~ .control_indicator:after {
+    display: block;
+}
+.control-checkbox .control_indicator:after {
+    left: 8px;
+    top: 4px;
+    width: 3px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.control-checkbox input:disabled ~ .control_indicator:after {
+    border-color: #7b7b7b;
+}
+
+/** end copy **/
+
+
+/** overwrite default rangeslider.js style */
+.rangeslider__fill, .rangeslider__handle {
+    background-color: #7f1b3f !important;
+}
+
+.rangeslider__fill {
+    background-color: #ccc !important;
+}
+
+.rangeslider__handle {
+    width: 20px;
+    height: 20px;
+}
+
+.rangeslider__fill, .rangeslider__fill__bg {
+    height: 10px
+}
+
+
+
+.sliderLabel {
+    width: 100%;
+}
+
+.sliderLabel td:first-child {
+    text-align: left;
+    width: 33.33%;
+}
+
+.sliderLabel td:nth-child(2) {
+    text-align: center;
+    width: 33.33%;
+}
+
+.sliderLabel td:last-child {
+    text-align: right;
+    width: 33.33%;
+}
+
+h3 {
+    font-size: 1.3em;
+}
