@@ -7,16 +7,16 @@
 	<title>Document</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="./libs/jquery-ui-1.13.0.custom/jquery-ui.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-	<link rel="stylesheet" href="./node_modules/rangeslider-js/dist/styles.min.css">
 	<link rel="stylesheet" href="./css/styles.css" />
 	<script defer src="./node_modules/@fortawesome/fontawesome-free/js/all.min.js"></script>
+	<script defer src="./libs/jquery-ui-1.13.0.custom/jquery-ui.min.js"></script>
 	<script defer src="./node_modules/isotope-layout/dist/isotope.pkgd.min.js"></script>
 	<script defer src="./node_modules/isotope-cells-by-row/cells-by-row.js"></script>
 	<script defer src="./node_modules/pdfobject/pdfobject.min.js"></script>
 	<script defer src="./node_modules/html2canvas/dist/html2canvas.min.js"></script>
     <script defer src="./node_modules/jspdf/dist/jspdf.umd.min.js"></script>
-	<script defer src="./node_modules/rangeslider-js/dist/rangeslider-js.min.js"></script>
 	<script defer src="./node_modules/js-loading-overlay/dist/js-loading-overlay.min.js"></script>
 	<script defer src="./js/BebasNeue-Regular-normal.js"></script>
 	<script defer src="./data/actions.js"></script>
@@ -61,33 +61,21 @@
 						</ul>
 					</div>
 					<div id="advancedFilterCol3" class="col-3 advancedFilterCol">
-						<h3>
-							<label class="control control-checkbox">
-								Zeit
-								<input id="time-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
-								<div class="control_indicator"></div>
-							</label>
-						</h3>
-						<input id="time-slider" type="range" disabled>
+						<h3>Zeit</h3>
+						<div id="time-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
-							<tody>
+							<tbody>
 								<tr>
 									<td>kurz</td>
 									<td>mittel</td>
 									<td>lang</td>
 								</tr>
-							</tody>
+							</tbody>
 						</table>
-						<h3>
-							<label class="control control-checkbox">
-								Wirkung
-								<input id="effects-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
-								<div class="control_indicator"></div>
-							</label>
-						</h3>
-						<input id="effects-slider" type="range" disabled>
+						<h3>Wirkung</h3>
+						<div id="effects-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
-							<tody>
+							<tbody>
 								<tr>
 									<td>gering</td>
 									<td>mittel</td>
@@ -95,16 +83,10 @@
 								</tr>
 							</tody>
 						</table>
-						<h3>
-							<label class="control control-checkbox">
-								Herausforderungen
-								<input id="challenges-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
-								<div class="control_indicator"></div>
-							</label>
-						</h3>
-						<input id="challenges-slider" type="range" disabled>
+						<h3>Herausforderungen</h3>
+						<div id="challenges-slider" class='filterSlider'></div>
 						<table class="sliderLabel">
-							<tody>
+							<tbody>
 								<tr>
 									<td>gering</td>
 									<td>mittel</td>
@@ -114,39 +96,27 @@
 						</table>
 					</div>
 					<div id="advancedFilterCol4" class="col-3 advancedFilterCol">
-						<h3>
-							<label class="control control-checkbox">
-								Personalkosten
-								<input id="personalCost-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
-								<div class="control_indicator"></div>
-							</label>
-						</h3>
-						<input id="personalCost-slider" type="range" disabled>
+						<h3>Personalkosten</h3>
+						<div id="personalCost-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
-							<tody>
+							<tbody>
 								<tr>
 									<td>gering</td>
 									<td>mittel</td>
 									<td>hoch</td>
 								</tr>
-							</tody>
+							</tbody>
 						</table>
-						<h3>
-							<label class="control control-checkbox">
-								Investitionskosten
-								<input id="investmentCost-slider-chb" type="checkbox" onclick="onSliderChbClick(event)">
-								<div class="control_indicator"></div>
-							</label>
-						</h3>
-						<input id="investmentCost-slider" type="range" disabled>
+						<h3>Investitionskosten</h3>
+						<div id="investmentCost-slider" class='filterSlider'></div>
 						<table class="sliderLabel">
-							<tody>
+							<tbody>
 								<tr>
 									<td>gering</td>
 									<td>mittel</td>
 									<td>hoch</td>
 								</tr>
-							</tody>
+							</tbody>
 						</table>
 					</div>
 				</div>

@@ -363,3 +363,9 @@ a {
 a:hover {
     color: #54122a;
 }
+
+.ui-slider-horizontal .ui-state-default {
+    background: url(../img/purple-circle.svg) no-repeat scroll 50% 50%;
+    background-size: 20px;
+    border: none;
+}
