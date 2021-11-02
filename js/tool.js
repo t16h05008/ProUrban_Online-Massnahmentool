@@ -75,6 +75,16 @@ function initializeGrid() {
             gutter: 26
           }
     });
+
+    grid.on( 'arrangeComplete', (itemsArr) => {
+        let countEl = document.querySelector("#shownActionsCount");
+        // only update if actions are displayed (not areas, actores, ...)
+        // set to 0 if not or if no action is displayed
+        if(itemsArr.length && itemsArr[0].element.id.startsWith("action"))
+            countEl.innerText = itemsArr.length;
+        else
+            countEl.innerText = 0
+    })
 }
 
 
@@ -208,11 +218,12 @@ function insertCards(cards, grid) {
     for (let el of cardBodies) {
         "shown.bs.collapse hidden.bs.collapse".split(" ").forEach(function(e){
             el.addEventListener(e,function() {
-                grid.arrange()
-            },false);
-          });
-
+                grid.arrange();
+            }, false);
+        });
     }
+
+   
 }
 
 
@@ -239,19 +250,21 @@ function filterActions(advanced, usedSliderId, sliderValue) {
             filterCriteria[category] = values;
         }
 
-        //get slider values
+        
         let slider_categories = [];
         let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .filterSlider, #advancedFilterCol4 .filterSlider");
+        // get slider categories and values
         rangeSliders.forEach( slider => {
-            slider_categories.push(slider.id.replace("-slider", ""));
-        });
+            let category = slider.id.replace("-slider", "");
+            slider_categories.push(category);
 
-        for(let i=0;i<slider_categories.length;i++) {
-            let category = slider_categories[i];
             if(usedSliderId && usedSliderId.split("-")[0] === category) {
-                filterCriteria[category] = sliderValue;
+                filterCriteria[category] = sliderValue; // the updated value of the used slider
+            } else {
+                // get values for all other sliders
+                filterCriteria[category] = $(slider).slider("option", "values");
             }
-        }
+        });
 
         // now filter actions for each prop by filterCriteria
         for(let filterProp in filterCriteria) {
@@ -277,14 +290,19 @@ function filterActions(advanced, usedSliderId, sliderValue) {
                     if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
                         return true;
                     
-                    return obj.iconsValuation[filterProp] >= filterCriteria[filterProp][0] &&
+
+                    // TODO what to do with undefined and 0 ?
+                    // Include them in the range?
+                    return typeof(obj.iconsValuation[filterProp]) === 'undefined' ||
+                        (obj.iconsValuation[filterProp] === 0 ||
+                        obj.iconsValuation[filterProp] >= filterCriteria[filterProp][0]) &&
                         obj.iconsValuation[filterProp] <= filterCriteria[filterProp][1];
                 });
             }
 
         }
     }
-
+    
     clearItems();
     let cards = createActionCards(filterResult);
     insertCards(cards, grid);
@@ -405,9 +423,10 @@ function toggleActionSelection(event) {
                 selectedActionIds.splice(index, 1);
             if(selectedActionIds.length === 0)
                 createPdfBtn.disabled = true;
-        }
-            
+        } 
     }
+    // update count
+    document.querySelector("#selectedActionsCount").innerText = selectedActionIds.length;
 }
 
 
@@ -1345,5 +1364,6 @@ function onSliderChbClick(event) {
 
     filterActions(true)
 }
+
 
 main();

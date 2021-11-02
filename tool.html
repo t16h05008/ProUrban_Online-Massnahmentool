@@ -41,8 +41,15 @@
 		<div id="actionWrapper">
 		  </button>
 			<div class="actionHeaderBar">
-				<button class="btn btn-outline-dark me-2" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
-				<button id="createPdfBtn" class="btn btn-outline-dark me-2" onclick="createPDF()" disabled>PDF erzeugen</button>
+				<div class="ms-2">
+					Maßnahmen angezeigt: <span id="shownActionsCount"></span><br />
+					Maßnahmen ausgewählt: <span id="selectedActionsCount">0</span>
+				</div>
+				<div>
+					<button class="btn btn-outline-dark me-2" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
+					<button id="createPdfBtn" class="btn btn-outline-dark me-2" onclick="createPDF()" disabled>PDF erzeugen</button>
+				</div>
+				
 			</div>
 
 			<div id="advancedFilterWrapper" class="collapse">
