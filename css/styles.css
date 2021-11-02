@@ -349,3 +349,9 @@ body {
 h3 {
     font-size: 1.3em;
 }
+
+#advancedFilterBottomPlaceholder {
+    background-color: lightgray;
+    height: 20px;
+}
+}
