@@ -39,7 +39,7 @@ function main() {
     });
 
     // advanced filter
-    populateAdvancedFilter(actions);
+    initializeAdvancedFilter(actions);
     let advancedFilterWrapper = document.getElementById('advancedFilterWrapper');
     let btn = document.querySelector("#advancedFilterBtn");
 
@@ -1197,7 +1197,7 @@ function quantifyActionProperty(action, property) {
     }
 }
 
-function populateAdvancedFilter(actions) {
+function initializeAdvancedFilter(actions) {
     // get the list elements to fill
     let actorListEl= document.getElementById("advancedFilterActorsList");
     let areaListEl = document.getElementById("advancedFilterAreaList");
@@ -1275,6 +1275,12 @@ function populateAdvancedFilter(actions) {
               filterActions(true, event.target.id, ui.values);
             }
         });
+    })
+
+    // add popovers to slider info icons
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('#advancedFilterWrapper [data-bs-toggle="popover"]'))
+    popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
     })
 }
 

@@ -369,3 +369,7 @@ a:hover {
     background-size: 20px;
     border: none;
 }
+
+.sliderInfoIcon {
+    color: rgb(160, 160, 160);
+}
