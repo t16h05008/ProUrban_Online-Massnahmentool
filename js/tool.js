@@ -438,14 +438,14 @@ function updateDetailsTable(action) {
         let title = interaction.innerText.trim();
         for(let action of actions) {
             if(action.title === title) {
-                interaction.style.color = "#0d6efd";
+                interaction.style.color = "#7f1b3f";
                 interaction.style.textDecoration = "underline";
                 interaction.style.cursor = "pointer";
                 interaction.addEventListener("mouseenter", function() {
-                    interaction.style.color="#0a58ca"
+                    interaction.style.color="#54122a"
                 })
                 interaction.addEventListener("mouseleave", function() {
-                    interaction.style.color="#0d6efd"
+                    interaction.style.color="#7f1b3f"
                 })
                 interaction.addEventListener("click", function() {
                     switchingActions = {

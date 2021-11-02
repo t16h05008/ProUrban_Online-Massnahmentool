@@ -354,4 +354,12 @@ h3 {
     background-color: lightgray;
     height: 20px;
 }
+
+
+a {
+    color: #7f1b3f;
+}
+
+a:hover {
+    color: #54122a;
 }
