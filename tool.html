@@ -41,8 +41,15 @@
 		<div id="actionWrapper">
 		  </button>
 			<div class="actionHeaderBar">
-				<button class="btn btn-outline-dark me-2" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
-				<button id="createPdfBtn" class="btn btn-outline-dark me-2" onclick="createPDF()" disabled>PDF erzeugen</button>
+				<div class="ms-2">
+					Maßnahmen angezeigt: <span id="shownActionsCount"></span><br />
+					Maßnahmen ausgewählt: <span id="selectedActionsCount">0</span>
+				</div>
+				<div>
+					<button class="btn btn-outline-dark me-2" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
+					<button id="createPdfBtn" class="btn btn-outline-dark me-2" onclick="createPDF()" disabled>PDF erzeugen</button>
+				</div>
+				
 			</div>
 
 			<div id="advancedFilterWrapper" class="collapse">
@@ -61,7 +68,7 @@
 						</ul>
 					</div>
 					<div id="advancedFilterCol3" class="col-3 advancedFilterCol">
-						<h3>Zeit <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="content"></i></h3>
+						<h3>Zeit <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="Für die Umsetzung der Maßnahme benötigte Zeitspanne."></i></h3>
 						<div id="time-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
 							<tbody>
@@ -72,7 +79,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<h3>Wirkung <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="content"></i></h3>
+						<h3>Wirkung <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="Die Effektivität der Maßnahme."></i></h3>
 						<div id="effects-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
 							<tbody>
@@ -83,7 +90,7 @@
 								</tr>
 							</tody>
 						</table>
-						<h3>Herausforderungen <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="content"></i></h3>
+						<h3>Herausforderungen <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="Die zu erwartenden Probleme, welche die Umsetzung behindern bzw. verzögern."></i></h3>
 						<div id="challenges-slider" class='filterSlider'></div>
 						<table class="sliderLabel">
 							<tbody>
@@ -96,7 +103,7 @@
 						</table>
 					</div>
 					<div id="advancedFilterCol4" class="col-3 advancedFilterCol">
-						<h3>Personalkosten <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="content"></i></h3>
+						<h3>Personalkosten <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="Kosten für Mitarbeiter, Dienstleister und sonstigen Personalbedarf."></i></h3>
 						<div id="personalCost-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
 							<tbody>
@@ -107,7 +114,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<h3>Investitionskosten <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="content"></i></h3>
+						<h3>Investitionskosten <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-content="Sachkosten für Materialien unterschiedlichster Art."></i></h3>
 						<div id="investmentCost-slider" class='filterSlider'></div>
 						<table class="sliderLabel">
 							<tbody>

@@ -34,10 +34,25 @@ body {
     color: black;
     background-color: lightgray;
     height: 60px;
-    display: flex;
+    display: grid;
     align-items: center;
-    justify-content: end;
+    justify-items: end;
 }
+
+.actionHeaderBar div:first-child {
+    padding-left: 5px;
+    grid-column: 1 / 2;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.actionHeaderBar div:nth-child(2) {
+    grid-column: 2 / 2;
+    grid-row: 1;
+    justify-self: end;
+}
+
+
 
 .card-title > button {
     width: 100%;
