@@ -39,7 +39,7 @@ function main() {
     });
 
     // advanced filter
-    populateAdvancedFilter(actions);
+    initializeAdvancedFilter(actions);
     let advancedFilterWrapper = document.getElementById('advancedFilterWrapper');
     let btn = document.querySelector("#advancedFilterBtn");
 
@@ -217,10 +217,13 @@ function insertCards(cards, grid) {
 
 
 /**
- * 
+ * We need to use sliderValue as a paremeter because the filter function is called during a slide (mouse still clicked).
+ * If we get the slider value from inside the function, we would get the value from before the slide
  * @param {boolean} advanced | 
+ * @param {boolean} usedSliderId | id of the used slider, optional
+ * @param {float[]} sliderValue | current value of the used slider, optional
  */
-function filterActions(advanced) {
+function filterActions(advanced, usedSliderId, sliderValue) {
     let filterResult = actions.slice(0);
     if(advanced) {
         // for the advanced filter we have to get all filter criteries first
@@ -233,24 +236,21 @@ function filterActions(advanced) {
             let values = chbsArr.map (obj => {
                 return obj.value;
             });
-            //TODO do something with values
             filterCriteria[category] = values;
         }
 
-        //get slider values for enabled sliders
+        //get slider values
         let slider_categories = [];
-        let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .rangeslider, #advancedFilterCol4 .rangeslider");
+        let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .filterSlider, #advancedFilterCol4 .filterSlider");
         rangeSliders.forEach( slider => {
-            if( !slider.classList.contains("rangeslider--disabled")) {
-                let s = slider.previousSibling; // the actual slider (hidden)
-                slider_categories.push(s.id.replace("-slider", ""));
-            }
+            slider_categories.push(slider.id.replace("-slider", ""));
         });
 
         for(let i=0;i<slider_categories.length;i++) {
             let category = slider_categories[i];
-            let slider = document.querySelector("#" + category + "-slider");
-            filterCriteria[category] = slider.value
+            if(usedSliderId && usedSliderId.split("-")[0] === category) {
+                filterCriteria[category] = sliderValue;
+            }
         }
 
         // now filter actions for each prop by filterCriteria
@@ -276,7 +276,9 @@ function filterActions(advanced) {
                 filterResult = filterResult.filter( obj => {
                     if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
                         return true;
-                    return obj.iconsValuation[filterProp] === parseFloat(filterCriteria[filterProp]);
+                    
+                    return obj.iconsValuation[filterProp] >= filterCriteria[filterProp][0] &&
+                        obj.iconsValuation[filterProp] <= filterCriteria[filterProp][1];
                 });
             }
 
@@ -438,14 +440,14 @@ function updateDetailsTable(action) {
         let title = interaction.innerText.trim();
         for(let action of actions) {
             if(action.title === title) {
-                interaction.style.color = "#0d6efd";
+                interaction.style.color = "#7f1b3f";
                 interaction.style.textDecoration = "underline";
                 interaction.style.cursor = "pointer";
                 interaction.addEventListener("mouseenter", function() {
-                    interaction.style.color="#0a58ca"
+                    interaction.style.color="#54122a"
                 })
                 interaction.addEventListener("mouseleave", function() {
-                    interaction.style.color="#0d6efd"
+                    interaction.style.color="#7f1b3f"
                 })
                 interaction.addEventListener("click", function() {
                     switchingActions = {
@@ -1195,7 +1197,7 @@ function quantifyActionProperty(action, property) {
     }
 }
 
-function populateAdvancedFilter(actions) {
+function initializeAdvancedFilter(actions) {
     // get the list elements to fill
     let actorListEl= document.getElementById("advancedFilterActorsList");
     let areaListEl = document.getElementById("advancedFilterAreaList");
@@ -1261,30 +1263,25 @@ function populateAdvancedFilter(actions) {
 
 
     // sliders
-    let sliders = document.querySelectorAll("#advancedFilterWrapper input[type='range']");
-    console.log(sliders);
-    rangesliderJs.create(sliders, {
-        min:1, 
-        max: 3, 
-        value: 2, 
-        step: 0.5,
-        onSlideEnd: (value, percent, position) => {
-            filterActions(true);
-        }
-    });
+    let sliders = document.querySelectorAll("#advancedFilterWrapper div[class='filterSlider']");
+    sliders.forEach( (slider) => {
+        $(slider).slider({
+            range: true,
+            min: 1,
+            max: 3,
+            step: 0.5,
+            values: [1, 3],
+            slide: function( event, ui ) {
+              filterActions(true, event.target.id, ui.values);
+            }
+        });
+    })
 
-    let sliderHandles = document.querySelectorAll(".rangeslider .rangeslider__handle");
-    //TODO this resets as soon as the slider is used
-    sliderHandles.forEach( handle => {
-        let transformStr = handle.style.transform;
-        // split[0] is the x translation, split[1] is the y translation
-        let split = transformStr.replace("translate(", "").replace(")", "").split(",");
-        // set a new transform to handle to vertically center it.
-        // we need both x and y translation for this to work.
-        // 25% of slider height upwards
-        // e.g. if slider height is 20px, -25% --> 5px upwards. This centers the candle if the horizontal bar height is 10px;
-        handle.style.transform = "translate(" + split[0] + ", -25%)";
-    });
+    // add popovers to slider info icons
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('#advancedFilterWrapper [data-bs-toggle="popover"]'))
+    popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover(popoverTriggerEl)
+    })
 }
 
 // the resulting lists might be too long for the div (it has a max height)
