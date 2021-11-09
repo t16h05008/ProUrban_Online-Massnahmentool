@@ -151,8 +151,8 @@ function createAreaCards(areas) {
         let desc = element.querySelector(".card-text")
         desc.innerHTML = area.description;
         let btn = element.getElementsByTagName("button")[0];
-        btn.addEventListener("click", function() {
-            filterActions(false);
+        btn.addEventListener("click", function(e) {
+            filterActions("area", title.innerHTML);
         });
 
         result.push(element);
@@ -176,7 +176,7 @@ function createActorCards(actors) {
         desc.innerHTML = actor.description;
         let btn = element.getElementsByTagName("button")[0];
         btn.addEventListener("click", function() {
-            filterActions(false)
+            filterActions("actors", title.innerHTML)
         });
 
         result.push(element);
@@ -201,7 +201,7 @@ function createThemeCards(themes) {
         desc.innerHTML = theme.description;
         let btn = element.getElementsByTagName("button")[0];
         btn.addEventListener("click", function() {
-            filterActions(false)
+            filterActions("theme", title.innerHTML)
         });
         result.push(element);
     }
@@ -227,82 +227,106 @@ function insertCards(cards, grid) {
 }
 
 
+function filterActions(filterProperty, filterValue) {
+
+    let filterResult = actions.slice(0)
+    console.log(filterResult.length);
+    filterResult = filterResult.filter( obj => {
+        console.log(filterProperty);
+        console.log(filterValue);
+        console.log(obj);
+        // remove html tags
+        let str = removeHtmlTags(obj[filterProperty])
+        // split string
+        let split = str.split(",");
+        split = split.map( el => el.trim());
+
+        // check if action meets our filter criteria
+        let result = split.some( (el) => {
+            return el === filterValue
+        });
+        return result;
+    });
+    console.log(filterResult.length);
+    clearItems();
+    let cards = createActionCards(filterResult);
+    insertCards(cards, grid);
+}
+
+
 /**
  * We need to use sliderValue as a paremeter because the filter function is called during a slide (mouse still clicked).
  * If we get the slider value from inside the function, we would get the value from before the slide
- * @param {boolean} advanced | 
  * @param {boolean} usedSliderId | id of the used slider, optional
  * @param {float[]} sliderValue | current value of the used slider, optional
  */
-function filterActions(advanced, usedSliderId, sliderValue) {
+function filterActionsAdvanced(usedSliderId, sliderValue) {
     let filterResult = actions.slice(0);
-    if(advanced) {
-        // for the advanced filter we have to get all filter criteries first
-        let filterCriteria = {};
-        let chb_categories = ["actors", "area", "theme"];
-        for(let i=0;i<chb_categories.length;i++) {
-            let category = chb_categories[i];
-            let chbs = document.querySelectorAll("#advancedFilter" + capitalizeFirstLetter(category) + "List li input:checked");
-            let chbsArr = Array.from(chbs);
-            let values = chbsArr.map (obj => {
-                return obj.value;
-            });
-            filterCriteria[category] = values;
-        }
-
-        
-        let slider_categories = [];
-        let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .filterSlider, #advancedFilterCol4 .filterSlider");
-        // get slider categories and values
-        rangeSliders.forEach( slider => {
-            let category = slider.id.replace("-slider", "");
-            slider_categories.push(category);
-
-            if(usedSliderId && usedSliderId.split("-")[0] === category) {
-                filterCriteria[category] = sliderValue; // the updated value of the used slider
-            } else {
-                // get values for all other sliders
-                filterCriteria[category] = $(slider).slider("option", "values");
-            }
+    // for the advanced filter we have to get all filter criteries first
+    let filterCriteria = {};
+    let chb_categories = ["actors", "area", "theme"];
+    for(let i=0;i<chb_categories.length;i++) {
+        let category = chb_categories[i];
+        let chbs = document.querySelectorAll("#advancedFilter" + capitalizeFirstLetter(category) + "List li input:checked");
+        let chbsArr = Array.from(chbs);
+        let values = chbsArr.map (obj => {
+            return obj.value;
         });
-
-        // now filter actions for each prop by filterCriteria
-        for(let filterProp in filterCriteria) {
-            if(chb_categories.includes(filterProp)) {
-                filterResult = filterResult.filter( obj => {
-                    if(filterCriteria[filterProp].length === 0)
-                        return true;
-                    // remove html tags
-                    let str = removeHtmlTags(obj[filterProp])
-                    // split string
-                    let split = str.split(",");
-                    split = split.map( el => el.trim());
-                    // check if action meets our filter criteria
-                    let result = filterCriteria[filterProp].some( (el) => {
-                        return split.includes(el)
-                    });
-                    return result;
-                });
-            }
-            
-            if(slider_categories.includes(filterProp)) {
-                filterResult = filterResult.filter( obj => {
-                    if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
-                        return true;
-                    
-
-                    // TODO what to do with undefined and 0 ?
-                    // Include them in the range?
-                    return typeof(obj.iconsValuation[filterProp]) === 'undefined' ||
-                        (obj.iconsValuation[filterProp] === 0 ||
-                        obj.iconsValuation[filterProp] >= filterCriteria[filterProp][0]) &&
-                        obj.iconsValuation[filterProp] <= filterCriteria[filterProp][1];
-                });
-            }
-
-        }
+        filterCriteria[category] = values;
     }
+
     
+    let slider_categories = [];
+    let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .filterSlider, #advancedFilterCol4 .filterSlider");
+    // get slider categories and values
+    rangeSliders.forEach( slider => {
+        let category = slider.id.replace("-slider", "");
+        slider_categories.push(category);
+
+        if(usedSliderId && usedSliderId.split("-")[0] === category) {
+            filterCriteria[category] = sliderValue; // the updated value of the used slider
+        } else {
+            // get values for all other sliders
+            filterCriteria[category] = $(slider).slider("option", "values");
+        }
+    });
+
+    // now filter actions for each prop by filterCriteria
+    for(let filterProp in filterCriteria) {
+        if(chb_categories.includes(filterProp)) {
+            filterResult = filterResult.filter( obj => {
+                if(filterCriteria[filterProp].length === 0)
+                    return true;
+                // remove html tags
+                let str = removeHtmlTags(obj[filterProp])
+                // split string
+                let split = str.split(",");
+                split = split.map( el => el.trim());
+                // check if action meets our filter criteria
+                let result = filterCriteria[filterProp].some( (el) => {
+                    return split.includes(el)
+                });
+                return result;
+            });
+        }
+        
+        if(slider_categories.includes(filterProp)) {
+            filterResult = filterResult.filter( obj => {
+                if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
+                    return true;
+                
+
+                // TODO what to do with undefined and 0 ?
+                // Include them in the range?
+                return typeof(obj.iconsValuation[filterProp]) === 'undefined' ||
+                    (obj.iconsValuation[filterProp] === 0 ||
+                    obj.iconsValuation[filterProp] >= filterCriteria[filterProp][0]) &&
+                    obj.iconsValuation[filterProp] <= filterCriteria[filterProp][1];
+            });
+        }
+
+    }
+
     clearItems();
     let cards = createActionCards(filterResult);
     insertCards(cards, grid);
@@ -1286,6 +1310,7 @@ function initializeAdvancedFilter(actions) {
     let categories = ["actors", "area", "theme"]
     let uniqueFilterOptions = {};
     
+
     // for each category
     for(let i=0;i<categories.length;i++) {
         let category = categories[i];
@@ -1330,7 +1355,7 @@ function initializeAdvancedFilter(actions) {
             let chb = document.createElement("input");
             chb.type ="checkbox";
             chb.value = p.innerText;
-            chb.addEventListener("change", function() { filterActions(true) });
+            chb.addEventListener("change", function() { filterActionsAdvanced() });
             //let chbName = category + "_" + idx + "_chb";
 
             let div = document.createElement("div")
@@ -1369,7 +1394,7 @@ function initializeAdvancedFilter(actions) {
             step: 0.5,
             values: [1, 3],
             slide: function( event, ui ) {
-              filterActions(true, event.target.id, ui.values);
+              filterActionsAdvanced(event.target.id, ui.values);
             }
         });
     })
@@ -1428,20 +1453,6 @@ function removeHtmlTags(el) {
     return el.replace(/(<([^>]+)>)/gi, "").trim();
 }
 
-function onSliderChbClick(event) {
-    let chb = event.target;
-    // toggle slider
-    let id = chb.id;
-    let slider = document.getElementById(id.replace("-chb", ""));
-    slider.disabled = false;
-    let rangeSlider = slider.nextSibling;
-    if(rangeSlider.classList.contains("rangeslider--disabled"))
-        rangeSlider.classList.remove("rangeslider--disabled");
-    else
-        rangeSlider.classList.add("rangeslider--disabled");
-
-    filterActions(true)
-}
 
 
 main();
