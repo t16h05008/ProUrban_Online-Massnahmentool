@@ -33,21 +33,29 @@
 			Insofern lassen sich sowohl kurz- bis mittelfristige Strategien als auch langfristig angelegte Fahrpläne ableiten.
 			Je nach Fragestellung sowie Betrachtungswinkel sind andere Ansätze angebracht, die mit diesem Tool explorativ entdeckt sowie Anwenderbezogen zusammengefasst werden können.</p>
 		<hr>
-		<button id="showAllActionsBtn" type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllActions(event)">Alle Maßnahmen anzeigen</button>
-		<button type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllAreas(event)">Auswahl über Wirkungsbereich</button>
-		<button type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllActors(event)">Auswahl über Akteur</button>
-		<button type="button" class="btn btn-outline-light me-2 topRowBtn" onclick="showAllThemes(event)">Auswahl über Themengebiet</button>
-		<button type="button" class="btn btn-outline-light topRowBtn" id="advancedFilterBtn" data-bs-toggle="collapse" data-bs-target="#advancedFilterWrapper" aria-expanded="false" aria-controls="advancedFilterWrapper">Erweiterter Filter</button>
+		<div class="twoColGrid">
+			<div>
+				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllAreas(event)">Auswahl über Wirkungsbereich</button>
+				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllActors(event)">Auswahl über Akteur</button>
+				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllThemes(event)">Auswahl über Themengebiet</button>
+			</div>
+			<div>
+				<button type="button" class="btn btn-outline-light topRowBtn" id="advancedFilterBtn" data-bs-toggle="collapse" data-bs-target="#advancedFilterWrapper" aria-expanded="false" aria-controls="advancedFilterWrapper">Erweiterter Filter</button>
+			</div>
+		</div>
+		
+		
 		<div id="actionWrapper">
 		  </button>
-			<div class="actionHeaderBar">
+			<div class="actionHeaderBar twoColGrid">
 				<div class="ms-2">
 					Maßnahmen angezeigt: <span id="shownActionsCount"></span><br />
 					Maßnahmen ausgewählt: <span id="selectedActionsCount">0</span>
 				</div>
 				<div>
-					<button class="btn btn-outline-dark me-2" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
-					<button id="createPdfBtn" class="btn btn-outline-dark me-2" onclick="createPDF()" disabled>PDF erzeugen</button>
+					<button class="btn btn-outline-dark me-2"  type="button" onclick="showAllActions(event)">Alle Maßnahmen anzeigen</button>
+					<button class="btn btn-outline-dark me-2" type="button" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
+					<button id="createPdfBtn" class="btn btn-outline-dark me-2" type="button" onclick="createPDF()" disabled>PDF erzeugen</button>
 				</div>
 				
 			</div>
