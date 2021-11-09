@@ -357,7 +357,7 @@ function resetFilter() {
 
 
 function highlightButton(btn) {
-    let btns = document.querySelectorAll(".topRowBtn");
+    let btns = document.querySelectorAll(".topRowBtnHighlight");
     for(let b of btns) {
         b.style.backgroundColor = "";
         b.style.color = "white"; 
