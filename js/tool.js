@@ -114,7 +114,7 @@ function createActionCards(actions, collapsed) {
         if( !collapsed )
             cardBody.classList.add("show");
         
-        element.querySelector(".card-problem").innerHTML = "<b>Problem:</b>" + action.problem;
+        element.querySelector(".card-problem").innerHTML = "<b>Ausgangsproblem:</b>" + action.problem;
         element.querySelector(".card-solution").innerHTML = "<b>Maßnahme:</b>" + action.solution;
         element.querySelector(".card-effects").innerHTML = "<b>Wirkung:</b>" + action.effects;
 
