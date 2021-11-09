@@ -310,11 +310,6 @@ function filterActions(advanced, usedSliderId, sliderValue) {
 
 
 function showAllActions(event) {
-    // if button was clicked
-    if(event) {
-        // highlight it
-        highlightButton(event.target);
-    }
     clearItems();
     resetFilter();
     let cards = createActionCards(actions, true)
