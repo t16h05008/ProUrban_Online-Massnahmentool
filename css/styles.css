@@ -15,6 +15,14 @@ body {
     width: 475px;
 }
 
+.topRowBtnHighlight {
+    background-color:#006059;
+}
+
+.topRowBtnHighlight:hover {
+    color:#006059 !important;
+}
+
 .topRowBtn:hover {
     color:black !important;
 }
