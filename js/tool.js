@@ -955,7 +955,7 @@ function setupCoverPage(doc, toc) {
     // title
     doc.setFont("BebasNeue-Regular", "normal");
     doc.setFontSize(36);
-    doc.text('Maßnahmenauswahl\nzur\nUrbanen Produktion', cmToPt(10.5), cmToPt(8), {
+    doc.text('Maßnahmenauswahl\nzur\nUrbanen Produktion', cmToPt(10.5), cmToPt(8.5), {
         align: 'center'
     });
 
