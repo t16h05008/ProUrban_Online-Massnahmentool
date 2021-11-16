@@ -280,7 +280,7 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
 
     
     let slider_categories = [];
-    let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .filterSlider, #advancedFilterCol4 .filterSlider");
+    let rangeSliders = document.querySelectorAll("#advancedFilterCol4 .filterSlider, #advancedFilterCol5 .filterSlider");
     // get slider categories and values
     rangeSliders.forEach( slider => {
         let category = slider.id.replace("-slider", "");
@@ -1524,8 +1524,8 @@ function initializeAdvancedFilter(actions) {
 // so we only display the list elements that fit in the div and add an "expand" button at the bottom.
 // if this button is clicked, the full list is shown
 function capAdvancedFilterColumnHeight(advancedFilterWrapper) {
-    // for column one and two
-    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterCol1, #advancedFilterCol2");
+    // for column one, two and three
+    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterCol1, #advancedFilterCol2, #advancedFilterCol3");
     
     // test if the scroll area apperas at the corrct usedHeight by restricting list length
     // let a = columns[0].querySelector("ul").children;

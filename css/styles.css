@@ -263,6 +263,8 @@ body {
     height: auto;
     max-height: 350px;
     padding:10px;
+    flex: 0 0 auto;
+    width: 20%;
 }
 
 
