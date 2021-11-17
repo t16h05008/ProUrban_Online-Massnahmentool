@@ -28,6 +28,9 @@ let uniqueThemeFilterOptions = [];
 const timeArray = ["kurzfristig", "kurz- bis mittelfristig", "mittelfristig", "mittel- bis langfristig", "langfristig"] // possible (partial) values for an actions time property
 const areaArray = ["Grundstück/Immobilie", "Stadtteil/Quartier", "Gesamtstadt"] // possible (partial) values for an actions area property
 
+const detailsTableOffsetX = 0.6; // in cm
+const detailsTableOffsetY = 2.9; // in cm
+
 function main() {
     initializeGrid();
 
@@ -62,7 +65,6 @@ function main() {
         grid.arrange()
     }, 500);
 
-    console.log(actions);
 }
 
 
@@ -230,11 +232,9 @@ function insertCards(cards, grid) {
 function filterActions(filterProperty, filterValue) {
 
     let filterResult = actions.slice(0)
-    console.log(filterResult.length);
+
     filterResult = filterResult.filter( obj => {
-        console.log(filterProperty);
-        console.log(filterValue);
-        console.log(obj);
+
         // remove html tags
         let str = removeHtmlTags(obj[filterProperty])
         // split string
@@ -247,7 +247,7 @@ function filterActions(filterProperty, filterValue) {
         });
         return result;
     });
-    console.log(filterResult.length);
+
     clearItems();
     let cards = createActionCards(filterResult);
     insertCards(cards, grid);
@@ -276,11 +276,11 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
         });
         filterCriteria[category] = values;
     }
-    console.log(filterCriteria);
+
 
     
     let slider_categories = [];
-    let rangeSliders = document.querySelectorAll("#advancedFilterCol3 .filterSlider, #advancedFilterCol4 .filterSlider");
+    let rangeSliders = document.querySelectorAll("#advancedFilterCol4 .filterSlider, #advancedFilterCol5 .filterSlider");
     // get slider categories and values
     rangeSliders.forEach( slider => {
         let category = slider.id.replace("-slider", "");
@@ -472,7 +472,7 @@ function updateDetailsTable(action) {
     problem.innerHTML = action.problem;
     challenges.innerHTML = action.challenges;
     solution.innerHTML = action.solution;
-    console.log(action.interactions);
+
     interactions.innerHTML = action.interactions;
     // add onclick events to each interations list element
     // to link to a different action
@@ -621,6 +621,9 @@ async function createPDF() {
         let idx = i;
 
         doc.addPage("a4", "landscape");
+        doc.setFont("Helvetica", "normal");
+        doc.setTextColor("#000000");
+
         setupStaticPdfPageElements(doc, action);
         toc.push({
             action: action,
@@ -629,14 +632,14 @@ async function createPDF() {
 
 
         // Since we have one pdf to work on we will do everything syncronous.
-        // Async functions have shown to cause problems, since we print to the wrong page, have wrong colors set, etc.
-        
+        // Async functions have shown to cause problems, since we print to the wrong page, have wrong colors set, etc.   
         updateDetailsTable(action) // set content for details table to the current action
+
         let detailsTable = document.querySelector(".detailsTable");
-        const detailsTableOffsetX = 0.6; // in cm
-        const detailsTableOffsetY = 3; // in cm
-        let links = [] // stores the bounding rectangles where links would be inserted, so that this can be done manually
         
+        let links = [] // stores the bounding rectangles where links would be inserted, so that this can be done manually later
+        let canvasScale = 2 // the higher the scale the better quality we get but it increases processing time
+
         // create a copy of the dom node outside of viewport, convert it to a canvas and screenshot it
         // html2canvas does not work properly with bootstrap modals.
         // so we copy our table to the main page, take the screenthot and delete the clone
@@ -644,53 +647,111 @@ async function createPDF() {
         document.body.appendChild(duplicateDetailsTable)
         duplicateDetailsTable.style.position = 'absolute';
         duplicateDetailsTable.style.left = -20000 - (1000 * idx) + "px"; // -20000, -21000, -22000, ...
-        duplicateDetailsTable.style.top = '10px';
+        duplicateDetailsTable.style.top = '0px';
+        duplicateDetailsTable.style.margin = '0px'; // remove all margins
         duplicateDetailsTable.style.width = "19.1cm"
+        // explicitly set the margin bottom for all paragraphs
+        // so we know the exact value later and it is the same across all browsers.
+        duplicateDetailsTable.querySelectorAll("p").forEach( (el) => {
+            el.style.marginBottom = "16px"
+        })
+
+       
         let elements = duplicateDetailsTable.querySelectorAll("tr td:last-child");
         // we have to define our styling here and not in the onclone method.
-        // it hast to be the same. If we differ our styling in the onclone method our layout will not fit...
+        // it has to be the same. If we differ our styling in the onclone method our layout will not fit...
         elements.forEach(function(element) {
-            console.log(element);
             element.style.textAlign = "justify";
             element.style.fontSize = "10pt";
+
+            // get position of links and store them for later
+            let aTags = element.querySelectorAll(".actionDetailsModalExamples a");
+            if(aTags.length > 0) {
+
+                let arr = Array.from(aTags).map( (el) => {
+                    // only return links that are in the examples row since we don't want to link between actions
+                    console.log(el.parentElement.parentElement);
+                    let rect = el.getBoundingClientRect();
+                    // define an object to store the links information
+                    return {
+                        "text": el.innerText,
+                        "url": el.href,
+                        "position": {
+                            // getBoundingClientRect is relative to the current viewport position. To get the absolute coordinates from
+                            // the top left corner we have to add the offset, that was subtracted by getBoundingClientRect (if there is any).
+                            "left": rect.left + window.scrollX, 
+                            "top": rect.top + window.scrollY,
+                            "width": rect.width,
+                            "height": rect.height
+                        }
+                    }
+                });
+
+                links.push( ...arr ) // append all links for current row to links array
+            }
+
+            let noLinks = element.querySelectorAll(".actionDetailsModalInteractions li");
+            noLinks.forEach( (el) => {
+                el.style.textDecoration = "none";
+                el.style.color = "#000000";
+            })
         });
-        
-        doc.setFont("Helvetica", "normal");
-        doc.setTextColor("#000000");
-        let canvasScale = 2
+
+        elements = duplicateDetailsTable.querySelectorAll("tr");
+        let sum = 0;
+        console.log(duplicateDetailsTable.getBoundingClientRect().height);
+        for (let [index, element] of elements.entries()) {
+            console.log("row " + index + ": y = " + sum);
+            console.log("rowPT " + index + ": y = " + pxToPt(sum));
+            sum += element.getBoundingClientRect().height;
+        }
+
         // now screenshot the duplicate
         let canvas = await html2canvas(duplicateDetailsTable, {
             removeContainer: false,
             logging: false,
             scale: canvasScale,
-            // onclone: function(clonedDoc, element) {
-                
-            // }
+            onclone: function(clonedDoc, element) {
+            }
         });
 
         try {
-            // check if image fits on one page
-            let availablePageHeightPt = cmToPt(16.8); // 21cm - 3cm (top) - 1.2cm (bottom)
+            // check if whole image fits on first page
+            let availablePageHeightPt = cmToPt(19.7 - detailsTableOffsetY); // 19.7 is the height we want to use for the detailstable
+
+
             let availablePageHeightPx = ptToPx(availablePageHeightPt);
-            console.log("availablePageHeightPx", availablePageHeightPx);
             let canvasHeightPt = pxToPt(canvas.height / canvasScale);
-            console.log("avaliable height is: ", availablePageHeightPt);
-            console.log("canvas height is: ", canvasHeightPt);
+
+            let totalCanvasHeightUsedPt = pxToPt(0); // used height across all pages, must match the canvas height in the end
+            let usedPageHeightPt = pxToPt(0);  // used height on current page
+            let rowHeightSumOfPrevPagesPt = 0;  // needed to place links, it is different from totalCanvasHeightUsedPt
+            // get rows
+            let rows = duplicateDetailsTable.querySelectorAll("tr")
+            
+            console.log("availablePageHeightPx", availablePageHeightPx);
+            console.log("availablePageHeightPt: ", availablePageHeightPt);
+            console.log("canvas height: ", canvasHeightPt);
             
             // if it does we just add it
             if(availablePageHeightPt >= canvasHeightPt) {
                 console.log("canvas fits on page");
+               
                 doc.addImage(
                     canvas,
                     "png",
-                    cmToPt(0.6),
-                    cmToPt(3),
+                    cmToPt(detailsTableOffsetX),
+                    cmToPt(detailsTableOffsetY),
                     pxToPt(canvas.width / canvasScale),
                     pxToPt(canvas.height / canvasScale),
                     "",
                     "SLOW",
                     0
                 )
+
+                // make links clickable
+                makePdfLinksInteractive(links, doc, idx, detailsTableOffsetX, detailsTableOffsetY)
+
             } else {
                 // If not we need to split the canvas in multiple parts.
                 // We iterate the table rows and check for each one if it fits on the page
@@ -699,64 +760,68 @@ async function createPDF() {
                 // the complete canvas is inserted.
                 // If there are multple paragraphs in a table row we try to plit in between paragraphs
                 // if the whole row doesn't fit on current page
-                
-                let usedTotalHeightPt = pxToPt(0); // used height across all pages, must match the canvas height in the end
-                let usedPageHeightPt = pxToPt(0); // used height on current page
-                
-                // get rows
-                let rows = duplicateDetailsTable.querySelectorAll("tr")
-                console.log("rows: ", rows);
 
                 // iterate rows
                 for(let j=0; j<rows.length; j++) {
-                    console.log("j=", j);
                     let row = rows[j];
-                    console.log(row.children[0].innerHTML);
+
+                    console.log("looking at row: " + j);
+                    console.log("inner html: ", row.innerHTML);
+
                     // get height of current row
-                    let currentRowHeight = row.getBoundingClientRect().height;
-                    // and add it to the sum
+                    // we don't need to adjust the viewport scroll here since we only need the height, not the absolute position
+                    let currentRowHeight = row.getBoundingClientRect().height; 
+
+                    // and add it to sum
                     let usedPageHeightPlusRowPt = usedPageHeightPt + pxToPt(currentRowHeight)
                     console.log("usedPageHeightPlusRowPt is:", usedPageHeightPlusRowPt);
+                    
                     // check if row would fit on page
-                    if(usedPageHeightPlusRowPt <= availablePageHeightPt) {
-                        console.log("fits on page");
+                    if(usedPageHeightPlusRowPt < availablePageHeightPt) {
+                        console.log("row " + j + " fits on page");
                         console.log("usedPageHeightPlusRowPt: ", usedPageHeightPlusRowPt, " availablePageHeightPt: ", availablePageHeightPt);
-                        usedPageHeightPt = usedPageHeightPlusRowPt; // update used page height since row does fit on page
+                        usedPageHeightPt = usedPageHeightPlusRowPt; // update used page height since row does fit
                         
-                        // if we reached the last row we have to print the remaning rows
-                        if(j == rows.length-1) {
-                            console.log("last row");
-                            console.log("used total height in px: ", ptToPx(usedTotalHeightPt));
+                        // if we reached the last row we have to print the remaining rows
+                        if( j == rows.length - 1 ) {
+                            console.log("last row reached");
                             // we can use availablePageHeightPt instead of usedPageHeightPt here, because we want to print the whole page height
                             let sx =  0;
-                            let sy = ptToPx(usedTotalHeightPt);
+                            let sy = ptToPx(totalCanvasHeightUsedPt);
                             let sWidth = canvas.width;
-                            let sHeight = ptToPx(availablePageHeightPt) * canvasScale
+                            let sHeight = ptToPx(availablePageHeightPt)
                             let dx = 0;
                             let dy = 0;
                             let dWidth = canvas.width;
-                            let dHeight = ptToPx(availablePageHeightPt) * canvasScale;
+                            let dHeight = ptToPx(availablePageHeightPt);
 
-                            let tempCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
-                            usedTotalHeightPt = pxToPt(tempCanvas.height); // update used total height so that the next canvas continues at this point
+                            // no need to use the method result since we are done at this point
+                            printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
+
+                            // then make links clickable
+                            makePdfLinksInteractive(links, doc, idx, detailsTableOffsetX, detailsTableOffsetY, rowHeightSumOfPrevPagesPt)
                         }
-                        
+    
                     } else {
-                        console.log("doesn't fit on page");
+                        console.log("row " + j + " doesn't fit on page");
+
                         // iterate paragraphs and see how many still fit on page
-                        let paragraphs = duplicateDetailsTable.querySelectorAll("tr:nth-child(" + i+1 + ") td:last-child p");
+                        let paragraphs = duplicateDetailsTable.querySelectorAll("tr:nth-child(" + j+1 + ") td:last-child p");
                         console.log(paragraphs);
+                        
                         if(paragraphs && paragraphs.length > 1) {
 
                             for(let k=0; k<paragraphs.length; k++) {
                                 let paragraph = paragraphs[k];
                                 // get height of current paragraph
-                                let currentParagraphHeight = paragraph.getBoundingClientRect().height;
-                                console.log(paragraph);
+                                let paragraphMarginBot = parseInt(paragraph.style.marginBottom.replace("px", ""))
+                                let currentParagraphHeight = paragraph.getBoundingClientRect().height + paragraphMarginBot;
+                                console.log("current paragraph height px: ",  currentParagraphHeight);
                                 console.log("current paragraph height pt: ",  pxToPt(currentParagraphHeight));
                                 // and add it to the sum
-                                let usedPageHeightPlusParagraphPt = usedPageHeightPt + pxToPt(currentParagraphHeight)
-                                if(usedPageHeightPlusParagraphPt <= availablePageHeightPt) {
+                                let usedPageHeightPlusParagraphPt = usedPageHeightPt + pxToPt(currentParagraphHeight) 
+                                
+                                if(usedPageHeightPlusParagraphPt < availablePageHeightPt) {
                                     console.log("paragraph fits on page");
                                     console.log("usedPageHeightPlusParagraphPt: ", usedPageHeightPlusParagraphPt, " availablePageHeightPt: ", availablePageHeightPt);
                                     usedPageHeightPt = usedPageHeightPlusParagraphPt; // update used page height since paragraph does fit on page
@@ -766,54 +831,79 @@ async function createPDF() {
                                     console.log(usedPageHeightPt);
                                     console.log("usedPageHeightPlusParagraphPt: ", usedPageHeightPlusParagraphPt, " availablePageHeightPt: ", availablePageHeightPt);
                                     console.log("usedPageHeightPlusParagraphPx: ", ptToPx(usedPageHeightPlusParagraphPt), " availablePageHeightPx: ", ptToPx(availablePageHeightPt));
+                                    
                                     let sx =  0;
-                                    let sy = ptToPx(usedTotalHeightPt);
+                                    let sy = ptToPx(totalCanvasHeightUsedPt);
                                     let sWidth = canvas.width;
-                                    let sHeight = ptToPx(usedPageHeightPt) * canvasScale
+                                    let sHeight = ptToPx(usedPageHeightPt)
                                     let dx = 0;
                                     let dy = 0;
                                     let dWidth = canvas.width;
-                                    let dHeight = ptToPx(usedPageHeightPt) * canvasScale;
+                                    let dHeight = ptToPx(usedPageHeightPt);
             
-                                    let tempCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
-                                    usedTotalHeightPt += pxToPt(tempCanvas.height); // update used total height so that the next canvas continues at this point
-                                    console.log("printed canvas with height: ", tempCanvas.height, ". usedTotalHeight in pixel is: ", ptToPx(usedTotalHeightPt));
-                                    
+                                    let partialCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
+                                    totalCanvasHeightUsedPt += pxToPt(partialCanvas.height); // update used total height so that the next canvas continues at this point
+                                    console.log("printed canvas with height: ", partialCanvas.height, ". totalCanvasHeightUsedPt in pixel is: ", ptToPx(totalCanvasHeightUsedPt));
+                                    rowHeightSumOfPrevPagesPt += usedPageHeightPt;
+                                    console.log("rowHeightSumOfPrevPagesPt: ", rowHeightSumOfPrevPagesPt);
                                     // then switch to next page and reset used height
                                     doc.addPage("a4", "landscape");
                                     setupStaticPdfPageElements(doc, action);
-                                    // put row that didn't fit on last page on this page
+                                    // put paragraph that didn't fit on last page on this page
                                     usedPageHeightPt = pxToPt(currentParagraphHeight);
+
+                                    // the case that there are multiple paragraphs in the last row can't occur since last row are the examples, which is a <ul>
                                 }
                             }
                         } else {
                             // we have no or only one paragraph
                             // print part of the canvas without the row that didn't fit
                             let sx =  0;
-                            let sy = ptToPx(usedTotalHeightPt);
-                            let sWidth = canvas.width;
-                            let sHeight = ptToPx(usedPageHeightPt) * canvasScale
+                            let sy = ptToPx(totalCanvasHeightUsedPt); // the y coordinate from where we want to start the canvas
+                            let sWidth = canvas.width; // same width as whole canvas
+                            let sHeight = ptToPx(usedPageHeightPt); // usedPageHeight is the sum of row heights (without the one that doesn't fit)
                             let dx = 0;
                             let dy = 0;
                             let dWidth = canvas.width;
-                            let dHeight = ptToPx(usedPageHeightPt) * canvasScale;
+                            let dHeight = ptToPx(usedPageHeightPt);
 
-                            let tempCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
-                            usedTotalHeightPt += pxToPt(tempCanvas.height); // update used total height so that the next canvas continues at this point
-                            console.log("printed canvas with height: ", tempCanvas.height, ". usedTotalHeight in pixel is: ", ptToPx(usedTotalHeightPt));
-                            
-                            // then switch to next page and reset used height
+                            // print partial canvas
+                            let partialCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
+
+                            totalCanvasHeightUsedPt += pxToPt(partialCanvas.height); // update used total height so that the next canvas continues at this point
+                            console.log("printed canvas with height: ", partialCanvas.height, ". totalCanvasHeightUsedPt in pixel is: ", ptToPx(totalCanvasHeightUsedPt));
+                            rowHeightSumOfPrevPagesPt += usedPageHeightPt
+                            console.log("rowHeightSumOfPrevPagesPt: ", rowHeightSumOfPrevPagesPt);
+                            // add new page
                             doc.addPage("a4", "landscape");
                             setupStaticPdfPageElements(doc, action);
-                            // put row that didn't fit on last page on this page
+
+                            // put row that didn't fit on last page on new page
                             usedPageHeightPt = pxToPt(currentRowHeight);
+                            
+                            // the row that didn't fit might also be the last one.
+                            // in that case we need to print it here since the iteration will end here
+                            if( j == rows.length - 1 ) {
+                                console.log("last row reached. It didn't fit on last page.");
+                                // we can use availablePageHeightPt instead of usedPageHeightPt here, because we want to print the whole page height
+                                let sx =  0;
+                                let sy = ptToPx(totalCanvasHeightUsedPt);
+                                let sWidth = canvas.width;
+                                let sHeight = ptToPx(availablePageHeightPt)
+                                let dx = 0;
+                                let dy = 0;
+                                let dWidth = canvas.width;
+                                let dHeight = ptToPx(availablePageHeightPt)
+                                // no need to use the method result since we are done at this point
+                                printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
+                                // then make links clickable
+                                makePdfLinksInteractive(links, doc, idx, detailsTableOffsetX, detailsTableOffsetY, rowHeightSumOfPrevPagesPt)
+                            }
                         }
-                        
                     }
                 }
-
             }
-            
+           
             // if this was the last action
             if(idx == selectedActionIds.length-1) {
                 setupCoverPage(doc, toc)
@@ -865,26 +955,22 @@ function setupCoverPage(doc, toc) {
     // title
     doc.setFont("BebasNeue-Regular", "normal");
     doc.setFontSize(36);
-    doc.text('Maßnahmenauswahl\nzur\nUrbanen Produktion', cmToPt(10.5), cmToPt(8), {
+    doc.text('Maßnahmenauswahl\nzur\nUrbanen Produktion', cmToPt(10.5), cmToPt(8.5), {
         align: 'center'
     });
 
-    // toc
-    //TODO remove! Insert some placeholder actions into toc for testing
-    toc.push({action: {number: "3.1.5", title: "Gewerbliiches Liegenschaftskataster"}, pageNr: 3});
-    toc.push({action: {number: "3.2.2", title: "Sensibilisierung"}, pageNr: 5});
-    toc.push({action: {number: "3.2.8", title: "Förderprogramme und Finanzierungsmöglichkeiten"}, pageNr: 7});
-    for(let i=0; i<15;i++) {
-        toc.push({action: {number: "3.3.1", title: "Mobilisierung der Eigentümer und Nachbarschaft"}, pageNr: 42});
-    }
-    
+    // bottom logos
+    addCoverPageBottomLogo(doc)
 
+    // toc
     doc.setFontSize(24);
     doc.text("Inhalt", cmToPt(1.5), cmToPt(13));
     doc.setFontSize(14);
     let tocStartY = cmToPt(14.2);
     let tocBreakpointY = cmToPt(26)
     let dy = cmToPt(1);
+    let linesOnFirstPage = 0
+    let secondPageAdded = false; // tracks of we already added the second toc page
     for(let i=0; i<toc.length; i++) {
         let tocEntry = toc[i];
         let yPos = tocStartY + i * dy;
@@ -898,16 +984,40 @@ function setupCoverPage(doc, toc) {
             doc.text(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
                 align: 'right'
             }); // page number
+            linesOnFirstPage += 1;
+
         } else {
             // if it is the first tocEntry that doesn't fit on first page
             // setup new cover sheet and reset yPosition
-            //console.log("TOO BIG");
-        }
+            console.log("tocEntry ", tocEntry.action.number + " did not fit on first toc page. creating additional page.");
+            if( !secondPageAdded) {
+                setupAdditionalTocPage(doc);
+                secondPageAdded = true;
+            }
+            // use different variable names here to not override the outer scope ones.
+            let tocStartOnSecondPage = cmToPt(3.2);
+            let yPosSecondPage = tocStartOnSecondPage + (i-linesOnFirstPage) * dy;
             
-        
+            doc.text(tocEntry.action.number, cmToPt(1.5), yPosSecondPage); // number
+            doc.text(tocEntry.action.title, cmToPt(2.5), yPosSecondPage, {
+                maxWidth: cmToPt(15)
+            }); // title
+            doc.text(tocEntry.pageNr.toString(), cmToPt(19), yPosSecondPage, {
+                align: 'right'
+            }); // page number
+        }
     }
 
-    // bottom logos
+    
+}
+
+
+/**
+ * adds logos as image on the bottom of current page of the jspdf parameter (doc)
+ * @param {object} doc | jspdf document
+ */
+function addCoverPageBottomLogo(doc) {
+    let image = new Image();
     image.src = "img/logos_cover.png"
     doc.addImage(
         image,
@@ -922,6 +1032,17 @@ function setupCoverPage(doc, toc) {
     )
 }
 
+function setupAdditionalTocPage(doc) {
+    doc.addPage("a4", "portrait");
+    console.log(doc.internal);
+    doc.movePage(doc.internal.getNumberOfPages(), 2);
+
+    doc.setFontSize(24);
+    doc.text("Inhalt (Forts.)", cmToPt(1.5), cmToPt(2));
+    doc.setFontSize(14);
+    addCoverPageBottomLogo(doc);
+}
+
 function setupStaticPdfPageElements(doc, action) {
     doc.setLineWidth(cmToPt(0.07));
     doc.setDrawColor("#333333");
@@ -931,7 +1052,7 @@ function setupStaticPdfPageElements(doc, action) {
     doc.setFillColor("#006059") //green
     doc.rect(cmToPt(0.3), cmToPt(0.3), cmToPt(29.1), cmToPt(2), "F"); // top rect
     doc.setLineWidth(cmToPt(0.05));
-    doc.line(cmToPt(20), cmToPt(2.9), cmToPt(20), cmToPt(19.7)) // vertical line
+    doc.line(cmToPt(20), cmToPt(detailsTableOffsetY), cmToPt(20), cmToPt(19.7)) // vertical line
     doc.line(cmToPt(1), cmToPt(20), cmToPt(28.7), cmToPt(20)) // bottom line
     
     // logo in top left corner
@@ -1026,10 +1147,9 @@ function setupStaticPdfPageElements(doc, action) {
 
 
     // iterate row-wise from top to bottom, left to right
-    console.log("generating icons in pdf");
     for(let i=0;i<posY.length;i++) {
         for(let j=0;j<posX.length;j++) {
-            console.log("i: ", i, " j: ", j);
+
             let srcPath = iconSources[i];
             let iconName = srcPath.slice(srcPath.indexOf("/")+1, srcPath.indexOf("."));
             let status = "";
@@ -1062,7 +1182,6 @@ function setupStaticPdfPageElements(doc, action) {
     // the last icon has a different path schema (file names) and needs to be be done separately
     let lastIconPaths = ["img/grundstueck.png", "img/stadtteil.png", "img/stadt.png"];
     for(let i=0;i<lastIconPaths.length;i++) {
-        console.log("i: ", i);
         let srcPath = lastIconPaths[i];
         let status = "";
         if(i <= action.iconsValuation["area"]) {
@@ -1172,6 +1291,8 @@ function ptToPx(pt) {
  */
 function printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, imgX, imgY) {
     console.log(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, imgX, imgY);
+    dHeight = dHeight * canvasScale
+    sHeight = sHeight * canvasScale;
     let tempCanvas = document.createElement("canvas"),
     tCtx = tempCanvas.getContext("2d");
     tempCanvas.width = canvas.width;
@@ -1179,7 +1300,7 @@ function printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, d
     tCtx.drawImage(canvas, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight);
     
     let image = tempCanvas.toDataURL("image/png");
-    console.log(image);
+
     doc.addImage(
         image,
         "png",
@@ -1335,8 +1456,7 @@ function initializeAdvancedFilter(actions) {
     for(let i=0;i<categories.length;i++) {
         let category = categories[i];
         uniqueFilterOptions[category] = [];
-        console.log(uniqueFilterOptions);
-
+   
         actions.forEach((action, idx) => {
             let arr = action[category].split(",");
             for(let element of arr) {
@@ -1364,8 +1484,8 @@ function initializeAdvancedFilter(actions) {
 
     for(let category in uniqueFilterOptions) {
         // sort categories by relevanye (number of actions that inclde them)
-        console.log(uniqueFilterOptions[category]);
-        // sort descending by sedond array element, which is the counter of how often this element occurred in all actions.
+
+        // sort descending by second array element, which is the counter of how often this element occurred in all actions.
         uniqueFilterOptions[category].sort( (a, b) => b[1] - a[1] );
 
         uniqueFilterOptions[category].forEach( (el, idx) => {
@@ -1436,8 +1556,8 @@ function initializeAdvancedFilter(actions) {
 // so we only display the list elements that fit in the div and add an "expand" button at the bottom.
 // if this button is clicked, the full list is shown
 function capAdvancedFilterColumnHeight(advancedFilterWrapper) {
-    // for column one and two
-    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterCol1, #advancedFilterCol2");
+    // for column one, two and three
+    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterCol1, #advancedFilterCol2, #advancedFilterCol3");
     
     // test if the scroll area apperas at the corrct usedHeight by restricting list length
     // let a = columns[0].querySelector("ul").children;
@@ -1469,8 +1589,56 @@ function capAdvancedFilterColumnHeight(advancedFilterWrapper) {
     }
 }
 
+/**
+ * 
+ * @param {object[]} links | array of link positions
+ * @param {object} doc | jspdf object
+ * @param {int} idx | index of current action, used to revert the x offset
+ * @param {float} detailsTableOffsetX | the offset of the details table relative to the top left corner in cm
+ * @param {float} detailsTableOffsetY | the offset of the details table relative to the top left corner in cm
+ * @param {int} rowHeightSumOfPrevPagesPt | the sum of row heights from all prior pages.
+ */
+function makePdfLinksInteractive(links, doc, idx, detailsTableOffsetX, detailsTableOffsetY, rowHeightSumOfPrevPagesPt=0) {
+    console.log("links in function: ", links);
+    
+    doc.setFillColor("#FF0000")
+    let detailsTableOffsetXPt = cmToPt(detailsTableOffsetX)
+    let detailsTableOffsetYPt = cmToPt(detailsTableOffsetY)
 
-// util function
+    for(let link of links) {
+
+        console.log("top: ", link.position.top)
+        console.log("topPt: ", pxToPt(link.position.top))
+        console.log("pxToPt(link.position.top) ", pxToPt(link.position.top));
+        console.log("rowHeightSumOfPrevPagesPt: ", rowHeightSumOfPrevPagesPt);
+        console.log("detailsTableOffsetYPt: ", detailsTableOffsetYPt);
+        console.log("pxToPt(link.position.left + 20000 + (1000 * idx)) + detailsTableOffsetXPt", pxToPt(link.position.left + 20000 + (1000 * idx)) + detailsTableOffsetXPt);
+        console.log("pxToPt(link.position.top) + detailsTableOffsetYPt - rowHeightSumOfPrevPagesPt", pxToPt(link.position.top) + detailsTableOffsetYPt - rowHeightSumOfPrevPagesPt);
+        console.log("pxToPt(link.position.width) ", pxToPt(link.position.width));
+        console.log("pxToPt(link.position.height) ", pxToPt(link.position.height));
+        
+        // can be used to draw a red rectangle where links are placed for better debugging
+        // doc.rect(
+        //     pxToPt(link.position.left + 20000 + (1000 * idx)) + detailsTableOffsetXPt,
+        //     pxToPt(link.position.top) + detailsTableOffsetYPt - rowHeightSumOfPrevPagesPt,
+        //     pxToPt(link.position.width),
+        //     pxToPt(link.position.height),
+        //     "f");
+        
+        doc.link(
+            pxToPt(link.position.left + 20000 + (1000 * idx)) + detailsTableOffsetXPt, // -1000 for each action, so we have to revese this here
+            pxToPt(link.position.top) + detailsTableOffsetYPt - rowHeightSumOfPrevPagesPt, // subtract height of previous pages if there are any
+            pxToPt(link.position.width),
+            pxToPt(link.position.height), {
+            url: link.url
+        });
+        
+    }
+    
+}
+
+
+
 function capitalizeFirstLetter(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
@@ -1478,7 +1646,5 @@ function capitalizeFirstLetter(word) {
 function removeHtmlTags(el) {
     return el.replace(/(<([^>]+)>)/gi, "").trim();
 }
-
-
 
 main();
