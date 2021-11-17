@@ -907,8 +907,8 @@ async function createPDF() {
             // if this was the last action
             if(idx == selectedActionIds.length-1) {
                 setupCoverPage(doc, toc)
-                //doc.save("pdf.pdf")
-                window.open(doc.output('bloburl')); // save
+                doc.save("pdf.pdf")
+                //window.open(doc.output('bloburl')); // save
                 // hide loading overlay
                 showPDFExportResultOverlay("success");
                 
@@ -959,22 +959,18 @@ function setupCoverPage(doc, toc) {
         align: 'center'
     });
 
-    // toc
-    //TODO remove! Insert some placeholder actions into toc for testing
-    toc.push({action: {number: "3.1.5", title: "Gewerbliiches Liegenschaftskataster"}, pageNr: 3});
-    toc.push({action: {number: "3.2.2", title: "Sensibilisierung"}, pageNr: 5});
-    toc.push({action: {number: "3.2.8", title: "Förderprogramme und Finanzierungsmöglichkeiten"}, pageNr: 7});
-    for(let i=0; i<15;i++) {
-        toc.push({action: {number: "3.3.1", title: "Mobilisierung der Eigentümer und Nachbarschaft"}, pageNr: 42});
-    }
-    
+    // bottom logos
+    addCoverPageBottomLogo(doc)
 
+    // toc
     doc.setFontSize(24);
     doc.text("Inhalt", cmToPt(1.5), cmToPt(13));
     doc.setFontSize(14);
     let tocStartY = cmToPt(14.2);
     let tocBreakpointY = cmToPt(26)
     let dy = cmToPt(1);
+    let linesOnFirstPage = 0
+    let secondPageAdded = false; // tracks of we already added the second toc page
     for(let i=0; i<toc.length; i++) {
         let tocEntry = toc[i];
         let yPos = tocStartY + i * dy;
@@ -988,15 +984,40 @@ function setupCoverPage(doc, toc) {
             doc.text(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
                 align: 'right'
             }); // page number
+            linesOnFirstPage += 1;
+
         } else {
             // if it is the first tocEntry that doesn't fit on first page
             // setup new cover sheet and reset yPosition
-        }
+            console.log("tocEntry ", tocEntry.action.number + " did not fit on first toc page. creating additional page.");
+            if( !secondPageAdded) {
+                setupAdditionalTocPage(doc);
+                secondPageAdded = true;
+            }
+            // use different variable names here to not override the outer scope ones.
+            let tocStartOnSecondPage = cmToPt(3.2);
+            let yPosSecondPage = tocStartOnSecondPage + (i-linesOnFirstPage) * dy;
             
-        
+            doc.text(tocEntry.action.number, cmToPt(1.5), yPosSecondPage); // number
+            doc.text(tocEntry.action.title, cmToPt(2.5), yPosSecondPage, {
+                maxWidth: cmToPt(15)
+            }); // title
+            doc.text(tocEntry.pageNr.toString(), cmToPt(19), yPosSecondPage, {
+                align: 'right'
+            }); // page number
+        }
     }
 
-    // bottom logos
+    
+}
+
+
+/**
+ * adds logos as image on the bottom of current page of the jspdf parameter (doc)
+ * @param {object} doc | jspdf document
+ */
+function addCoverPageBottomLogo(doc) {
+    let image = new Image();
     image.src = "img/logos_cover.png"
     doc.addImage(
         image,
@@ -1009,6 +1030,17 @@ function setupCoverPage(doc, toc) {
         "SLOW",
         0
     )
+}
+
+function setupAdditionalTocPage(doc) {
+    doc.addPage("a4", "portrait");
+    console.log(doc.internal);
+    doc.movePage(doc.internal.getNumberOfPages(), 2);
+
+    doc.setFontSize(24);
+    doc.text("Inhalt (Forts.)", cmToPt(1.5), cmToPt(2));
+    doc.setFontSize(14);
+    addCoverPageBottomLogo(doc);
 }
 
 function setupStaticPdfPageElements(doc, action) {
