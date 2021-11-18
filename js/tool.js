@@ -614,7 +614,7 @@ async function createPDF() {
     
     let actions = getActionsByIds(selectedActionIds);
     // sort actions by number
-    actions.sort((a, b) => (a.number > b.number) ? 1 : -1)
+    actions.sort( (a, b) => a.number - b.number)
     // for each action
     for(let i=0; i<actions.length; i++) {
         let action = actions[i];
