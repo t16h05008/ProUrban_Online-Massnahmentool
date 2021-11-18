@@ -614,7 +614,7 @@ async function createPDF() {
     
     let actions = getActionsByIds(selectedActionIds);
     // sort actions by number
-    actions.sort((a, b) => (a.number > b.number) ? 1 : -1)
+    actions.sort( (a, b) => a.number - b.number)
     // for each action
     for(let i=0; i<actions.length; i++) {
         let action = actions[i];
@@ -976,20 +976,12 @@ function setupCoverPage(doc, toc) {
         let yPos = tocStartY + i * dy;
 
         if(yPos < tocBreakpointY) {
-            // if it fits on first page
-            doc.text(tocEntry.action.number, cmToPt(1.5), yPos); // number
-            doc.text(tocEntry.action.title, cmToPt(2.5), yPos, {
-                maxWidth: cmToPt(15)
-            }); // title
-            doc.text(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
-                align: 'right'
-            }); // page number
+            // we don't know it there will be one or two toc pages so we can't add links yet.
+            // this is why we don't add anything to the doc here and do that leter in a second iteration.
             linesOnFirstPage += 1;
-
         } else {
             // if it is the first tocEntry that doesn't fit on first page
             // setup new cover sheet and reset yPosition
-            console.log("tocEntry ", tocEntry.action.number + " did not fit on first toc page. creating additional page.");
             if( !secondPageAdded) {
                 setupAdditionalTocPage(doc);
                 secondPageAdded = true;
@@ -998,16 +990,50 @@ function setupCoverPage(doc, toc) {
             let tocStartOnSecondPage = cmToPt(3.2);
             let yPosSecondPage = tocStartOnSecondPage + (i-linesOnFirstPage) * dy;
             
-            doc.text(tocEntry.action.number, cmToPt(1.5), yPosSecondPage); // number
-            doc.text(tocEntry.action.title, cmToPt(2.5), yPosSecondPage, {
-                maxWidth: cmToPt(15)
+            doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPosSecondPage, { pageNumber: tocEntry.pageNr+2 } ); // number
+            doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPosSecondPage, {
+                maxWidth: cmToPt(15),
+                pageNumber: tocEntry.pageNr+2
             }); // title
-            doc.text(tocEntry.pageNr.toString(), cmToPt(19), yPosSecondPage, {
-                align: 'right'
+            doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPosSecondPage, {
+                align: 'right',
+                pageNumber: tocEntry.pageNr+2
             }); // page number
         }
     }
 
+    // now that the toc is added we need to iterate first page again to add the link overlays
+    // this was not possible before, because it was unclear if there are one or two toc pages at iteration time
+    doc.setPage(1);
+    for(let i=0; i<toc.length; i++) {
+        let tocEntry = toc[i];
+        let yPos = tocStartY + i * dy;
+        
+        if(yPos < tocBreakpointY) {
+            // add a different number to the page number depending on how many toc pages there are
+            if(secondPageAdded) {
+                doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPos, { pageNumber: tocEntry.pageNr+2 }); // number
+                doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPos, {
+                        maxWidth: cmToPt(15),
+                        pageNumber: tocEntry.pageNr+2
+                }); // title
+                doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
+                        align: 'right',
+                        pageNumber: tocEntry.pageNr+2
+                }); // page number
+            } else {
+                doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPos, { pageNumber: tocEntry.pageNr+1 }); // number
+                doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPos, {
+                        maxWidth: cmToPt(15),
+                        pageNumber: tocEntry.pageNr+1
+                }); // title
+                doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
+                        align: 'right',
+                        pageNumber: tocEntry.pageNr+1
+                }); // page number
+            }
+        }     
+    }
     
 }
 
