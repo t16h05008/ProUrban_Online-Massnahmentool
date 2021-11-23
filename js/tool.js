@@ -257,10 +257,11 @@ function filterActions(filterProperty, filterValue) {
 /**
  * We need to use sliderValue as a paremeter because the filter function is called during a slide (mouse still clicked).
  * If we get the slider value from inside the function, we would get the value from before the slide
+ * @param {domElement} targetChb | the clicked checkbox, optional
  * @param {boolean} usedSliderId | id of the used slider, optional
  * @param {float[]} sliderValue | current value of the used slider, optional
  */
-function filterActionsAdvanced(usedSliderId, sliderValue) {
+function filterActionsAdvanced(targetChb, usedSliderId, sliderValue) {
     // get all filter criteria
     let filterCriteria = {};
     let chb_categories = ["actors", "area", "theme"];
@@ -293,7 +294,7 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
     });
 
     let advancedFilterResult = actions.slice(0);
-
+    // filter by checkboxes
     for(let filterProp in filterCriteria) {
         if(chb_categories.includes(filterProp)) {
             advancedFilterResult = advancedFilterResult.filter( obj => {
@@ -311,7 +312,49 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
                 return result;
             });
         }
-        
+    }
+
+    // check if sliders still use their full range after filter is applied.
+    // if not update them to their new max range unless they are in a more restrictive position anyway.
+    // (at this point we have only filtered by checkboxes, but not yet by sliders)
+    // get min and max range for each slider
+    let sliderMinMax = {};
+    for(let category of slider_categories)
+        sliderMinMax[category] = [undefined, undefined];
+    
+    for(let category of slider_categories) {
+        // get all values (as a basis for min and max)
+        let values = advancedFilterResult.map( (el) => {
+            return el.iconsValuation[category]
+        });
+
+        // get min and max
+        values = values.filter(x => x !== undefined) // remove undefined values if there are any
+        sliderMinMax[category][0] = Math.min(...values);
+        sliderMinMax[category][1] = Math.max(...values);
+
+        // compare current positon vs. min and max.
+        // if current position is more restrictive, we want to keep it (update min and max)
+        if(targetChb && targetChb.checked) {
+            if(filterCriteria[category][0] > sliderMinMax[category][0])
+                sliderMinMax[category][0] = filterCriteria[category][0];
+            if(filterCriteria[category][1] < sliderMinMax[category][1])
+                sliderMinMax[category][1] = filterCriteria[category][1];
+        }
+    }
+
+    // set slider positions to min and max
+    if( !usedSliderId) {
+        rangeSliders.forEach( slider => {
+            let category = slider.id.split("-")[0];
+            $(slider).slider("values", sliderMinMax[category]) 
+           
+        });   
+    }
+    
+     
+    // filter by sliders
+    for(let filterProp in filterCriteria) {
         if(slider_categories.includes(filterProp)) {
             advancedFilterResult = advancedFilterResult.filter( obj => {
                 if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
@@ -329,16 +372,18 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
 
     }
 
+    // apply filter
     clearItems();
     let cards = createActionCards(advancedFilterResult, true);
     insertCards(cards, grid);
 
+    // use filterResult to update the number of actions that would remain if another checkbox was clicked.
     for(let i=0;i<chb_categories.length;i++) {
         let category = chb_categories[i];
         let chbs = document.querySelectorAll("#advancedFilter" + capitalizeFirstLetter(category) + "List li input");
         let chbsArr = Array.from(chbs);
         
-        // use filterResult to update the number of actions that would remain if another checkbox was clicked.
+        
         for(let chb of chbsArr) {
             let counter = 0;
             let chbValue = chb.value;
@@ -1573,7 +1618,7 @@ function initializeAdvancedFilter(actions) {
             let chb = document.createElement("input");
             chb.type ="checkbox";
             chb.value = p.innerText;
-            chb.addEventListener("change", function() { filterActionsAdvanced() });
+            chb.addEventListener("change", function(event) { filterActionsAdvanced(event.target, undefined, undefined) });
             //let chbName = category + "_" + idx + "_chb";
 
             let div = document.createElement("div")
@@ -1612,7 +1657,7 @@ function initializeAdvancedFilter(actions) {
             step: 0.5,
             values: [1, 3],
             slide: function( event, ui ) {
-              filterActionsAdvanced(event.target.id, ui.values);
+              filterActionsAdvanced(undefined, event.target.id, ui.values);
             }
         });
     })
