@@ -418,12 +418,14 @@ function clearItems() {
 
 function resetFilter() {
     grid.arrange( {filter: () => { return true;}} );
-    // uncheck advanced filter checkboxes
-    // sliders can stay where they are
     let chbs = document.querySelectorAll(".advancedFilterCol ul li input:checked")
     chbs.forEach( chb => {
         chb.checked = false;
     });
+    let sliders = document.querySelectorAll(".advancedFilterCol .filterSlider")
+    sliders.forEach( slider => {
+        $(slider).slider("values", [1, 3])
+    })
 }
 
 
