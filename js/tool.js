@@ -249,7 +249,7 @@ function filterActions(filterProperty, filterValue) {
     });
 
     clearItems();
-    let cards = createActionCards(filterResult);
+    let cards = createActionCards(filterResult, true);
     insertCards(cards, grid);
 }
 
@@ -330,7 +330,7 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
     }
 
     clearItems();
-    let cards = createActionCards(advancedFilterResult);
+    let cards = createActionCards(advancedFilterResult, true);
     insertCards(cards, grid);
 
     for(let i=0;i<chb_categories.length;i++) {
@@ -366,7 +366,7 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
 }
 
 
-function showAllActions(event) {
+function showAllActions() {
     clearItems();
     resetFilter();
     let cards = createActionCards(actions, true)
