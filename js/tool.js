@@ -330,8 +330,39 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
     }
 
     clearItems();
-    let cards = createActionCards(filterResult);
+    let cards = createActionCards(advancedFilterResult);
     insertCards(cards, grid);
+
+    for(let i=0;i<chb_categories.length;i++) {
+        let category = chb_categories[i];
+        let chbs = document.querySelectorAll("#advancedFilter" + capitalizeFirstLetter(category) + "List li input");
+        let chbsArr = Array.from(chbs);
+        
+        // use filterResult to update the number of actions that would remain if another checkbox was clicked.
+        for(let chb of chbsArr) {
+            let counter = 0;
+            let chbValue = chb.value;
+            let filterTerm = chbValue.split(" [")[0];
+
+            for(let action of advancedFilterResult) {
+                if(action[category].length === 0)
+                    return true;
+
+                let str = removeHtmlTags(action[category])
+                let split = str.split(",");
+                split = split.map( el => el.trim());
+                if(split.includes(filterTerm)) {
+                    counter += 1;
+                }
+            }
+            
+            // update chb values and labels
+            let label = chb.previousSibling;
+            chb.value = filterTerm + " [" + counter + "]";
+            label.innerText = chb.value
+
+        }
+    }
 }
 
 
