@@ -261,8 +261,6 @@ function filterActions(filterProperty, filterValue) {
  * @param {float[]} sliderValue | current value of the used slider, optional
  */
 function filterActionsAdvanced(usedSliderId, sliderValue) {
-    
-    let filterResult = actions.slice(0);
     // get all filter criteria
     let filterCriteria = {};
     let chb_categories = ["actors", "area", "theme"];
@@ -294,10 +292,11 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
         }
     });
 
-    // now filter actions for each prop by filterCriteria
+    let advancedFilterResult = actions.slice(0);
+
     for(let filterProp in filterCriteria) {
         if(chb_categories.includes(filterProp)) {
-            filterResult = filterResult.filter( obj => {
+            advancedFilterResult = advancedFilterResult.filter( obj => {
                 if(filterCriteria[filterProp].length === 0)
                     return true;
                 // remove html tags
@@ -306,7 +305,7 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
                 let split = str.split(",");
                 split = split.map( el => el.trim());
                 // check if action meets our filter criteria
-                let result = filterCriteria[filterProp].some( (el) => {
+                let result = filterCriteria[filterProp].every( (el) => {
                     return split.includes(el)
                 });
                 return result;
@@ -314,7 +313,7 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
         }
         
         if(slider_categories.includes(filterProp)) {
-            filterResult = filterResult.filter( obj => {
+            advancedFilterResult = advancedFilterResult.filter( obj => {
                 if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
                     return true;
                 
