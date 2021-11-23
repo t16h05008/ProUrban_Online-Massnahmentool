@@ -373,10 +373,22 @@ function showAllActions(event) {
     insertCards(cards, grid);
 }
 
+// close advanced filter collapsible if it is shown
+function hideAdvancedFilter() {
+    let advancedFilterWrapper = document.querySelector("#advancedFilterWrapper")
+    if(advancedFilterWrapper.classList.contains("show"))
+        document.querySelector("#advancedFilterBtn").click();
+}
+
 function showAllAreas(event) {
     highlightButton(event.target);
     clearItems();
     resetFilter();
+    hideAdvancedFilter();
+    let advancedFilterWrapper = document.querySelector("#advancedFilterWrapper")
+    if(advancedFilterWrapper.classList.contains("show"))
+        document.querySelector("#advancedFilterBtn").click();
+
     let cards = createAreaCards(areas);
     insertCards(cards, grid)
 }
@@ -385,6 +397,7 @@ function showAllActors(event) {
     highlightButton(event.target);
     clearItems();
     resetFilter();
+    hideAdvancedFilter();
     let cards = createActorCards(actors);
     insertCards(cards, grid)
 }
@@ -393,6 +406,7 @@ function showAllThemes(event) {
     highlightButton(event.target);
     clearItems();
     resetFilter();
+    hideAdvancedFilter();
     let cards = createThemeCards(themes)
     insertCards(cards, grid)
 }
