@@ -31,6 +31,8 @@ const areaArray = ["Grundstück/Immobilie", "Stadtteil/Quartier", "Gesamtstadt"]
 const detailsTableOffsetX = 0.6; // in cm
 const detailsTableOffsetY = 2.9; // in cm
 
+let userDefinedSliderPositions = {};
+
 function main() {
     initializeGrid();
 
@@ -249,7 +251,7 @@ function filterActions(filterProperty, filterValue) {
     });
 
     clearItems();
-    let cards = createActionCards(filterResult);
+    let cards = createActionCards(filterResult, true);
     insertCards(cards, grid);
 }
 
@@ -257,12 +259,30 @@ function filterActions(filterProperty, filterValue) {
 /**
  * We need to use sliderValue as a paremeter because the filter function is called during a slide (mouse still clicked).
  * If we get the slider value from inside the function, we would get the value from before the slide
+ * @param {domElement} targetChb | the clicked checkbox, optional
  * @param {boolean} usedSliderId | id of the used slider, optional
- * @param {float[]} sliderValue | current value of the used slider, optional
+ * @param {float[]} sliderValue | current value of the used slider, optional but has to be given when usedSliderId is present
+ * @param {int} handleIndex | the index of the slider handle used. 0 for lower handle, 1 for upper hanlde
+ *                            optional but has to be given when usedSliderId is present
  */
-function filterActionsAdvanced(usedSliderId, sliderValue) {
+function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex) {
     
-    let filterResult = actions.slice(0);
+    // if slider was used, store positon
+    if(usedSliderId) {
+        let category = usedSliderId.split("-")[0]
+
+        if( typeof(userDefinedSliderPositions[category]) === "undefined" )
+            userDefinedSliderPositions[category] = [undefined, undefined]
+
+        // upper handle
+        if(handleIndex) {
+            userDefinedSliderPositions[category][1] = sliderValue[1]
+        } else { // lower handle
+            userDefinedSliderPositions[category][0] = sliderValue[0]
+        }
+        
+    }
+    
     // get all filter criteria
     let filterCriteria = {};
     let chb_categories = ["actors", "area", "theme"];
@@ -294,10 +314,11 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
         }
     });
 
-    // now filter actions for each prop by filterCriteria
+    let advancedFilterResult = actions.slice(0);
+    // filter by checkboxes
     for(let filterProp in filterCriteria) {
         if(chb_categories.includes(filterProp)) {
-            filterResult = filterResult.filter( obj => {
+            advancedFilterResult = advancedFilterResult.filter( obj => {
                 if(filterCriteria[filterProp].length === 0)
                     return true;
                 // remove html tags
@@ -306,15 +327,84 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
                 let split = str.split(",");
                 split = split.map( el => el.trim());
                 // check if action meets our filter criteria
-                let result = filterCriteria[filterProp].some( (el) => {
+                let result = filterCriteria[filterProp].every( (el) => {
                     return split.includes(el)
                 });
                 return result;
             });
         }
-        
+    }
+
+    // check if sliders still use their full range after filter is applied.
+    // if not update them to their new max range unless they are in a more restrictive position anyway.
+    // (at this point we have only filtered by checkboxes, but not yet by sliders)
+    // get min and max range for each slider
+    let sliderMinMax = {};
+    for(let category of slider_categories) {
+        sliderMinMax[category] = [undefined, undefined];
+
+        // get all values (as a basis for min and max)
+        let values = advancedFilterResult.map( (el) => {
+            return el.iconsValuation[category]
+        });
+
+        // get min and max
+        values = values.filter(x => x !== undefined) // remove undefined values if there are any
+        sliderMinMax[category][0] = Math.min(...values);
+        sliderMinMax[category][1] = Math.max(...values);
+
+        // compare current positon vs. min and max.
+        // if current position is more restrictive, we want to keep it (update min and max)
+        if(targetChb && targetChb.checked) {
+            if(filterCriteria[category][0] > sliderMinMax[category][0])
+                sliderMinMax[category][0] = filterCriteria[category][0];
+            if(filterCriteria[category][1] < sliderMinMax[category][1])
+                sliderMinMax[category][1] = filterCriteria[category][1];
+        }
+    }
+
+    // set slider positions to userDefinedSliderPosition (prioritized) or min and max
+    if( targetChb ) {
+        rangeSliders.forEach( slider => {
+            let category = slider.id.split("-")[0];
+            let currentSliderValue = $(slider).slider("option", "values")
+            console.log(category);
+            
+            // if there is a user defined position
+            if(userDefinedSliderPositions[category]) {
+                // if we checked a chb we have to check if the new min/max values are more restrictive than the user defined ones.
+                if(targetChb.checked) {
+                    // lower handle
+                    if(sliderMinMax[category][0] > userDefinedSliderPositions[category][0])
+                        $(slider).slider("values", [ sliderMinMax[category][0], currentSliderValue[1] ] );
+                    
+                    // upper handle
+                    if(sliderMinMax[category][1] < userDefinedSliderPositions[category][1]) {
+                        $(slider).slider("values", [ currentSliderValue[0], sliderMinMax[category][1] ] );
+                    }
+                        
+                    
+                } else {
+                    // if we uncchecked a chb we do the opposite
+                    // lower handle
+                    if(userDefinedSliderPositions[category][0] > sliderMinMax[category][0])
+                        $(slider).slider("values", [ userDefinedSliderPositions[category][0], currentSliderValue[1] ] );
+                    // upper handle
+                    if(userDefinedSliderPositions[category][1] < sliderMinMax[category][1])
+                        $(slider).slider("values", [ currentSliderValue[0], userDefinedSliderPositions[category][1] ] );
+                }
+            } else {
+                // user defined position not defined so we use min/max
+                $(slider).slider("values", sliderMinMax[category]) 
+            }
+        });   
+    }
+    
+     
+    // filter by sliders
+    for(let filterProp in filterCriteria) {
         if(slider_categories.includes(filterProp)) {
-            filterResult = filterResult.filter( obj => {
+            advancedFilterResult = advancedFilterResult.filter( obj => {
                 if(filterCriteria[filterProp].length === 0) // should not happen since we filtered categories before
                     return true;
                 
@@ -330,23 +420,68 @@ function filterActionsAdvanced(usedSliderId, sliderValue) {
 
     }
 
+    // apply filter
     clearItems();
-    let cards = createActionCards(filterResult);
+    let cards = createActionCards(advancedFilterResult, true);
     insertCards(cards, grid);
+
+    // use filterResult to update the number of actions that would remain if another checkbox was clicked.
+    for(let i=0;i<chb_categories.length;i++) {
+        let category = chb_categories[i];
+        let chbs = document.querySelectorAll("#advancedFilter" + capitalizeFirstLetter(category) + "List li input");
+        let chbsArr = Array.from(chbs);
+        
+        
+        for(let chb of chbsArr) {
+            let counter = 0;
+            let chbValue = chb.value;
+            let filterTerm = chbValue.split(" [")[0];
+
+            for(let action of advancedFilterResult) {
+                if(action[category].length === 0)
+                    return true;
+
+                let str = removeHtmlTags(action[category])
+                let split = str.split(",");
+                split = split.map( el => el.trim());
+                if(split.includes(filterTerm)) {
+                    counter += 1;
+                }
+            }
+            
+            // update chb values and labels
+            let label = chb.previousSibling;
+            chb.value = filterTerm + " [" + counter + "]";
+            label.innerText = chb.value
+
+        }
+    }
 }
 
 
-function showAllActions(event) {
+function showAllActions() {
     clearItems();
     resetFilter();
     let cards = createActionCards(actions, true)
     insertCards(cards, grid);
 }
 
+// close advanced filter collapsible if it is shown
+function hideAdvancedFilter() {
+    let advancedFilterWrapper = document.querySelector("#advancedFilterWrapper")
+    if(advancedFilterWrapper.classList.contains("show"))
+        document.querySelector("#advancedFilterBtn").click();
+}
+
 function showAllAreas(event) {
     highlightButton(event.target);
     clearItems();
     resetFilter();
+    hideAdvancedFilter();
+    let advancedFilterWrapper = document.querySelector("#advancedFilterWrapper")
+    if(advancedFilterWrapper.classList.contains("show"))
+        document.querySelector("#advancedFilterBtn").click();
+
     let cards = createAreaCards(areas);
     insertCards(cards, grid)
 }
@@ -355,6 +490,7 @@ function showAllActors(event) {
     highlightButton(event.target);
     clearItems();
     resetFilter();
+    hideAdvancedFilter();
     let cards = createActorCards(actors);
     insertCards(cards, grid)
 }
@@ -363,6 +499,7 @@ function showAllThemes(event) {
     highlightButton(event.target);
     clearItems();
     resetFilter();
+    hideAdvancedFilter();
     let cards = createThemeCards(themes)
     insertCards(cards, grid)
 }
@@ -374,12 +511,14 @@ function clearItems() {
 
 function resetFilter() {
     grid.arrange( {filter: () => { return true;}} );
-    // uncheck advanced filter checkboxes
-    // sliders can stay where they are
     let chbs = document.querySelectorAll(".advancedFilterCol ul li input:checked")
     chbs.forEach( chb => {
         chb.checked = false;
     });
+    let sliders = document.querySelectorAll(".advancedFilterCol .filterSlider")
+    sliders.forEach( slider => {
+        $(slider).slider("values", [1, 3])
+    })
 }
 
 
@@ -1527,7 +1666,7 @@ function initializeAdvancedFilter(actions) {
             let chb = document.createElement("input");
             chb.type ="checkbox";
             chb.value = p.innerText;
-            chb.addEventListener("change", function() { filterActionsAdvanced() });
+            chb.addEventListener("change", function(event) { filterActionsAdvanced(event.target) });
             //let chbName = category + "_" + idx + "_chb";
 
             let div = document.createElement("div")
@@ -1566,7 +1705,7 @@ function initializeAdvancedFilter(actions) {
             step: 0.5,
             values: [1, 3],
             slide: function( event, ui ) {
-              filterActionsAdvanced(event.target.id, ui.values);
+                filterActionsAdvanced(undefined, event.target.id, ui.values, ui.handleIndex);
             }
         });
     })
