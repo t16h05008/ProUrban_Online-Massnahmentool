@@ -483,7 +483,7 @@ function showAllAreas(event) {
         document.querySelector("#advancedFilterBtn").click();
 
     let cards = createAreaCards(areas);
-    insertCards(cards, grid)
+    insertCards(cards, grid);
 }
 
 function showAllActors(event) {
@@ -492,7 +492,7 @@ function showAllActors(event) {
     resetFilter();
     hideAdvancedFilter();
     let cards = createActorCards(actors);
-    insertCards(cards, grid)
+    insertCards(cards, grid);
 }
 
 function showAllThemes(event) {
@@ -500,8 +500,8 @@ function showAllThemes(event) {
     clearItems();
     resetFilter();
     hideAdvancedFilter();
-    let cards = createThemeCards(themes)
-    insertCards(cards, grid)
+    let cards = createThemeCards(themes);
+    insertCards(cards, grid);
 }
 
 function clearItems() {
@@ -530,6 +530,13 @@ function highlightButton(btn) {
     }
     btn.style.backgroundColor = "white";
     btn.style.color = "black";
+}
+
+function resetHighlightBtn() {
+    document.querySelectorAll(".topRowBtnHighlight").forEach( btn => {
+        btn.style.backgroundColor = "#006059" // dark green
+        btn.style.color = "white";
+    });
 }
 
 function showSelectedActions() {
@@ -1811,5 +1818,7 @@ function capitalizeFirstLetter(word) {
 function removeHtmlTags(el) {
     return el.replace(/(<([^>]+)>)/gi, "").trim();
 }
+
+
 
 main();
