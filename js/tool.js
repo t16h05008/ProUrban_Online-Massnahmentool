@@ -464,6 +464,7 @@ function showAllActions() {
     resetFilter();
     let cards = createActionCards(actions, true)
     insertCards(cards, grid);
+    resetHighlightBtn();
 }
 
 // close advanced filter collapsible if it is shown
