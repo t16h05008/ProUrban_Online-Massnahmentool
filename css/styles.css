@@ -8,7 +8,7 @@ body {
 
 .grid {
     padding: 20px;
-    height: 220vh !important;
+    height: 1600px !important;
 }
 
 .grid-item { 
@@ -258,7 +258,8 @@ body {
     height: auto;
     color: black;
     background-color: darkgray;
-    padding-right: 5px
+    padding-right: 5px;
+    height: 1600px;
 }
 
 .advancedFilterField {
@@ -383,12 +384,6 @@ body {
 h3 {
     font-size: 1.3em;
 }
-
-#advancedFilterBottomPlaceholder {
-    background-color: lightgray;
-    height: 20px;
-}
-
 
 a {
     color: #7f1b3f;
