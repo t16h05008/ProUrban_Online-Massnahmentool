@@ -33,6 +33,8 @@ const detailsTableOffsetY = 2.9; // in cm
 
 let userDefinedSliderPositions = {};
 
+const gridColumnWidth = 490;
+
 function main() {
     initializeGrid();
 
@@ -48,19 +50,28 @@ function main() {
     let advancedFilterWrapper = document.getElementById('advancedFilterWrapper');
     let btn = document.querySelector("#advancedFilterBtn");
 
-    advancedFilterWrapper.addEventListener('shown.bs.collapse', function () {
-        capAdvancedFilterColumnHeight(advancedFilterWrapper);
-    });
-
     advancedFilterWrapper.addEventListener('show.bs.collapse', function () {
         btn.style.backgroundColor = "white";
         btn.style.color = "black"; 
     });
 
+    advancedFilterWrapper.addEventListener('shown.bs.collapse', function () {
+        capadvancedFilterFieldHeight(advancedFilterWrapper);
+        grid.element.style.marginLeft = "10%" // workaround for centering one column elements
+        grid.arrange();
+    });
+
+
     advancedFilterWrapper.addEventListener('hide.bs.collapse', function () {
         btn.style.backgroundColor = "";
         btn.style.color = "white";
     });
+
+    advancedFilterWrapper.addEventListener('hidden.bs.collapse', function () {
+        grid.element.style.marginLeft = "0%"
+        grid.arrange();
+    });
+
 
     showAllActions();
     setTimeout(function(){
@@ -76,8 +87,8 @@ function initializeGrid() {
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
         fitRows: {
-            gutter: 26
-          }
+            gutter: 26,
+        }
     });
 
     grid.on( 'arrangeComplete', (itemsArr) => {
@@ -300,7 +311,7 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
 
     
     let slider_categories = [];
-    let rangeSliders = document.querySelectorAll("#advancedFilterCol4 .filterSlider, #advancedFilterCol5 .filterSlider");
+    let rangeSliders = document.querySelectorAll("#advancedFilterField4 .filterSlider");
     // get slider categories and values
     rangeSliders.forEach( slider => {
         let category = slider.id.replace("-slider", "");
@@ -511,11 +522,11 @@ function clearItems() {
 
 function resetFilter() {
     grid.arrange( {filter: () => { return true;}} );
-    let chbs = document.querySelectorAll(".advancedFilterCol ul li input:checked")
+    let chbs = document.querySelectorAll(".advancedFilterField ul li input:checked")
     chbs.forEach( chb => {
         chb.checked = false;
     });
-    let sliders = document.querySelectorAll(".advancedFilterCol .filterSlider")
+    let sliders = document.querySelectorAll(".advancedFilterField .filterSlider")
     sliders.forEach( slider => {
         $(slider).slider("values", [1, 3])
     })
@@ -1727,9 +1738,9 @@ function initializeAdvancedFilter(actions) {
 // the resulting lists might be too long for the div (it has a max height)
 // so we only display the list elements that fit in the div and add an "expand" button at the bottom.
 // if this button is clicked, the full list is shown
-function capAdvancedFilterColumnHeight(advancedFilterWrapper) {
+function capadvancedFilterFieldHeight(advancedFilterWrapper) {
     // for column one, two and three
-    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterCol1, #advancedFilterCol2, #advancedFilterCol3");
+    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterField1, #advancedFilterField2, #advancedFilterField3");
     
     // test if the scroll area apperas at the corrct usedHeight by restricting list length
     // let a = columns[0].querySelector("ul").children;

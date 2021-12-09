@@ -8,7 +8,7 @@ body {
 
 .grid {
     padding: 20px;
-    height: 80vh !important;
+    height: 220vh !important;
 }
 
 .grid-item { 
@@ -257,17 +257,22 @@ body {
 #advancedFilterWrapper {
     height: auto;
     color: black;
+    background-color: darkgray;
+    padding-right: 5px
 }
 
-.advancedFilterCol {
+.advancedFilterField {
     height: auto;
     max-height: 350px;
     padding:10px;
     flex: 0 0 auto;
-    width: 20%;
+    background-color: white;
 }
 
-
+.advancedFilterField:last-of-type {
+    max-height: 500px;
+    padding: 20px
+}
 
 
 /** copied from https://doodlenerd.com/html-control/css-checkbox-generator */
@@ -402,3 +407,9 @@ a:hover {
 .sliderInfoIcon {
     color: rgb(160, 160, 160);
 }
+
+.advancedFilterSpacer {
+    height: 20px;
+    background-color: lightgray;;
+}
+
