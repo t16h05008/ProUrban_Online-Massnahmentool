@@ -34,6 +34,9 @@ const detailsTableOffsetY = 2.9; // in cm
 let userDefinedSliderPositions = {};
 
 function main() {
+    placeImgHotspots();
+    initializeImgPopovers();
+
     initializeGrid();
 
     dpi = calculateScreenDpi();
@@ -67,6 +70,7 @@ function main() {
         grid.arrange()
     }, 500);
 
+    
 }
 
 
@@ -464,6 +468,7 @@ function showAllActions() {
     resetFilter();
     let cards = createActionCards(actions, true)
     insertCards(cards, grid);
+    resetHighlightBtn();
 }
 
 // close advanced filter collapsible if it is shown
@@ -483,7 +488,7 @@ function showAllAreas(event) {
         document.querySelector("#advancedFilterBtn").click();
 
     let cards = createAreaCards(areas);
-    insertCards(cards, grid)
+    insertCards(cards, grid);
 }
 
 function showAllActors(event) {
@@ -492,7 +497,7 @@ function showAllActors(event) {
     resetFilter();
     hideAdvancedFilter();
     let cards = createActorCards(actors);
-    insertCards(cards, grid)
+    insertCards(cards, grid);
 }
 
 function showAllThemes(event) {
@@ -500,8 +505,8 @@ function showAllThemes(event) {
     clearItems();
     resetFilter();
     hideAdvancedFilter();
-    let cards = createThemeCards(themes)
-    insertCards(cards, grid)
+    let cards = createThemeCards(themes);
+    insertCards(cards, grid);
 }
 
 function clearItems() {
@@ -530,6 +535,13 @@ function highlightButton(btn) {
     }
     btn.style.backgroundColor = "white";
     btn.style.color = "black";
+}
+
+function resetHighlightBtn() {
+    document.querySelectorAll(".topRowBtnHighlight").forEach( btn => {
+        btn.style.backgroundColor = "#006059" // dark green
+        btn.style.color = "white";
+    });
 }
 
 function showSelectedActions() {
@@ -1811,5 +1823,43 @@ function capitalizeFirstLetter(word) {
 function removeHtmlTags(el) {
     return el.replace(/(<([^>]+)>)/gi, "").trim();
 }
+
+
+function placeImgHotspots() {
+    let hotspots = document.querySelectorAll(".hotspot")
+    for(let hotspot of hotspots) {
+        hotspot.style.top = hotspot.dataset.y + "%"
+        hotspot.style.left = hotspot.dataset.x + "%"
+    }
+}
+
+function initializeImgPopovers() {
+    let popoverTriggerList = [].slice.call(document.querySelectorAll('#actionPreviewImageWrapper [data-bs-toggle="popover"]'))
+    popoverTriggerList.map(function (popoverTriggerEl) {
+        return new bootstrap.Popover( popoverTriggerEl, generatePopoverOptions(popoverTriggerEl) )
+    });
+}
+
+
+function generatePopoverOptions(el) {
+    let id = el.dataset.actionId;
+    let action = getActionsByIds([id])[0];
+    
+    let content = document.querySelector(".imgPopoverContent[data-action-id='" + id + "']");
+    
+    return {
+        title: action.title,
+        content: content, // action.description.slice(0, 100)
+        html: true,
+        sanitize: true,
+        trigger: "click",
+        template: `<div class="popover" role="tooltip">
+                        <div class="popover-arrow"></div>
+                        <h3 class="popover-header imgPopoverHeader"></h3>
+                        <div class="popover-body imgPopoverBody"></div>
+                    </div>`
+    }
+}
+
 
 main();

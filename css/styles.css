@@ -402,3 +402,87 @@ a:hover {
 .sliderInfoIcon {
     color: rgb(160, 160, 160);
 }
+
+
+
+
+
+
+
+
+
+
+
+/* Hotspot */
+/* based on https://github.com/skypluto/jquery.hotspot.js/blob/master/demo/css/demo.css */
+@-webkit-keyframes pulsate {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0.8;
+	}
+	100% {
+		-webkit-transform: scale(1.75);
+		transform: scale(1.75);
+		opacity: 0;
+	}
+}
+@keyframes pulsate {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0.8;
+	}
+	100% {
+		-webkit-transform: scale(1.75);
+		transform: scale(1.75);
+		opacity: 0;
+	}
+}
+
+#hotspotImg {
+	position: relative;
+}
+
+#hotspotImg .img-responsive {
+	max-width: 100%;
+}
+
+#hotspotImg .hotspot {
+	position: absolute;
+	width: 35px;
+	height: 35px;
+	text-align: center;
+	background-color: rgba(229, 0, 137, 0.6);
+	color: #000;
+	border-radius: 100%;
+	cursor: pointer;
+}
+
+
+#hotspotImg .hotspot .hotspot-circle {
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 2em;
+	height: 2em;
+	margin: -1em auto auto -1em;
+	-webkit-transform-origin: 50% 50%;
+	transform-origin: 50% 50%;
+	border-radius: 50%;
+	border: 1px solid rgba(229, 0, 137, 0.6);
+	opacity: 1;
+	-webkit-animation: pulsate 2s ease-out infinite;
+	animation: pulsate 2s ease-out infinite;
+}
+
+.imgPopoverHeader {
+    color: black;
+    background-color: lightpink;
+}
+.imgPopoverBody {
+    background-image: url("/img/wood-554593_640.jpg");
+    background-repeat: repeat;
+    background-size: contain;
+}

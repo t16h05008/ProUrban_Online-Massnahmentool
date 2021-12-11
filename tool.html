@@ -41,7 +41,24 @@
 			<p>Eine Aktualisierung der Maßnahmen ist bereits geplant, womit dies zeitnah behoben wird.</p>
 		</div>
 		<!-- TODO TEMPORARY INFO, REMOVE WHEN ACTIONS ARE UPDATED -->
-
+		<hr>
+		<div id="actionPreviewImageWrapper" class="my-4 mx-auto">
+			<div id="hotspotImg" class="responsive-hotspot-wrap">
+				<img class="img-responsive" src="/img/3D_Ansicht_Maßnahmen.png">
+				<div class="hotspot" data-x="20" data-y="50">
+					<div class="hotspot-circle"></div>
+					
+				</div>
+				<div class="hotspot" data-x="52" data-y="47">
+					<div class="hotspot-circle" data-bs-toggle="popover" data-action-id="481"></div>
+					
+				</div>
+				<div class="hotspot" data-x="20" data-y="25">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="4102">
+					</div>
+				</div>
+			</div>
+		</div>
 		<hr>
 		<div class="twoColGrid">
 			<div>
@@ -185,7 +202,7 @@
 			<h5 class="card-title"></h5>
 			<!-- <img class="card-image" src="https://via.placeholder.com/440x100.webp?text=Platzhalter" /> -->
 			<p class="card-text"></p>
-        	<button class="btn btn-primary">Maßnahmen für diesen Wirkungsbereich anzeigen</button>
+        	<button class="btn btn-primary" onclick="resetHighlightBtn()">Maßnahmen für diesen Wirkungsbereich anzeigen</button>
 		</div>
 	</div>
 
@@ -195,7 +212,7 @@
 		<div class="card-body">
 			<h5 class="card-title"></h5>
 			<p class="card-text"></p>
-        	<button class="btn btn-primary">Maßnahmen für diesen Akteur anzeigen</button>
+        	<button class="btn btn-primary" onclick="resetHighlightBtn()">Maßnahmen für diesen Akteur anzeigen</button>
 		</div>
 	</div>
 
@@ -204,7 +221,7 @@
 		<div class="card-body">
 			<h5 class="card-title"></h5>
 			<p class="card-text"></p>
-        	<button class="btn btn-primary">Maßnahmen für dieses Thema anzeigen</button>
+        	<button class="btn btn-primary" onclick="resetHighlightBtn()">Maßnahmen für dieses Thema anzeigen</button>
 		</div>
 	</div>
 
@@ -311,10 +328,28 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- templates for 3D-image popovers -->
+	<div class="imgPopoverContent" data-action-id="481">
+		<div style="background-color: white;">
+			<p>Test Test Test</p>
+			<img src="https://picsum.photos/200" width="100%" />
+			<ul>
+				<li>Element 1</li>
+				<li>Element 2</li>
+				<li>...</li>
+			</ul>
+		</div>
+	</div>
+
+	<div class="imgPopoverContent" data-action-id="4102">
+		<div style="background-color: lightcoral">
+			<p style="color: white">Details</p>
+		<img src="https://picsum.photos/200" width="100%" />
+		</div>
+		
+	</div>
 	
-
-
-
 
 	<script src="./js/tool.js"></script>
 </body>

@@ -690,7 +690,7 @@ let actions =
   <li><a href="https://www.lokalkompass.de/tag/schaufensterwettbewerb" target="_blank">Schaufensterwettbewerb Hagen</a></li>
   <li><a href="https://www.wf-hamm.de/hamm-bietet/schaufensterwettbewerb/" target="_blank">Schaufensterwettbewerb Hamm</a></li>
   </ul>`,
-  image: "img/schaufensterwettbewerb.jpg",
+  image: "img/schaufensterwettbewerb.png",
   imageSrc: "https://www.lokalkompass.de/hagen/c-ueberregionales/hagen-im-fluss-die-gewinner-des-hagen-schaufensterwettbewerbs_a710019#gallery=default&pid=8789757",
   iconsValuation: {
     effects: 1,
