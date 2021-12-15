@@ -100,7 +100,9 @@
 				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllThemes(event)">Auswahl über Themengebiet</button>
 			</div>
 			<div>
-				<button type="button" class="btn btn-outline-light topRowBtn" id="advancedFilterBtn" data-bs-toggle="collapse" data-bs-target="#advancedFilterWrapper" aria-expanded="false" aria-controls="advancedFilterWrapper">Erweiterter Filter</button>
+				<button type="button" class="btn btn-outline-light topRowBtn" id="advancedFilterBtn" data-bs-toggle="collapse"
+					data-bs-target="#advancedFilterWrapper" aria-expanded="false" aria-controls="advancedFilterWrapper"
+					>Erweiterter Filter</button>
 			</div>
 		</div>
 		
@@ -120,24 +122,30 @@
 				
 			</div>
 
-			<div id="advancedFilterWrapper" class="collapse">
-				<div class="row gx-0">
-					<div id="advancedFilterCol1" class="advancedFilterCol">
+			
+
+			<div class="row gx-0">
+				<div class="col-4 collapse" id="advancedFilterWrapper">
+					
+					<div id="advancedFilterField1" class="advancedFilterField">
 						<h6>Akteur</h6>
 						<ul id="advancedFilterActorsList" class="list-unstyled">
 						</ul>
 					</div>
-					<div id="advancedFilterCol2" class="advancedFilterCol">
+					<div class="advancedFilterSpacer"></div>
+					<div id="advancedFilterField2" class="advancedFilterField">
 						<h6>Wirkungsbereich</h6>
 						<ul id="advancedFilterAreaList" class="list-unstyled">
 						</ul>
 					</div>
-					<div id="advancedFilterCol3" class="advancedFilterCol">
+					<div class="advancedFilterSpacer"></div>
+					<div id="advancedFilterField3" class="advancedFilterField">
 						<h6>Thema</h6>
 						<ul id="advancedFilterThemeList"  class="list-unstyled">
 						</ul>
 					</div>
-					<div id="advancedFilterCol4" class="advancedFilterCol">
+					<div class="advancedFilterSpacer"></div>
+					<div id="advancedFilterField4" class="advancedFilterField">
 						<h6>Zeit <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Für die Umsetzung der Maßnahme benötigte Zeitspanne."></i></h6>
 						<div id="time-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
@@ -162,7 +170,7 @@
 						</table>
 						<h6>Herausforderungen <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Die zu erwartenden Probleme, welche die Umsetzung behindern bzw. verzögern."></i></h6>
 						<div id="challenges-slider" class='filterSlider'></div>
-						<table class="sliderLabel">
+						<table class="sliderLabel mb-4">
 							<tbody>
 								<tr>
 									<td>gering</td>
@@ -171,8 +179,6 @@
 								</tr>
 							</tody>
 						</table>
-					</div>
-					<div id="advancedFilterCol5" class="advancedFilterCol">
 						<h6>Personalkosten <i class="bi bi-info-circle sliderInfoIcon" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Kosten für Mitarbeiter, Dienstleister und sonstigen Personalbedarf."></i></h6>
 						<div id="personalCost-slider" class='filterSlider'></div>
 						<table class="sliderLabel mb-4">
@@ -197,12 +203,15 @@
 						</table>
 					</div>
 				</div>
-				<div id="advancedFilterBottomPlaceholder"></div>
+
+				<div class="col">
+					<div class="overflow-auto">
+						<div class="grid"></div>
+					</div>
+				</div>
 			</div>
 
-			<div class="overflow-auto">
-				<div class="grid"></div>
-			</div>
+			
 			
 		</div>
 	</div>
