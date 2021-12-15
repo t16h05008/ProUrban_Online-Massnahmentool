@@ -105,7 +105,7 @@ function createActionCards(actions, collapsed) {
         let element = template.cloneNode(true);
         element.style.display = "block";
         element.id = "actionCard" + action.id;
-        element.dataset.actionid = action.id;
+        element.dataset.actionId = action.id;
 
         let titleBtn = element.querySelector("h5 button");
         titleBtn.dataset.bsTarget = "#actionCardBody" + action.id;
@@ -127,7 +127,7 @@ function createActionCards(actions, collapsed) {
         element.querySelector(".card-effects").innerHTML = "<b>Wirkung:</b>" + action.effects;
 
         let selectActionBtn = element.querySelector(".selectActionBtn");
-        selectActionBtn.dataset.actionid = action.id
+        selectActionBtn.dataset.actionId = action.id
         let actionIdStr = action.id.toString();
         if( selectedActionIds.includes(actionIdStr) ) {
             selectActionBtn.classList.remove("btn-primary")
@@ -136,7 +136,7 @@ function createActionCards(actions, collapsed) {
         }
 
         let actionDetailsBtn = element.querySelector(".actionDetailsBtn")
-        actionDetailsBtn.dataset.actionid = action.id
+        actionDetailsBtn.dataset.actionId = action.id
         
         result.push(element);
     }
@@ -571,8 +571,8 @@ function getActionsByIds(ids) {
 
 function toggleActionSelection(event) {
     let element = event.target
-    let cardElement = document.getElementById("actionCard" + element.dataset.actionid)
-    let actionId = cardElement.dataset.actionid;
+    let cardElement = document.getElementById("actionCard" + element.dataset.actionId)
+    let actionId = cardElement.dataset.actionId;
     let createPdfBtn = document.getElementById("createPdfBtn")
 
     if(element.classList.contains('btn-primary')) {
@@ -632,15 +632,7 @@ function updateDetailsTable(action) {
         let title = interaction.innerText.trim();
         for(let action of actions) {
             if(action.title === title) {
-                interaction.style.color = "#7f1b3f";
-                interaction.style.textDecoration = "underline";
-                interaction.style.cursor = "pointer";
-                interaction.addEventListener("mouseenter", function() {
-                    interaction.style.color="#54122a"
-                })
-                interaction.addEventListener("mouseleave", function() {
-                    interaction.style.color="#7f1b3f"
-                })
+                interaction.classList.add("link")
                 interaction.addEventListener("click", function() {
                     switchingActions = {
                         "action": action,
@@ -705,9 +697,28 @@ function updateDetailsTable(action) {
  */
 function showDetails(event) {
     let element = event.target;
-    let id = element.dataset.actionid;
-    let action = getActionsByIds(id)[0];
-    openDetailsModal(action);
+    console.log(element.dataset);
+    if(element.dataset.actionId) {
+        let id = element.dataset.actionId;
+        let action = getActionsByIds(id)[0];
+        openDetailsModal(action);
+    } else {
+        throw "Id not defined in showDetails"
+    }
+    
+}
+
+function showDetailsFromHotspot(event) {
+    let element = event.target;
+    if(element.parentElement.parentElement.dataset.actionId) {
+        let id = element.parentElement.parentElement.dataset.actionId;
+        let action = getActionsByIds(id)[0];
+        let hotspot = document.querySelector(".hotspot-circle[data-action-id='" + id + "']");
+        $(hotspot).popover('hide')
+        openDetailsModal(action);
+    } else {
+        throw "Id not defined in showDetailsFromHotspot"
+    }
 }
 
 
@@ -1838,18 +1849,28 @@ function initializeImgPopovers() {
     popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover( popoverTriggerEl, generatePopoverOptions(popoverTriggerEl) )
     });
+    
+    popoverTriggerList.forEach( function(el) {
+        $(el).on('show.bs.popover', function () {
+            // close all other popovers
+            popoverTriggerList.forEach( function(el2) {
+                if(el.dataset.actionId !== el2.dataset.actionId) {
+                    $(el2).popover('hide')
+                }
+            })
+          });
+    })
 }
 
 
 function generatePopoverOptions(el) {
     let id = el.dataset.actionId;
     let action = getActionsByIds([id])[0];
-    
     let content = document.querySelector(".imgPopoverContent[data-action-id='" + id + "']");
-    
+
     return {
         title: action.title,
-        content: content, // action.description.slice(0, 100)
+        content: content, //action.description.slice(0, 100),
         html: true,
         sanitize: true,
         trigger: "click",

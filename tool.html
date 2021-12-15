@@ -45,17 +45,50 @@
 		<div id="actionPreviewImageWrapper" class="my-4 mx-auto">
 			<div id="hotspotImg" class="responsive-hotspot-wrap">
 				<img class="img-responsive" src="/img/3D_Ansicht_Maßnahmen.png">
-				<div class="hotspot" data-x="20" data-y="50">
-					<div class="hotspot-circle"></div>
-					
+				
+				<!-- Leerstandserhebung / Gewerbliches Leerstandskataster -->
+				<div class="hotspot" data-x="50" data-y="30">
+					<div class="hotspot-circle" data-bs-toggle="popover" data-action-id="443"></div>
 				</div>
-				<div class="hotspot" data-x="52" data-y="47">
+				<!-- Wochenmärkte / Feierabendmarkt -->
+				<div class="hotspot" data-x="52" data-y="58">
 					<div class="hotspot-circle" data-bs-toggle="popover" data-action-id="481"></div>
-					
 				</div>
-				<div class="hotspot" data-x="20" data-y="25">
-					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="4102">
-					</div>
+				<!-- Zechenstandorte / ehemalige Industrieflächen -->
+				<div class="hotspot" data-x="78" data-y="28">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="421"></div>
+				</div>
+				<!-- TODO Brachfläche? -->
+				<div class="hotspot" data-x="65" data-y="85">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="411"></div>
+				</div>
+				<!-- TODO ? -->
+				<div class="hotspot" data-x="14" data-y="44">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="411"></div>
+				</div>
+				<!-- Solidarische Landwirtschaft -->
+				<div class="hotspot" data-x="30" data-y="28">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="4102"></div>
+				</div>
+				<!-- Produktive Kirchenimmobilien -->
+				<div class="hotspot" data-x="38" data-y="40">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="422"></div>
+				</div>
+				<!-- Gemeinschaftsgärten -->
+				<div class="hotspot" data-x="31" data-y="75">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="4101"></div>
+				</div>
+				<!-- Urbane Logistik -->
+				<div class="hotspot" data-x="84" data-y="58">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="491"></div>
+				</div>
+				<!-- Zentrum für Urbane Produktion / Handwerkerhof -->
+				<div class="hotspot" data-x="6" data-y="50">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="433"></div>
+				</div>
+				<!-- Zwischennutzung -->
+				<div class="hotspot" data-x="70" data-y="55">
+					<div tabindex="0" class="hotspot-circle" data-bs-toggle="popover" data-action-id="431"></div>
 				</div>
 			</div>
 		</div>
@@ -189,8 +222,8 @@
 				<p class="card-text card-problem"></p>
 				<p class="card-text card-solution"></p>
 				<p class="card-text card-effects"></p>
-				<button class="btn btn-primary selectActionBtn" data-actionid="" onclick="toggleActionSelection(event)">Maßnahme ausw&auml;hlen</button>
-				<button class="btn btn-primary actionDetailsBtn" data-actionid="" onclick="showDetails(event)">Details anzeigen</button>
+				<button class="btn btn-primary selectActionBtn" data-action-id="" onclick="toggleActionSelection(event)">Maßnahme ausw&auml;hlen</button>
+				<button class="btn btn-primary actionDetailsBtn" data-action-id="" onclick="showDetails(event)">Details anzeigen</button>
         	</div>
 		</div>
 	</div>
@@ -330,25 +363,70 @@
 	</div>
 
 	<!-- templates for 3D-image popovers -->
-	<div class="imgPopoverContent" data-action-id="481">
-		<div style="background-color: white;">
-			<p>Test Test Test</p>
-			<img src="https://picsum.photos/200" width="100%" />
-			<ul>
-				<li>Element 1</li>
-				<li>Element 2</li>
-				<li>...</li>
-			</ul>
+	<div style="display:none"> <!-- display:none prevents content from showing at the bottom -->
+		<div class="imgPopoverContent" data-action-id="443">
+			<img src="/img/leerstandserhebung _gewerbliches_leerstandskataster.jpg" width="100%" />
+			<div>	
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="481">
+			<img src="/img/wochenmaerkte_feierabendmarkt.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="421">
+			<img src="/img/zechenstandorte.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="4102">
+			<img src="/img/solidarische_landwirtschaft.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<!-- TODO -->
+		<div class="imgPopoverContent" data-action-id="411">
+			<img src="/img/staedtebaufoerderprogramm.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="422">
+			<img src="/img/produktive_kirchenimmobilien.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="4101">
+			<img src="/img/gemeinschaftsgaerten.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="491">
+			<img src="/img/urbane_logisik.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="433">
+			<img src="/img/zentrum_fuer_urbane_produktion.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
+		</div>
+		<div class="imgPopoverContent" data-action-id="431">
+			<img src="/img/zwischennutzung.jpg" width="100%" />
+			<div>
+				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
+			</div>
 		</div>
 	</div>
-
-	<div class="imgPopoverContent" data-action-id="4102">
-		<div style="background-color: lightcoral">
-			<p style="color: white">Details</p>
-		<img src="https://picsum.photos/200" width="100%" />
-		</div>
-		
-	</div>
+	
 	
 
 	<script src="./js/tool.js"></script>

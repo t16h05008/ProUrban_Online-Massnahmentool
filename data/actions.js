@@ -985,7 +985,7 @@ let actions =
   examples: `<ul>
   <li><a href="https://www.walnussmeisterei.de/" target="_blank">Walnussmeisterei Böllersen</a></li>
   </ul>`,
-  image: "img/sodidarische_landwirtschaft.jpg",
+  image: "img/solidarische_landwirtschaft.jpg",
   imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
   iconsValuation: {
     effects: 1,
