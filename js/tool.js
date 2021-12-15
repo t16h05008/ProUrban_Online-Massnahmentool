@@ -33,6 +33,8 @@ const detailsTableOffsetY = 2.9; // in cm
 
 let userDefinedSliderPositions = {};
 
+const gridColumnWidth = 490;
+
 function main() {
     placeImgHotspots();
     initializeImgPopovers();
@@ -51,19 +53,28 @@ function main() {
     let advancedFilterWrapper = document.getElementById('advancedFilterWrapper');
     let btn = document.querySelector("#advancedFilterBtn");
 
-    advancedFilterWrapper.addEventListener('shown.bs.collapse', function () {
-        capAdvancedFilterColumnHeight(advancedFilterWrapper);
-    });
-
     advancedFilterWrapper.addEventListener('show.bs.collapse', function () {
         btn.style.backgroundColor = "white";
         btn.style.color = "black"; 
     });
 
+    advancedFilterWrapper.addEventListener('shown.bs.collapse', function () {
+        capadvancedFilterFieldHeight(advancedFilterWrapper);
+        grid.element.style.marginLeft = "10%" // workaround for centering one column elements
+        grid.arrange();
+    });
+
+
     advancedFilterWrapper.addEventListener('hide.bs.collapse', function () {
         btn.style.backgroundColor = "";
         btn.style.color = "white";
     });
+
+    advancedFilterWrapper.addEventListener('hidden.bs.collapse', function () {
+        grid.element.style.marginLeft = "0%"
+        grid.arrange();
+    });
+
 
     showAllActions();
     setTimeout(function(){
@@ -80,8 +91,8 @@ function initializeGrid() {
         itemSelector: '.grid-item',
         layoutMode: 'fitRows',
         fitRows: {
-            gutter: 26
-          }
+            gutter: 26,
+        }
     });
 
     grid.on( 'arrangeComplete', (itemsArr) => {
@@ -105,7 +116,7 @@ function createActionCards(actions, collapsed) {
         let element = template.cloneNode(true);
         element.style.display = "block";
         element.id = "actionCard" + action.id;
-        element.dataset.actionid = action.id;
+        element.dataset.actionId = action.id;
 
         let titleBtn = element.querySelector("h5 button");
         titleBtn.dataset.bsTarget = "#actionCardBody" + action.id;
@@ -127,7 +138,7 @@ function createActionCards(actions, collapsed) {
         element.querySelector(".card-effects").innerHTML = "<b>Wirkung:</b>" + action.effects;
 
         let selectActionBtn = element.querySelector(".selectActionBtn");
-        selectActionBtn.dataset.actionid = action.id
+        selectActionBtn.dataset.actionId = action.id
         let actionIdStr = action.id.toString();
         if( selectedActionIds.includes(actionIdStr) ) {
             selectActionBtn.classList.remove("btn-primary")
@@ -136,7 +147,7 @@ function createActionCards(actions, collapsed) {
         }
 
         let actionDetailsBtn = element.querySelector(".actionDetailsBtn")
-        actionDetailsBtn.dataset.actionid = action.id
+        actionDetailsBtn.dataset.actionId = action.id
         
         result.push(element);
     }
@@ -304,7 +315,7 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
 
     
     let slider_categories = [];
-    let rangeSliders = document.querySelectorAll("#advancedFilterCol4 .filterSlider, #advancedFilterCol5 .filterSlider");
+    let rangeSliders = document.querySelectorAll("#advancedFilterField4 .filterSlider");
     // get slider categories and values
     rangeSliders.forEach( slider => {
         let category = slider.id.replace("-slider", "");
@@ -516,11 +527,11 @@ function clearItems() {
 
 function resetFilter() {
     grid.arrange( {filter: () => { return true;}} );
-    let chbs = document.querySelectorAll(".advancedFilterCol ul li input:checked")
+    let chbs = document.querySelectorAll(".advancedFilterField ul li input:checked")
     chbs.forEach( chb => {
         chb.checked = false;
     });
-    let sliders = document.querySelectorAll(".advancedFilterCol .filterSlider")
+    let sliders = document.querySelectorAll(".advancedFilterField .filterSlider")
     sliders.forEach( slider => {
         $(slider).slider("values", [1, 3])
     })
@@ -571,8 +582,8 @@ function getActionsByIds(ids) {
 
 function toggleActionSelection(event) {
     let element = event.target
-    let cardElement = document.getElementById("actionCard" + element.dataset.actionid)
-    let actionId = cardElement.dataset.actionid;
+    let cardElement = document.getElementById("actionCard" + element.dataset.actionId)
+    let actionId = cardElement.dataset.actionId;
     let createPdfBtn = document.getElementById("createPdfBtn")
 
     if(element.classList.contains('btn-primary')) {
@@ -632,15 +643,7 @@ function updateDetailsTable(action) {
         let title = interaction.innerText.trim();
         for(let action of actions) {
             if(action.title === title) {
-                interaction.style.color = "#7f1b3f";
-                interaction.style.textDecoration = "underline";
-                interaction.style.cursor = "pointer";
-                interaction.addEventListener("mouseenter", function() {
-                    interaction.style.color="#54122a"
-                })
-                interaction.addEventListener("mouseleave", function() {
-                    interaction.style.color="#7f1b3f"
-                })
+                interaction.classList.add("link")
                 interaction.addEventListener("click", function() {
                     switchingActions = {
                         "action": action,
@@ -705,9 +708,28 @@ function updateDetailsTable(action) {
  */
 function showDetails(event) {
     let element = event.target;
-    let id = element.dataset.actionid;
-    let action = getActionsByIds(id)[0];
-    openDetailsModal(action);
+    console.log(element.dataset);
+    if(element.dataset.actionId) {
+        let id = element.dataset.actionId;
+        let action = getActionsByIds(id)[0];
+        openDetailsModal(action);
+    } else {
+        throw "Id not defined in showDetails"
+    }
+    
+}
+
+function showDetailsFromHotspot(event) {
+    let element = event.target;
+    if(element.parentElement.parentElement.dataset.actionId) {
+        let id = element.parentElement.parentElement.dataset.actionId;
+        let action = getActionsByIds(id)[0];
+        let hotspot = document.querySelector(".hotspot-circle[data-action-id='" + id + "']");
+        $(hotspot).popover('hide')
+        openDetailsModal(action);
+    } else {
+        throw "Id not defined in showDetailsFromHotspot"
+    }
 }
 
 
@@ -1732,9 +1754,9 @@ function initializeAdvancedFilter(actions) {
 // the resulting lists might be too long for the div (it has a max height)
 // so we only display the list elements that fit in the div and add an "expand" button at the bottom.
 // if this button is clicked, the full list is shown
-function capAdvancedFilterColumnHeight(advancedFilterWrapper) {
+function capadvancedFilterFieldHeight(advancedFilterWrapper) {
     // for column one, two and three
-    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterCol1, #advancedFilterCol2, #advancedFilterCol3");
+    let columns = advancedFilterWrapper.querySelectorAll("#advancedFilterField1, #advancedFilterField2, #advancedFilterField3");
     
     // test if the scroll area apperas at the corrct usedHeight by restricting list length
     // let a = columns[0].querySelector("ul").children;
@@ -1838,18 +1860,28 @@ function initializeImgPopovers() {
     popoverTriggerList.map(function (popoverTriggerEl) {
         return new bootstrap.Popover( popoverTriggerEl, generatePopoverOptions(popoverTriggerEl) )
     });
+    
+    popoverTriggerList.forEach( function(el) {
+        $(el).on('show.bs.popover', function () {
+            // close all other popovers
+            popoverTriggerList.forEach( function(el2) {
+                if(el.dataset.actionId !== el2.dataset.actionId) {
+                    $(el2).popover('hide')
+                }
+            })
+          });
+    })
 }
 
 
 function generatePopoverOptions(el) {
     let id = el.dataset.actionId;
     let action = getActionsByIds([id])[0];
-    
     let content = document.querySelector(".imgPopoverContent[data-action-id='" + id + "']");
-    
+
     return {
         title: action.title,
-        content: content, // action.description.slice(0, 100)
+        content: content, //action.description.slice(0, 100),
         html: true,
         sanitize: true,
         trigger: "click",
