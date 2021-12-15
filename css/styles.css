@@ -416,27 +416,31 @@ a:hover {
 /* Hotspot */
 /* based on https://github.com/skypluto/jquery.hotspot.js/blob/master/demo/css/demo.css */
 @-webkit-keyframes pulsate {
-	0% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		opacity: 0.8;
-	}
-	100% {
+
+    0% {
 		-webkit-transform: scale(1.75);
 		transform: scale(1.75);
 		opacity: 0;
 	}
+
+	100% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 0.8;
+	}
+	
 }
 @keyframes pulsate {
+	
 	0% {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-		opacity: 0.8;
-	}
-	100% {
 		-webkit-transform: scale(1.75);
 		transform: scale(1.75);
 		opacity: 0;
+	}
+    100% {
+		-webkit-transform: scale(1);
+		transform: scale(1.25);
+		opacity: 0.8;
 	}
 }
 
