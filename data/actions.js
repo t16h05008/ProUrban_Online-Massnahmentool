@@ -525,7 +525,7 @@ let actions =
   <li>Wissenstransfer in die Stadtgesellschaft</li>
   <li>Storytelling</li>
   <li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li>
-  <li>Solidarische Landwirtschaft (Community Supported Agriculture)</li>
+  <li>Solidarische Landwirtschaft</li>
   </ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
   examples: `<ul>
@@ -564,7 +564,7 @@ let actions =
   <li>Storytelling</li>
   <li>Schaufensterwettbewerb</li>
   <li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li>
-  <li>Solidarische Landwirtschaft (Community Supported Agriculture)</li>
+  <li>Solidarische Landwirtschaft</li>
   </ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
   examples: `<ul>
@@ -967,7 +967,7 @@ let actions =
 {
   id: 4102,
   number: "4.10.2",
-  title: "Solidarische Landwirtschaft (Community Supported Agriculture)",
+  title: "Solidarische Landwirtschaft",
   description: `<p>Durch die Förderung, Bekanntmachung und Verstetigung des Ansatzes der solidarischen Landwirtschaft (Solawi) in Gelsenkirchen können sowohl Bürger*innen, Landwirte*innen als auch die Region profitieren. Dabei beschreibt Solawi einen Ansatz, bei dem die Lebensmittel nicht mehr über einen Markt vertrieben werden, sondern in einen eigenen, transparenten Wirtschaftskreislauf einfließen, der von den Konsument*innen mit organisiert und finanziert wird. Dadurch können die Bewohner*innen Gelsenkirchens einerseits vielfältige, lokal produzierte Nahrungsmittel beziehen und genau nachvollziehen woher die Produkte stammen andererseits wird durch die Solawi die Sensibilität für das Thema der regionalen Landwirtschaft erhöht. Auch die lokale Landwirtschaft in Gelsenkirchen kann von dem Ansatz profitieren, indem das Produktionsrisiko auf die Gemeinschaft verteilt wird und so die Planungssicherheit für eine gesunde Form der Landwirtschaft gesteigert wird. Für die Stadt Gelsenkirchen könnte die Ausweitung und Bewerbung eines solchen Ansatzes vorteilhaft sein, da die Vielfalt der Landwirtschaft die Lebensqualität erhöht und vor allem die Wertschöpfung in der Region bleibt. In der Stadt gibt es mit dem Lindenhof bereits einen ersten Betrieb, der sich der solidarischen Landwirtschaft verschrieben hat. Die Bekanntheit solcher lokaler Betriebe sollte weiter gesteigert werden, um weitere regionale Landwirt*innen für das Thema der solidarischen Landwirtschaft zu gewinnen.</p>`,
   targetgroups: `<p>Bürger*innen, Produzent*innen aus der Landwirtschaft</p>`,
   actors: `<p>Solawi – Lindenhof Gelsenkirchen, Produzent*innen aus der Landwirtschaft, Wirtschaftsförderung</p>`,
