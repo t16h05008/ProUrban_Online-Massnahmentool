@@ -1,6 +1,7 @@
 :root {
     --modal-border-color: #777;
-    --hotspot-and-popover-color: rgba(31, 78, 121, 0.8);
+    --hotspot-and-popover-color: rgba(31, 96, 121, 0.8);
+    --hotspot-and-popover-color-hover: rgba(15, 25, 58, 0.8);
 }
 
 body {
@@ -460,6 +461,10 @@ a:hover {
 	cursor: pointer;
 }
 
+#hotspotImg .hotspot:hover {
+	background-color: var(--hotspot-and-popover-color-hover);
+}
+
 
 #hotspotImg .hotspot .hotspot-circle {
 	display: block;
@@ -476,6 +481,10 @@ a:hover {
 	opacity: 1;
 	-webkit-animation: pulsate 2s ease-out infinite;
 	animation: pulsate 2s ease-out infinite;
+}
+
+#hotspotImg .hotspot .hotspot-circle:hover {
+	border: 2px solid var(--hotspot-and-popover-color-hover);
 }
 
 .imgPopoverHeader {
