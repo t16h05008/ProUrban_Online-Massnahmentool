@@ -1893,5 +1893,15 @@ function generatePopoverOptions(el) {
     }
 }
 
+function toggle3DmodalImg() {
+    let el = document.querySelector("#hotspotImg img")
+    let path = el.src
+    if(path.includes("-no-bg")) {
+        el.src = path.replace("-no-bg", "")
+    } else {
+        el.src = path.replace(".png", "-no-bg.png")
+    }
+}
+
 
 main();
