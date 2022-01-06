@@ -1,6 +1,4 @@
-// Diese Datei dient als Datengrundlage für das Online-Maßnahmentool:
-// TODO Link hier einfügen sobald Tool online ist
-
+// Diese Datei dient als Datengrundlage für das Online-Maßnahmentool
 
 // Die beiden Kostenarten lassen sich aus cost ableiten (Texterkennung)
 // Ebenso wie die räumliche Reichweite aus area und die Zeit aus time.
@@ -15,22 +13,21 @@
 
 let actions = 
 [{
-  id: 411,
-  number: "4.1.1",
+  id: 111,
+  number: "1.1.1",
   title: "Städtebauförderprogramm",
-  description: `<p>Im Rahmen der Städtebauförderung von Bund und Land existiert eine Vielzahl an Programmzweigen und Ausschreibungen, die insbesondere strukturschwachen Kommunen wie Gelsenkirchen zugutekommen sollen. Daher bietet es sich insbesondere in diesen Konzepten an, Urbane Produktion von vorneherein als wichtigen Baustein bei der Aufstellung und Entwicklung mitzudenken.</p>`,
+  description: `<p>Im Rahmen der Städtebauförderung von Bund und Ländern besteht eine Vielzahl von Programmzweigen und Ausschreibung, die den Städten und Gemeinden zugutekommen sollen. Insbesondere für finanz- und strukturschwache Städte bietet es sich an, die Urbane Produktion in den Konzepten zur Beantragung dieser Fördermittel als wichtigen Baustein mitzudenken und einzubeziehen. So ist es möglich Projekte und Vorhaben zur Förderung der Urbanen Produktion (mit-) zu finanzieren und deren Umsetzung zu beschleunigen.</p>`,
   targetgroups: `<p>Stadtverwaltung, Politik</p>`,
-  actors: `<p>Stadtplanung, Wirtschaftsförderung, Quartiers- /Citymanagement</p>`,
-  cost: `<p>Personal (mittel bis hoch), Sachkosten (keine, über Fördermittel gedeckt)</p>`,
+  actors: `<p>Stadtplanung, Wirtschaftsförderung, Quartiers-/Citymanagement</p>`,
+  cost: `<p>Personal (mittel bis hoch), Sachkosten (keine – über Fördermittel gedeckt)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
-  problem: `<p>Mit dem Auslaufen des Forschungsprojektes steht innerhalb der Verwaltung keine Personalstelle mehr zur Verfügung, deren Schwerpunkt auf Urbaner Produktion liegt</p>`,
-  solution: `<p>Urbane Produktion innerhalb der Verwaltung als Baustein etablieren, der auf allen Ebenen mitgedacht wird</p>`,
-  effects: `<p>Umsetzung und Verstetigung der Ansätze des Forschungsprojektes UrbaneProduktion.Ruhr</p>`,
-  challenges: `<p>Urbane Produktion wird von manchen Akteur*innen noch nicht als Option zur Aufwertung der Stadt gesehen. Urbane Produktion muss als neuer inhaltlichen Schwerpunkt etabliert werden und konzeptionell sowie strategisch in zukünftigen Entwicklungen mitgedacht werden</p>`,
+  problem: `<p>Suche nach Förderprogrammen ist z.T. sehr zeitaufwändig und komplex</p>`,
+  solution: `<p>Schaffung einer Fördermittelstelle zur Unterstützung bei der Suche nach diesen und Etablierung der Urbanen Produktion als Baustein in der Verwaltung, sodass diese bei allen Förderprojekte mitgedacht wird</p>`,
+  effects: `<p>Umsetzung und Verstetigung Urbaner Produktion</p>`,
+  challenges: `<p>Urbane Produktion wird von manchen Akteur*innen noch nicht als Option zur Aufwertung der Stadt wahrgenommen. Urbane Produktion muss als neuer inhaltlicher Schwerpunkt etabliert werden und konzeptionell sowie strategisch in zukünftigen Entwicklungen mitgedacht werden</p>`,
   interactions: `<p>Je nach Förderprogramm kann die Gesamtheit der Maßnahmen mit dem jeweiligen Programm verknüpft werden</p>`,
-  area: `<p>Stadtteil/Quartier , Gesamtstadt</p>`,
-  examples: `<ul>
-    <li> <a href="https://www.gelsenkirchen.de/de/infrastruktur/-stadtplanung/stadterneuerung_gelsenkirchen/_doc/Integriertes_-Entwicklungskonzept_Schalke_Nord_2020.pdf" target="_blank">Implementierung von Urbaner Produktion als Baustein im IEK Schalke-Nord</a></li></ul>`,
+  area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
+  examples: `<ul><li><a href="https://www.gelsenkirchen.de/de/infrastruktur/-stadtplanung/stadterneuerung_gelsenkirchen/_doc/Integriertes_-Entwicklungskonzept_Schalke_Nord_2020.pdf" target="_blank">IEK Schalke-Nord mit Bestandteil Urbane Produktion</a></li></ul>`,
   image: "img/staedtebaufoerderprogramm.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -40,34 +37,48 @@ let actions =
   theme: "Fördermittel und Förderprogramme",
 },
 
-// TODO 4.1.2 sobald fertig
+{
+  id: 112,
+  number: "1.1.2",
+  title: "Förderprogramme Innenstadt",
+  description: `<p>In den Jahren 2020 und 2021 haben zahlreiche Landesregierungen Förderprogramme zur Weiterentwicklung und Stärkung der Innenstädte aufgelegt: Durch solche Sofortprogramme werden Kommunen finanziell bei der Anmietung von Ladenlokalen oder bei dem Zwischenerwerb von leerstehenden Immobilien sowie in Form von Expertisen, Beratungen und Moderationsprozessen dabei unterstützt, Leerstände zu füllen und Entwicklungsimpulse zu setzen. Die Programme bieten großes Potenzial, Urbane Produktion in innerstädtische Leerstände durch Zwischennutzungen und Experimentierräumen oder aber auch langfristigen Konzepten zu implementieren.</p>`,
+  targetgroups: `<p>Urban produzierende Betriebe, Eigentümer*innen</p>`,
+  actors: `<p>Politik, Stadtverwaltung, Wirtschaftsförderung, Eigentümer*innen, Wohnungswirtschaft, Urban produzierende Betriebe, Expertengremium</p>`,
+  cost: `<p>Personal (mittel), Sachkosten (mittel)</p>`,
+  time: `<p>Kurz- bis Mittelfristig</p>`,
+  problem: `<p>Leerstehende Immobilien stoßen Trading-Down-Spirale in Innenstadt an,
+  Leerstehende Immobilien werden Gegenstand von Spekulationen</p>`,
+  solution: `<p>Landesregierungen stellen Städten und Gemeinden umfassende Finanzmittel zur Verfügung, mittels derer diese z.B. Konzepte und Strategien für einzelne Projekte oder die Entwicklung der gesamten Innenstadt auflegen können.</p><p>Zudem wird in einigen Fällen die Anmietung leerstehender oder gefährdeter Ladenlokale mit bis zu 70% des Mietzinses bezuschusst, um dort Zwischennutzungen durch zukunftsfähige Nutzungen – wie z.B. Urbane Produktion – zu ermöglichen.</p>`,
+  effects: `<p>Belebung von Leerständen, Förderung der innerstädtischen Aufenthaltsqualität, Unterstützung von urban produzierenden Unternehmen</p>`,
+  challenges: `<p>Urbane Produktion wird von manchen Akteur*innen noch nicht als Option für Stadtkonzepte und zur Aufwertung von Städten gesehen. Urbane Produktion muss als neuer Schwerpunkt etabliert werden und konzeptionell und strategisch in Entwicklungen mitgedacht werden</p>`,
+  interactions: `<ul><li>Einzelhandelsflächen</li><li>Zwischennutzung</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li></ul>`,
+  area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier</p>`,
+  examples: `<ul><li><a href="https://www.mhkbg.nrw/sites/default/files/media/document/file/2021-10-29_MHKBG_SoPro-Innenstadt_fin0.pdf" target="_blank">Sofortprogramm zur Stärkung unserer Innenstädte und Zentren des Bundeslandes Nordrhein-Westfalen</a></li><li><a href="https://www.nbank.de/Öffentliche-Einrichtungen/Infrastruktur/Sonderprogramm-Perspektive-Innenstadt/index.jsp" target="_blank">Sofortprogramm Perspektive Innenstadt des Bundeslandes Niedersachsen</a></li><li><a href="https://www.innenstaedte-beleben.bayern.de/foerderung/index.php" target="_blank">Sonderfonds Innenstädte beleben des Bundeslandes Bayern</a></li></ul>`,
+  image: "img/TODO.jpg",
+  imageSrc: "",
+  iconsValuation: { //TODO
+    effects: 1,
+    challenges: 1
+  },
+  theme: "Fördermittel und Förderprogramme",
+},
 
 {
-  id: 421,
-  number: "4.2.1",
-  title: "Zechenstandorte / ehemalige Industrieflächen",
-  description: `<p><b>Neue Zeche Westerholt:</b> Bei der neuen Zeche Westerholt handelt es sich um ein ehemaliges Zechengelände, dessen Geschichte bis in das 19. Jahrhundert reicht. Bereits seit Ende 2008 stehen auf der Zeche Westerholt die Räder still. Seit dieser Zeit arbeiten die Städte Gelsenkirchen und Herten für die auf der Stadtgrenze gelegene Anlage gemeinsam mit der RAG Montan Immobilien an Programmen und Plänen für die Nachnutzung der ehemaligen Zeche. In den Zielperspektiven des Masterplans heißt es, dass neben der „Eroberung“ des ehemaligen Zechengeländes für die Bevölkerung die wirtschaftlichen Aspekte im Vordergrund stehen und es darum geht, neue und zukunftssichere Arbeitsplätze zu schaffen, die in neue Wohn- und Lebenslagen eingebunden sind. Die Kreislaufwirtschaft wurde hierbei als „Zukunftsthema“ identifiziert. Damit ergibt sich eine konkrete Perspektive für urbane Produzent*innen, die künftig in Teilen der alten Zechenhallen produzieren, bzw. diese als Showrooms nutzen könnten. Bei der integrierten Entwicklung des Geländes, die durch die Entwicklungsgesellschaft Neue Zeche Westerholt mbH gewährleistet wird, sollten Anreize und Fördermöglichkeiten für urbane Produzent*innen mitgedacht werden.</p>
-  <p><b>Zeche Hugo:</b> Das Gelände der Zeche Hugo in Gelsenkichen-Buer, in unmittelbarer Nähe zur Rungenberghalde, wird seitens des Referats Stadtplanung als „Suchraum für Transformation“ betrachtet. Während das Fördergerüst und die Fördermaschine von Schacht 2 heute von einem gemeinnützigen Verein als musealer Veranstaltungsort betrieben werden, steht der zusammenhängende und denkmalgeschützte Gebäudekomplex von Waschkaue und Verwaltung mit Außenanlagen leer. Alle anderen oberirdischen Anlagen wurden abgerissen. Eine mögliche Nutzung durch die angrenzende Fachhochschule / Westfälische Hochschule Gelsenkirchen wurde immer wieder diskutiert, bisher aber ohne Ergebnis. Heute befinden sich die Gebäude im Besitz eines Privateigentümers, der nach eigenem Bekunden Teile des Geländes zur Präsentation seiner Oldtimer nutzen möchte, aber auch offen ist für den Verkauf der Gebäude und des umliegenden Geländes. Für die Gebäudetrakte auf zwei Etagen existieren bisher keine tragfähigen Entwicklungskonzepte. Durch die räumliche Nähe zur Hochschule und dem dortigen Makerspace, die Historie und dem Gebäudezuschnitt ist die Zeche Hugo prädestiniert für eine zukünftige Entwicklung, die das Thema der urbanen Produktion einschließt. Das Gelände wäre aufgrund der Größe und den industriehistorischen Potenzialen ebenfalls interessant für eine Entwicklung durch eine der Stiftungen in NRW, welche sich der Nachnutzung geschichtsträchtiger Gebäude verschrieben haben.</p>`,
-  targetgroups: `<p>Investor*innen, Stiftungen, Eigentümer*innen, Urban produzierende Betriebe</p>`,
+  id: 121,
+  number: "1.2.1",
+  title: "ehemalige Industrieflächen / Zechenstandorte",
+  description: `<p>Der industrielle und wirtschaftliche Wandel der vergangenen Jahrzehnte prägt viele Städte und Gemeinden in Deutschland. Insbesondere vom Strukturwandel betroffene Regionen – wie z.B. das Ruhrgebiet – aber auch andere Räume sind daher mit der Transformation ehemaliger Industrieflächen konfrontiert und haben auf diesen Flächen die Chance Räume für neue Entwicklungen und Potenziale zu schaffen. Neben der Entwicklung neuer Wohn- und Dienstleistungsflächen sollte dabei auch die Urbane Produktion mitbedacht und in die Planung integriert werden. Diese kann oftmals gut in integrierte Entwicklungskonzepte für Wohn- und Dienstleistungsquartiere eingebunden werden und schafft durch die gewerbliche Prägung zugleich eine historische Verbindung zu den industriellen Nutzungsgeschichten auf den ehemaligen Industrieflächen und Zechenstandorte.</p>`,
+  targetgroups: `<p>Investor*innen, Stiftungen, Eigentümer*innen, urban produzierende Betriebe</p>`,
   actors: `<p>Eigentümer*innen, Stadtverwaltung, Politik</p>`,
   cost: `<p>Personal (hoch), Sachkosten (hoch; 7-stelliger Bereich)</p>`,
   time: `<p>Langfristig</p>`,
-  problem: `<p>Es fehlt an Entwicklungskonzepten und Folgenutzungen für ein denkmalgeschütztes altes Zechenareal, das zwischenzeitlich Vandalismus ausgesetzt war. Oft mangelt es bei den Eigentümern von Zechenstandorten / ehemaligen Industrieflächen an Ressourcen, diese adäquat zu entwickeln oder zu verwalten.</p>`,
-  solution: `<p>Akquise von Investor*innen, Entwicklung von tragfähigen Perspektiven durch Politik & Verwaltung unter Einbeziehung einer hierauf spezialisierten Stiftung und Investor*innen sowie der Westfälischen Hochschule Gelsenkirchen, sodass die Standorte eine regionale Strahlkraft entfalten, ggf. Aufkauf des Geländes durch die Stadt</p>`,
-  effects: `<p>"Räumlicher Brückenschlag" zwischen Hochschule und Stadtkern, Synergien. Die Etablierung Urbaner Produktion an derartigen historisch bedeutsamen Standorten erhöht durch die vorhandene Strahlkraft die öffentliche Wahrnehmung sowie die Relevanz der Thematik. Auch der Standort profitiert von den neuen funktionellen Nutzungen</p>`,
+  problem: `<p>Es fehlt oftmals an Entwicklungskonzepten und Folgenutzungen für (denkmalgeschützte) Industrie und Zechenareal. Oft mangelt es bei den Eigentümer*innen zudem an Ressourcen, um diese adäquat zu entwickeln oder zu verwalten.</p>`,
+  solution: `<p>Akquise von Investor*innen, Entwicklung von tragfähigen Perspektiven durch Politik & Verwaltung unter Einbeziehung einer hierauf spezialisierten Stiftung und Investor*innen, sodass die Standorte eine regionale Strahlkraft entfalten, ggf. Aufkauf von Flächen durch die Stadt</p>`,
+  effects: `<p>Die Etablierung Urbaner Produktion an historisch bedeutsamen Standorten erhöht durch die vorhandene Strahlkraft die öffentliche Wahrnehmung sowie die Relevanz der Thematik.</p><p>Auch der Standort profitiert von den neuen funktionellen Nutzungen</p>`,
   challenges: `<p>Denkmalschutz, Bodenbelastung, Belastung der Gebäude, Kosten, Bauordnung, besondere Verkehrssituation</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Zentrum für Urbane Produktion / Handwerkerhof</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  </ul>`,
-  area: `<p>Grundstück/Immobilie</p>`,
-  examples: `<ul>
-  <li><a href="https://www.montag-stiftungen.de/default-title/urbane-nachbarschaft-samtweberei" target="_blank">Entwicklung der alten Samtweberei durch die Montag Stiftung</a></li>
-  <li><a href="https://www.immobilienmanager.de/greyfield-erwirbt-ehemaliges-funke-druckhaus-in-essen-10052021" target="_blank">Innovatives Nachnutzungskonzept der Greyfield Stiftung</a></li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Integriertes Wirtschaftsflächenkonzept</li></ul>`,
+  area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier und Gesamtstadt sowie überregional möglich</p>`,
+  examples: `<ul><li><a href="https://www.montag-stiftungen.de/default-title/urbane-nachbarschaft-samtweberei" target="_blank">Samtweberei der Montag Stiftung</a></li><li><a href="https://www.immobilienmanager.de/greyfield-erwirbt-ehemaliges-funke-druckhaus-in-essen-10052021" target="_blank">Innovatives Nachnutzungskonzept der Greyfield Stiftung</a></li></ul>`,
   image: "img/zechenstandorte.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -78,11 +89,10 @@ let actions =
 },
 
 {
-  id: 422,
-  number: "4.2.2",
+  id: 122,
+  number: "1.2.2",
   title: "Produktive Kirchenimmobilien",
-  description: `<p>In Gelsenkirchen ist ein Rückgang an aktiv genutzten Kirchenimmobilien zu verzeichnen. Daher besteht ein Handlungsbedarf, um diese Gemeinbedarfsflächen sowie die Baukultur zu erhalten. Vorreiter wie die Bäckerei Zipper im Stadtteil Erle haben ein Grundstück der Kirche erworben, um die Gemeindehausflächen als Büro und Veranstaltungsflächen weiter zu nutzen. In dem Kirchengebäude sollte die Backstube einziehen. Corona- und Altersbedingt konnte das geplante Vorhaben nicht umgesetzt werden.</p>
-  <p>Ein Fonds für Kirchenimmobilien könnte Unternehmen und Initiativen dabei unterstützen, Kirchenimmobilien zu erhalten, um den Gebäuden neues Leben einzuhauchen. Aufgrund der hohen Investitionskosten und der steigenden Zahl an leerstehenden Kirchengebäuden erscheint es langfristig unabdingbar, auch private Investor*innen von den Chancen für urbane Produktionsbetriebe in Kirchenräumen zu überzeugen. In Gelsenkirchen, dem Ruhrgebiet sowie Deutschland insgesamt fehlt es hier noch an Leuchtturmprojekten, so dass die Erarbeitung von tragfähigen Nutzungskonzepten und die Implementierung solcher Projekte für risikofreudige Kapitalgeber*innen eine interessante Option darstellt.</p>`,
+  description: `<p>In ganz Deutschland ist ein Rückgang an aktiv genutzten Kirchenimmobilien zu verzeichnen. Daher besteht ein Handlungsbedarf, um diese Gemeinbedarfsflächen sowie die Baukultur zu erhalten. Ein Fonds für Kirchenimmobilien könnte Unternehmen und Initiativen dabei unterstützen, Kirchenimmobilien zu erhalten, um den Gebäuden neues Leben einzuhauchen. Aufgrund der hohen Investitionskosten und der steigenden Zahl an leerstehenden Kirchengebäuden erscheint es langfristig unabdingbar, auch private Investor*innen von den Chancen für urbane Produktionsbetriebe in Kirchenräumen zu überzeugen. Hier fehlt es noch an Leuchtturmprojekten, so dass die Erarbeitung von tragfähigen Nutzungskonzepten und die Implementierung solcher Projekte für risikofreudige Kapitalgeber*innen eine interessante Option darstellt.</p>`,
   targetgroups: `<p>Evangelische und katholische Kirche, Urban produzierende Betriebe, Gründer*innen</p>`,
   actors: `<p>Stadt, evangelische und katholische Kirche, Urban produzierende Betriebe, Investor*innen</p>`,
   cost: `<p>Personal (hoch), Sachkosten (hoch; Je nach Umsetzung und Gebäude, Sanierungs- und Umbaukosten)</p>`,
@@ -90,23 +100,10 @@ let actions =
   problem: `<p>Kirchengebäude fallen zunehmend leer oder werden abgerissen. Oft werden die Flächen veräußert. Damit fallen wichtige Flächen für den Gemeinbedarf in der Stadt weg.</p>`,
   solution: `<p>Erbbaurecht, lokale Unternehmen und Investor*innen zur Nutzung finden und bei Umnutzung unterstützen</p>`,
   effects: `<p>Erhaltung der Baukultur, Vermeidung von Leerständen, zunehmender Tourismus, Attraktivitätssteigerung, kurze Wege</p>`,
-  challenges: `<p>Denkmalschutz, Brandschutz, Nutzungsänderungsanträge- und Genehmigungen, oft teure Instandhaltung des Gebäudes.</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zwischennutzung</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Zentrum für Urbane Produktion / Handwerkerhof</li>
-  <li>Kurator zur Förderung von Bestandsunternehmen urban produzierender Unternehmen</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  </ul>`,
-  area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier und gesamtstädtischer Ebene möglich </p>`,
-  examples:`<ul>
-  <li><a href="https://www.lutherlab.de/" target="_blank">LutherLAB</a></li>
-  <li><a href="https://www.grubenhelden.de/de/" target="_blank">Grubenhelden Gladbeck</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/le-champignon-urbain/" target="_blank">Chapelle Martray Nantes</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/atelierguidettabrozzetti/" target="_blank">Atelier Guidetta Brozetti</a></li>
-  </ul>`,
+  challenges: `<p>Denkmalschutz, Brandschutz, Nutzungsänderungs- und Genehmigungsanträge, oft teure Instandhaltung des Gebäudes.</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li></ul>`,
+  area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier und Gesamtstadt möglich</p>`,
+  examples:`<ul><li><a href="https://www.lutherlab.de/"target="_blank">LutherLAB</a></li><li><a href="https://www.grubenhelden.de/de/"target="_blank">Grubenhelden Gladbeck</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/baeckerei-zipper/"target="_blank">Bäckerei Zipper</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/le-champignon-urbain/"target="_blank">Chapelle Martray Nantes</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/atelierguidettabrozzetti/"target="_blank">Atelier Guidetta Brozetti</a></li></ul>`,
   image: "img/produktive_kirchenimmobilien.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -117,36 +114,21 @@ let actions =
 },
 
 {
-  id: 423,
-  number: "4.2.3",
+  id: 123,
+  number: "1.2.3",
   title: "Einzelhandelsflächen",
-  description: `<p>Im Zuge des strukturellen Wandels des Einzelhandels sind zunehmend Leerstände ehemaliger Einzelhandelsflächen zu beobachten. Die Auswirkungen von Leerstand können sich, je nach Ausmaß, negativ auf den Stadtteil auswirken. Zwar ist Leerstand zunächst nicht negativ zu bewerten - eine gewisse Reserve in Gewerbeflächenangeboten hilft, den Immobilienmarkt flexibel und attraktiv zu gestalten - wird dieser dann zu einer Herausforderung, wenn die Leerstandsquote eine "gesunde" Reserve von 3 % übersteigt, können unter anderem Trading-Down-Effekte die Folge sein. Um eine Nutzungsmischung und Attraktivierung der Orte weiterhin zu gewährleisten, bietet es sich an, ehemalige Einzelhandelsstandorte auf anderweitige Nutzungsmöglichkeiten zu prüfen. Insbesondere kleine Manufakturen benötigen in der Regel nicht viel Fläche und profitieren von Laufkundschaft. Es gilt somit, explizit auch vormals nicht für Produktion genutzte Flächen für Urbane Produktion in den Blick zu nehmen.</p>`,
+  description: `<p>Im Zuge des strukturellen Wandels des Einzelhandels sind zunehmend Leerstände ehemaliger Einzelhandelsflächen zu beobachten. Die Auswirkungen von Leerstand können sich, je nach Ausmaß, negativ auf Quartiere und Stadtteile auswirken. Zwar sind Leerstände zunächst nicht zwingend negativ zu bewerten - eine gewisse Reserve in Gewerbeflächenangeboten hilft, den Immobilienmarkt flexibel und attraktiv zu gestalten – allerdings wird dieser zu einer Herausforderung, wenn die Leerstandsquote eine "gesunde" Reserve von 3 % übersteigt. Trading-Down-Effekte im Stadtteil können die Folge sein. Um eine Nutzungsmischung und Attraktivierung der Orte weiterhin zu gewährleisten, bietet es sich an, leergefallene Einzelhandelsstandorte auf anderweitige Nutzungsmöglichkeiten zu prüfen. Insbesondere kleine Manufakturen benötigen in der Regel nicht viel Fläche und profitieren von Laufkundschaft und bieten sich somit für die Unterbringung in solchen Flächen an. Es ist somit zu empfehlen auch vormals nicht für Produktion genutzte Flächen für Urbane Produktion in den Blick zu nehmen.</p>`,
   targetgroups: `<p>Urban produzierende Betriebe, Gründungsinteressierte</p>`,
-  actors: `<p>Wirtschaftsförderung, Stadtplanung, Eigentümer*innen</p>`,
+  actors: `<p>Wirtschaftsförderung, Stadtplanung, Eigentümer*innen, Urban produzierende Unternehmen</p>`,
   cost: `<p>Personal (Mittel); Sachkosten (Mittel)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
-  problem: `<p>Der Einzelhandel trägt zu einer Multifunktionalität der Städte bei. Zuerkennen ist jedoch, dass die Funktion des Einzelhandels als stadtbildendes und standortprägendes Element vielerorts bedroht ist, was sich in einem ausgeprägten Leerstand widerspiegeln kann</p>`,
-  solution: `<p>Explizit auch Einzelhandelsflächen als zukünftige Produktionsstandorte in den Blick nehmen, Bedarfe kleiner Manufakturen und Produzent*innen erheben. Hierzu ist es notwendig, die Rahmenbedingungen der Einzelhandelsflächen zu kennen.</p>`,
+  problem: `<p>Der Einzelhandel trägt zu einer Multifunktionalität der Städte bei. Zu erkennen ist jedoch, dass Einzelhandelsstandorte vielerorts nicht mehr vollumfänglich nachgefragt/genutzt werden, was sich in ausgeprägten Leerständen in vielen Quartieren und Zentren widerspiegelt.</p>`,
+  solution: `<p>Explizit auch Einzelhandelsflächen als zukünftige Produktionsstandorte in den Blick nehmen und Bedarfe kleiner Manufakturen und Produzent*innen erheben. Hierzu ist es wichtig, die Rahmenbedingungen der Einzelhandelsflächen zu kennen.</p>`,
   effects: `<p>Sichtbarmachung von Produktion und Sensibilisierung im Hinblick auf lokale Produktion, Vermeidung von Leerstand und damit von möglichen Trading-Down-Effekten, Attraktivierung von Stadtteilen / Quartieren</p>`,
-  challenges: `<p>Denkmalschutz, Brandschutz, Nutzungsänderungsanträge- und Genehmigungen, Logistik</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Sofortprogramm Innenstadt</li>
-  <li>Zwischennutzung</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  </ul>`,
+  challenges: `<p>Denkmalschutz, Brandschutz, Nutzungsänderungsanträge und Genehmigungen, Logistik</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Prosumptive Geschäftsmodelle</li></ul>`,
   area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/baeckerei-schmidt-karlsruhe/" target="_blank">Gläserne Produktion Karlsruhe</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/gemeinschaftsladen-schnickschnack-bochum/" target="_blank">Gemeinschaftsladen Schnickschnack</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/liebesgruss-wuppertal" target="_blank">Produktion und Verkauf</a></li>
-  </ul>
-  <p>Quartiersbeispiele:</p>
-  <ul>
-  <li><a href="https://urbaneproduktion.ruhr/-beispiel/elberfelder-nordstadt-wuppertal/" target="_blank">Elberfelder Nordstadt, Wuppertal</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/hoerder-zentrum-dortmund/" target="_blank">Zentrum Hörde, Dortmund</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://urbaneproduktion.ruhr/beispiel/baeckerei-schmidt-karlsruhe/"target="_blank">Bäckerei Schmidt</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/gemeinschaftsladen-schnickschnack-bochum/"target="_blank">Gemeinschaftsladen Schnickschnack</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/liebesgruss-wuppertal/"target="_blank">Liebesgruß</a></li></ul>Quartiersbeispiele:<ul><li><a href="https://urbaneproduktion.ruhr/-beispiel/elberfelder-nordstadt-wuppertal/"target="_blank">Elberfelder Nordstadt,Wuppertal</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/hoerder-zentrum-dortmund/"target="_blank">Zentrum Hörde,Dortmund</a></li></ul>`,
   image: "img/einzelhandelsflaechen.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -157,38 +139,21 @@ let actions =
 },
 
 {
-  id: 431,
-  number: "4.3.1",
+  id: 131,
+  number: "1.3.1",
   title: "Zwischennutzung",
-  description: `<p>Unter Zwischennutzung wird die zeitlich beschränkte Nutzung von Gebäuden und Flächen verstanden, weshalb oftmals auch von temporärer Nutzung gesprochen wird. Zwischennutzungen bieten eine Möglichkeit, Veränderungen bisheriger und/oder ursprünglich geplanter Nutzungen herbeizuführen. Bei einer erfolgreichen Zwischennutzung kann diese Ausgangspunkt für eine dauerhafte Nutzung sein. Zwischengenutzt werden können dabei beispielsweise ehemalige Bahnanlagen und Fabriken, Büros und andere Gebäude (z. B. nicht mehr genutzte Kirchen) aber auch leerstehende Wohnungen und Einzelhandelsflächen. Gelsenkirchen bietet viele dieser Flächen, deren Planung andauert und deren Nutzung in unmittelbarer Zukunft nicht abzusehen ist (siehe auch Kap. 3 Potenzialflächen). Zwischennutzungen können - neben der Behebung von Leerstand, der Möglichkeit zum Experimentieren mit Geschäftsmodellen und der Belebung von Quartieren - dazu beitragen, dass diese Flächen wieder wahrgenommen werden.</p>`,
-  targetgroups: `<p>Unternehmer*innen, Gründungsinteressierte, Eigentümmer*innen</p>`,
-  actors: `<p>Zwischennutzungsagenturen, Wirtschaftsförderung, Quartiersmanagement, Stadtplanung, Bauordnung</p>`,
+  description: `<p>Unter Zwischennutzung wird die zeitlich beschränkte Nutzung von Gebäuden und Flächen verstanden, weshalb oftmals auch von temporärer Nutzung gesprochen wird. Zwischennutzungen bieten eine Möglichkeit, Veränderungen bisheriger und/oder ursprünglich geplanter Nutzungen herbeizuführen. Bei einer erfolgreichen Zwischennutzung kann diese Ausgangspunkt für eine dauerhafte Nutzung sein. Zwischengenutzt werden können beispielsweise ehemalige Bahnanlagen und Fabriken, Büros und andere Gebäude (z. B. nicht mehr genutzte Kirchen) aber auch leerstehende Wohnungen und Einzelhandelsflächen. Zwischennutzungen können - neben der Behebung von Leerstand, der Möglichkeit zum Experimentieren mit Geschäftsmodellen und der Belebung von Quartieren - dazu beitragen, dass diese Flächen wieder wahrgenommen werden.</p>`,
+  targetgroups: `<p>Unternehmer*innen, Gründungsinteressierte, Urban produzierende Unternehmen, Eigentümer*innen</p>`,
+  actors: `<p>Zwischennutzungsagenturen, Wirtschaftsförderung, Quartiers- /Citymanagement, Stadtplanung, Bauordnung</p>`,
   cost: `<p>Personal (mittel), Sachkosten (gering)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
   problem: `<p>Leerstehende Gebäude, Flächen und Räumlichkeiten werden nicht genutzt und können somit zu einer Trading-Down-Spirale im Quartier führen, in dem sie verfallen.</p>`,
   solution: `<p>Zwischennutzungskampagnen, Werbung, gezielte Ansprache von Produzent*innen und Immobilieneigentümer*innen, Zwischennutzung als Instrument in der Stadtplanung</p>`,
   effects: `<p>Leerstandsaktivierung, Experimentieren und Anpassen von Geschäftsmodellen und neuer Branchen am Standort, Aufmerksamkeit auf Flächen und Gebäude</p>`,
   challenges: `<p>Mangelnde Bereitschaft und fehlendes Interesse von Immobilieneigentümer*innen, Bisheriger Fokus ausschließlich auf Kunst- und Kreativwirtschaft, Handeln und Planen in kurzfristigen Zeiträumen</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Produktive Kirchenimmobilien</li>
-  <li>Einzelhandelsflächen</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li>
-  <li>Zusammenarbeit mit der Wohnungswirtschaft</li>
-  <li>Urbane Logistik</li>
-  <li>Gemeinschaftsgärten</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li><li>Urbane Logistik</li><li>Gemeinschaftsgärten</li></ul>`,
   area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://www.tapetenwechsel-bochum.de/" target="_blank">Tapetenwechsel Bochum</a>
-  <ul><li>PopUp-Store KulturUhle: ChargAire, Grubenholz, Sperling Bag, Kunstundkegel, Think<sup>2</sup></li>
-  <li>PopUp-Store: ACERON UG, EssBo!, Foodsharing, Grubenholz, UrbaneProduktion.Ruhr</li></ul></li>
-  <li><a href="https://www.gelsenkirchen.de/de/infrastruktur/stadtplanung/stadterneuerung_
-  gelsenkirchen/bochumer_strasse/kutschenwerkstatt.aspx" target="_blank">Kutschenwerkstatt Gelsenkirchen</a></li>
-  <li><a href="https://www.zzz-bremen.de/blog/zzz-und-zwischennutzung-in-bremen/" target="_blank">Zwischenzeitzentrale Bremen</a></li>
-  <li><a href="https://www.nationalestadtentwicklungspolitik.de/NSP/SharedDocs/-Projekte/WSProjekte_DE/Wuppertal_Zwischennutzungsagentur.html" target="_blank">Zwischennutzungsagentur Wuppertal</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.tapetenwechsel-bochum.de/"target="_blank">Tapetenwechsel Bochum</a><ul><li>PopUp-Store KulturUhle:ChargAire,Grubenholz,Sperling Bag,Kunstundkegel,Think<sup>2</sup></li><li>PopUp-Store:ACERON UG,EssBo!,Foodsharing,Grubenholz,UrbaneProduktion.Ruhr</li></ul></li><li><a href="https://www.gelsenkirchen.de/de/infrastruktur/stadtplanung/stadterneuerung_gelsenkirchen/bochumer_strasse/kutschenwerkstatt.aspx"target="_blank">Kutschenwerkstatt Gelsenkirchen</a></li><li><a href="https://www.zzz-bremen.de/blog/zzz-und-zwischennutzung-in-bremen/"target="_blank">Zwischenzeitzentrale Bremen</a></li><li><a href="https://www.nationalestadtentwicklungspolitik.de/NSP/SharedDocs/-Projekte/WSProjekte_DE/Wuppertal_Zwischennutzungsagentur.html"target="_blank">Zwischennutzungsagentur Wuppertal</a></li></ul>`,
   image: "img/zwischennutzung.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -199,44 +164,21 @@ let actions =
 },
 
 {
-  id: 432,
-  number: "4.3.2",
+  id: 132,
+  number: "1.3.2",
   title: "Inkubator(en) und praktische Lernorte für die Stadtgesellschaft",
-  description: `<p>Um Urbane Produktion ins Stadtbild zu integrieren, braucht es Möglichkeitsräume, in denen sich Produzent*innen ausprobieren und entfalten können. Solche Möglichkeitsräume können unter anderem von Kommunen, Wirtschaftsförderungen, Hochschulen oder auch zivilgesellschaftlichen Organisationen kostenlos oder kostengünstig zur Verfügung gestellt werden. Makerspaces bzw. FabLabs können hier als Innovations- und Partizipationsorte fungieren und stellen Inkubatoren Urbaner Produktion dar.</p>
-  <p><b>Halle 1 der Westfälischen Hochschule / VHS:</b> Orte wie die Halle 1 der Westfälischen Hochschule Gelsenkirchen oder die VHS Gelsenkirchen bieten die Möglichkeit, Wissen von klassischen (z. B. Nähen, Stricken) bis zu neuen Produktionsformen (z. B. 3D-Druck, CNC-Technik) zu vermitteln und für die Zivilgesellschaft erfahr- sowie erlernbar zu machen. In diesen Räumen sind sowohl Ausstellungen als auch interaktive Workshop-Formate mit Produzierenden und Handwerker*innen denkbar. Über ein wechselndes Programm könnten unterschiedliche Angebote für Freizeitbesucher*innen, Schulen sowie Fachbesucher*innen bereitgestellt werden. Mit einer technischen Grundausstattung (u. a. Plotter, 3D-Drucker, Lasercutter, Haushalts- und Spezialwerkzeuge) sind darüber hinaus Service-, sowie ‚Do-it-yourself‘ (DIY)-Angebote realisierbar.</p>
-  <p><b>Offene Werkstatt:</b> Eine Kooperation wäre auch mit den Akteuren „Freunde des Bahnbetriebswerks Bismarck e.V.“ denkbar, die bereits die Idee hatten am gleichnamigen Ort eine Offene Werkstatt zu errichten (isso Gelsenkirchen 11/2020: 26-27), oder der Materialverwaltung Ruhr, die einen langfristigen Standort sucht und sich in den Kulissen der Materialverwaltung weitere Angebote vorstellen kann wie bspw. Nähcafé, Siebdruckworkshops, oder ein Repair-Café mit regelmäßigen Öffnungszeiten.</p>
-  <p><b>Textilhub:</b> Ein Zugang für eine experimentelle Nutzung könnte z. B. auch in Form eines Textilhubs über das Sofortprogramm Innenstadt erfolgen</p>`,
+  description: `<p>Um Urbane Produktion ins Stadtbild zu integrieren, braucht es Möglichkeitsräume, in denen sich Produzent*innen ausprobieren und entfalten können. Solche Möglichkeitsräume können unter anderem von Kommunen, Wirtschaftsförderungen, Hochschulen oder auch zivilgesellschaftlichen Organisationen kostenlos oder kostengünstig zur Verfügung gestellt werden. Makerspaces bzw. FabLabs können hier als Innovations- und Partizipationsorte fungieren und stellen Inkubatoren Urbaner Produktion dar. In vielen Städten gibt es dahingehend bereits Anknüpfungspunkte, z.B. in Form von Vereinen oder einzelnen engagierten Bürger*innen, die bei der Etablierung solcher Orte aufgegriffen und genutzt werden können.</p>`,
   targetgroups: `<p>Bürger*innen, Schüler*innen, Studierende</p>`,
-  actors: `<p>Stadtverwaltung (Referate Erziehung und Bildung, Kultur, Stadtplanung, Umwelt, Wirtschaftsförderung), Urban produzierende Unternehmen, Westfälische Hochschule, VHS, Handwerkskammer, Vereine</p>`,
-  cost: `<p>Personal (mittel), Sachkosten (gering bis mittel; je nach Material und Technik)</p>`,
+  actors: `<p>Stadtverwaltung (insb. Referate Erziehung und Bildung, Kultur, Stadtplanung, Umwelt), Wirtschaftsförderung, Urban produzierende Unternehmen, Vereine, Hochschulen, VHS, Handwerkskammern</p>`,
+  cost: `<p>Personal (mittel), Sachkosten (gering bis mittel)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
-  problem: `<p>Fachkräfte und Betriebsnachfolger*innen fehlen im Handwerk und produzierendem Gewerbe auch aufgrund der unzureichenden Bewerbung dieser Berufe oder dem oftmals schlechten Image. Hinzu kommt die fehlende Akzeptanz von Circular-Economy-Ansätzen und damit einhergehend die Verschwendung von Ressourcen.</p>`,
-  solution: `<p>Mit bestehenden Akteuren Lösungsstrategien entwickeln, Fördergelder für die Startinvestitionen beantragen</p>`,
+  problem: `<p>Fachkräfte und Betriebsnachfolger*innen fehlen im Handwerk und produzierendem Gewerbe auch aufgrund der unzureichenden Bewerbung dieser Berufe oder dem oftmals schlechten Image. Hinzu kommt die fehlende Kenntnis bezüglich Circular-Economy-Ansätze und damit einhergehend die Verschwendung von Ressourcen</p>`,
+  solution: `<p>Mit bestehenden Akteuren Lösungsstrategien entwickeln, Fördergelder für die Startinvestitionen einwerben</p>`,
   effects: `<p>Angebote zur selbständigen Reparatur und Bildung für die allgemeine Bevölkerung schaffen. Durch Erfahrung des Selbermachens Suffizienz im Rahmen der Nachhaltigkeit und Interesse für produzierende Berufe und das Handwerk wecken</p>`,
-  challenges: `<p>Dauerhafte Finanzierung von Personal, bzw. Räumlichkeiten.</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zechenstandorte / ehemalige Industrieflächen</li>
-  <li>Produktive Kirchenimmobilien</li>
-  <li>Einzelhandelsflächen</li>
-  <li>Zentrum für Urbane Produktion / Handwerkerhof</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Zusammenarbeit mit der Wohnungswirtschaft</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  </ul>`,
-  area: `<p>Immobilie/Grundstück, Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://kofabrik.de/" target="_blank">KoFabrik in Bochum</a></li>
-  <li><p>Produktionsschule Berlin-Mitte</p>
-  <div><a href="https://www.zukunftsbau.de/taetigkeitsfelder/statt-schule-move/produktionsschule-mitte-ps-m" target="_blank">https://www.zukunftsbau.de/taetigkeitsfelder/statt-schule-move/produktionsschule-mitte-ps-m</a></div>
-  <div><a href="https://urbaneproduktion.ruhr/beispiel/produktionsschule-mitte/" target="_blank">https://urbaneproduktion.ruhr/beispiel/produktionsschule-mitte/</a></div></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/hei-haus-der-eigenarbeit/" target="_blank">Offene Werkstatt mit Bildungsangebot, wie z. B. Haus der Eigenarbeit in München</a></li>
-  <li><a href="https://www.dasa-dortmund.de/" target="_blank">Deutsche Arbeitsschutzausstellung (DASA) Dortmund</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/halle-1/" target="_blank">Makerspace an der Westfälischen Hochschule, inkl. innovativer, nachhaltiger Produktentwicklung</a></li>
-  <li><a href="https://dieurbanisten.de/offene-werkstatt-laedt-zum-selbermachen-ein/" target="_blank">Union Gewerbehof in Dortmund</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/schokofabrik/" target="_blank">Schokofabrik Berlin-Kreuzberg (Workshops gezielt für Frauen)</a></li>
-  </ul>`,
+  challenges: `<p>Dauerhafte Finanzierung von Personal bzw. Räumlichkeiten.</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li><li>Wissenstransfer in die Stadtgesellschaft</li></ul>`,
+  area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
+  examples: `<ul><li><a href="https://kofabrik.de/"target="_blank">KoFabrik in Bochum</a></li><li>Produktionsschule Berlin-Mitte<ul><li><a href="https://www.zukunftsbau.de/taetigkeitsfelder/statt-schule-move/produktionsschule-mitte-ps-m"target="_blank">https://www.zukunftsbau.de/taetigkeitsfelder/statt-schule-move/produktionsschule-mitte-ps-m</li><li><a href="https://urbaneproduktion.ruhr/beispiel/produktionsschule-mitte/"target="_blank">https://urbaneproduktion.ruhr/beispiel/produktionsschule-mitte/</li></ul></li><li><a href="https://urbaneproduktion.ruhr/beispiel/hei-haus-der-eigenarbeit/"target="_blank">Haus der Eigenarbeit in München</a></li><li><a href="https://www.dasa-dortmund.de/"target="_blank">Deutsche Arbeitsschutzausstellung(DASA)Dortmund</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/halle-1/"target="_blank">Halle 1 in Gelsenkirchen</a></li><li><a href="https://dieurbanisten.de/offene-werkstatt-laedt-zum-selbermachen-ein/"target="_blank">Union Gewerbehof in Dortmund</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/schokofabrik/"target="_blank">Schokofabrik in Berlin-Kreuzberg(Workshops gezielt für Frauen)</a></li></ul>`,
   image: "img/inkubator(en)_und_praktische _lernorte_fuer_die_stadtgesellschaft.png",
   imageSrc: "",
   iconsValuation: {
@@ -247,34 +189,21 @@ let actions =
 },
 
 {
-  id: 433,
-  number: "4.3.3",
+  id: 133,
+  number: "1.3.3",
   title: "Zentrum für Urbane Produktion / Handwerkerhof",
-  description: `<p>Das „Manufakturenhaus“ als Ort, an dem mehrere Manufakturen/ produzierende Betriebe neben-, unter- und übereinander ‚werkeln‘, bietet sowohl für die Betriebe selbst als auch für deren Kund*innen die Möglichkeit, in kurzer räumlicher und zeitlicher Distanz verschiedene Anliegen miteinander zu verbinden. Betriebe können Infrastrukturen, Geräte und Maschinen gemeinschaftlich nutzen und damit verbundene Kosten teilen. Die konkrete Ausgestaltung und inhaltliche Ausrichtung kann je nach Lage in der Stadt und Eigenart der Immobilie unterschiedlich sein. Denkbar ist z. B. eine Art Shoppingmall mit regionalen Produkten, die direkt vor Ort in Manufakturräumen hergestellt, personalisiert und veredelt werden. Auch eine Markthalle mit eingebetteter Gastronomie und Verköstigung ist denkbar oder ein Handwerkerhof, in dem unterschiedliche Gewerke zu günstigen Mieten Räume beziehen und gemeinsam innerhalb eines Gebäudes Aufträge bearbeiten. Es soll eine Atmosphäre für unternehmerische Kooperationen geschaffen werden und ein Ort, der auch überregionale Strahlkraft entfalten kann. Voraussetzung sind geeignete und finanzierbare Immobilien sowie finanzielle Mittel bzw. ein/e Investor*in oder Initiativgruppe.</p>`,
+  description: `<p>Das „Manufakturenhaus“ als Ort, an dem mehrere Manufakturen / produzierende Betriebe neben-, unter- und übereinander ‚werkeln‘, bietet sowohl für die Betriebe selbst als auch für deren Kund*innen die Möglichkeit, in kurzer räumlicher und zeitlicher Distanz verschiedene Anliegen miteinander zu verbinden. Betriebe können Infrastrukturen, Geräte und Maschinen gemeinschaftlich nutzen und damit verbundene Kosten teilen. Die konkrete Ausgestaltung und inhaltliche Ausrichtung können je nach Lage in der Stadt und Eigenart der Immobilie unterschiedlich sein. Denkbar ist z. B. eine Art Shoppingmall mit regionalen Produkten, die direkt vor Ort in Manufakturräumen hergestellt, personalisiert und veredelt werden. Auch eine Markthalle mit eingebetteter Gastronomie und Verköstigung ist denkbar oder ein Handwerkerhof, in dem unterschiedliche Gewerke zu günstigen Mieten Räume beziehen und gemeinsam innerhalb eines Gebäudes Aufträge bearbeiten. Es soll eine Atmosphäre für unternehmerische Kooperationen geschaffen werden und ein Ort, der auch überregionale Strahlkraft entfalten kann. Voraussetzung sind geeignete und finanzierbare Immobilien sowie finanzielle Mittel bzw. ein/e Investor*in oder Initiativgruppe.</p>`,
   targetgroups: `<p>Urban produzierende Betriebe, produktionsnahe Dienstleister*innen</p>`,
   actors: `<p>Wirtschaftsförderung, Stadtplanung, Bauordnung, Handwerkskammer, Urban produzierende Betriebe, Investor*innen</p>`,
   cost: `<p>Personal (mittel), Sachkosten (mittel bis hoch)</p>`,
   time: `<p>Langfristig</p>`,
-  problem: `<p>Leergefallene Großimmobilien in guten Lagen bieten ein hohes Potenzial, welches aktuell nicht genutzt wird </p>`,
+  problem: `<p>Synergien zwischen verschiedenen Unternehmen sowie die Potenziale leergefallener Großimmobilien in guten Lagen werden aktuell kaum genutzt</p>`,
   solution: `<p>Geeignete Immobilien identifizieren, Finanzierungsmöglichkeiten klären, Interessent*innen finden, inhaltliche Ausrichtung definieren, Konzept entwickeln</p>`,
-  effects: `<p>Handwerkerhöfe und Zentren für Urbane Produktion bieten einen besonderen Ort für Arbeit, Kooperation und Konsum, Schaffung regionaler Produktionskreisläufe </p>`,
-  challenges: `<p>Immobiliensuche, Investitionsbedarf, Konzeptentwicklung, Unternehmensakquise</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Sofortprogramm Innenstadt</li>
-  <li>Zechenstandorte / ehemalige Industrieflächen</li>
-  <li>Produktive Kirchenimmobilien</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Nutzungsmischung / Planungsrecht / Bauordnungsrecht</li>
-  </ul>`,
-  area: `<p>Immobilie, Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://www.handwerkerhof-ottensen.de/#" target="_blank">Handwerkerhof Ottensen</a></li>
-  <li><a href="https://www.nuernberg.de/internet/handwerkerhof/" target="_blank">Handwerkerhof Nürnberg: eher touristisch angelehnt, mit Klein- und Kunsthandwerk</a></li>
-  <li><a href="https://www.hwk-do.de/artikel/handwerkshof-viahome-37,0,544.html" target="_blank">Handwerkshof Viahome in Lünen</a></li>
-  </ul>`,
+  effects: `<p>Handwerkerhöfe und Zentren für Urbane Produktion bieten einen besonderen Ort für Arbeit, Kooperation und Konsum und ermöglichen die Schaffung regionaler Produktionskreisläufe</p>`,
+  challenges: `<p>Investitionsbedarf, Konzeptentwicklung, Unternehmensakquise, Immobiliensuche</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Nutzungsmischung / Planungsrecht / Bauordnungsrecht</li><li>Prosumptive Geschäftsmodelle</li></ul>`,
+  area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
+  examples: `<ul><li><a href="https://www.handwerkerhof-ottensen.de/#"target="_blank">Handwerkerhof Ottensen</a></li><li><a href="https://www.nuernberg.de/internet/handwerkerhof/"target="_blank">Handwerkerhof Nürnberg</a></li><li><a href="https://www.hwk-do.de/artikel/handwerkshof-viahome-37,0,544.html"target="_blank">Handwerkshof Viahome in Lünen</a></li></ul>`,
   image: "img/zentrum_fuer_urbane_produktion.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -285,29 +214,46 @@ let actions =
 },
 
 {
-  id: 441,
-  number: "4.4.1",
-  title: "Kurator zur Förderung von Bestandsunternehmen urban produzierender Unternehmen",
-  description: `<p>Ein Kurator bzw. eine Kuratorin hilft bestehenden Unternehmen Urbaner Produktion und deren Nachbarschaften, durch Interessenabgleich, Aufbau von Partnerschaften, Bedarfsanalyse, Kommunikation von Neuigkeiten und Stützung der Interessen in der jeweiligen Gemeinschaft. Dabei eignet sich sowohl die Integration der Stelle im Quartiersmanagement als auch die Vergabe an eine externe Agentur bzw. Entwicklungsgesellschaft. Der Kurator bzw. die Kuratorin unterstützt ferner Unternehmen bei Subventionen und Förderungen, Fachkräftesicherung, Ausstattung, Räumlichkeiten und Ressourcen und verknüpft die jeweiligen Bedarfe auch mit denen, die im jeweiligen Stadtteil bzw. der Stadt entstehen. Dadurch besteht die Möglichkeit mit dieser Stelle eine Brücke zwischen öffentlicher Hand bzw. Kommune und lokalen Unternehmen bzw. der Zivilgesellschaft zu bilden.</p>`,
+  id: 141,
+  number: "1.4.1",
+  title: "Sonderpreis: „Urbane Produktion der Wirtschaftsförderung“",
+  description: `<p>Die Gründung von Unternehmen ist für Gründende stets mit großen Herausforderungen und Risiken verbunden – das gilt nicht zuletzt auch für urban produzierenden Betriebe. Hier können Städte z.B. in durch die kommunalen Wirtschaftsförderungen Förderungsmöglichkeiten in Form von (themenbezogenen) Gründungswettbewerben schaffen. Gründende können sich für diese bewerben und werden dann von der Konzepterstellung bis zur eigentlichen Gründung durch die Wirtschaftsförderung und weitere Expert*innen betreut und beraten. Der Gewinner wird auf Grundlage einer Jury-Beurteilung (Bsp.: Wer hat das beste Konzept und den besten Businessplan erarbeitet?) ermittelt und erhält ein Preisgeld, welches in die weitere Unternehmensgründung investiert werden kann. Durch solche Gründungwettbewerbe können urban produzierende Betriebe unterstützt, ein positives Gründungsklima in der Stadt geschaffen und eine größere Aufmerksamkeit für das Thema Urbane Produktion generiert werden.</p>`,
+  targetgroups: `<p>Urban produzierende Betriebe</p>`,
+  actors: `<p>Wirtschaftsförderung, IHK, WHK</p>`,
+  cost: `<p>Personal (mittel), Sachkosten (mittel bis hoch)</p>`,
+  time: `<p>Mittelfristig</p>`,
+  problem: `<p>Unternehmensgründungen sind mit einer Vielzahl von Herausforderungen verbunden (Konzepts- & Businessplanerstellung, Kosten, Vernetzung & Marketing)</p>`,
+  solution: `<p>Förderung und Unterstützung von Gründenden auf organisatorischer und finanzieller Ebene durch Expert*innen und die öffentliche Hand</p>`,
+  effects: `<p>Unterstützung von Gründenden und Schaffung guter Gründungsbedingungen in der Stadt; Öffentlichkeitsarbeit für konkrete Betriebe sowie für das Themenfeld Urbane Produktion</p>`,
+  challenges: `<p>Organisation der Unterstützungsangebote und Veranstaltungen sowie Einwerben von Förder- und Preisgeldern</p>`,
+  interactions: `<ul><li>Zwischennutzung</li><li>Einbindung von Universitäten / Hochschulen</li><li>Netzwerk und Vernetzung</li></ul>`,
+  area: `<p>Gesamtstadt</p>`,
+  examples: `<ul><li><a href="https://urbaneproduktion.ruhr/sonderpreis-urbane-produktion-im-senkrechtstarter-und-der-gewinner-ist" target="_blank">Gründungswettbewerb der Senkrechtstarter Bochum</a></li></ul>`,
+  image: "img/todo.jpg", //TODO
+  imageSrc: "",
+  iconsValuation: { //TODO
+    effects: 1,
+    challenges: 1
+  },
+  theme: "Neuansiedlung und Unterstützung von Gründungen",
+},
+
+{
+  id: 151,
+  number: "1.5.1",
+  title: "Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion",
+  description: `<p>Ein Kurator bzw. eine Kuratorin hilft bestehenden Unternehmen Urbaner Produktion und deren Nachbarschaften, durch Interessenabgleich, Aufbau von Partnerschaften, Bedarfsanalyse, Kommunikation von Neuigkeiten und Stützung der Interessen in der jeweiligen Gemeinschaft (Hill et al 2020: 93). Dabei eignet sich sowohl die Integration der Stelle im Quartiersmanagement als auch die Vergabe an eine externe Agentur bzw. Entwicklungsgesellschaft. Der Kurator bzw. die Kuratorin unterstützt ferner Unternehmen bei Subventionen und Förderungen, Fachkräftesicherung, Ausstattung, Räumlichkeiten und Ressourcen und verknüpft die jeweiligen Bedarfe auch mit denen, die im jeweiligen Stadtteil bzw. der Stadt entstehen. Dadurch besteht die Möglichkeit mit dieser Stelle eine Brücke zwischen öffentlicher Hand bzw. Kommune und lokalen Unternehmen respektive der Zivilgesellschaft zu bilden. In größeren Städten, mit einem entsprechend größeren Aufgabenpensum, wäre zudem die Schaffung einer eigenständigen Agentur für Urbane Produktion denkbar, die mit entsprechenden finanziellen und personellen Ressourcen ausgestattet ist.</p>`,
   targetgroups: `<p>Urban produzierende Betriebe</p>`,
   actors: `<p>Wirtschaftsförderung, u. U. Werbegemeinschaft</p>`,
-  cost: `<p>Personalkosten (mittel), Sachkosten (keine)</p>`,
+  cost: `<p>Personalkosten (mittel)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
-  problem: `<p>V. a. KMU haben oft aufgrund von Zeit- und Personalmangel keine Möglichkeiten, sich über aktuelle Förderungen zu informieren oder gemeinschaftliche Netzwerke ins Leben zu rufen. Zwar haben urbane Produzent*innen häufig handwerkliche Fähigkeiten, jedoch bedarf es für den Betrieb eines Unternehmens weiterer Fähigkeiten, die über das technische Know-how hinausgehen. Angebote der Stadt kommen häufig nicht bei den Unternehmen an oder entsprechen nicht deren Bedürfnissen.</p>`,
-  solution: `<p>Unternehmen können sich finanziell an der Stelle beteiligen, um Mitspracherecht über Aufgaben zu haben und diese gemeinsam zu definieren</p>`,
-  effects: `<p>Aufbau eines Unternehmer*innennetzwerks, Potenzielle Schaffung neuer lokaler Wertschöpfungsketten</p>`,
-  challenges: `<p>Unternehmen sehen Netzwerke als Zeitverschwendung an. Kurator*innenstelle ist nur befristet möglich – häufiger Wechsel der Person führt zum Verlust von Netzwerken und Wissen sowie Vertrauensverlust seitens der Unternehmen.</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Storytelling</li>
-  <li>Netzwerk und Vernetzung</li>
-  <li>Newsletter</li>
-  </ul>`,
+  problem: `<p>KMU haben oft aufgrund von Zeit- und Personalmangel keine Möglichkeiten, sich über aktuelle Förderungen zu informieren oder gemeinschaftliche Netzwerke ins Leben zu rufen. Zwar haben urbane Produzent*innen häufig handwerkliche Fähigkeiten, jedoch bedarf es für den Betrieb eines Unternehmens weiterer Fähigkeiten, die über das technische Know-how hinausgehen. Angebote der Stadt kommen häufig nicht bei den Unternehmen an oder entsprechen nicht deren Bedürfnissen.</p>`,
+  solution: `<p>Schaffung einer gesonderten Stelle zur Unterstützung urban produzierender Betriebe, an der sich diese u.U. finanziell beteiligen, um entsprechende Mitspracherechte zu erwirken</p>`,
+  effects: `<p>Bessere Organisation der Unterstützungs- und Förderstruktur Urbaner Produktion, Aufbau eines Unternehmer*innennetzwerks</p>`,
+  challenges: `<p>Unternehmen sehen Mehrwerte von Netzwerken nicht. Kurator*innenstelle ist nur befristet möglich – häufiger Wechsel der Person führt zum Verlust von Netzwerken und Wissen sowie Vertrauensverlust seitens der Unternehmen</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Storytelling</li><li>Netzwerk und Vernetzung</li><li>Newsletter</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="http://www.wab-langendreer.de/" target="_blank">Langendreer hat’s / meine WAB (Werbegemeinschaft Alter Bahnhof)</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="http://www.wab-langendreer.de/" target="_blank">Langendreer hat’s / meine WAB (Werbegemeinschaft Alter Bahnhof)</a></li></ul>`,
   image: "img/kurator_in_zur_foerderung_von_bestandsunternehmen.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -318,42 +264,21 @@ let actions =
 },
 
 {
-  id: 442,
-  number: "4.4.2",
+  id: 152,
+  number: "1.5.2",
   title: "Integriertes Wirtschaftsflächenkonzept",
-  description: `<p>Die Grundvoraussetzung, um mit diesem informellen Instrument praktische Handlungen anstoßen zu können, ist dessen politische Legitimation, sodass darin formulierte Planungsabsichten auch tatsächlich Gewicht in der Abwägung mit anderen Fachplanungen zukommen. Urbane Produktion ist hierbei ein Baustein innerhalb des Instruments sowie der städtischen Wirtschaftsstruktur, den es bestmöglich mit weiteren bedeutsamen Wirtschaftsbereichen abzustimmen gilt, um geeignete Handlungsstrategien für praktische Projekte, Flächen und Immobilien zu entwickeln. Denkbar ist ein modular aufgebautes Wirtschaftsflächenkonzept, das einen analytischen und einen konzeptionellen Teil umfasst.</p>
-  <p>Das Integrierte Wirtschaftsflächenkonzept</p>
-  <ul>
-  <li>dient der Steuerung und Koordination gesamtstädtischer Planungen zur Entwicklung der städtischen Wirtschaft anhand eines räumlichen Leitbildes oder Rahmenplans;</li>
-  <li>enthält Module zu unterschiedlichen Wirtschaftsbereichen oder -formen, d. h. inhaltlich wird neben den klassischen gewerblichen Bauflächen des Flächennutzungsplans in einem weiteren Modul insbesondere stadtaffines Gewerbe und Produktion in Mischgebieten oder kleinteiligen Gewerbelagen in Wohngebieten und urbanen Lagen fokussiert. Zusätzlich ist die Ausrichtung von Gewerbe- und Industriegebieten zu thematisieren. An welchen Standorten soll auch zukünftig Industrie und störendes Gewerbe erhalten bleiben? Wo soll eine stärke städtebauliche Verknüpfung mit dem Siedlungsraum geschaffen werden, indem eine Nutzungsmischung forciert und urbane Qualitäten entwickelt werden?</li>
-  <li>nutzt Quartiere als räumliche Bezugsebene zur Analyse, räumlichen und inhaltlichen Standortprofilierung sowie zum Erhalt vorhandener Mischung, um Verdrängungstendenzen gewerblicher Nutzungen vorzubeugen;</li>
-  <li>identifiziert und beschreibt langfristig optimaler Weise Potenzialflächen und Grundstücke sowie Immobilien und differenziert diese hinsichtlich ihrer zeitlichen Aktivierbarkeit (kurz-, mittel-, langfristig)</li>
-  </ul>`,
+  description: `<p>Die Grundvoraussetzung, um mit dem informellen Instrument des integrierten Wirtschaftsflächenkonzepts praktische Handlungen anstoßen zu können, ist dessen politische Legitimation, sodass darin formulierten Planungsabsichten auch tatsächlich Gewicht in der Abwägung mit anderen Fachplanungen zukommen. Urbane Produktion ist hierbei ein Baustein innerhalb des Instruments sowie der städtischen Wirtschaftsstruktur, den es bestmöglich mit weiteren bedeutsamen Wirtschaftsbereichen abzustimmen gilt, um geeignete Handlungsstrategien für praktische Projekte, Flächen und Immobilien zu entwickeln. Denkbar ist ein modular aufgebautes Wirtschaftsflächenkonzept, das einen analytischen und einen konzeptionellen Teil umfasst.</p><p>Das Integrierte Wirtschaftsflächenkonzept...</p><ul><li>dient der Steuerung und Koordination gesamtstädtischer Planungen zur Entwicklung der städtischen Wirtschaft anhand eines räumlichen Leitbildes oder Rahmenplans;</li><li>enthält Module zu unterschiedlichen Wirtschaftsbereichen oder -formen, d. h. inhaltlich wird neben den klassischen gewerblichen Bauflächen des Flächennutzungsplans in einem weiteren Modul insbesondere stadtaffines Gewerbe und Produktion in Mischgebieten oder kleinteiligen Gewerbelagen in Wohngebieten und urbanen Lagen fokussiert. Zusätzlich ist die Ausrichtung von Gewerbe- und Industriegebieten zu thematisieren. An welchen Standorten soll auch zukünftig Industrie und emissionsintensives Gewerbe erhalten bleiben? Wo soll eine stärkere städtebauliche Verknüpfung mit dem Siedlungsraum geschaffen werden, indem eine Nutzungsmischung forciert und urbane Qualitäten entwickelt werden?</li><li>nutzt Quartiere als räumliche Bezugsebene zur Analyse, räumlichen und inhaltlichen Standortprofilierung sowie zum Erhalt vorhandener Mischnutzungen, um Verdrängungstendenzen gewerblicher Nutzungen vorzubeugen;</li><li>identifiziert und beschreibt langfristig Potenzialflächen und Grundstücke sowie Immobilien und differenziert diese hinsichtlich ihrer zeitlichen Aktivierbarkeit (kurz-, mittel-, langfristig).</li></ul>`,
   targetgroups: `<p>Stadtverwaltung</p>`,
   actors: `<p>Wirtschaftsförderung, Stadtplanung, Politik</p>`,
-  cost: `<p>Personal (mittel), Sachkosten (keine)</p>`,
+  cost: `<p>Personal (mittel)</p>`,
   time: `<p>Mittelfristig</p>`,
-  problem: `<p>Planerische Handlungen bedürfen einer politischen Legitimation</p>`,
-  solution: `<p>Anfertigen eines Wirtschaftsflächenkonzepts, in dem Urbane Produktion ein wesentlichen Baustein darstellt um gesamtstädtisch planen und Urbane Produktion forcieren zu können</p>`,
-  effects: `<p>Planung wird strategisch ausgerichtet, Flächensicherung- und Entwicklung wird gesamtstädtisch sichergestellt</p>`,
+  problem: `<p>Planerische Zielsetzungen und Handlungen bedürfen einer politischen Legitimation, zum Teil schwierige Datenerhebung für einzelne Gebiete</p>`,
+  solution: `<p>Anfertigen eines Wirtschaftsflächenkonzepts, in dem Urbane Produktion einen wesentlichen Baustein darstellt, um gesamtstädtisch planen und Urbane Produktion fördern zu können</p>`,
+  effects: `<p>Planung für Urbane Produktion wird strategisch ausgerichtet, gewerbliche Flächensicherung- und Entwicklung wird gesamtstädtisch sichergestellt</p>`,
   challenges: `<p>Verantwortlichkeiten und Zuständigkeiten müssen definiert werden</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zechenstandorte / ehemalige Industrieflächen</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Nutzungsmischung / Planungsrecht / Bauordnungsrecht</li>
-  <li>Urbane Logistik</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>ehemalige Industrieflächen / Zechenstandorte</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Nutzungsmischung / Planungsrecht / Bauordnungsrecht</li><li>Urbane Logistik</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.heidelberg.de/site/Heidelberg_ROOT/get/documents_E-881126943/heidelberg/Objektdatenbank/80/PDF/80_pdf_
-  wirtschaftsfl%C3%A4chenkonzept-cima_by_stadt_heidelberg_19.12.2012.pdf" target="_blank">Wirtschaftsflächenkonzept Heidelberg</a></li>
-  <li><a href="https://www.stadtentwicklung.berlin.de/planen/stadtentwicklungsplanung/
-  download/wirtschaft/2020_Leitfaden_SenSW_WiKo.pdf" target="_blank">Bezirkliche Wirtschaftsflächenkonzepte (WiKo) Berlin</a></li>
-  <li><a href="https://www.muelheim-business.de/fileadmin/user_upload/PDF/2019/
-  MH_Wirtschaftsflaechenkonzept_Final_09.10.2019.pdf" target="_blank">Wirtschaftsflächenkonzept Mülheim an der Ruhr </a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.nuernberg.de/imperia/md/wirtschaft/dokumente/gewerbeimmobilie/masterplan_gewerbeflaechen_nuernberg_2020.pdf"target="_blank">Masterplan Gewerbeflächen Nürnberg</a></li><li><a href="https://www.heidelberg.de/site/Heidelberg_ROOT/get/documents_E-881126943/heidelberg/Objektdatenbank/80/PDF/80_pdf_wirtschaftsfl%C3%A4chenkonzept-cima_by_stadt_heidelberg_19.12.2012.pdf"target="_blank">Wirtschaftsflächenkonzept Heidelberg</a></li><li><a href="https://www.stadtentwicklung.berlin.de/planen/stadtentwicklungsplanung/download/wirtschaft/2020_Leitfaden_SenSW_WiKo.pdf"target="_blank">Bezirkliche Wirtschaftsflächenkonzepte(WiKo)Berlin</a></li></ul>`,
   image: "img/integriertes_wirtschaftsflaechenkonzept.png",
   imageSrc: "https://www.nuernberg.de/imperia/md/wirtschaft/dokumente/gewerbeimmobilie/masterplan_gewerbeflaechen_nuernberg_2020.pdf",
   iconsValuation: {
@@ -364,37 +289,21 @@ let actions =
 },
 
 {
-  id: 443,
-  number: "4.4.3",
+  id: 153,
+  number: "1.5.3",
   title: "Leerstandserhebung / Gewerbliches Leerstandskataster",
-  description: `<p>Bisher wird Leerstand in Gelsenkirchen nur in den beiden Hauptzentren Buer und City systematisch erfasst. Die Anlage eines Katasters in Form einer Datenbank mit Informationen zur Anzahl, Lage, Größe und Ausstattung der nicht, bzw. untergenutzten Immobilien sowie deren Eigentümer*innen ist auch für Stadterneuerungsgebiete, wie Schalke-Nord, sinnvoll. Die Erfassung des Status-Quos ermöglicht es, zu beurteilen, in welchen städtebaulichen Situationen der Erhalt von Gewerbeflächen sinnvoll erscheint und in welchen Fällen die Wohnnutzung priorisiert werden sollte. Auch für die Akquirierung von Fördermitteln oder Zuschüssen zur Leerstandsaktivierung ist ein Leerstandskataster nützlich. Ein Kataster stellt eine grundlegende Basis dar, um Kontakt zu Immobilieneigentümer*innen aufzunehmen und bspw. Start-ups und andere Gewerbetreibende mit diesen zu verknüpfen. Darüber hinaus kann dieser Ansatz genutzt werden, um eine standardisierte Datenbankstruktur zu entwickeln. Langfristig können sukzessive weitere Bereiche der Stadt Gelsenkirchen erfasst und ein gesamtstädtisches Kataster aufgebaut werden. Ob teilräumlich oder gesamtstädtisch, ein Leerstandskataster ist eine solide Grundlage für aktives Leerstandsmanagement und Vermarktung.</p>`,
+  description: `<p>Die systematische Erfassung von Leerstand in Form eines Katasters mit Informationen zur Anzahl, Lage, Größe und Ausstattung der nicht bzw. untergenutzten Immobilien sowie deren Eigentümer*innen bietet die Möglichkeit Potenzialflächen ganzheitlich zu erfassen und damit einhergehend die Auslastung von Gebäuden zu maximieren, längere Leerstände zu verhindern und folglich eine kurzfristige Vermietbarkeit zu gewährleisten. In Bezug auf Gewerbeimmobilien ermöglicht die Erfassung des Status-Quos zudem, die Beurteilung, der städtebaulichen Situation und damit zusammenhängend die Entscheidung, ob der Erhalt von Gewerbeflächen oder die Umwidmung in Wohnflächen priorisiert werden sollte. Auch für die Akquise von Fördermitteln oder Zuschüssen zur Leerstandsaktivierung ist die Anlage und Führung eines Leerstandskatasters sinnvoll. Das Kataster stellt weiterhin eine grundlegende Basis dar, um Kontakte zu Immobilien-eigentümer*innen aufzunehmen und bspw. Start-ups und andere Gewerbetreibende mit diesen zu verknüpfen. Darüber hinaus kann der vorliegende Ansatz genutzt werden, um eine standardisierte Datenbankstruktur zu entwickeln. Der Aufbau eines Leerstandskatasters ist unabhängig von der räumlichen Bezugsebene (teilräumlich oder gesamtstädtisch) eine solide Grundlage für aktives Leerstandsmanagement und die Vermarktung.</p>`,
   targetgroups: `<p>Urban produzierende Betriebe, Gründer*innen</p>`,
   actors: `<p>Stadtplanung, Wirtschaftsförderung, Quartiers- /Citymanagement</p>`,
-  cost: `<p>Personal (mittel), Sachkosten (keine), Aktualisierung nach festgelegtem Turnus</p>`,
+  cost: `<p>Personal (mittel)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
   problem: `<p>Fehlender Gesamtüberblick über leerstehende Immobilien und Eigentümer*innen</p>`,
   solution: `<p>Aufbau einer GIS-gestützten Datenbank, die langfristig auch als Vermarktungsplattform genutzt werden kann</p>`,
   effects: `<p>Erhöhung der Handlungsfähigkeit, Vereinfachung von Vermarkung und Zusammenbringung, Prävention von strukturellem Leerstand, Schaffung von Belebungsimpulsen</p>`,
   challenges: `<p>Zeitliche und personelle Ressourcen</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zechenstandorte / ehemalige Industrieflächen</li>
-  <li>Produktive Kirchenimmobilien</li>
-  <li>Einzelhandelsflächen</li>
-  <li>Zwischennutzung</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Kurator zur Förderung von Bestandsunternehmen urban produzierender Unternehmen</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  <li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li>
-  <li>Zusammenarbeit mit der Wohnungswirtschaft</li>
-  <li>Urbane Logistik</li>
-  </ul>`,
-  area: `<p>Zunächst Teilräume (Hauptzentren, Stadterneuerungsgebiete), langfristig Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://ruhrsite.business.ruhr/" target="_blank">Ruhrsite</a></li>
-  <li><a href="https://www.immovativ.de/produkte/digitales-leerstandsmanagement/" target="_blank">Immovativ</a></li>
-  <li><a href="https://www.kip.net/frankfurtrheinmain/gewerbe/gewerbeimmobilien" target="_blank">Kommunale Immobilienplattform Frankfurt</a></li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li><li>Urbane Logistik</li></ul>`,
+  area: `<p>Stadtteile / Quartier, Gesamtstadt</p>`,
+  examples: `<ul><li><a href="https://ruhrsite.business.ruhr/"target="_blank">Ruhrsite</a></li><li><a href="https://www.immovativ.de/produkte/digitales-leerstandsmanagement/"target="_blank">Immovativ</a></li><li><a href="https://www.passau.de/Wirtschaft-Bildung/ServicefuerUnternehmen/Leerstandsmanagement.aspx"target="_blank">Leerstandsmanagement Stadt Passau</a></li><li><a href="https://www.kip.net/frankfurtrheinmain/gewerbe/gewerbeimmobilien"target="_blank">Kommunale Immobilienplattform Frankfurt</a></li></ul>`,
   image: "img/leerstandserhebung _gewerbliches_leerstandskataster.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -405,30 +314,21 @@ let actions =
 },
 
 {
-  id: 444,
-  number: "4.4.4",
+  id: 154,
+  number: "1.5.4",
   title: "Nutzungsmischung / Planungsrecht / Bauordnungsrecht",
-  description: `<p>Nutzungsmischung ist eine relevante stadtplanerische Stellschraube, um die Voraussetzung für lebendige Quartiere zu schaffen, die es sowohl im Bestand als auch bei Planungs- und Entwicklungsabsichten konsequent mitzudenken gilt. Urbane Produktion kann ein Baustein der Nutzungsmischung sein und durch die Nähe von Wohnen und Arbeiten die Voraussetzungen für kurze Wege schaffen. Hier gilt es auf das vorhandene stadtplanerische Instrumentarium zurückzugreifen und dies gezielt einzusetzen. Entsprechend der Personal- und Ressourcensituation ist dies eher eine langfristig ausgerichtete Maßnahme. Zu berücksichtigen ist, dass die Reaktivierung altindustrieller Brachflächen oftmals enorme Kosten zur Dekontaminierung der Böden und Instandsetzung der Immobilien nach sich zieht. Gerade für Kommunen mit Haushaltsicherung- oder -sperre ist dies eine schwer zu bewältigende Aufgabe, bei der es umso mehr darauf ankommt, ein geeignetes Finanzierungskonzept aufzustellen bspw. anhand von Fördermitteln oder in der Kooperation mit Investor*innen. In dieser Maßnahme werden einige stadtplanerische Instrumente aufgeführt, die eine Förderung der Urbanen Produktion und somit der Nutzungsmischung in Quartieren ermöglichen können.</p>`,
-  targetgroups: `<p>Verwaltung, Investor*innen, Gründungsinteressierte, Immobilieneigentümer</p>`,
+  description: `<p>Nutzungsmischung ist eine relevante stadtplanerische Stellschraube, um die Voraussetzung für lebendige Quartiere zu schaffen, die es sowohl im Bestand als auch bei Planungs- und Entwicklungsabsichten konsequent mitzudenken gilt. Urbane Produktion kann ein Baustein der Nutzungsmischung sein und durch die Nähe von Wohnen und Arbeiten die Voraussetzungen für kurze Wege schaffen. Hier gilt es auf das vorhandene stadtplanerische Instrumentarium zurückzugreifen und dies gezielt einzusetzen. Entsprechend der Personal- und Ressourcensituation ist dies eher eine langfristig ausgerichtete Maßnahme. Zu berücksichtigen ist, dass die Reaktivierung altindustrieller Brachflächen oftmals enorme Kosten zur Dekontaminierung der Böden und Instandsetzung der Immobilien nach sich zieht. Gerade für Kommunen mit Haushaltssicherung oder -sperre ist dies eine schwer zu bewältigende Aufgabe, bei der es umso mehr darauf ankommt, ein geeignetes Finanzierungskonzept aufzustellen bspw. anhand von Fördermitteln oder in Kooperation mit Investor*innen. In dieser Maßnahme werden einige stadtplanerische Instrumente aufgeführt, die eine Förderung der Urbanen Produktion und somit der Nutzungsmischung in Quartieren ermöglichen können.</p>`,
+  targetgroups: `<p>Verwaltung, Investor*innen, Gründungsinteressierte, Immobilieneigentümer*innen</p>`,
   actors: `<p>Stadtplanung, Bauordnung, Wirtschaftsförderung</p>`,
-  cost: `<p>Personal (mittel bis hoch), Sachkosten (hoch; ggf. Erwerb und Aufbereitung von Grundstücken/Immobilien)</p>`,
+  cost: `<p>Personal (mittel bis hoch), Sachkosten (hoch)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
-  problem: `<p>Oftmals entmischte Quartiere sowie schlechte Bedingungen für urban produzierende Unternehmen</p>`,
-  solution: `<p><b>Änderung oder Neuaufstellung eines Bebauungsplans:</b> Durch die Aufstellung bzw. Änderung eines Bebauungsplans legt eine Gemeinde die baurechtlichen Rahmenbedingungen für einen Teil ihres Gemeindegebiets fest und kann gewerbefördernde Festsetzungen treffen (vgl. Bathen et al. 2019: 50). Zu diesen zählt z. B. die Ausweisung angemessener Baugebietskategorien (z. B. Mischgebiete gem. § 6 BauNVO, Urbane Gebiete gem. § 6a BauNVO) sowie eine auch auf gewerbliche Nutzungen ausgerichtete Feinsteuerung dieser (vgl. ebd.). Eine explizite Steuerung der Urbanen Produktion ist im Rahmen von Bebauungsplänen jedoch in Folge des unpräzisen Gewerbebegriffs der Baunutzungsversordnung (BauNVO) nicht möglich. Hier wäre die Einführung eines präziseren Begriffes (z. B. ‚produzierendes Gewerbe‘) notwendig (vgl. Brandt et al. 2017: 153).</p>
-  <p><b>Vorhabenbezogener Bebauungsplan und Durchführungsvertrag bzw. Städtebaulicher Vertrag:</b> Durch die Anwendung vorhabenbezogener Bebauungspläne gem. § 12 BauGB kann eine Gemeinde in Kombination mit einem Durchführungs- oder städtebaulichen Vertrag verschiedene Verbindlichkeiten zu Gunsten der Urbanen Produktion sichern, die über die Möglichkeiten üblicher Bebauungspläne hinausgehen (z. B. explizite Sicherung von Flächen für die Urbane Produktion) (vgl. Schmidt, Söfker-Rieniets, Nouri 2019: 54). Sie können allerdings nur unter bestimmten Voraussetzungen genutzt werden.</p>
-  <p><b>Fremdkörperfestsetzung:</b> Die Fremdkörperfestsetzung gem. § 1 Abs. 10 BauNVO ermöglicht in einem Bebauungsplan den Erhalt, die Erweiterungen, die Änderungen und die Erneuerungen von bestehenden Betrieben der Urbanen Produktion in bebauten Gebieten, die durch die Festsetzung eines Baugebiets gem. §§ 2 bis 9 BauNVO eigentlich unzulässig wären. Entwicklungsmöglichkeiten für neue urban produzierende Betriebe werden durch sie aber nicht geschaffen (vgl. Kuschnerus 2010: 435).</p>
-  <p><b>Vorkaufrecht seitens Stadt:</b> Einer Gemeinde stehen gem. den §§ 24 bis 28 BauGB unter bestimmten Voraussetzungen Vorkaufsrechte für den Erwerb von Grundstücken bzw. Immobilien zu, welche es ermöglichen Einfluss auf die zukünftige Ausrichtung der Standorte zu nehmen (z. B. mittels Mietpreisgestaltung). So können Standorte auf eine Förderung bzw. Sicherung der Urbanen Produktion ausgerichtet werden. Die potenziell hohen Kosten des Grundstücks- bzw. Immobilienkaufs können jedoch insb. für finanzschwache Kommunen eine Hürde darstellen (vgl. Brandt et al. 2017: 154).</p>
-  <p><b>Konzeptvergaben:</b> Im Rahmen kommunaler Grundstücksverkäufe kann eine Gemeinde bei der Vergabe der Flächen neben dem höchsten monetären Gebot auch das zugrundeliegende Nutzungskonzept berücksichtigen und so Einfluss auf die zukünftige Ausgestaltung und Nutzung einer Fläche nehmen. So kann bspw. vorgegeben werden, dass ein bestimmter Flächenanteil für produzierende Unternehmen vorzuhalten ist und die Urbane Produktion so gefördert werden (vgl. Bathen et al. 2019: 52; Brandt et al. 2017: 158).</p>`,
+  problem: `<p>Oftmals entmischte Quartiere, Nutzungskonflikte sowie schlechte Bedingungen für urban produzierende Unternehmen</p>`,
+  solution: `<p><b>Änderung oder Neuaufstellung eines Bebauungsplans:</b> : Durch die Aufstellung bzw. Änderung eines Bebauungsplans legt eine Gemeinde die baurechtlichen Rahmenbedingungen für einen Teil ihres Gemeindegebiets fest und kann gewerbefördernde Festsetzungen treffen (vgl. Bathen et al. 2019: 50). Zu diesen zählt z. B. die Ausweisung angemessener Baugebietskategorien (z. B. Mischgebiete gem. § 6 BauNVO, Urbane Gebiete gem. § 6a BauNVO) sowie eine auch auf gewerbliche Nutzungen ausgerichtete Feinsteuerung dieser (vgl. ebd.). Eine explizite Steuerung der Urbanen Produktion ist im Rahmen von Bebauungsplänen jedoch in Folge des unpräzisen Gewerbebegriffs der Baunutzungsversordnung (BauNVO) nicht möglich. Hier wäre die Einführung einer Legaldefinition (z. B. ‚produzierendes Gewerbe‘) notwendig (vgl. Brandt et al. 2017a: 153).</p><p><b>Vorhabenbezogener Bebauungsplan und Durchführungsvertrag bzw. Städtebaulicher Vertrag:</b> Durch die Anwendung vorhabenbezogener Bebauungspläne gem. § 12 BauGB kann eine Gemeinde in Kombination mit einem Durchführungs- oder städtebaulichen Vertrag verschiedene Verbindlichkeiten zu Gunsten der Urbanen Produktion sichern, die über die Möglichkeiten üblicher Bebauungspläne hinausgehen (z. B. explizite Sicherung von Flächen für die Urbane Produktion) (vgl. Schmidt, Söfker-Rieniets, Nouri 2019: 54). Sie können allerdings nur unter bestimmten Voraussetzungen genutzt werden.</p><p><b>Fremdkörperfestsetzung:</b> Die Fremdkörperfestsetzung gem. § 1 Abs. 10 BauNVO ermöglicht in einem Bebauungsplan den Erhalt, die Erweiterungen, die Änderungen und die Erneuerungen von bestehenden Betrieben der Urbanen Produktion in bebauten Gebieten, die durch die Festsetzung eines Baugebiets gem. §§ 2 bis 9 BauNVO eigentlich unzulässig wären. Entwicklungsmöglichkeiten für neue urban produzierende Betriebe werden durch sie aber nicht geschaffen (vgl. Kuschnerus 2010: 435).</p><p><b>Vorkaufsrecht seitens Stadt:</b> Einer Gemeinde stehen gem. den §§ 24 bis 28 BauGB unter bestimmten Voraussetzungen Vorkaufsrechte für den Erwerb von Grundstücken bzw. Immobilien zu, welche es ermöglichen Einfluss auf die zukünftige Ausrichtung der Standorte zu nehmen (z. B. mittels Mietpreisgestaltung). So können Standorte auf eine Förderung bzw. Sicherung der Urbanen Produktion ausgerichtet werden. Die potenziell hohen Kosten des Grundstücks- bzw. Immobilienkaufs können jedoch insbesondere für finanzschwache Kommunen eine Hürde darstellen (vgl. Brandt et al. 2017a: 154).</p><p><b>Konzeptvergaben:</b> Im Rahmen kommunaler Grundstücksverkäufe kann eine Gemeinde bei der Vergabe der Flächen neben dem höchsten monetären Gebot auch das zugrundeliegende Nutzungskonzept berücksichtigen und so Einfluss auf die zukünftige Ausgestaltung und Nutzung einer Fläche nehmen. So kann bspw. vorgegeben werden, dass ein bestimmter Flächenanteil für produzierende Unternehmen vorzuhalten ist, um somit die Urbane Produktion zu fördern (vgl. Bathen et al. 2019: 52; Brandt et al. 2017a: 158).</p>`,
   effects: `<p>Förderung der Urbanen Produktion, Durchmischung und Belebung von Quartieren sowie kurze Wege</p>`,
-  challenges: `<p></p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  </ul>`,
+  challenges: `<p>Oftmals hohe planerische Komplexität, Konkurrenz zu anderen Interessen und Belangen (insb. Schaffung von Wohnraum) sowie unter Umständen hohe finanzielle Aufwendung seitens der Gemeinde</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://urbaneproduktion.ruhr/wp-content/uploads/2019/12/Handbuch-Urbane-Produktion_2019_Web.pdf" target="_blank">Konzeptvergabe: Französisches Viertel Tübingen (Bathen et al. 2019, S. 42-53)</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://urbaneproduktion.ruhr/wp-content/uploads/2019/12/Handbuch-Urbane-Produktion_2019_Web.pdf" target="_blank">Konzeptvergabe: Französisches Viertel Tübingen (Bathen et al. 2019, S. 42-53)</a></li><li><a href="https://lfi-muenchen.de/wp-content/uploads/2021/07/Urbane_Gebiete_LFI_Publikation.pdf" target="_blank">Bebauungsplan Clausstraße Hessen (S. 39)</a></li></ul>`,
   image: "img/nutzungsmischung_planungsrecht_bauordnungsrecht.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -439,33 +339,96 @@ let actions =
 },
 
 {
-  id: 451,
-  number: "4.5.1",
-  title: "Mobilisierung der Eigentümer*innen und der Nachbarschaft",
-  description: `<p>Im Rahmen unterschiedlicher Formate wie Eigentümer*innenkonferenzen oder der Wanderausstellung Urbane Produktion werden Vorträge gehalten, um einer interessierten (Fach-)Öffentlichkeit einen Einblick in die Erkenntnisse des Projekts sowie insb. in die Inhalte und geplanten Maßnahmen des Strategie-Konzeptes zu gewähren. Auch gemeinsame Aktionen mit Baukultur NRW oder der Volkhochschule sind denkbar.</p>
-  <p>Im Sinne Urbaner Produktion können so lokale Unternehmensnetzwerke oder Eigentümergemeinschaften/-genossenschaften entstehen, die sich z. B. gemeinsam auf eine Mietenminderung verständigen oder Aktionen vor Ort planen, um gezielt vorhandene Leerstände wieder – und vor allem auch für urbane Produzent*innen - nutzbar zu machen.</p>`,
-  targetgroups: `<p>Eigentümer*innen; Bürger*innen</p>`,
-  actors: `<p>UrbaneProduktion.Ruhr; Wirtschaftsförderung; Stadtplanung</p>`,
-  cost: `<p>Personal (gering), Sachkosten (keine)</p>`,
+  id: 155,
+  number: "1.5.5",
+  title: "Machbarkeitsstudie(n) zu urbaner Produktion",
+  description: `<p>Die Durchführung von Machbarkeitsstudien für ausgewählte, leerstehende Immobilien in Bezug auf die Realisierung von Urbaner Produktion eröffnet die Chance konkret aufzuzeigen, welche Entwicklungspotenziale mit der Implementierung eines solchen Konzeptes für den jeweiligen Standort verbunden sind. Dabei sollte grundsätzlich die Frage im Vordergrund stehen, welche Veränderungen mit der Berücksichtigung Urbaner Produktion für den Leerstand einhergehen. Durch die Beantwortung dieser Fragen lassen sich zum einen die zentralen Herausforderungen bezogen auf eine künftige Planung und Entwicklung frühzeitig erfassen, zum anderen können die Vorteile Urbaner Produktion für die konkrete Immobilie skizziert und veranschaulicht werden. Dies erleichtert den Entscheidungsträger*innen die Einschätzung, ob und insbesondere wie Urbane Produktion als Baustein bei der Revitalisierung der konkreten Immobilie mitgedacht werden kann.</p>`,
+  targetgroups: `<p>Stadtverwaltung, Eigentümer*innen</p>`,
+  actors: `<p>Stadtplanung, Wirtschaftsförderung</p>`,
+  cost: `<p>Personal (mittel)</p>`,
   time: `<p>Mittelfristig</p>`,
-  problem: `<p>Aktuell gibt es äußerst wenige Gründungen in Gelsenkirchen. Mögliche Nutzungskonflikte sowie etwaige Vorbehalte der Eigentümer*innen und der Nachbarschaft sind mögliche Hemmfaktoren für die Etablierung Urbaner Produktion</p>`,
-  solution: `<p>Mit Hilfe von Informationsveranstaltungen oder Vorträgen werden Erkenntnisse des Projekts vorgestellt und potenziellen Vorbehalten seitens Eigentümer*innen oder der Nachbarschaft entgegengewirkt. Dazu ist es sinnvoll in einem Stadtteil zu beginnen, bei dem die Eigentümer*innen-Struktur bekannt und lokal ist.</p>`,
-  effects: `<p>Aufmerksamkeit für das Thema, Informieren der Bevölkerung</p>`,
+  problem: `<p>Schwierigkeiten bei der Abschätzung der Auswirkungen eines Bauprojektes</p>`,
+  solution: `<p>Durchführung von Machbarkeitsstudien bei großen, leerstehenden Immobilienkomplexen</p>`,
+  effects: `<p>Schaffung einer Entscheidungsgrundlage für die Realisierung Urbaner Produktion in einer konkreten Immobilie, Herausforderungen frühzeitig erkennen und möglichen daraus resultierenden Risiken entgegenwirken, Vorbeugung von Fehlinvestitionen</p>`,
+  challenges: `<p>zeitliche und personelle Ressourcen, oftmals hohe finanzielle Aufwendungen seitens der Gemeinde, Gefahr der Scheingenauigkeit (einige Herausforderungen zeigen sich erst bei finaler Implementation)</p>`,
+  interactions: `<ul><li>ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Etablierung von Dachgärten</li></ul>`,
+  area: `<p>Immobilie/Grundstück</p>`,
+  examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerensemble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li></ul>`,
+  image: "img/TODO.jpg",
+  imageSrc: "",
+  iconsValuation: { //TODO
+      effects: 1,
+      challenges: 1
+  },
+  theme: "Steuerungsstrukturen",
+},
+
+{
+  id: 156,
+  number: "1.5.6",
+  title: "Raumtypisierung für Urbane Produktion",
+  description: `<p>Städte befinden sich in einem ständigen Wandel und weisen zahlreiche insbesondere auch kleinräumige Unterschiede hinsichtlich der räumlichen Strukturen, des Nutzungsgefüges und der vorhandenen Infrastrukturen in ihren Stadtteilen und Quartieren auf. Die prägenden Merkmale eines Stadtteils bzw. eines Quartiers treffen im Kontext Urbaner Produktion auf die spezifischen Standortanforderungen urban produzierender Unternehmen. Eine Typisierung auf kleinräumiger Ebene ist eine geeignete Grundlage, um fundierte Entscheidungen zur (Weiter-) Entwicklung und Qualifizierung von Standorten zu treffen.</p><p>Eine Typologie ist immer das Ergebnis eines Gruppierungsprozesses, hier durch die systematische Aufbereitung von Informationen in Form von Indikatoren sowie deren strukturierte Verknüpfung, um die räumlichen Voraussetzungen für Urbane Produktion möglichst exakt und differenziert abzubilden. Dabei gilt, dass feinkörnig aufgelöste Daten verwendet und kleinräumige Analysen durchgeführt werden sollten, um aussagekräftige Erkenntnisse zu generieren. Als geeignet wird häufig die Quartiersebene angeführt, die längst Teil der Handlungslogiken von Stadtplanern und Stadtverwaltungen geworden ist. Dieser feinteilige Maßstab ermöglicht es, kleinräumige Unterschiede zu erkennen und Quartiere gleichzeitig aufgrund ihres Zuschnitts noch gänzlich zu überschauen. Je nach Datenlage können auch andere kleinräumige Betrachtungsebenen, die in der Kommunalverwaltung genutzt werden, als Bezugsraum angewandt werden.</p>`,
+  targetgroups: `<p>Wirtschaftsförderung, Urban produzierende Unternehmen</p>`,
+  actors: `<p>Stadtverwaltung, Wirtschaftsförderung</p>`,
+  cost: `<p>Personal (gering bis mittel)</p>`,
+  time: `<p>Kurz- bis mittelfristig</p>`,
+  problem: `<p>Unübersichtliche und ungeordnete Strukturen erschweren die Entwicklung Urbaner Produktion</p>`,
+  solution: `<p>Schaffung eines systematischen Überblicks über Merkmale einzelner Bezugsräume als Vorbereitung für weitere strategische Maßnahmen</p>`,
+  effects: `<p>Auswahl und Weiterentwicklung von strategisch sinnvollen Standorten für Urbane Produktion</p>`,
+  challenges: `<p>Strukturierungsprozess ist aufgrund der vielen Ebenen sehr komplex, Individuelle Gewichtung der Indikatoren kann zu fehlerhaften Aussagen führen, Datenverfügbarkeit und fortlaufende Aktualisierung notwendig </p>`,
+  interactions: `<ul><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Unternehmensdatenbank</li></ul>`,
+  area: `<p>Stadtteil/Quartier</p>`,
+  examples: `<ul><li><a href="https://urbaneproduktion.ruhr/wp-content/uploads/2019/12/Dokumentation_Raumtypisierung.pdf"target="_blank">Raumtypisierung der Stadt Bochum</a></li></ul>`,
+  image: "img/TODO.jpg",
+  imageSrc: "",
+  iconsValuation: { //TODO
+      effects: 1,
+      challenges: 1
+  },
+  theme: "Steuerungsstrukturen",
+},
+
+{
+  id: 157,
+  number: "1.5.7",
+  title: "Unternehmensdatenbank",
+  description: `<p>Die detailliertesten Informationen über Unternehmens- und Wirtschaftszweige in der amtlichen Statistik (z. B. über IT.NRW) sind lediglich auf gesamtstädtischer Ebene verfügbar, sodass kleinräumig differenzierte Einblicke kaum möglich sind. Folglich ist der Aufbau einer kleinräumigen Unternehmensdatenbank erstrebenswert, z. B. um lokale Branchencluster zu identifizieren, Potenziale lokaler Wertschöpfungsketten sowie Möglichkeiten zur zielgerichteten Ansiedlungsförderung auszuschöpfen. Hierfür ist eine flächendeckende Erfassung der Unternehmen des materiellen Gewerbes nötig. Dies kann zunächst auf Grundlage der vorhandenen Datenbanken der Kommunen und Wirtschaftsförderungen geschehen sowie in Ergänzung mit Daten von IHK und HWK und bei Bedarf durch eigene Erhebungen vervollständigt und aktualisiert werden. Eine Unternehmensdatenbank kann schrittweise entwickelt und in der Aufbauphase aus grundlegenden Basis- und Strukturdaten bestehen. In der Erweiterungsphase können ergänzende Daten, insbesondere Struktur- und Standortdaten, aufgenommen und kontinuierlich weitergeführt werden, so dass detailliertere Markt- und Standortbewertungen sowie die Beobachtung zeitlicher Veränderungen möglichen werden.</p>`,
+  targetgroups: `<p>Urban produzierende Unternehmen, Stadtverwaltung, Wirtschaftsförderung</p>`,
+  actors: `<p>Stadtverwaltung, Wirtschaftsförderung, IHK, HWK</p>`,
+  cost: `<p>Personal (gering bis mittel)</p>`,
+  time: `<p>Kurz- bis mittelfristig</p>`,
+  problem: `<p>Fehlende Informationen über Unternehmens- und Wirtschaftszweige auf kleinräumiger Ebene</p>`,
+  solution: `<p>Identifizierung lokaler Branchen und lokaler Wertschöpfung als Überblick über stadtteilbezogene Wirtschaftspotenziale</p>`,
+  effects: `<p>Übersicht über die bestehenden Unternehmen mit denen Mark- und Standortbewegungen sowie zeitliche Veränderungen überprüft werden können, Vergegenwärtigung der derzeitigen Unternehmenslandschaft</p>`,
+  challenges: `<p>Beschaffung der Daten, Pflege und fortlaufendes Monitoring erforderlich</p>`,
+  interactions: `<ul><li>Raumtypisierung für Urbane Produktion</li><li>Netzwerk und Vernetzung</li></ul>`,
+  area: `<p>Stadtteil/Quartier</p>`,
+  examples: `<ul><li><a href="https://www.business.ruhr/fileadmin/user_upload/Dokumente/Publikationen/Investorenservice/ruhrAGIS-Handbuch_Stand_2012.pdf"target="_blank">Atlas der Gewerbe-und Industriestandorte Metropole Ruhr(ruhrAGIS)</a></li><li><a href="https://www.stadt-koeln.de/wirtschaft/ausschreibungsservice/ unternehmensdatenbank/index.html"target="_blank">Unternehmensdatenbank Stadt Köln</a></li></ul>`,
+  image: "img/TODO.jpg",
+  imageSrc: "",
+  iconsValuation: { //TODO
+      effects: 1,
+      challenges: 1
+  },
+  theme: "Steuerungsstrukturen",
+},
+
+{
+  id: 161,
+  number: "1.6.1",
+  title: "Mobilisierung der Eigentümer*innen und der Nachbarschaft",
+  description: `<p>Im Rahmen unterschiedlicher Formate wie Eigentümer*innenkonferenzen oder der Wanderausstellung Urbane Produktion werden Vorträge gehalten, um einer interessierten (Fach-)Öffentlichkeit einerseits die allgemeine Thematik und Relevanz von Urbaner Produktion näher zu bringen und andererseits auf die bereits durchgeführten Projekte hinzuweisen. Denkbar wären diesbezüglich auch gemeinsame Aktionen mit regionalen Universitäten bzw. Volkshochschulen.</p><p>Im Sinne Urbaner Produktion können so lokale Unternehmensnetzwerke oder Eigentümergemeinschaften/-genossenschaften entstehen, die sich z. B. gemeinsam auf eine Mietminderung verständigen oder Aktionen vor Ort planen, um gezielt vorhandene Leerstände wieder – und vor allem auch für urbane Produzent*innen - nutzbar zu machen.</p>`,
+  targetgroups: `<p>Eigentümer*innen, Bürger*innen</p>`,
+  actors: `<p>UrbaneProduktion.Ruhr, Wirtschaftsförderung, Stadtplanung</p>`,
+  cost: `<p>Personal (gering)</p>`,
+  time: `<p>Mittelfristig</p>`,
+  problem: `<p>Gründungen bzw. die Etablierung Urbaner Produktion können durch Nutzungskonflikte sowie etwaige Vorbehalte der Eigentümer*innen und der Nachbarschaft gehemmt werden</p>`,
+  solution: `<p>Mit Hilfe von Informationsveranstaltungen oder Vorträgen werden die Erkenntnisse der Projekte vorgestellt und somit potenziellen Vorbehalten seitens Eigentümer*innen oder der Nachbarschaft entgegengewirkt. Dazu ist es sinnvoll in einem Stadtteil zu beginnen, bei dem die Eigentümer*innen-Struktur bekannt und lokal ist</p>`,
+  effects: `<p>Aufmerksamkeit für das Thema erzeugen, Informieren der Bevölkerung</p>`,
   challenges: `<p>Eigentümer*innen nicht lokal verankert, Immobilienfonds oder Investor*innen, die kein Interesse an der Entwicklung haben</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zwischennutzung</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>Zwischennutzung</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Wissenstransfer in die Stadtgesellschaft</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.wuppertal.de/microsite/WiFoe/aktuelles/inhaltsseiten-aktuelles/ausstellung-urbane-produktion-wuppertal-eroeffnet.php" target="_blank">Ausstellung: Urbane Produktion bei Wirtschaftsförderung Wuppertal</a></li>
-  <li><a href="http://www.oelberg-eg.de/" target="_blank">Ölberg eG in Wuppertal</a></li>
-  <li><a href="https://mission-bochum2030.de/bochum-kommunikativ-denken/" target="_blank">Eigentümer*innenkonferenz Bochum 2030 Mission Innenstadt</a></li>
-  <li><a href="https://kofabrik.de/" target="_blank">Workshop mit KoFabrik</a></li>
-  <li><a href="https://www.vhs-gelsenkirchen.de/programm/politik-und-gesellschaft.html" target="_blank">Vorträge in der VHS Gelsenkirchen</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.wuppertal.de/microsite/WiFoe/aktuelles/inhaltsseiten-aktuelles/ausstellung-urbane-produktion-wuppertal-eroeffnet.php" target="_blank">Ausstellung: Urbane Produktion bei Wirtschaftsförderung Wuppertal</a></li><li><a href="http://www.oelberg-eg.de/" target="_blank">Ölberg eG in Wuppertal</a></li><li><a href="https://mission-bochum2030.de/bochum-kommunikativ-denken/" target="_blank">Eigentümer*innenkonferenz Bochum 2030 Mission Innenstadt</a></li><li><a href="https://kofabrik.de/" target="_blank">Workshops der KoFabrik</a></li><li><a href="https://www.vhs-gelsenkirchen.de/programm/politik-und-gesellschaft.html" target="_blank">Vorträge in der VHS Gelsenkirchen</a></li></ul>`,
   image: "img/mobilisierung_der_eigentuemerinnen_und_der_nachbarschaft.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -476,28 +439,21 @@ let actions =
 },
 
 {
-  id: 452,
-  number: "4.5.2",
+  id: 162,
+  number: "1.6.2",
   title: "Zusammenarbeit mit der Wohnungswirtschaft",
-  description: `<p>Im Kontext Urbaner Produktion ist eine Zusammenarbeit von Stadtplanung oder Quartiersmanager*innen mit Wohnungsunternehmen denkbar. Es zeigt sich, dass das Engagement der Wohnungswirtschaft für die Quartiersentwicklung über deren Kernleistungen hinausreicht und auch gesamtstädtische Wirkungen fokussiert werden. Von nicht zu unterschätzender Bedeutung sind hierbei u. a. die nicht monetären Nutzenfaktoren, die von den Betrieben beispielsweise in Form von gesellschaftlichem Austausch und Teilhabe ausgehen.</p>
-  <p>Auch die Flächeninanspruchnahme steigt, weshalb versucht werden muss, die Pro-Kopf-Wohnfläche wieder zu reduzieren. Möglich kann dies werden, wenn die individuelle Wohnfläche reduziert wird, jedoch einige Funktionen wiederum in Gemeinschaftsräumen angeboten werden, z. B. eine Werkstatt oder Lagerflächen. In diesem Zuge kann Raum zum Ausprobieren und „Selbermachen“ geschaffen werden.</p>`,
+  description: `<p>Im Kontext Urbaner Produktion ist eine Zusammenarbeit von Stadtplanung oder Quartiersmanager*innen mit Wohnungsunternehmen denkbar. Es zeigt sich, dass das Engagement der Wohnungswirtschaft für die Quartiersentwicklung über deren Kernleistungen hinausreicht und auch gesamtstädtische Wirkungen fokussiert werden. Von nicht zu unterschätzender Bedeutung sind hierbei u. a. die nicht monetären Nutzenfaktoren, die von den Betrieben beispielsweise in Form von gesellschaftlichem Austausch und Teilhabe ausgehen.</p><p>Auch die Flächeninanspruchnahme steigt, weshalb versucht werden muss, die Pro-Kopf-Wohnfläche wieder zu reduzieren. Möglich kann dies werden, wenn die individuelle Wohnfläche reduziert wird, jedoch einige Funktionen wiederum in Gemeinschaftsräumen angeboten werden, z. B. eine Werkstatt oder Lagerflächen. In diesem Zuge kann Raum zum gemeinschaftlichen Ausprobieren und „Selbermachen“ geschaffen werden.</p>`,
   targetgroups: `<p>Stadtentwicklung, Wohnungswirtschaft</p>`,
   actors: `<p>Wohnungswirtschaft, Stadtplanung</p>`,
-  cost: `<p>Personalkosten (keine), Sachkosten (gering bis mittel)</p>`,
+  cost: `<p>Sachkosten (gering bis mittel)</p>`,
   time: `<p>Mittelfristig</p>`,
   problem: `<p>Hohe Flächenversiegelung bei EFH-Siedlungen, isolierte Wohnquartiere, Wohnungen lassen keinen Platz für Werkstatt etc.</p>`,
-  solution: `<p>Bereitstellung von flexiblen und gemeinschaftlich nutzbaren Räumlichkeiten als Produktions- und Experimentierräume</p>`,
+  solution: `<p>Bereitstellung von flexiblen und gemeinschaftlich nutzbaren Räumlichkeiten als Produktions- und Experimentierräume, Planung Urbaner Produktion bei Konzeptvergabe berücksichtigen</p>`,
   effects: `<p>lebendigere Quartiere, Durchmischung der Quartiere, mehr DIY, weniger Ressourcenverbrauch</p>`,
-  challenges: `<p>TODO</p>`,
-  interactions: `Städtebauförderprogramm
-  Zwischennutzung
-  Inkubator(en) und praktische Lernorte für die Stadtgesellschaft
-  Leerstandserhebung / Gewerbliches Leerstandskataster
-  `,
+  challenges: `<p>mangelnde Kooperationsbereitschaft aufgrund vergleichsweise geringer Renditen bei Vermietung an Produktionsbetriebe.</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://urbaneproduktion.ruhr/beispiel/eltingviertel-essen/" target="_blank">Eltingviertel Essen </a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://urbaneproduktion.ruhr/beispiel/eltingviertel-essen/" target="_blank">Eltingviertel Essen</a></li><li><a href="https://bbu.de/nachricht/37751" target="_blank">DEWEGO Gründerpreis</a></li></ul>`,
   image: "img/zusammenarbeit_mit_der_wohnungswirtschaft.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -508,30 +464,21 @@ let actions =
 },
 
 {
-  id: 453,
-  number: "4.5.3",
+  id: 163,
+  number: "1.6.3",
   title: "Einbindung von Universitäten / Hochschulen",
-  description: `<p>Mit insgesamt 22 Hochschulen bildet das Ruhrgebiet die dichteste Hochschullandschaft in ganz Europa. Zu diesen zählt unter anderem die Westfälische Hochschule in Gelsenkirchen mit einem Fokus auf technisch-ökonomisch sowie medienbezogene Studiengänge. Die Zahl der Studierenden an dieser Hochschule sowie deutschlandweit nimmt zu, zugleich steigt jedoch auch die Anzahl der Studierenden, die ihr Studium aus unterschiedlichen Gründen abbrechen. So brach laut einer landesweiten Umfrage im Jahr 2018 jeder 3. Studierende sein Bachelor-Studium ab (27%) (vgl. Statista 2020). Hier gilt es anzusetzen und Studienaussteiger*innen über Aus- und Weiterbildungsmöglichkeiten beispielsweise im Handwerk zu informieren und somit bestenfalls in der jeweiligen Stadt zu halten.</p>`,
+  description: `<p>Eine weitere Anlaufstelle für die Vermarktung des Ansatzes Urbaner Produktion und gleichsam für die Wahrnehmungssteigerung des Handwerkes bietet die flächendeckende Hochschullandschaft in Deutschland. Denn die Zahlen der Studierenden an Hochschulen nehmen kontinuierlich zu, zugleich steigt jedoch auch die Anzahl der Studierenden, die ihr Studium aus unterschiedlichen Gründen abbrechen. So brach laut einer landesweiten Umfrage im Jahr 2018 jeder dritte Studierende sein Bachelor-Studium ab (27%) (vgl. Statista 2020). Hier gilt es anzusetzen und Studienaussteiger*innen über Aus- und Weiterbildungsmöglichkeiten beispielsweise im Handwerk zu informieren und somit bestenfalls in der jeweiligen Stadt zu halten.</p>`,
   targetgroups: `<p>Studienaussteiger*innen</p>`,
   actors: `<p>Handwerkskammer, Industrie- und Handelskammer, Wirtschaftsförderung, Universitäten & (Hoch-) Schulen, Urban produzierende Unternehmen</p>`,
-  cost: `<p>Personal (mittel), Sachkosten (keine)</p>`,
+  cost: `<p>Personal (mittel)</p>`,
   time: `<p>Mittelfristig</p>`,
-  problem: `<p>Viele produzierende Betriebe sind auf der Suche nach Auszubildenden und Fachkräften, finden aber oftmals keine Nachfolge und müssen im schlimmsten Fall ihre Betriebe schließen. Zugleich ist die Anzahl der Studierenden, die ihr Studium abbrechen, hoch.</p>`,
+  problem: `<p>Viele produzierende Betriebe sind auf der Suche nach Auszubildenden und Fachkräften, finden aber oftmals keine Nachfolge und müssen im schlimmsten Fall ihre Betriebe schließen. Zugleich ist die Anzahl der Studienaussteiger*innen hoch</p>`,
   solution: `<p>Gezielte Informationskampagnen direkt an den Universitäten und (Fach-)Hochschulen, Vermittlung von Ausbildungsstellen, Erstellung einer Datenbank von Handwerksbetrieben und Ausbildungsinteressierten, Werbematerial, Berufsorientierungstage</p>`,
   effects: `<p>Erhalt der Personen in der Stadt, Öffentlichkeitsarbeit für Handwerk und Ausbildung, Sicherung der Betriebe am Standort, Zusammenführung von Betrieben und Studienabbrecher*innen</p>`,
   challenges: `<p>Schlechtes Image von Ausbildungsberufen</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  <li>Storytelling</li>
-  <li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li>
-  <li>Solidarische Landwirtschaft</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Wissenstransfer in die Stadtgesellschaft</li><li>Storytelling</li><li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li><li>Solidarische Landwirtschaft</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.handwerk.de/studienaussteiger.html" target="_blank">"Das Handwerk"</a></li>
-  <li><a href="" target="_blank"></a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.yourpush.de/de/das-projekt/das-projekt" target="_blank">yourPush: Karriere im Handwerk</a></li><li><a href="https://www.hwk-stuttgart.de/artikel/karriere-im-handwerk-die-alternativen-zum-studium-67,0,1992.html" target="_blank">Handwerkskammer Region Stuttgart</a></li><li><a href="https://www.handwerk.de/studienaussteiger.html" target="_blank">"Das Handwerk"</a></li></ul>`,
   image: "img/einbindung_von_universitaeten_hochschulen.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -542,36 +489,21 @@ let actions =
 },
 
 {
-  id: 461,
-  number: "4.6.1",
+  id: 171,
+  number: "1.7.1",
   title: "Wissenstransfer in die Stadtgesellschaft",
-  description: `<p>Im Rahmen unterschiedlicher Formate werden Erkenntnisse aus der Forschung vermittelt, diskutiert oder gemeinschaftlich erarbeitet. Der Fokus liegt dabei auf der Erläuterung von den Zusammenhängen Urbaner Produktion mit anderen Themen der Stadt- und Wirtschaftsentwicklung. Vor dem Hintergrund der „Stadtentwicklung der Zukunft“ soll das Thema so inhaltlich zugänglich gemacht werden die Potenziale und Mehrwerte urbaner Produktion zu vermitteln. Da Urbane Produktion in vielen Aspekten der Planung bisher nicht mitgedacht wird, gilt es hier die beteiligten Akteur*innen und Institutionen zu sensibilisieren.</p>`,
+  description: `<p>Im Rahmen unterschiedlicher Formate werden Erkenntnisse aus der Forschung vermittelt, diskutiert oder gemeinschaftlich erarbeitet. Der Fokus liegt dabei auf der Erläuterung von den Zusammenhängen Urbaner Produktion mit anderen Themen der Stadt- und Wirtschaftsentwicklung. Vor dem Hintergrund der Stadtentwicklung der Zukunft soll das Thema so inhaltlich zugänglich gemacht werden, sodass letztlich die Potenziale und Mehrwerte deutlich vermittelt werden. Da Urbane Produktion in vielen Aspekten der Planung bisher nicht mitgedacht wird, gilt es hier die beteiligten Akteur*innen und Institutionen zu sensibilisieren.</p>`,
   targetgroups: `<p>Bürger*innen, Politik, Stadtverwaltung, Universitäten & (Hoch-) Schulen</p>`,
   actors: `<p>Wirtschaftsförderung, Universitäten & (Hoch-) Schulen</p>`,
-  cost: `<p>Personal (gering), Sachkosten (keine)</p>`,
+  cost: `<p>Personal (gering)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
-  problem: `<p>Bedeutung von Produktion für die Lebenswirklichkeit jedes Einzelnen ist aus dem Bewusstsein gerückt. Produktion und Gewerbe wird im Kontext der Stadtentwicklung oft vernachlässigt.</p>`,
+  problem: `<p>Bedeutung von Produktion für die Lebenswirklichkeit jedes Einzelnen ist aus dem Bewusstsein gerückt. Produktion und Gewerbe wird im Kontext der Stadtentwicklung oft vernachlässigt</p>`,
   solution: `<p>Publikationen, Vorträge, Diskussionsveranstaltungen, Workshops, Ausstellungen, Reallabore</p>`,
   effects: `<p>Bewusstseinsbildung hinsichtlich Bedeutung und Mehrwerten Urbaner Produktion</p>`,
   challenges: `<p>Zentrale Erkenntnisse für die Allgemeinheit greifbar und verständlich aufbereiten</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li>
-  <li>Zentrum für Urbane Produktion / Handwerkerhof</li>
-  <li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li>
-  <li>Einbindung von Universitäten / Hochschulen</li>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Storytelling</li>
-  <li>Schaufensterwettbewerb</li>
-  <li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li>
-  <li>Solidarische Landwirtschaft</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Einbindung von Universitäten / Hochschulen</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Storytelling</li><li>Schaufensterwettbewerb</li><li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li><li>Solidarische Landwirtschaft</li><li>Prosumptive Geschäftsmodelle</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://urbaneproduktion.ruhr/" target="_blank">UrbaneProduktion.Ruhr</a></li>
-  <li><a href="https://www.neue-urbane-produktion.de/" target="_blank">Neue Urbane Produktion</a></li>
-  <li><a href="http://mia-projekt.de/" target="_blank">Made in Aachen (MiA)</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://urbaneproduktion.ruhr/"target="_blank">UrbaneProduktion.Ruhr</a></li><li><a href="https://www.neue-urbane-produktion.de/"target="_blank">Neue Urbane Produktion</a></li><li><a href="http://mia-projekt.de/"target="_blank">Made in Aachen(MiA)</a></li><li><a href="https://www.netzwerk-n.org/portfolios/reallabor-kleinproduzenten/"target="_blank">Reallabor Kleinproduzenten Hochschule Neubrandenburg</a></li><li><a href="https://www.hsu-hh.de/laft/forschung/fabcity-dezentrale-digitale-produktion-fuer-die-urbane-wertschoepfung"target="_blank">FabCity – Dezentrale digitale Produktion für die urbane Wertschöpfung in Hamburg</a></li></ul>`,
   image: "img/wissenstransfer_in_die_stadtgesellschaft.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -582,40 +514,21 @@ let actions =
 },
 
 {
-  id: 462,
-  number: "4.6.2",
+  id: 172,
+  number: "1.7.2",
   title: "Made in Kampagne (Hidden Champions Kampagne)",
-  description: `<p>Die Image- und Markenbildung rund um die Thematik der Urbanen Produktion ist notwendig, damit lokal und regional hergestellte Produkte stärker in der Lebenswirklichkeit der Bürger*innen ankommen und die Nachfrage nach diesen Produkten steigt. Ziel einer Branding- bzw. Marketing-Strategie sollte es u. a. sein, Vertrauen zu bilden und die regionale Identität und Verantwortung der Menschen zu stärken. Hierbei gilt es, die Vorteile von urban produzierten Gütern in den Vordergrund zu stellen. Branding und Marketing können, je nach Zielgruppe und Zielsetzung, auf verschiedenen räumlichen Ebenen vom Stadtteil (z. B. ‚Produziert in Schalke‘) über die Stadt (z. B. ‚Produziert in Gelsenkirchen‘) bis zur Region (z. B. ‚Produziert im Ruhrgebiet‘) erfolgen. Gelsenkirchen ist zudem 2021 Modellkommune der von der HWK Münster initiierten „Wertschätzungskampagne“, welche das Ziel verfolgt, Handwerk sichtbar zu machen und für die Branche zu sensibilisieren. Auch sogenannte „Hidden Champions“ bekommen so eine größere Aufmerksamkeit.</p>
-  <p>Zur Durchführung der Maßnahme ist es zunächst notwendig, einen Überblick über die Unternehmen und die im städtischen Raum hergestellten Produkte zu schaffen. Dieses Wissen kann bspw. sukzessive auf einer Internet-Plattform/ Website gesammelt werden und bildet auch für weitere Maßnahmen eine wesentliche Handlungsgrundlage.</p>`,
+  description: `<p>Die Image- und Markenbildung rund um die Thematik der Urbanen Produktion ist notwendig, damit lokal und regional hergestellte Produkte stärker in der Lebenswirklichkeit der Bürger*innen ankommen und die Nachfrage nach diesen Produkten steigt. Ein Ansatzpunkt, um die Aufmerksamkeit dieser sogenannten „Hidden Champions“ zu steigern ist die Realisierung einer Branding- und Marketing-Strategie. Ziel einer solchen Strategie sollte es u. a. sein, Vertrauen zu bilden und die regionale Identität und Verantwortung der Menschen zu stärken. Hierbei gilt es, die Vorteile von urban produzierten Gütern in den Vordergrund zu stellen. Branding und Marketing können, je nach Zielgruppe und Zielsetzung, auf verschiedenen räumlichen Ebenen vom Stadtteil über die Stadt bis zur Region erfolgen.</p><p>Zur Durchführung der Maßnahme ist es zunächst notwendig, einen Überblick über die Unternehmen und die im städtischen Raum hergestellten Produkte zu schaffen. Dieses Wissen kann bspw. sukzessive auf einer Website gesammelt werden und bildet auch für weitere Maßnahmen eine wesentliche Handlungsgrundlage.</p>`,
   targetgroups: `<p>Bürger*innen, Urban produzierende Betriebe</p>`,
-  actors: `<p>Urban produzierende Betriebe, Wirtschaftsförderung, Handwerkskammer, Industrie- und Handelskammer, Stadtmarketing, Business Metropole Ruhr</p>`,
+  actors: `<p>Urban produzierende Betriebe, Wirtschaftsförderung, HWK, IHK, Stadtmarketing</p>`,
   cost: `<p>Personal (mittel), Sachkosten (gering)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
-  problem: `<p>Bedeutung von Produktion für die Lebenswirklichkeit jedes Einzelnen ist aus dem Bewusstsein gerückt. Die Menschen kommen insbesondere in städtischen Räumen oftmals nicht mehr mit Produktion in Kontakt.</p>`,
-  solution: `<p>
-  <b>Gemeinsamer Internet-Auftritt:</b> Eine gemeinsame Internet-Präsenz, welche bspw. urbane Manufakturen im Stadtraum verortet und entsprechende Unternehmensportraits enthält, kann ein erster Schritt zur stärkeren Sichtbarkeit der Produktion darstellen. Die jeweiligen Städte können sich hierdurch zudem in Form von individuellen Branchenschwerpunkten profilieren und ihre Alleinstellungsmerkmale hervorheben. Auch eine Einteilung der Betriebe in Kategorien ist hierdurch möglich.</p>
-  <p><b>Produkt-Label:</b> Ein eigens für urban produzierte Produkte kreiertes Label (z. B. MADE IN SCHALKE) kann es Kund*innen erleichtern, lokal Produziertes auch schneller als solches zu erkennen. Dafür kann bei lokal produzierenden Betrieben z. B. ein Aufkleber am Schaufenster angebracht werden.</p>
-  <p><b>Karte:</b> Eine Stadtkarte kann z. B. eine Route (oder mehrere) vorgeben, die an produzierenden Betrieben vorbeiführt sowie Zusatzinformationen bietet. So kann schnell und einfach kommuniziert werden, welche Betriebe über eine Schauproduktion, Führungen oder Workshops verfügen. Optional: Zusätzlich kann in die Karte ein Gewinnspiel oder eine Erlebnisroute integriert werden, wodurch z. B. ein Gutschein für einen Einkauf bei einem lokal produzierenden Betrieb verschenkt wird.</p>
-  <p><b>Social Media:</b> Lokale Produzent*innen, anstehende Veranstaltungen und sonstige Neuigkeiten sollten über die sozialen Medien aktiv beworben werden, um eine möglichst große Reichweite zu erzielen. Auch kurzes Storytelling zu aufgelisteten Unternehmen, kann die Sichtbarkeit und Akzeptanz von Unternehmen erhöhen. Dabei können bestehende Kanäle genutzt werde, z. B. über den Instagram-Account der Stadt Gelsenkirchen oder Kanäle der Wirtschaftsförderung.</p>
-  <p>Zur Etablierung dieser Lösungsvorschläge ist eine Akteurswerkstatt denkbar, bei der die Möglichkeiten dieser Kampagne erörtert, Maßnahmen gemeinsam weiterentwickelt und das grundsätzliche Interesse der lokal Produzierenden abgefragt werden kann.</p>`,
-  effects: `<p>Bewusstseinsbildung hinsichtlich Bedeutung und Mehrwerten Urbaner Produktion, Vernetzung urbaner Produzenten, Werbung für urbane Betriebe</p>`,
-  challenges: `<p>Insbesondere Kleinst-, Klein- und mittelständische Unternehmen weisen wenig Ressourcen auf, um neben dem täglichen Geschäft weitere Anstrengungen aufzunehmen. Gemeinsam mit den genannten Akteuren gilt es, diese so weit wie möglich zu entlasten und den Mehrwert zu verdeutlichen.</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  <li>Storytelling</li>
-  <li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li>
-  <li>Netzwerk und Vernetzung</li>
-  <li>Wochenmärkte / Feierabendmarkt</li>
-  <li>Ausweitung des Stadtgutscheinsystems</li>
-  <li>CrossMarketing-Formate</li>
-  </ul>`,
+  problem: `<p>Bedeutung von Produktion für die Lebenswirklichkeit jedes Einzelnen ist aus dem Bewusstsein gerückt. Menschen kommen insbesondere in städtischen Räumen oftmals nicht mehr mit Produktion in Kontakt</p>`,
+  solution: `<p><b>Gemeinsamer Internet-Auftritt:</b> Eine gemeinsame Internet-Präsenz, welche bspw. Urbane Manufakturen im Stadtraum verortet und entsprechende Unternehmensportraits enthält, kann ein erster Schritt zur stärkeren Sichtbarkeit der Produktion darstellen. Die jeweiligen Städte können sich hierdurch zudem in Form von individuellen Branchenschwerpunkten profilieren und ihre Alleinstellungsmerkmale hervorheben. Auch eine Einteilung der Betriebe in Kategorien ist hierdurch möglich.</p><p><b>Produkt-Label:</b> Ein eigens für urban produzierte Produkte kreiertes Label kann es Kund*innen erleichtern, lokal Produziertes auch schneller als solches zu erkennen. Dafür kann bei lokal produzierenden Betrieben z. B. ein Aufkleber am Schaufenster angebracht werden.</p><p><b>Karte:</b> Eine Stadtkarte kann z. B. eine Route (oder mehrere) vorgeben, die an produzierenden Betrieben vorbeiführt sowie Zusatzinformationen bietet. So kann schnell und einfach kommuniziert werden, welche Betriebe über eine Schauproduktion, Führungen oder Workshops verfügen. Optional: Zusätzlich kann in die Karte ein Gewinnspiel oder eine Erlebnisroute integriert werden, wodurch z. B. ein Gutschein für einen Einkauf bei einem lokal produzierenden Betrieb verschenkt wird.</p><p><b>Social Media:</b> Lokale Produzent*innen, anstehende Veranstaltungen und sonstige Neuigkeiten sollten über die sozialen Medien aktiv beworben werden, um eine möglichst große Reichweite zu erzielen. Auch kurzes Storytelling zu aufgelisteten Unternehmen, kann die Sichtbarkeit und Akzeptanz von Unternehmen erhöhen. Dabei können bestehende Kanäle genutzt werden.</p><p>Zur Etablierung dieser Lösungsvorschläge ist eine Akteurswerkstatt denkbar, bei der die Möglichkeiten dieser Kampagne erörtert, Maßnahmen gemeinsam weiterentwickelt und das grundsätzliche Interesse der lokal Produzierenden abgefragt werden kann.</p>`,
+  effects: `<p>Bewusstseinsbildung hinsichtlich Bedeutung und Mehrwerten Urbaner Produktion, Vernetzung urbaner Produzent*innen, Werbung für urbane Betriebe</p>`,
+  challenges: `<p>Insbesondere Kleinst-, Klein- und mittelständische Unternehmen weisen wenig Ressourcen auf, um neben dem täglichen Geschäft weitere Anstrengungen aufzunehmen. Gemeinsam mit den genannten Akteuren gilt es, diese so weit wie möglich zu entlasten und den Mehrwert zu verdeutlichen</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Wissenstransfer in die Stadtgesellschaft</li><li>Storytelling</li><li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li><li>Netzwerk und Vernetzung</li><li>Wochenmärkte / Feierabendmarkt</li><li>Ausweitung des Stadtgutscheinsystems</li><li>Crossmarketing-Formate</li><li>Prosumptive Geschäftsmodelle</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.gelsenkirchen.de/de/_meta/aktuelles/artikel/49922-gemeinsam-zukunft-gestalten@Ha?fbclid=IwAR21kadcWdK--AEkPX498t7Yt6vJPRQZ5zgFjUCjd5x5xqoQM3UdDY55JRQ" target="_blank">Wertschätzungskampagne Handwerk (HWK Münster) in Gelsenkirchen</a></li>
-  <li><a href="https://www.wko.at/branchen/noe/handel/Regionalis_Projektbeschreibung.pdf" target="_blank">Regionalis-Marktplatz</a></li>
-  <li><a href="https://bochumer-originale.de/" target="_blank">Bochumer Originale</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://bochumer-originale.de/"target="_blank">Bochumer Originale</a></li><li><a href="https://www.wienproducts.at/"target="_blank">Wien Products</a></li><li><a href="https://www.wko.at/branchen/noe/handel/Regionalis_Projektbeschreibung.pdf"target="_blank">Regionalis-Marktplatz</a></li><li><a href="https://galerie.rosenheim.de/ansicht/news/made-in-rosenheim/?cHash=f6c9a7411e9082a164058b134e7f800d&L=0"target="_blank">Ausstellung"Made in Rosenheim"</a></li><li><a href="https://www.wirtschaft-in-mittelsachsen.de/service/kaufregional.html"target="_blank">KARLO-KAuf,Regional,LOkal Landkreis Mittelsachsen</a></li><li><a href="https://local-heroes-leipzig.de/"target="_blank">Local Heros Leipzig</a></li></ul>`,
   image: "img/made_in_kampagne.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -626,34 +539,21 @@ let actions =
 },
 
 {
-  id: 463,
-  number: "4.6.3",
+  id: 173,
+  number: "1.7.3",
   title: "Storytelling",
-  description: `<p>Bürger*innen und weitere Akteure der Zivilgesellschaft sowie Wirtschaft und Wissenschaft sollen für die Vorteile des produzierenden Gewerbes sensibilisiert werden, um schließlich etwaige Nutzungskonflikte vorzubeugen und Vorbehalte der Anwohnerschaft abzubauen. Dabei können unterschiedliche Kommunikationsmittel genutzt werden, um das breite Themenfeld der Urbanen Produktion und damit zusammenhängende Anforderungen, Nutzungen, Bedarfe und Herausforderungen aufzuzeigen und schließlich die Wertschätzung gegenüber produzierendem Gewerbe zu stärken. In Form eines Storytellings über lokal produzierenden Unternehmen oder bestimmten Branchen, können diese in sozialen Medien und / oder der lokalen Presse vorgestellt werden. Ziel dabei ist es, ein lokales Bewusstsein für die Betriebe schaffen sowie deren Wertschätzung in der Öffentlichkeit zu erhöhen. Denkbar wäre eine Beitrags- oder Artikelserie, in der innerhalb eines Jahres jeweils ein oder mehrere produzierende Unternehmen vorgestellt werden. Hierbei sind thematische gebündelte Artikel ebenso denkbar wie die Bündelung von kooperierenden Unternehmen in einem Artikel oder eine räumliche Aufteilung nach Stadtteilen oder ähnlichem. Der Fokus liegt auf praxisnahen Themen und Beispielen.</p>`,
+  description: `<p>Bürger*innen und weitere Akteure der Zivilgesellschaft sowie Wirtschaft und Wissenschaft sollen für die Vorteile des produzierenden Gewerbes sensibilisiert werden, um schließlich etwaige Nutzungskonflikte vorzubeugen und Vorbehalte der Anwohnerschaft abzubauen. Dabei können unterschiedliche Kommunikationsmittel genutzt werden, um das breite Themenfeld der Urbanen Produktion und damit zusammenhängende Anforderungen, Nutzungen, Bedarfe und Herausforderungen aufzuzeigen und schließlich die Wertschätzung gegenüber produzierendem Gewerbe zu stärken. In Form eines Storytellings über lokal produzierenden Unternehmen oder bestimmten Branchen, können diese in sozialen Medien und / oder der lokalen Presse vorgestellt werden. Ziel dabei ist es, ein lokales Bewusstsein für die Betriebe zu schaffen sowie deren Wertschätzung in der Öffentlichkeit zu erhöhen. Denkbar wäre eine Beitrags- oder Artikelserie, in der innerhalb eines Jahres jeweils ein oder mehrere produzierende Unternehmen vorgestellt werden. Hierbei sind thematisch gebündelte Artikel ebenso denkbar wie die Bündelung von kooperierenden Unternehmen in einem Artikel. Zusätzlich wäre eine Bündelung von Artikeln nach einem bestimmten Raummuster denkbar, z. B. Urban produzierende Betriebe innerhalb eines konkreten Stadtteils. Der Fokus liegt auf praxisnahen Themen und Beispielen.</p>`,
   targetgroups: `<p>Bürger*innen</p>`,
-  actors: `<p>Urban produzierende Unternehmen, UrbaneProduktion.Ruhr, Handwerkskammer, Stadtmarketing, Presse</p>`,
-  cost: `<p>Personal (gering), Sachkosten (keine)</p>`,
-  time: `<p>Kurz- bis mittelfristig</p>`,
+  actors: `<p>Urban produzierende Unternehmen, Handwerkskammer, Stadtmarketing, Presse</p>`,
+  cost: `<p>Personal (gering)</p>`,
+  time: `<p>Kurz- bis mittelfristig, einmalig oder wiederkehrend</p>`,
   problem: `<p>Fachkräftemangel, fehlende Wertschätzung für Urbane Produktion, fehlendes Bewusstsein für lokale Produkte</p>`,
-  solution: `<p>Entwurf und anschließende Publikation von Geschichten zu urban produzierenden Unternehmen, Vernetzung lokaler Unternehmer unter Einbezug der Presse / Öffentlichkeit, Kooperation mit Wertschätzungskampagne der HWK Münster</p>`,
+  solution: `<p>Entwurf und anschließende Publikation von Geschichten zu urban produzierenden Unternehmen, Vernetzung lokaler Unternehmer*innen unter Einbezug der Presse / Öffentlichkeit</p>`,
   effects: `<p>Sichtbarmachung, Aufmerksamkeit, Anstoß von Diskussionen</p>`,
   challenges: `<p>Steuerung der Kampagne als zeitaufwändige Aufgabe, die u. U. komplexe Absprachen erfordert, Publikum muss sich für die Thematik interessieren</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Kurator zur Förderung von Bestandsunternehmen urban produzierender Unternehmen</li>
-  <li>Einbindung von Universitäten / Hochschulen</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Schaufensterwettbewerb</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Einbindung von Universitäten / Hochschulen</li><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Schaufensterwettbewerb</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.senkrechtstarter.de/news/detail/bochum-eine-produktive-stadt/" target="_blank">Bochum - eine produktive Stadt?!</a></li>
-  <li><a href="https://urbaneproduktion.ruhr/ausstellung/" target="_blank">Wanderausstellung „Urbane Produktion – Produktion zurück in die Stadt?!“</a></li>
-  <li><a href="https://www.waz.de/staedte/bochum/wie-die-bochumer-jobschmiede-handwerk-in-corona-zeiten-tickt-id230917794.html" target="_blank">WAZ-Artikel “Handwerk in Corona Zeiten”</a></li>
-  <li><a href="https://urbaneproduktion.ruhr" target="_blank">Blogbeiträge Urbane Produktion</a></li>
-  <li><a href="https://walnussundgewebe.ruhr/" target="_blank">Blogbeiträge Walnuss und Gewebe</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.senkrechtstarter.de/news/detail/bochum-eine-produktive-stadt/" target="_blank">Bochum - eine produktive Stadt?!</a></li><li><a href="https://made-in.city/produkte-kennen" target="_blank">Magazin-Reihe MADE IN</a></li><li><a href="https://urbaneproduktion.ruhr/ausstellung/" target="_blank">Wanderausstellung „Urbane Produktion – Produktion zurück in die Stadt?!“</a></li><li><a href="https://www.waz.de/staedte/bochum/wie-die-bochumer-jobschmiede-handwerk-in-corona-zeiten-tickt-id230917794.html" target="_blank">WAZ-Artikel “Handwerk in Corona Zeiten”</a></li><li><a href="https://urbaneproduktion.ruhr" target="_blank">Blogbeiträge Urbane Produktion</a></li><li><a href="https://walnussundgewebe.ruhr/" target="_blank">Blogbeiträge Walnuss und Gewebe</a></li></ul>`,
   image: "img/storytelling.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -664,32 +564,21 @@ let actions =
 },
 
 {
-  id: 464,
-  number: "4.6.4",
+  id: 174,
+  number: "1.7.4",
   title: "Schaufensterwettbewerb",
-  description: `<p>Um die Akzeptanz für urbane Produktion zu erhöhen und gleichzeitig lokal und regional hergestellte Produkte stärker in der Lebenswirklichkeit der Konsument*innen zu verankern, ist es notwendig, Produktion sicht- und erlebbar zu machen. Hierzu kann ein Schaufensterwettbewerb von produzierenden Unternehmen innerhalb des Stadtgebietes oder eines Stadtteils wie Schalke-Nord ein probates Mittel sein. Unternehmen werden aufgefordert, ihre Schaufenster innerhalb eines festgeschriebenen Zeitraums kunstvoll zu dekorieren, häufig unter Vorgabe eines Mottos. Je nach Größe sowie Zentralität des Gebiets wäre auch eine zentrale Koordinierung des Schaufensterwettbewerbs über eine Internetplattform möglich, sodass Unternehmer*innen ein „digitales Schaufenster“ gestalten können.</p>
-  <p>Die Aktion wird öffentlichkeitswirksam begleitet, eine Jury kürt anschließend die Gewinner*innen. Bei der Durchführung bietet sich eine Kooperation der Wirtschaftsförderung mit dem Stadtmarketing, IHK und/oder HWK an, um bei der Bewerbung und Durchführung das Netzwerk der Institutionen zu nutzen. Auch die lokalen Unternehmen können neben der steigenden öffentlichen Wahrnehmung auch von der daraus entstehenden Vernetzung profizieren um mögliche neue Kooperationen zu bilden oder Wertschöpfungsketten zu verbessern.</p>`,
-  targetgroups: `<p>Urbane produzierende Betriebe, Eigentümer*innen, Bürger*innen</p>`,
-  actors: `<p>Urbane produzierende Betriebe, Wirtschaftsförderung, Stadtmarketing, Stadtteilmanagements, Industrie und Handelskammer, Handwerkskammer</p>`,
+  description: `<p>Um die Akzeptanz für Urbane Produktion zu erhöhen und gleichzeitig lokal und regional hergestellte Produkte stärker in der Lebenswirklichkeit der Konsument*innen zu verankern, ist es notwendig, Produktion sicht- und erlebbar zu machen. Hierzu kann ein Schaufensterwettbewerb von produzierenden Unternehmen innerhalb des Stadtgebietes oder eines Stadtteils ein probates Mittel sein. Unternehmen werden aufgefordert, ihre Schaufenster innerhalb eines festgeschriebenen Zeitraums kunstvoll zu dekorieren, häufig unter Vorgabe eines Mottos. Je nach Größe sowie Zentralität des Gebiets wäre auch eine zentrale Koordinierung des Schaufensterwettbewerbs über eine Internetplattform möglich, sodass Unternehmer*innen ein „digitales Schaufenster“ gestalten können.</p><p>Die Aktion wird öffentlichkeitswirksam begleitet, eine Jury kürt anschließend die Gewinner*innen. Bei der Durchführung bietet sich eine Kooperation der Wirtschaftsförderung mit dem Stadtmarketing, IHK und/oder HWK an, um bei der Bewerbung und Durchführung das Netzwerk der Institutionen zu nutzen. Auch die lokalen Unternehmen können neben der steigenden öffentlichen Wahrnehmung auch von der daraus entstehenden Vernetzung profitieren, um mögliche neue Kooperationen zu bilden oder Wertschöpfungsketten zu verbessern.</p>`,
+  targetgroups: `<p>Urban produzierende Betriebe, Eigentümer*innen, Bürger*innen</p>`,
+  actors: `<p>Urban produzierende Betriebe, Wirtschaftsförderung, Stadtmarketing, Stadtteilmanagements, Industrie und Handelskammer, Handwerkskammer</p>`,
   cost: `<p>Personal (gering); Sachkosten (gering)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
-  problem: `<p>Fehlende Wahrnehmung urbaner Produktion in der Stadt. Zudem vermehrt Leerstand und unattraktive Innenstädte und Stadtteilzentren.</p>`,
+  problem: `<p>Fehlende Wahrnehmung Urbaner Produktion in der Stadt. Zudem vermehrt Leerstand und unattraktive Innenstädte und Stadtteilzentren.</p>`,
   solution: `<p>Planung des organisatorischen Rahmens sowie anschließende Koordinierung des Wettbewerbs (Räumliche Ausdehnung, ggf. Bereitstellung der digitalen Infrastruktur), Zusammenarbeit mit Multiplikator*innen</p>`,
   effects: `<p>Verbesserung des Images, Außenwirkung, attraktives Stadtbild</p>`,
   challenges: `<p>Mehrsprachige Öffentlichkeitsarbeit, um alle Unternehmen und Eigentümer*innen zu erreichen, fehlende personelle und zeitliche Ressourcen der Unternehmer*innen, Mehrwehrt für Unternehmer*innen muss betont werden</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Storytelling</li>
-  <li>Ausweitung des Stadtgutscheinsystems</li>
-  <li>CrossMarketing-Formate</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Storytelling</li><li>Ausweitung des Stadtgutscheinsystems</li><li>Crossmarketing-Formate</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.lokalkompass.de/tag/schaufensterwettbewerb" target="_blank">Schaufensterwettbewerb Hagen</a></li>
-  <li><a href="https://www.wf-hamm.de/hamm-bietet/schaufensterwettbewerb/" target="_blank">Schaufensterwettbewerb Hamm</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.lokalkompass.de/tag/schaufensterwettbewerb"target="_blank">Schaufensterwettbewerb Hagen</a></li><li><a href="https://www.wf-hamm.de/hamm-bietet/schaufensterwettbewerb/"target="_blank">Schaufensterwettbewerb Hamm</a></li><li>Schaufensterwettbewerb Mülheim an der Ruhr<ul><li><a href="https://www.muelheim-ruhr.de/cms/auf_die_fenster_fertig_los.html"target="_blank">2011</a></li><li><a href="https://www.muelheim-ruhr.de/cms/auf_die_fenster_fertig_los1.html"target="_blank">2012</a></li></ul></li><li><a href="https://www.coburg.de/desktopdefault.aspx/tabid-1319/866_read-7784/"target="_blank">Schaufensterwettbewerb"Goldenes Coburg"</a></li><li>Schaufensterwettbewerb Eller<ul><li><a href="https://rp-online.de/nrw/staedte/duesseldorf/stadtteile/wettbewerb-der-schaufenster-in-eller_aid-15084541"target="_blank">https://rp-online.de/nrw/staedte/duesseldorf/stadtteile/wettbewerb-der-schaufenster-in-eller_aid-15084541<li><a href="https://individueller.de/aktionen/start/tag/schaufensterwettbewerb/"target="_blank">https://individueller.de/aktionen/start/tag/schaufensterwettbewerb/</ul></li><li><a href="https://www.xn--aktiv-fr-ratingen-82b.de/single-post/2018/09/11/4-ratinger-schaufensterwettbewerb"target="_blank">Schaufensterwettbewerb Ratingen „Unsere Stadt – Unsere Vereine“</a></li><li><a href="https://www.schwarzwaelder-bote.de/inhalt.calw-schaufensterwettbewerb-preise-vergeben.cff3ca6c-5cf4-42e4-b5b3-7ccec0934f12.html"target="_blank">Schaufensterwettbewerb Calw</a></li><li><a href="http://www.faires-saarland.de/schaufensterwettbewerb/"target="_blank">Schaufensterwettbewerb „Saarbrücken bewegt Welt„</a></li></ul>`,
   image: "img/schaufensterwettbewerb.png",
   imageSrc: "https://www.lokalkompass.de/hagen/c-ueberregionales/hagen-im-fluss-die-gewinner-des-hagen-schaufensterwettbewerbs_a710019#gallery=default&pid=8789757",
   iconsValuation: {
@@ -700,36 +589,21 @@ let actions =
 },
 
 {
-  id: 465,
-  number: "4.6.5",
+  id: 175,
+  number: "1.7.5",
   title: "Tag der offenen Tür der innerstädtischen produzierenden Betriebe",
-  description: `<p>Durch einen gemeinsamen „Tag der offenen Tür“ kann die Produktionsvielfalt der in Gelsenkirchen angesiedelten produzierenden Betriebe aufgezeigt werden. Betriebe gewähren interessierten Menschen über Führungen, Mitmach-Workshops, Showproduktion o. ä. einen Einblick in ihre Produktionsweise und stehen für Rückfragen und persönliche Gespräche zur Verfügung. Eine entsprechende (Online-)Broschüre visualisiert das Angebot des Tags der offenen Tür. Dies kann in Kombination mit Kampagnen und weiteren öffentlichkeitswirksamen Maßnahmen geschehen. Als Tag dafür eignen sich z. B. die verkaufsoffenen Sonntage sowie der Abendbereich, da dort auch Räume oder Anlagen vorgestellt werden können, die während des Betriebs unzugänglich sind.</p>
-  <p>Die produzierenden Betriebe profitieren dabei durch eine erhöhte Kundenakquise während die Bürger*innen einen Einblick in die Produktionsweise erhalten und gleichzeitig mit dem Thema der urbanen Produktion sensibilisiert werden.</p>`,
+  description: `<p>Durch einen gemeinsamen „Tag der offenen Tür“ kann die Produktionsvielfalt produzierender Betriebe in städtischen Räumen/im Stadtgebiet aufgezeigt werden. Betriebe gewähren interessierten Menschen über Führungen, Mitmach-Workshops, Showproduktion o. ä. einen Einblick in ihre Produktionsweise und stehen für Rückfragen und persönliche Gespräche zur Verfügung. Eine entsprechende (Online-)Broschüre visualisiert das Angebot des Tags der offenen Tür. Dies kann in Kombination mit Kampagnen und weiteren öffentlichkeitswirksamen Maßnahmen geschehen. Als Tag dafür eignen sich z. B. die verkaufsoffenen Sonntage sowie der Abendbereich, da dort auch Räume oder Anlagen vorgestellt werden können, die während des Betriebs unzugänglich sind.</p><p>Die produzierenden Betriebe profitieren dabei durch eine erhöhte Kundenakquise während die Bürger*innen einen Einblick in die Produktionsweise erhalten und gleichzeitig für das Thema der urbanen Produktion sensibilisiert werden.</p>`,
   targetgroups: `<p>Bürger*innen, Gründungsinteressierte</p>`,
   actors: `<p>Urban produzierende Betriebe, Wirtschaftsförderung, Industrie und Handelskammer, Handwerkskammer, Gewerbevereine, Einzelhandelsverbände</p>`,
-  cost: `<p>Personal (Gering bis mittel), Sachkosten (keine)</p>`,
+  cost: `<p>Personalkosten (gering bis mittel)</p>`,
   time: `<p>Kurzfristig</p>`,
-  problem: `<p>Fachkräftemangel, fehlende Wertschätzung für Urbane Produktion, fehlendes Bewusstsein für lokale Produkte </p>`,
+  problem: `<p>Fachkräftemangel, fehlende Wertschätzung für Urbane Produktion, fehlendes Bewusstsein für lokale Produkte</p>`,
   solution: `<p>Planung und Durchführung eines quartiers- oder stadtweiten Tags, an dem produzierende Unternehmen ihre Betriebe vorstellen. Die Planung und Beantragung kann beispielsweise durch den Einzelhandelsverband bei der Stadt stattfinden</p>`,
   effects: `<p>Sichtbarmachung bestehender Betriebe, Öffentlichkeitsarbeit, Einblicke in Betriebsstrukturen und Produktionsweisen, Weckung von Interesse bei potenziellen Konsument*innen, Steigerung der Wertschätzung</p>`,
   challenges: `<p>Mögliche Betriebsgeheimnisse der Unternehmen, Insbesondere Kleinst-, Klein- und mittelständische Unternehmen weisen wenig Ressourcen auf, um neben dem täglichen Geschäft weitere Anstrengungen aufzunehmen. Mehrwerte müssen verdeutlicht werden.</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Einbindung von Universitäten / Hochschulen</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Storytelling</li>
-  <li>Netzwerk und Vernetzung</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Einbindung von Universitäten / Hochschulen</li><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Storytelling</li><li>Netzwerk und Vernetzung</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.erzgebirge-tourismus.de/20-jahre-tag-des-handwerks/" target="_blank">Tag des traditionellen Handwerks Erzgebirge</a></li>
-  <li><a href="https://www.hwk-duesseldorf.de/artikel/tag-des-handwerks-am-19-9-2020-31,0,4856.html" target="_blank">Tag des Handwerks (Das Handwerk)</a></li>
-  <li><a href="https://www.nordschwarzwald.ihk24.de/blueprint/servlet/resource/blob/
-  2604386/f926fcc859b3280081a12240ef419871/tipps-fuer-die-oeffentlichkeitsarbeit-tag-der-offenen-tuer-data.pd
-  " target="_blank">Die IHK bietet Leitfäden für einen Tag der offenen Tür für Unternehmen an</a></li>
-  <li><a href="https://glaserei-koch.com/2019/04/04/10-hoffest/" target="_blank">Hoffest der Glaserei Koch aus Neubrandenburg</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.erzgebirge-tourismus.de/20-jahre-tag-des-handwerks/" target="_blank">Tag des traditionellen Handwerks Erzgebirge</a></li><li><a href="https://www.hwk-duesseldorf.de/artikel/tag-des-handwerks-am-19-9-2020-31,0,4856.html" target="_blank">Tag des Handwerks (Das Handwerk)</a></li><li><a href="https://www.nordschwarzwald.ihk24.de/blueprint/servlet/resource/blob/2604386/f926fcc859b3280081a12240ef419871/tipps-fuer-die-oeffentlichkeitsarbeit-tag-der-offenen-tuer-data.pdf" target="_blank">Die IHK bietet Leitfäden für einen Tag der offenen Tür für Unternehmen an</a></li><li><a href="https://glaserei-koch.com/2019/04/04/10-hoffest/" target="_blank">Hoffest der Glaserei Koch aus Neubrandenburg</a></li></ul>`,
   image: "img/tag_der_offenen_tuer_der_innerstaedtischen_produzierenden_betriebe.jpg",
   imageSrc: "https://www.erzgebirge-tourismus.de/tag-des-handwerks/",
   iconsValuation: {
@@ -740,24 +614,46 @@ let actions =
 },
 
 {
-  id: 471,
-  number: "4.7.1",
+  id: 176,
+  number: "1.7.6",
+  title: "Prosumptive Geschäftsmodelle",
+  description: `<p>Prosumption findet vor allem in den Bereichen Energie- und Lebensmittelversorgung statt, aber auch in der Eigenproduktion von Kleidung, Möbeln und Ersatzteilen. Sie wird durch das Eröffnen von Makerspaces begünstigt, da dort Konsumenten Produkte für ihren Eigenbedarf herstellen können. Dabei können ‚hybrid communities‘ entstehen, in denen aus dem primären Wunsch der Eigenproduktion eine unternehmerische Produktion aufgebaut werden kann. Auch in einigen Manufakturen gibt es die Möglichkeit, individualisierte Produkte herzustellen.</p><p>Sich ändernde Nachfragebedingungen, z. B. aufgrund zunehmender Individualisierung, wird mit neuen Geschäftsmodellen, die sich häufig an neuen Technologien und Digitalisierung ausrichten, begegnet. Auf der einen Seite werden auf Produktion ausgerichtete Geschäftsmodelle um Dienstleistungsangebote erweitert, auf der anderen Seite strukturieren sich auch Handelsunternehmen neu, z. B. mit „Kontraktproduktion (Contract Manufacturing) von Handelsmarken [in dem Teile für ein Endprodukt für einen anderen Hersteller erzeugt werden] bis zur Übernahme der Produktion“ der Endprodukte. Dadurch werden neue Wertschöpfungsstufen erschlossen und der reine Kaufzweck im Laden rückt in den Hintergrund: Der Einkauf wird zum Erlebniskauf. Auch um neben dem Online-Handel standzuhalten, suchen Unternehmen neue inspirierende und offene Produktionsstätten und -standorte. Sie legen zudem verstärkt Wert auf die Einbindung des Kunden in den Produktionsprozess z. B. durch Ko-Produktion und Prosumption. Die Identifikation mit dem Produkt sowie mit dem Ort der Produktion kann so gestärkt werden. Prosumptive Geschäftsmodelle können somit zur Sensibilisierung und Akzeptanz von Produktion beitragen.</p>`,
+  targetgroups: `<p>Urban produzierende Betriebe, Bewohner*innen</p>`,
+  actors: `<p>Wirtschaftsförderung, Eigentümer*innen, Urban produzierende Betriebe</p>`,
+  cost: `<p>Personal (gering), Sachkosten (gering)</p>`,
+  time: `<p>mittelfristig</p>`,
+  problem: `<p>Veränderte Nachfragebedingungen, starker Fokus auf Online-Handel</p>`,
+  solution: `<p>Aktive Verknüpfung von Konsum und Produktion</p>`,
+  effects: `<p>Erhöhung der Identifikation mit Produkten sowie Nachfrage</p>`,
+  challenges: `<p>Einzelhandel muss räumlich entsprechend ausgestattet sein respektive prosumptive Geschäftsmodelle ermöglichen</p>`,
+  interactions: `<ul><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Einzelhandelsflächen</li></ul>`,
+  area: `<p>Stadtteil/Quartier</p>`, //TODO das ist erstmal nur ein dummy.
+  examples: `<p></p>`, //TODO
+  image: "img/TODO.jpg",
+  imageSrc: "",
+  iconsValuation: { //TODO
+    effects: 1,
+    challenges: 1
+  },
+  theme: "Sensibilisierung der Stadtgesellschaft",
+},
+
+{
+  id: 181,
+  number: "1.8.1",
   title: "Netzwerk und Vernetzung",
-  description: `<p>Es gibt über 800 produzierende Betriebe in Gelsenkirchen, die vor unterschiedlichen Herausforderungen stehen. Eine Vernetzung dieser Betriebe untereinander sowie mit weiteren relevanten Akteuren (Wirtschaftsförderung, Stadtmarketing, Stadtplanung usw.), bietet Möglichkeiten zur frühzeitigen und bedarfsgerechten Unterstützung. Gleichzeitig bieten zielgerichtete Zusammenschlüsse Synergieeffekte, sodass bspw. neue Kooperationen und Lieferketten entstehen oder Ressourcen geteilt werden können. Für die Umsetzung der Maßnahme sollte zunächst geschaut werden, welche bestehenden Zusammenschlüsse von Betrieben bereits genutzt werden und wo es diesbezüglich noch Nachholbedarf gibt.</p>`,
+  description: `<p>In städtischen Räumen konzentriert sich eine Vielzahl an produzierenden Betrieben, für die sich die Möglichkeit bietet, durch die Vernetzung untereinander sowie mit weiteren relevanten Akteuren (Wirtschaftsförderung, Stadtmarketing, Stadtplanung etc.), sich gegenseitig zu unterstützen und voneinander zu profitieren. Durch zielgerichtete Zusammenschlüsse können Synergieeffekte entstehen, darunter gemeinsame Lieferketten oder gemeinsam genutzt Ressourcen. Die Nutzung oder der Aufbau gemeinsamer Plattformen oder Netzwerke bieten die Möglichkeit, neue Produkte gemeinsam mit anderen Unternehmen anzubieten sowie Nebenprodukte oder Produktionsabfälle einer Weiterverwendung zuzuführen. Je nach Ausgestaltung der Netzwerktätigkeiten können sie auch einen Beitrag zur Aufwertung von Stadtteilen leisten.</p>`,
   targetgroups: `<p>Urban produzierende Unternehmen</p>`,
   actors: `<p>Wirtschaftsförderung, Business Metropole Ruhr, Impact Hub, UrbaneProduktion.Ruhr,  Handwerkskammer, Industrie und Handelskammer</p>`,
-  cost: `<p>Personal (Gering bis mittel), Sachkosten (keine)</p>`,
+  cost: `<p>Personal (gering bis mittel)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
   problem: `<p>Potenzielle Wertschöpfungsketten werden nicht ausgeschöpft, fehlender lokaler Knowhow-Transfer, Fachkräftemangel</p>`,
-  solution: `<p>Lobbyarbeit respektive Akquise und Vernetzung urbaner Produzenten sowie anschließende regelmäßige Netzwerktreffen zu unterschiedlichen inhaltlichen Themen, um Austausch und Kontakt zwischen den verschiedenen Unternehmen herzustellen.</p>`,
+  solution: `<p>Lobbyarbeit respektive Akquise und Vernetzung urbaner Produzent*innen sowie anschließende regelmäßige Netzwerktreffen zu unterschiedlichen inhaltlichen Themen, um Austausch und Kontakt zwischen den verschiedenen Unternehmen herzustellen.</p>`,
   effects: `<p>Kreislaufwirtschaft, Vermehrte Zusammenarbeit, Synergien</p>`,
   challenges: `<p>Insbesondere Kleinst-, Klein- und mittelständische Unternehmen weisen wenig Ressourcen auf, um neben dem täglichen Geschäft weitere Anstrengungen aufzunehmen. Möglicher Wettbewerb zwischen den Unternehmen (Konkurrenzgedanke)</p>`,
-  interactions: `<ul><li>Städtebauförderprogramm</li><li></li></ul>`,
-  area: `<p>Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="" target="_blank"></a></li>
-  <li><a href="" target="_blank"></a></li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Tag der offenen Tür der innerstädtischen produzierenden Betriebe</li><li>Newsletter</li></ul>`,
+  area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
+  examples: `<ul><li><a href="https://www.neue-urbane-produktion.de/"target="_blank">Neue Urbane Produktion im Bergischen Städtedreieck</a></li><li><a href="https://walnussundgewebe.ruhr/events/vernetzungsabend-textil-ausm-pott/"target="_blank">Vernetzungstreffen Textil aus dem Pott</a></li><li><a href="https://walnussundgewebe.ruhr/events/vernetzungstreffen-ruhrgebiet-quo-vadis-lebensmittel-ausm-pott/"target="_blank">Vernetzungstreffen Lebensmittel aus dem Pott</a></li><li><a href="https://www.ihk-potsdam.de/ihk-service-und-beratung/matchmaking-netzwerken"target="_blank">IHK Potsdam</a></li><li><a href="https://www.lokalkompass.de/ennepetal/c-ratgeber/industriemuseum-ennepetal-messe-bot-jede-menge-handwerker-knowledge_a852992"target="_blank">Handwerkermesse Ennepetal</a></li><li><a href="https://www.donautal-aktiv.de/regionalentwicklung-aktuelles/1-netzwerktreffen-anbieterforum-zu-regionalen-produkten/"target="_blank">Donautal-aktiv e.V.</a></li><li><a href="https://ratingen-nachhaltig.de/rueckblick-auf-das-erste-netzwerktreffen/"target="_blank">Ratingen.nachhaltig Netzwerktreffen „Gemeinsam für ein nachhaltiges und zukunftsfähiges Ratingen“</a></li><li><a href="https://ideenfutter-expo.de/ueber-das-event/"target="_blank">Ideenfutter Expo</a></li></ul>`,
   image: "img/netzwerk_und_vernetzung.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -768,29 +664,21 @@ let actions =
 },
 
 {
-  id: 472,
-  number: "4.7.2",
+  id: 182,
+  number: "1.8.2",
   title: "Newsletter",
-  description: `<p>Ein Newsletter kann produzierende Unternehmen zum einen über bevorstehende Veranstaltungen z. B. zur Unternehmensentwicklung und Gründungsinitiativen informieren und zum anderen aktuelle Immobilien und Leerstände bewerben. Zusätzlich können in Form eines Newsletters Anknüpfungspunkte für Kooperations-potenziale aufgezeigt werden. 
-  Für die Umsetzung bieten sich zunächst Rücksprachen mit relevanten Multiplikatoren (HWK, IHK, Wirtschaftsförderung etc.) zu bereits bestehenden Kanälen und Newslettern an. Anschließend kann bei Bedarf ein neues gemeinsames Format aufgesetzt oder ein bestehendes weiterentwickelt werden.</p>`,
+  description: `<p>Ein Newsletter kann produzierende Unternehmen zum einen über bevorstehende Veranstaltungen z. B. zur Unternehmensentwicklung und Gründungsinitiativen informieren und zum anderen aktuelle Immobilien und Leerstände bewerben. Zusätzlich können in Form eines Newsletters Anknüpfungspunkte für Kooperations-potenziale aufgezeigt werden.</p><p>Für die Umsetzung bieten sich zunächst Rücksprachen mit relevanten Multiplikatoren (HWK, IHK, Wirtschaftsförderung etc.) zu bereits bestehenden Kanälen und Newslettern an. Anschließend kann bei Bedarf ein neues gemeinsames Format aufgesetzt oder ein bestehendes weiterentwickelt werden.</p>`,
   targetgroups: `<p>Urban produzierende Betriebe</p>`,
   actors: `<p>Wirtschaftsförderung, Handwerkskammer, Industrie und Handelskammer</p>`,
-  cost: `<p>Personal (gering), Sachkosten (keine)</p>`,
-  time: `<p>kurz- bis mittelfristig</p>`,
+  cost: `<p>Personal (gering)</p>`,
+  time: `<p>Kurz- bis mittelfristig</p>`,
   problem: `<p>Informationen über lokal, benachbarte Unternehmen fehlen, potenzielle wichtige Neuigkeiten und Vernetzungsmöglichkeiten werden von vielen Unternehmen nicht wahrgenommen</p>`,
-  solution: `<p>Aufbau eines Newsletters mit regelmäßigen Intervallen mit Informationen über einzelne Unternehmen, Veranstaltungen sowie aktuelle Trends urbaner Produktion</p>`,
+  solution: `<p>Aufbau eines regelmäßig erscheinenden Newsletters mit Informationen über einzelne Unternehmen, Veranstaltungen sowie aktuelle Trends Urbaner Produktion</p>`,
   effects: `<p>Aufmerksamkeit auf Vernetzungs- und Kooperationsmöglichkeiten sowie Trends zur urbanen Produktion lenken</p>`,
-  challenges: `<p>Fehlende personelle und zeitliche Ressourcen der Unternehmer*innen Mögliche Konkurrenzgedanken der Unternehmen, Großes bestehendes Angebot an Newslettern</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Kurator zur Förderung von Bestandsunternehmen urban produzierender Unternehmen</li>
-  <li>Netzwerk und Vernetzung</li>
-  </ul>`,
+  challenges: `<p>Fehlende personelle und zeitliche Ressourcen der Unternehmer*innen, Mögliche Konkurrenzgedanken der Unternehmen, Großes bestehendes Angebot an Newslettern</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Netzwerk und Vernetzung</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://metropole.ruhr/wir-fuer-die-wirtschaft" target="_blank">Metropole Ruhr: Wir für die Wirtschaft</a></li>
-  <li><a href="https://www.bochum-wirtschaft.de/newsletter/anmeldung/" target="_blank">Bochum Wirtschaftsentwicklung: z.B. Newsletter für die Kreativwirtschaft mit Veranstaltungshinweisen, Suche und Finde-Nachrichten</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://metropole.ruhr/wir-fuer-die-wirtschaft" target="_blank">Metropole Ruhr: Wir für die Wirtschaft</a></li><li><a href="https://www.bochum-wirtschaft.de/newsletter/anmeldung/" target="_blank">Newsletter der Bochumer Wirtschaftsentwicklung</a></li><li><a href="https://www.hwk-duesseldorf.de/artikel/newsletter-handwerk-regional-31,0,1008.html" target="_blank">Handwerkskammer Düsseldorf</a></li><li><a href="https://www.hwk-pfalz.de/artikel/newsletter-der-handwerkskammer-der-pfalz-51,1452,3191.html" target="_blank">Handwerkskammer der Pfalz</a></li></ul>`,
   image: "img/newsletter.jpg",
   imageSrc: "",
   iconsValuation: {
@@ -801,10 +689,10 @@ let actions =
 },
 
 {
-  id: 481,
-  number: "4.8.1",
+  id: 191,
+  number: "1.9.1",
   title: "Wochenmärkte / Feierabendmarkt",
-  description: `<p>In Gelsenkirchen gibt es bereits mehrere Wochenmärkte, sowie den Feierabendmarkt in der Altstadt. Dort können lokale Produkte (bisher überwiegend Lebensmittel) vermarktet werden. Diese können zukünftig auch genutzt werden, um lokal gefertigte Produkte abseits von Lebensmitteln anzubieten. Für ausgewählte Gelsenkirchener Produkte wäre auch ein Verkaufsraum in der Altstadt oder Buer denkbar, beispielsweise in der Touristen-Information.</p>`,
+  description: `<p>Als Ergänzung zum Einzelhandelsangebot tragen Wochenmärkte in vielen Städten zur Nahversorgung bei, wobei sie diese insbesondere durch lokal oder regional, oft ökologisch, erzeugte oder hergestellte Produkte bereichern. Gleichzeitig kann der Markthandel zu einer Verbesserung der innerstädtischen Aufenthaltsqualität/ Aufenthaltsqualität der Stadt(teil)­zentren beitragen.</p>`,
   targetgroups: `<p>Bürger*innen, Urban produzierende Unternehmen</p>`,
   actors: `<p>Urban produzierende Unternehmen, Stadtmarketing, Wirtschaftsförderung</p>`,
   cost: `<p>Personal (gering), Sachkosten (gering)</p>`,
@@ -813,45 +701,32 @@ let actions =
   solution: `<p>Förderung der bestehenden Wochenmärkte, Erweiterung des Produktangebotes von Wochenmärkten, Etablierung neuer Formate wie Marktschwärmerei und Crossmarketing</p>`,
   effects: `<p>Aufmerksamkeit für die lokalen Produkte erzeugen; Bekanntheit steigern</p>`,
   challenges: `<p>Angebot an Wochenmärkten zu gering, Schaffung neuer Standorte schwierig oder sehr kostenintensiv (z. B. Markthalle)</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Ausweitung des Stadtgutscheinsystems</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Ausweitung des Stadtgutscheinsystems</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://moltkemarkt.de/" target="_blank">Moltkemarkt Bochum Springerplatz</a></li>
-  <li><a href="https://markthalleneun.de/" target="_blank">Markhalle 9 Berlin Kreuzberg</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://moltkemarkt.de/"target="_blank">Moltkemarkt Bochum Springerplatz</a></li><li><a href="https://markthalleneun.de/"target="_blank">Markhalle 9 Berlin Kreuzberg</a></li><li><a href="http://www.regionalmarkt-laden.de/regionalmarkt/"target="_blank">Markhalle 9 Berlin Kreuzberg</a></li><li><a href="https://www.odelzhausen.de/leben-und-wohnen/Regionalmarkt-Odelzhausen"target="_blank">Regionalmarkt Odelzhausen</a></li><li><a href="https://www.lauterbach-hessen.de/leben/feste-und-maerkte/regionalmarkt.html"target="_blank">Regionalmarkt Lauterbach</a></li><li><a href="http://salzfee.stassfurt.eu/4-stassfurter-salzfee/praesentationen-2016-2018/1-frische-und-regionalmarkt"target="_blank">Regionalmarkt Lauterbach</a></li><li><a href="https://www.buergerkreis-herbede.de/regionalmarkt-2019/"target="_blank">Regionalmarkt Herbede</a></li><li><a href="https://www.kyritz.de/news/1/669270/nachrichten/markt-der-regionalen-m%C3%B6glichkeiten-am-4.-september.html"target="_blank">Markt der regionalen Möglichkeiten Kyritz</a></li><li><a href="https://www.greifswald.de/de/verwaltung-politik/rathaus/pressemitteilungen/Greifswald-laedt-am-16.10.-zum-Regionalmarkt-auf-den-Marktplatz-ein/"target="_blank">Regionalmarkt Greifswald</a></li></ul>`,
   image: "img/wochenmaerkte_feierabendmarkt.jpg",
   imageSrc: "https://www.visitberlin.de/de/markthalle-neun",
   iconsValuation: {
     effects: 1,
     challenges: 1
   },
-  theme: "Marktplatz für Urban Produziertes etablieren",
+  theme: "Marktplätze für Urban Produziertes etablieren",
 },
 
 {
-  id: 482,
-  number: "4.8.2",
+  id: 192,
+  number: "1.9.2",
   title: "Ausweitung des Stadtgutscheinsystems",
-  description: `<p>In Gelsenkirchen existiert seit Sommer 2021 ein Stadtgutscheinsystem als zentraler Baustein des Programms "Gelsenkirchen startet durch". Die Gutscheine können sowohl online als auch in verschiedenen Verkaufsstellen im gesamten Stadtgebiet erworben und bei allen Unternehmen, die am Gutscheinsystem teilnehmen, eingelöst werden. Nach der Aktivierung ist der Gutschein 3 Jahre gültig. Er kann auch in Teilbeträgen eingelöst werden. Das besondere Angebot: Mit dem Erwerb der Gutscheine unterstützt man den lokalen Einzelhandel, die Gastronomie und Dienstleister in Gelsenkirchen, was wiederrum besonders attraktiv für Einwohner*innen und lokale Arbeitgeber*innen ist, da sie hierdurch ihre lokale Verankerung zum Ausdruck bringen.</p>
-  <p>Perspektivisch ließe sich das Stadtgutscheinsystem explizit auf lokale, urban produzierende Unternehmen ausweiten - ggf. sogar dann, wenn sie - wie häufig der Fall - über keine eigene Verkaufsstelle in Gelsenkirchen verfügen (Versandoptionen, Abholung ab Lager)</p>`,
-  targetgroups: `<p>Bürger*innen, Urban produzierende Unternehmen </p>`,
-  actors: `<p>Verein "Stadtgutscheinsystem Gelsenkirchen", Wirtschaftsförderung, Urban produzierende Unternehmen</p>`,
-  cost: `<p>Personal (gering), Sachkosten (keine)</p>`,
+  description: `<p>Lokale Geschenk- und Einkaufsgutscheine sind Zahlungsmittel, die bei lokalen Geschäften und sonstigen teilnehmenden Betrieben innerhalb einer Stadt eingelöst werden können. Dies trägt dazu bei, die Kaufkraft vor Ort zu binden und den lokalen Einzelhandel, die Gastronomie und Dienstleister vor Ort zu stärken. Insbesondere Einwohner*innen und ortsansässige Arbeitgeber*innen können hierdurch ihre lokale Verankerung zum Ausdruck  bringen. Perspektivisch ließe sich das Stadtgutscheinsystem explizit auf lokale, urban produzierende Unternehmen ausweiten - ggf. sogar dann, wenn sie - wie häufig der Fall - über keine eigene Verkaufsstelle verfügen (Versandoptionen, Abholung ab Lager).</p>`,
+  targetgroups: `<p>Bürger*innen, Urban produzierende Unternehmen</p>`,
+  actors: `<p>Wirtschaftsförderung, Urban produzierende Unternehmen</p>`,
+  cost: `<p>Personal (gering)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
-  problem: `<p>Gelsenkirchen weist zahlreiche Hidden Champions in der Produktion von insbesondere Lebensmitteln auf, die bei den Bürger*innen kaum bekannt sind</p>`,
+  problem: `<p>Unbekanntheit lokaler Betriebe und Produkte</p>`,
   solution: `<p>Stadtgutscheinsystem um ein "Made in"-Segment erweitern und entsprechend vermarkten</p>`,
-  effects: `<p>Aufmerksamkeit für lokale Erzeuger*innen und deren Produkte, potenzielle Möglichkeit zur Umsatzsteigerung für Unternehmen</p>`,
+  effects: `<p>Aufmerksamkeit für lokale Erzeuger*innen und deren Produkte erhöhen, potenzielle Möglichkeit zur Umsatzsteigerung für Unternehmen</p>`,
   challenges: `<p>Produzent*innen überzeugen, technische Rahmenbedingungen schaffen (Kassensystem, etc.)</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Schaufensterwettbewerb</li>
-  <li>Wochenmärkte / Feierabendmarkt</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Schaufensterwettbewerb</li><li>Wochenmärkte / Feierabendmarkt</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
   examples: `<ul>
   <li><a href="https://bochumer-originale.de/partner-service/" target="_blank">Stadtgutschein Bochumer Originale</a></li>
@@ -863,98 +738,75 @@ let actions =
     effects: 1,
     challenges: 1
   },
-  theme: "Marktplatz für Urban Produziertes etablieren",
+  theme: "Marktplätze für Urban Produziertes etablieren",
 },
 
 {
-  id: 483,
-  number: "4.8.3",
-  title: "Crossmarketing- Formate",
-  description: `<p>Oftmals spielen lokale Produkte in der Lebenswirklichkeit der Bürger*innen nur eine vergleichsweise geringe Rolle und sind wenig bekannt. Um das Bewusstsein für Produkte und die Nachfrage nach diesen zu steigern, ist es daher sinnvoll eine größere Aufmerksamkeit für diese zu schaffen, indem z. B. Waren anderer Unternehmen in einem sogenannten CrossMarketing-Regal in einem Ladenlokal ausgestellt und beworben werden. So können sich lokale Unternehmen gegenseitig unterstützen und die Bevölkerung für andere lokale Waren und Güter sensibilisieren. Für das Crossmarketing bieten sich neben Regalen in einem Ladenlokal viele weitere verschiedene Formate, wie beispielsweise ein Stand in einer Markthalle oder einem Einkaufszentrum.</p>`,
+  id: 193,
+  number: "1.9.3",
+  title: "Crossmarketing-Formate",
+  description: `<p>Oftmals spielen lokale Produkte in der Lebenswirklichkeit der Bürger*innen nur eine vergleichsweise geringe Rolle und sind wenig bekannt. Um das Bewusstsein für Produkte und die Nachfrage nach diesen zu steigern, ist es daher sinnvoll eine größere Aufmerksamkeit für diese zu schaffen, indem z. B. Waren anderer Unternehmen in einem sogenannten CrossMarketing-Regal in einem Ladenlokal ausgestellt und beworben werden. So können sich lokale Unternehmen gegenseitig unterstützen und die Bevölkerung für andere lokale Waren und Güter sensibilisieren. Für das CrossMarketing bieten sich neben Regalen in einem Ladenlokal viele weitere verschiedene Formate, wie beispielsweise ein Stand in einer Markthalle oder einem Einkaufszentrum an.</p>`,
   targetgroups: `<p>Bürger*innen, Urban produzierende Unternehmen</p>`,
   actors: `<p>Urban produzierende Unternehmen , Stadtmarketing, Wirtschaftsförderung</p>`,
   cost: `<p>Personal (gering), Sachkosten (gering)</p>`,
   time: `<p>Kurzfristig</p>`,
   problem: `<p>Unbekanntheit lokaler Unternehmen und Produkte</p>`,
   solution: `<p>Aufstellen von Regalen in Ladenlokalen, in denen Produkte anderer lokaler Unternehmen vorgestellt werden und gekauft werden können</p>`,
-  effects: `<p>Aufmerksamkeit für lokale Unternehmen und Produkte, Werbung für lokale Produkte, Imagegewinne</p>`,
+  effects: `<p>Aufmerksamkeit für lokale Unternehmen und Produkte, Werbung für lokale Produkte, Imagegewinne, Kooperations- und Netzwerkeffekte für die beteiligten Unternehmen</p>`,
   challenges: `<p>Bereitschaft der Unternehmer*innen für gegenseitiges Marketing erzeugen (Konkurrenzgedanke), fehlende Netzwerke</p>`,
-  interactions: `<ul>
-  <li>Made in Kampagne (Hidden Champions Kampagne)</li>
-  <li>Schaufensterwettbewerb</li>
-  </ul>`,
+  interactions: `<ul><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Schaufensterwettbewerb</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://glaserei-koch.com/2020/12/14/platz-ist-in-der-kleinsten-huette/" target="_blank">Aktion „Platz ist in der kleinsten Hütte“ der NordStartNB</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://glaserei-koch.com/2020/12/14/platz-ist-in-der-kleinsten-huette/"target="_blank">Aktion „Platz ist in der kleinsten Hütte“ der NordStartNB</a></li><li><a href="https://oeko-fuer-uelzen.de/oeko-regional-regal/"target="_blank">ÖRRe Uelzen</a></li><li><a href="https://thueringenregional.de/"target="_blank">Thüringer Regional Regal</a></li><li><a href="https://meck-schweizer.de/regionalregal/"target="_blank">Meck-Schweizer Regionalregal</a></li><li><a href="http://www.celij.at/index.php?id=2069"target="_blank">Regal Regional&Celij – Mode-und Textilwerkstatt</a></li><li><a href="https://dmr.marktplatzrhoen.de/projekte/3-regionalregal-rhoen"target="_blank">Regionalregal Rhön</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/gemeinschaftsladen-schnickschnack-bochum/"target="_blank">Gemeinschaftsladen Schnickschnack Bochum</a></li></ul>`,
   image: "img/crossmarkteting-formate.jpg",
   imageSrc: "",
   iconsValuation: {
     effects: 1,
     challenges: 1
   },
-  theme: "Marktplatz für Urban Produziertes etablieren",
+  theme: "Marktplätze für Urban Produziertes etablieren",
 },
 
 {
-  id: 491,
-  number: "4.9.1",
+  id: 1101,
+  number: "1.10.1",
   title: "Urbane Logistik",
-  description: `<p>Ein allgemeingültiges Konzept für eine nachhaltige urbane Logistik existiert aufgrund der unterschiedlichen Bedürfnisse, Strukturen und Besonderheiten einer Stadt nicht. Daher ist es wichtig das Maßnahmen-Portfolio auf das Stadtgebiet Gelsenkirchen abzustimmen. Denkbar wäre in diesem Zusammenhang sowohl eine Kopplung mit dem in Aufstellung befindlichen Masterplan Mobilität als auch die Erarbeitung eines separaten Wirtschaftsverkehrskonzeptes. Hierdurch könnte das Verkehrssystem der Stadt Gelsenkirchen auf die logistischen Herausforderungen der Zukunft angepasst werden.</p>`,
+  description: `<p>Ein allgemeingültiges Konzept für eine nachhaltige urbane Logistik existiert aufgrund der unterschiedlichen Bedürfnisse, Strukturen und Besonderheiten einer Stadt nicht. Daher ist es wichtig das Maßnahmen-Portfolio auf das jeweilige Stadtgebiet abzustimmen. So können etwa (kooperative) Logistikcenter am Stadtrand oder im suburbanen Raum errichtet werden, in denen Waren (unterschiedlicher Unternehmen) umgeschlagen, gelagert und konsolidiert werden. Hierdurch kann dem Mangel an Logistikfläche in der Stadt begegnet und gleichzeitig das lärm- und emissionsverursachende Güterverkehrsaufkommen in der Stadt reduziert werden. Vorteilhaft ist zudem, dass Waren für städtische Empfänger von Transportfahrzeugen mit großer Kapazität auf kleinere Fahrzeuge umgeschlagen werden können. Daneben können Wirtschaftsverkehrskonzepte erarbeitet werden, die etwa die Bündelung der Sendungen mehrerer Empfänger auf der letzten Meile und damit die höhere Auslastung von Zustellfahrzeugen zum Ziel haben.</p>`,
   targetgroups: `<p>Speditionsfirmen, Verlader, Urban produzierende Unternehmen</p>`,
-  actors: `<p>Verkehrsplanung, Stadtplanung,Wirtschaftsförderung</p>`,
+  actors: `<p>Verkehrsplanung, Stadtplanung, Wirtschaftsförderung</p>`,
   cost: `<p>Personal (mittel bis hoch), Sachkosten (hoch, je nach Maßnahme)</p>`,
   time: `<p>Mittelfristig</p>`,
   problem: `<p>Zunehmende Verkehrsbelastung in den Innenstädten</p>`,
-  solution: `<p>Einbindung urbaner Logistik in das Mobilitätskonzeptes ggf. Aufstellung eines Wirtschaftsverkehrskonzeptes sowie die spätere Umsetzungsbegleitung</p>`,
+  solution: `<p>Einbindung urbaner Logistik in das Mobilitätskonzept ggf. Aufstellung eines Wirtschaftsverkehrskonzeptes sowie die spätere Umsetzungsbegleitung</p>`,
   effects: `<p>Schaffung eines zukunftsfähigen, stadtverträglichen und nachhaltigen Logistiksystems, Entlastung des innerstädtischen Verkehrs</p>`,
-  challenges: `<p>Koordinierung verschiedener Akteure (Speditionsfirmen, Einzelhändler, Verlader und Kommune) ist oftmals kompliziert, Aufstellung vollständig neuer Konzepte ist zeit- und ressourcenintensiv , fehlende Infrastruktur muss aufgebaut werden</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zwischennutzung</li>
-  <li>Integriertes Wirtschaftsflächenkonzept</li>
-  <li>Leerstandserhebung / Gewerbliches Leerstandskataster</li>
-  </ul>`,
-  area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://useful.uni-hannover.de/" target="_blank">Initiative Urbane Logistik Hannover (USEfUL) </a></li>
-  <li><a href="https://www.urbanelogistik.de/quartierslogistik/" target="_blank">Projekt Stadtquartier 4.0 / 4.1</a></li>
-  </ul>`,
+  challenges: `<p>Koordinierung verschiedener Akteure (Speditionsfirmen, Einzelhändler*innen, Verlader und Kommune) ist oftmals kompliziert, Aufstellung vollständig neuer Konzepte ist zeit- und ressourcenintensiv, fehlende Infrastruktur muss aufgebaut werden</p>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Zwischennutzung</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li></ul>`,
+  area: `<p> Stadtteil/Quartier, Gesamtstadt</p>`,
+  examples: `<ul><li><a href="https://useful.uni-hannover.de/" target="_blank">Initiative Urbane Logistik Hannover (USEfUL) </a></li><li><a href="https://www.urbanelogistik.de/quartierslogistik/" target="_blank">Projekt Stadtquartier 4.0 / 4.1</a></li><li><a href="https://www.stuttgart.de/leben/mobilitaet/logistik/city-logistik.php" target="_blank">City-Logistik Stuttgart</a></li><li><a href="https://www.hamburg-logistik.net/unsere-aktivitaeten/projekte/smile/" target="_blank">SMILE- Smart Last Mile Logistics</a></li></ul>`,
   image: "img/urbane_logistik.jpg",
   imageSrc: "https://www.urbanelogistik.de/quartierslogistik/",
   iconsValuation: {
     effects: 1,
     challenges: 1
   },
-  theme: "Urbane Logistik und CityHubs",
+  theme: "Urbane Logistik und City-Hubs",
 },
 
 {
-  id: 4101,
-  number: "4.10.1",
+  id: 1111,
+  number: "1.11.1",
   title: "Gemeinschaftsgärten",
-  description: `<p>Mit der Ausweisung von Flächen für Gemeinschaftsgärten in Gelsenkirchen können funktionslose Grünflächen zu einem Treffpunkt für Hobbygärtner*innen werden. Durch die gemeinschaftlichen und das freiwillige Engagement geschaffenen Gärten wird die Interaktion in der Stadt gestärkt, sodass eine vielfältige und offene Gemeinschaft rund um das Thema urbane Landwirtschaft entstehen kann. Auch als Zwischennutzung kann ein Gemeinschaftsgarten das lokale Quartier stärken</p>`,
+  description: `<p>Mit der Ausweisung von Flächen für Gemeinschaftsgärten können funktionslose Grünflächen zu einem Treffpunkt für Hobbygärtner*innen werden. Durch die gemeinschaftlichen und das freiwillige Engagement geschaffenen Gärten wird die Interaktion in der Stadt gestärkt, sodass eine vielfältige und offene Gemeinschaft rund um das Thema urbane Landwirtschaft entstehen kann. Auch als Zwischennutzung kann ein Gemeinschaftsgarten das lokale Quartier stärken.</p>`,
   targetgroups: `<p>Bürger*innen</p>`,
-  actors: `<p>Grünflächenamt Gelsenkirchen, Bürger*innen, Insane Urban Cowboys e.V., Eigentümer*innen, ggf. Quartiers-/Citymanagement</p>`,
+  actors: `<p>Bürger*innen, Eigentümer*innen, Quartiers-/Citymanagement, Stadtverwaltung</p>`,
   cost: `<p>Personal (gering), Sachkosten (mittel)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
   problem: `<p>Fehlendes Grün in den Zentren der Stadt und dadurch Entstehung von „Hitzeinseln“, fehlendes Wissen über Nahrungsmittel und deren Herkunft bei Stadtgesellschaft.</p>`,
-  solution: `<p>Planung und Entwicklung eines weiteren Gemeinschaftsgartens in Gelsenkirchen</p>`,
-  effects: `<p>Nahrungsmittelproduktion rückt in den Fokus der städtischen Bevölkerung, Positive mikroklimatische Effekte, Steigerung der Wertschätzung für Lebensmittel (Entgegenwirken von Lebensmittelverschwendung), Beitrag zur Müllvermeidung (unverpackt), Nutzung von Brachflächen
-  </p>`,
+  solution: `<p>Etablierung und Förderung von Gemeinschaftsgärten</p>`,
+  effects: `<p>Nahrungsmittelproduktion rückt in den Fokus der städtischen Bevölkerung, Positive mikroklimatische Effekte, Steigerung der Wertschätzung für Lebensmittel (Entgegenwirken von Lebensmittelverschwendung), Beitrag zur Müllvermeidung (unverpackt), Nutzung von Brachflächen</p>`,
   challenges: `<p>Vorbelastete Flächen (Beachtung der Schadstoffbelastung von Stadtgemüse und Stadtobst), Möglicher Vandalismus, Potenzielle (Brach-)Flächen in privatem Eigentum</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Zwischennutzung</li>
-  <li>Essbare Stadt</li>
-  <li>Gemeinschaftsgärten</li>
-  <li>Walnussanbau in Gelsenkirchen</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Zwischennutzung</li><li>Etablierung von Dachgärten</li></ul>`,
   area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier</p>`,
-  examples: `<ul>
-  <li><a href="https://www.lokalkompass.de/gelsenkirchen/c-vereine-ehrenamt/es-blueht-und-gruent-bereits_a1103046" target="_blank">Gemeinschaftsgarten Gelsenkirchen</a></li>
-  <li><a href="https://dieurbanisten.de/urbanisten-projekt/westgarten-dortmund/" target="_blank"Westgarten Dortmund</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.lokalkompass.de/gelsenkirchen/c-vereine-ehrenamt/es-blueht-und-gruent-bereits_a1103046"target="_blank">Gemeinschaftsgarten Gelsenkirchen</a></li><li><a href="https://dieurbanisten.de/urbanisten-projekt/westgarten-dortmund/"target="_blank">Westgarten Dortmund</a></li><li><a href="https://himmelbeet.de/"target="_blank">Himmelbeet Berlin</a></li><li><a href="https://ueberdentellerrand.org/inselgarten/"target="_blank">Inselgarten Berlin</a></li><li><a href="http://www.rosarose-garten.net/"target="_blank">Rosa Rose Garten Berlin</a></li><li><a href="https://www.tthannover.de/projekte/pagalino/"target="_blank">Pagalino Hannover</a></li><li><a href="https://annalinde-leipzig.de/de/projects/gemeinschaftsgarten/"target="_blank">Gemeinschaftsgarten ANNALINDE Leipzig</a></li><li><a href="https://essbaresaachen.wordpress.com/gaerten/"target="_blank">Gemeinschaftsgärten in Aachen</a></li></ul>`,
   image: "img/gemeinschaftsgaerten.jpg",
   imageSrc: "https://dieurbanisten.de/urbanisten-projekt/westgarten-dortmund/",
   iconsValuation: {
@@ -965,29 +817,49 @@ let actions =
 },
 
 {
-  id: 4102,
-  number: "4.10.2",
+  id: 1112,
+  number: "1.11.2",
   title: "Solidarische Landwirtschaft",
-  description: `<p>Durch die Förderung, Bekanntmachung und Verstetigung des Ansatzes der solidarischen Landwirtschaft (Solawi) in Gelsenkirchen können sowohl Bürger*innen, Landwirte*innen als auch die Region profitieren. Dabei beschreibt Solawi einen Ansatz, bei dem die Lebensmittel nicht mehr über einen Markt vertrieben werden, sondern in einen eigenen, transparenten Wirtschaftskreislauf einfließen, der von den Konsument*innen mit organisiert und finanziert wird. Dadurch können die Bewohner*innen Gelsenkirchens einerseits vielfältige, lokal produzierte Nahrungsmittel beziehen und genau nachvollziehen woher die Produkte stammen andererseits wird durch die Solawi die Sensibilität für das Thema der regionalen Landwirtschaft erhöht. Auch die lokale Landwirtschaft in Gelsenkirchen kann von dem Ansatz profitieren, indem das Produktionsrisiko auf die Gemeinschaft verteilt wird und so die Planungssicherheit für eine gesunde Form der Landwirtschaft gesteigert wird. Für die Stadt Gelsenkirchen könnte die Ausweitung und Bewerbung eines solchen Ansatzes vorteilhaft sein, da die Vielfalt der Landwirtschaft die Lebensqualität erhöht und vor allem die Wertschöpfung in der Region bleibt. In der Stadt gibt es mit dem Lindenhof bereits einen ersten Betrieb, der sich der solidarischen Landwirtschaft verschrieben hat. Die Bekanntheit solcher lokaler Betriebe sollte weiter gesteigert werden, um weitere regionale Landwirt*innen für das Thema der solidarischen Landwirtschaft zu gewinnen.</p>`,
+  description: `<p>Durch die Förderung, Bekanntmachung und Verstetigung des Ansatzes der solidarischen Landwirtschaft (Solawi) können sowohl Bürger*innen, Landwirte*innen als auch die Region profitieren. Dabei beschreibt Solawi einen Ansatz, bei dem die Lebensmittel nicht mehr über einen Markt vertrieben werden, sondern in einen eigenen, transparenten Wirtschaftskreislauf einfließen, der von den Konsument*innen mit organisiert und finanziert wird. Dadurch können die solidarischen Verbraucher*innen einerseits vielfältige, lokal produzierte Nahrungsmittel regelmäßig beziehen und genau nachvollziehen woher die Produkte stammen, andererseits wird durch die Solawi die Sensibilität für das Thema der regionalen Landwirtschaft erhöht. Landwirte*innen profitieren von dem Konzept durch Planungssicherheit und die Verteilung des Produktionsrisikos/Ertrags- und Vermarktungsrisikos auf die Gemeinschaft. Für die Region ergeben sich Vorteile einer regionalen Wertschöpfung.</p>`,
   targetgroups: `<p>Bürger*innen, Produzent*innen aus der Landwirtschaft</p>`,
-  actors: `<p>Solawi – Lindenhof Gelsenkirchen, Produzent*innen aus der Landwirtschaft, Wirtschaftsförderung</p>`,
+  actors: `<p>Produzent*innen aus der Landwirtschaft, Wirtschaftsförderung</p>`,
   cost: `<p>Personal (gering), Sachkosten (gering)</p>`,
   time: `<p>Mittelfristig</p>`,
-  problem: `<p>fehlendes Wissen über Nahrungsmittel und deren Herkunft bei Stadtgesellschaft; Landwirt*innen sind angesichts zunehmender Klimakatastrophen vermehrten Risiken ausgesetzt</p>`,
-  solution: `<p>Förderung, Bekanntmachung und Verstetigung des Ansatzes der solidarischen Landwirtschaft (Solawi) in Gelsenkirchen</p>`,
-  effects: `<p>Planungssicherheit für Landwirt*innen, Nahrungsmittelproduktion rückt in den Fokus der städtischen Bevölkerung, Steigerung der Wertschätzung für Lebensmittel (Entgegenwirken von Lebensmittelverschwendung), Beitrag zur Müllvermeidung (unverpackt), Förderung regionaler Nachhaltigkeit</p>`,
+  problem: `<p>fehlendes Wissen über Nahrungsmittel und deren Herkunft bei Stadtgesellschaft, Landwirt*innen sind angesichts zunehmender Klimakatastrophen vermehrten Risiken ausgesetzt</p>`,
+  solution: `<p>Förderung, Bekanntmachung und Verstetigung des Ansatzes der solidarischen Landwirtschaft (Solawi)</p>`,
+  effects: `<p>Planungssicherheit für Landwirt*innen,  Nahrungsmittelproduktion rückt in den Fokus der städtischen Bevölkerung, Steigerung der Wertschätzung für Lebensmittel (Entgegenwirken von Lebensmittelverschwendung), Beitrag zur Müllvermeidung (unverpackt), Förderung regionaler Nachhaltigkeit</p>`,
   challenges: `<p>Fehlende Bereitschaft der Landwirt*innen den Betrieb umzustrukturieren</p>`,
-  interactions: `<ul>
-  <li>Städtebauförderprogramm</li>
-  <li>Wissenstransfer in die Stadtgesellschaft</li>
-  </ul>`,
+  interactions: `<ul><li>Städtebauförderprogramm</li><li>Wissenstransfer in die Stadtgesellschaft</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
-  examples: `<ul>
-  <li><a href="https://www.walnussmeisterei.de/" target="_blank">Walnussmeisterei Böllersen</a></li>
-  </ul>`,
+  examples: `<ul><li><a href="https://www.lindenhof-gelsenkirchen.de/solawi/"target="_blank">Solawi(Lindenhof Gelsenkirchen)</a></li><li><a href="https://www.kartoffelkombinat.de"target="_blank">Kartoffelkombinat München</a></li><li><a href="https://rotebeete.org/gemuesekooperative-rote-beete-eg/"target="_blank">Gemüsekooperative Rote Beete eG</a></li><li><a href="https://www.plantage.farm/"target="_blank">PlantAge eG Berlin</a></li><li><a href="https://www.solawi-vausshof.de/"target="_blank">Vauß-Hof eG Salzkotten</a></li><li><a href="https://solawi-pforzheim.de/"target="_blank">SolidarRegion Pforzheim Enz eG</a></li><li><a href="https://solawi-genossenschaften.net/wirgarten-lueneburg-eg/"target="_blank">WirGarten Lüneburg eG</a></li></ul>`,
   image: "img/solidarische_landwirtschaft.jpg",
   imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
   iconsValuation: {
+    effects: 1,
+    challenges: 1
+  },
+  theme: "Urbane Landwirtschaft",
+},
+
+{
+  id: 1113,
+  number: "1.11.3",
+  title: "Etablierung von Dachgärten",
+  description: `<p>Derzeit werden nur etwa zehn Prozent der jährlich entstehenden Flachdächer begrünt. Dachgärten bieten allerdings das Potential, als multifunktionale Oasen in der Stadt zu fungieren. Sowohl Eigentümer*innen als auch Bewohner profitieren gleichermaßen von den Vorteilen begrünter Dachflächen. Die Immobilien werden attraktiver und damit wertvoller und es entstehen mikroklimatische Effekte. Hierzu zählen Verbesserungen des Stadtklimas durch Verdunstungskühlung, Energieeinsparungen durch Wärmedämmung im Winter und Hitzeschutz im Sommer, Wasserrückhalt und damit Entlastung der Kanalisation sowie Staubbindung. Dachgärten können darüber hinaus als Naherholungsfläche fungieren und haben so eine positive Wirkung auf die psychische Gesundheit der städtischen Bewohner*innen.</p>`,
+  targetgroups: `<p>Urban produzierende Betriebe, Bürger*innen, Eigentümer*innen</p>`,
+  actors: `<p>Stadtverwaltung, Wirtschaftsförderung</p>`,
+  cost: `<p>Personal (gering), Sachkosten (mittel)</p>`,
+  time: `<p>Kurzfristig</p>`,
+  problem: `<p>Fehlendes Grün in den Zentren der Stadt und dadurch Entstehung von „Hitzeinseln“, Fehlender Platz zur Entwicklung neuer Grünflächen</p>`,
+  solution: `<p>Etablierung und Förderung von Dachgärten, ggf. Förderung einer Potenzialanalyse zur Abschätzung von Potenzialflächen</p>`,
+  effects: `<p>Positive mikroklimatische Effekte, Nutzung von bislang ungenutzten Flächen, Wohltuende Effekte für die Nutzer*innen respektive Bewohner*innen</p>`,
+  challenges: `<p>Erfüllung der notwendigen baulichen Voraussetzungen</p>`,
+  interactions: `<ul><li>Gemeinschaftsgärten</li></ul>`,
+  area: `<p>Immobilie/Grundstück, positive Effekte auf Stadtteil/Quartier</p>`,
+  examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerenseble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li><li><a href="https://www.morgenfarm.berlin/"target="_blank">Morgenfarm Berlin</a></li><li><a href="https://www.vhs-gesundheitsbildung.de/2019/01/06/urban-gardening-an-der-vhs-bremen/"target="_blank">Rooftop Gardening auf dem Dach der VHS Bremen</a></li><li><a href="https://www.hannover.de/Leben-in-der-Region-Hannover/Verwaltungen-Kommunen/Die-Verwaltung-der-Landeshauptstadt-Hannover/Dezernate-und-Fachbereiche-der-LHH/Wirtschaft-und-Umwelt/Fachbereich-Umwelt-und-Stadtgr%C3%BCn/%22City-Roofwalks%22-verbinden-begr%C3%BCnte-D%C3%A4cher-in-der-Innenstadt"target="_blank">"City Roofwalks"Hannover</a></li><li><a href="https://www.db-bauzeitung.de/news/bunker-stpauli-gruener-bergpfad-fuer-hamburg/"target="_blank">Grüner Bergpfad für Hamburg</a></li><li><a href="http://www.dachfarmberlin.com"target="_blank">Grüner Bergpfad für Hamburg</a></li><li><a href="https://altmarktgarten-oberhausen.de/"target="_blank">ALTMARKTgarten Oberhausen</a></li></ul>`,
+  image: "img/TODO.jpg",
+  imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
+  iconsValuation: { //TODO
     effects: 1,
     challenges: 1
   },
