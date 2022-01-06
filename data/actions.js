@@ -920,7 +920,7 @@ let actions =
   <li><a href="https://useful.uni-hannover.de/" target="_blank">Initiative Urbane Logistik Hannover (USEfUL) </a></li>
   <li><a href="https://www.urbanelogistik.de/quartierslogistik/" target="_blank">Projekt Stadtquartier 4.0 / 4.1</a></li>
   </ul>`,
-  image: "img/urbane_logisik.jpg",
+  image: "img/urbane_logistik.jpg",
   imageSrc: "https://www.urbanelogistik.de/quartierslogistik/",
   iconsValuation: {
     effects: 1,
