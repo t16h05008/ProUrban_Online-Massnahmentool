@@ -26,7 +26,7 @@ let uniqueAreaFilterOptions = [];
 let uniqueThemeFilterOptions = [];
 
 const timeArray = ["kurzfristig", "kurz- bis mittelfristig", "mittelfristig", "mittel- bis langfristig", "langfristig"] // possible (partial) values for an actions time property
-const areaArray = ["Grundstück/Immobilie", "Stadtteil/Quartier", "Gesamtstadt"] // possible (partial) values for an actions area property
+const areaArray = ["Immobilie/Grundstück", "Stadtteil/Quartier", "Gesamtstadt"] // possible (partial) values for an actions area property
 
 const detailsTableOffsetX = 0.6; // in cm
 const detailsTableOffsetY = 2.9; // in cm
@@ -1303,48 +1303,6 @@ function setupStaticPdfPageElements(doc, action) {
     // repurpose posY
     posY = [cmToPt(4.8), cmToPt(6.6), cmToPt(8.6), cmToPt(10.6), cmToPt(12.8)]
     
-    
-    // for(let i=0; i<iconSources.length; i++) {
-    //     // get the icon name from the path   img/personalCost.png
-    //     let srcPath = iconSources[i]
-    //     let iconName = srcPath.slice(srcPath.indexOf("/")+1, srcPath.indexOf("."));
-
-    //     for(let j=1; j<=3;j++) { // three icons per row
-    //         let imgElement = document.createElement("img");
-    //         let status = "";
-    //         if(j <= action.iconsValuation[iconName]) {
-    //             status = "-highlighted";
-    //         } else if (j-0.5 <= action.iconsValuation[iconName]) {
-    //             status = "-half-highlighted";
-    //         }
-    //         srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
-    //         imgElement.src = srcPath;
-    //         imgElement.classList.add("icon");
-    //         imgElement.classList.add("me-2");
-    //         iconContainers[i].appendChild(imgElement);
-    //         srcPath = iconSources[i] // reset srcPath because we defined it outside of the loop
-    //     }
-    // }
-
-    // // the last icon has a different path schema (file names) and needs to be be done separately
-    // let names = ["img/grundstueck.png", "img/stadtteil.png", "img/stadt.png"];
-    // for(let i=0;i<names.length;i++) {
-    //     let imgElement = document.createElement("img");
-    //     let srcPath = names[i];
-    //     let status = "";
-    //     if(i <= action.iconsValuation["area"]) {
-    //         status = "-highlighted";
-    //     } else if (i-0.5 <= action.iconsValuation["area"]) {
-    //         status = "-half-highlighted";
-    //     }
-    //     srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
-    //     imgElement.src = srcPath;
-    //     imgElement.classList.add("icon");
-    //     imgElement.classList.add("me-2");
-    //     iconContainers[iconContainers.length-1].appendChild(imgElement)
-    // }
-
-
     // iterate row-wise from top to bottom, left to right
     for(let i=0;i<posY.length;i++) {
         for(let j=0;j<posX.length;j++) {
@@ -1543,7 +1501,7 @@ function quantifyActionProperty(action, property) {
         "mittel- bis langfristig": 2.5,
         "langfristig": 3,
 
-        "grundstück/immobilie": 1,
+        "immobilie/grundstück": 1,
         "stadtteil/quartier": 1,
         "gesamtstadt": 1
 
@@ -1555,8 +1513,8 @@ function quantifyActionProperty(action, property) {
 
         case "cost": {
             // we assume cost is formatted like this: Personalkosten (hoch), Sachkosten (mittel bis hoch), ....
-
-            let regex = new RegExp("Personal(kosten)?\\s?\\((keine|gering (-|bis) mittel|gering|mittel (-|bis) hoch|mittel|hoch)\\)(,|;)\\s?Sach(kosten)?\\s?\\((keine|gering (-|bis) mittel|gering|mittel (-|bis) hoch|mittel|hoch)\\)?", "gi")
+            // one type of cost might be missing as well
+            let regex = new RegExp("(Personal(kosten)?\\s?\\((keine|gering (-|bis) mittel|gering|mittel (-|bis) hoch|mittel|hoch)\\)(,|;)\\s?Sach(kosten)?\\s?\\((keine|gering (-|bis) mittel|gering|mittel (-|bis) hoch|mittel|hoch)\\)?|Personal(kosten)?\\s?\\((keine|gering (-|bis) mittel|gering|mittel (-|bis) hoch|mittel|hoch)\\)|Sach(kosten)?\\s?\\((keine|gering (-|bis) mittel|gering|mittel (-|bis) hoch|mittel|hoch)\\)?)", "gi")
             if( !propertyValue.match(regex)) {
                 throw "property cost of action " + action.title + " does not match required schema.";
             } else {
@@ -1566,15 +1524,24 @@ function quantifyActionProperty(action, property) {
                 let endIdx = splitted[0].indexOf(")");
                 let match = splitted[0].slice(startIdx, endIdx).toLowerCase();
                 if(match in iconsValuationMapping) {
-                    action.iconsValuation["personalCost"] = iconsValuationMapping[match];
+                    if(splitted[0].toLowerCase().includes("personal")) {
+                        action.iconsValuation["personalCost"] = iconsValuationMapping[match];
+                    } else if(splitted[0].toLowerCase().includes("sach")) {
+                        action.iconsValuation["investmentCost"] = iconsValuationMapping[match];
+                    }
                 }
-                startIdx = splitted[1].indexOf("(") + 1;
-                endIdx = splitted[1].indexOf(")");
-                match = splitted[1].slice(startIdx, endIdx).toLowerCase();
-                if(match in iconsValuationMapping) {
-                    action.iconsValuation["investmentCost"] = iconsValuationMapping[match];
+                if(splitted[1]) {
+                    startIdx = splitted[1].indexOf("(") + 1;
+                    endIdx = splitted[1].indexOf(")");
+                    match = splitted[1].slice(startIdx, endIdx).toLowerCase();
+                    if(match in iconsValuationMapping) {
+                        if(splitted[1].toLowerCase().includes("personal")) {
+                            action.iconsValuation["personalCost"] = iconsValuationMapping[match];
+                        } else if(splitted[1].toLowerCase().includes("sach")) {
+                            action.iconsValuation["investmentCost"] = iconsValuationMapping[match];
+                        }
+                    }
                 }
-
             }
             break;
         }

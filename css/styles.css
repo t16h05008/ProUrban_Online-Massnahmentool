@@ -511,6 +511,10 @@ a:hover {
     cursor: pointer;
 }
 
+.link::marker {
+    color: black;
+}
+
 .link:hover {
     color: #54122a;
 }
