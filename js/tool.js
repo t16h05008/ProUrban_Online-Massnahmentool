@@ -775,7 +775,7 @@ function openDetailsModal(action) {
         }
     });
 
-    modal.show()
+    $("#actionDetailsModal").appendTo("body").modal('show');
 }
 
 
