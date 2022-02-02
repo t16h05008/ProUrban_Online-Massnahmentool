@@ -355,7 +355,6 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
                 } else {
                     split =  ["Netzwerk, Vernetzung und Information"]
                 }
-                let split = str.split(",");
                 split = split.map( el => el.trim());
                 // check if action meets our filter criteria
                 let result = filterCriteria[filterProp].every( (el) => {
@@ -473,7 +472,12 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
                     return true;
 
                 let str = removeHtmlTags(action[category])
-                let split = str.split(",");
+                let split = undefined;
+                if(str !== "Netzwerk, Vernetzung und Information") {
+                    split = str.split(",");
+                } else {
+                    split =  ["Netzwerk, Vernetzung und Information"]
+                }
                 split = split.map( el => el.trim());
                 if(split.includes(filterTerm)) {
                     counter += 1;
