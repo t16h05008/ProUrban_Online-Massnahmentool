@@ -524,3 +524,11 @@ a:hover {
 .link:hover {
     color: #54122a;
 }
+
+#advancedFilterField4 {
+    max-height: none;
+}
+
+#advancedFilterField4 .ui-slider-range {
+    background-color: #7f1b3f;
+}
