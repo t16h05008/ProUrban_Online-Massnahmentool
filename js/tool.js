@@ -255,9 +255,17 @@ function filterActions(filterProperty, filterValue) {
         // remove html tags
         let str = removeHtmlTags(obj[filterProperty])
         // split string
-        let split = str.split(",");
+        // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
+        // this is an exception
+        let split = undefined;
+        if(str !== "Netzwerk, Vernetzung und Information") {
+            split = str.split(",");
+        } else {
+           split =  ["Netzwerk, Vernetzung und Information"]
+        }
+        
         split = split.map( el => el.trim());
-
+        console.log(split)
         // check if action meets our filter criteria
         let result = split.some( (el) => {
             return el === filterValue
@@ -339,6 +347,14 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
                 // remove html tags
                 let str = removeHtmlTags(obj[filterProp])
                 // split string
+                // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
+                // this is an exception
+                let split = undefined;
+                if(str !== "Netzwerk, Vernetzung und Information") {
+                    split = str.split(",");
+                } else {
+                    split =  ["Netzwerk, Vernetzung und Information"]
+                }
                 let split = str.split(",");
                 split = split.map( el => el.trim());
                 // check if action meets our filter criteria
@@ -1628,7 +1644,15 @@ function initializeAdvancedFilter(actions) {
         uniqueFilterOptions[category] = [];
    
         actions.forEach((action, idx) => {
-            let arr = action[category].split(",");
+            // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
+            // this is an exception
+            let arr = undefined;
+            if(action[category] !== "Netzwerk, Vernetzung und Information") {
+                arr = action[category].split(",");
+            } else {
+                arr = [action[category]]
+            }
+            
             for(let element of arr) {
                 element = removeHtmlTags(element);
 
@@ -1649,11 +1673,8 @@ function initializeAdvancedFilter(actions) {
         });
     }
 
-    // sort unique categories by relevanye (number of actions that inclde them)
-
-
     for(let category in uniqueFilterOptions) {
-        // sort categories by relevanye (number of actions that inclde them)
+        // sort categories by relevance (number of actions that include them)
 
         // sort descending by second array element, which is the counter of how often this element occurred in all actions.
         uniqueFilterOptions[category].sort( (a, b) => b[1] - a[1] );
