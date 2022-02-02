@@ -1,11 +1,11 @@
 "use strict"
 
 const iconSources = [
-    "img/personalCost.png",
-    "img/investmentCost.png",
-    "img/time.png",
-    "img/effects.png",
-    "img/challenges.png"
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/personalCost.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/investmentCost.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/time.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/effects.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/challenges.png"
 ]
 
 
@@ -683,7 +683,9 @@ function updateDetailsTable(action) {
     }
 
     // the last icon has a different path schema (file names) and needs to be be done separately
-    let names = ["img/grundstueck.png", "img/stadtteil.png", "img/stadt.png"];
+    let names = ["https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/grundstueck.png",
+        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadtteil.png",
+        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadt.png"];
     for(let i=0;i<names.length;i++) {
         let imgElement = document.createElement("img");
         let srcPath = names[i];
@@ -1099,7 +1101,7 @@ function setupCoverPage(doc, toc) {
     doc.setPage(1);
     doc.setTextColor("#000000");
     let image = new Image();
-    image.src = "img/cover_background.jpg"
+    image.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/cover_background.jpg"
     doc.addImage(
         image,
         "png",
@@ -1112,7 +1114,7 @@ function setupCoverPage(doc, toc) {
         0
     );
 
-    image.src = "img/urbaneproduktion.ruhr-logo-brombeer.png";
+    image.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/urbaneproduktion.ruhr-logo-brombeer.png";
     doc.addImage(
         image,
         "png",
@@ -1217,7 +1219,7 @@ function setupCoverPage(doc, toc) {
  */
 function addCoverPageBottomLogo(doc) {
     let image = new Image();
-    image.src = "img/logos_cover.png"
+    image.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/logos_cover.png"
     doc.addImage(
         image,
         "png",
@@ -1256,7 +1258,7 @@ function setupStaticPdfPageElements(doc, action) {
     
     // logo in top left corner
     let logo = new Image()
-    logo.src = "img/logo.png"
+    logo.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/logo.png"
     doc.addImage(logo, 'png', cmToPt(1), cmToPt(0.4), cmToPt(1.6), cmToPt(1.8))
 
     // action number
@@ -1337,7 +1339,9 @@ function setupStaticPdfPageElements(doc, action) {
     }
 
     // the last icon has a different path schema (file names) and needs to be be done separately
-    let lastIconPaths = ["img/grundstueck.png", "img/stadtteil.png", "img/stadt.png"];
+    let lastIconPaths = ["https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/grundstueck.png",
+        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadtteil.png",
+        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadt.png"];
     for(let i=0;i<lastIconPaths.length;i++) {
         let srcPath = lastIconPaths[i];
         let status = "";
