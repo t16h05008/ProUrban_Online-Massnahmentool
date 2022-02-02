@@ -32,7 +32,7 @@ let actions =
   imageSrc: "",
   iconsValuation: {
     effects: 3,
-    challenges: 1
+    challenges: 2
   },
   theme: "Fördermittel und Förderprogramme",
 },
@@ -56,9 +56,9 @@ let actions =
   examples: `<ul><li><a href="https://www.mhkbg.nrw/sites/default/files/media/document/file/2021-10-29_MHKBG_SoPro-Innenstadt_fin0.pdf" target="_blank">Sofortprogramm zur Stärkung unserer Innenstädte und Zentren des Bundeslandes Nordrhein-Westfalen</a></li><li><a href="https://www.nbank.de/Öffentliche-Einrichtungen/Infrastruktur/Sonderprogramm-Perspektive-Innenstadt/index.jsp" target="_blank">Sofortprogramm Perspektive Innenstadt des Bundeslandes Niedersachsen</a></li><li><a href="https://www.innenstaedte-beleben.bayern.de/foerderung/index.php" target="_blank">Sonderfonds Innenstädte beleben des Bundeslandes Bayern</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
   imageSrc: "",
-  iconsValuation: { //TODO
-    effects: 1,
-    challenges: 1
+  iconsValuation: {
+    effects: 3,
+    challenges: 2
   },
   theme: "Fördermittel und Förderprogramme",
 },
@@ -207,8 +207,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/zentrum_fuer_urbane_produktion.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2.5,
+    challenges: 2
   },
   theme: "Experimentelle Räume für Urbane Produktion",
 },
@@ -231,8 +231,8 @@ let actions =
   examples: `<ul><li><a href="https://urbaneproduktion.ruhr/sonderpreis-urbane-produktion-im-senkrechtstarter-und-der-gewinner-ist" target="_blank">Gründungswettbewerb der Senkrechtstarter Bochum</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png", //TODO
   imageSrc: "",
-  iconsValuation: { //TODO
-    effects: 1,
+  iconsValuation: {
+    effects: 2,
     challenges: 1
   },
   theme: "Neuansiedlung und Unterstützung von Gründungen",
@@ -257,8 +257,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/kurator_in_zur_foerderung_von_bestandsunternehmen.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2.5,
+    challenges: 1.5
   },
   theme: "Steuerungsstrukturen",
 },
@@ -282,8 +282,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/integriertes_wirtschaftsflaechenkonzept.png",
   imageSrc: "https://www.nuernberg.de/imperia/md/wirtschaft/dokumente/gewerbeimmobilie/masterplan_gewerbeflaechen_nuernberg_2020.pdf",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 3,
+    challenges: 2
   },
   theme: "Steuerungsstrukturen",
 },
@@ -307,8 +307,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/leerstandserhebung _gewerbliches_leerstandskataster.jpg",
   imageSrc: "",
   iconsValuation: {
-      effects: 1,
-      challenges: 1
+      effects: 3,
+      challenges: 2
   },
   theme: "Steuerungsstrukturen",
 },
@@ -332,8 +332,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/nutzungsmischung_planungsrecht_bauordnungsrecht.jpg",
   imageSrc: "",
   iconsValuation: {
-      effects: 1,
-      challenges: 1
+      effects: 2,
+      challenges: 1.5
   },
   theme: "Steuerungsstrukturen",
 },
@@ -356,9 +356,9 @@ let actions =
   examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerensemble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
   imageSrc: "",
-  iconsValuation: { //TODO
-      effects: 1,
-      challenges: 1
+  iconsValuation: {
+      effects: 3,
+      challenges: 2
   },
   theme: "Steuerungsstrukturen",
 },
@@ -381,9 +381,9 @@ let actions =
   examples: `<ul><li><a href="https://urbaneproduktion.ruhr/wp-content/uploads/2019/12/Dokumentation_Raumtypisierung.pdf"target="_blank">Raumtypisierung der Stadt Bochum</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
   imageSrc: "",
-  iconsValuation: { //TODO
-      effects: 1,
-      challenges: 1
+  iconsValuation: {
+      effects: 2.5,
+      challenges: 1.5
   },
   theme: "Steuerungsstrukturen",
 },
@@ -406,9 +406,9 @@ let actions =
   examples: `<ul><li><a href="https://www.business.ruhr/fileadmin/user_upload/Dokumente/Publikationen/Investorenservice/ruhrAGIS-Handbuch_Stand_2012.pdf"target="_blank">Atlas der Gewerbe-und Industriestandorte Metropole Ruhr(ruhrAGIS)</a></li><li><a href="https://www.stadt-koeln.de/wirtschaft/ausschreibungsservice/ unternehmensdatenbank/index.html"target="_blank">Unternehmensdatenbank Stadt Köln</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
   imageSrc: "",
-  iconsValuation: { //TODO
-      effects: 1,
-      challenges: 1
+  iconsValuation: {
+      effects: 3,
+      challenges: 2
   },
   theme: "Steuerungsstrukturen",
 },
@@ -432,7 +432,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/mobilisierung_der_eigentuemerinnen_und_der_nachbarschaft.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
+    effects: 1.5,
     challenges: 1
   },
   theme: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
@@ -457,7 +457,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/zusammenarbeit_mit_der_wohnungswirtschaft.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
+    effects: 1.5,
     challenges: 1
   },
   theme: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
@@ -482,7 +482,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/einbindung_von_universitaeten_hochschulen.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
+    effects: 1.5,
     challenges: 1
   },
   theme: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
@@ -507,8 +507,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/wissenstransfer_in_die_stadtgesellschaft.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2,
+    challenges: 1.5
   },
   theme: "Sensibilisierung der Stadtgesellschaft",
 },
@@ -532,8 +532,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/made_in_kampagne.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2.5,
+    challenges: 1.5
   },
   theme: "Sensibilisierung der Stadtgesellschaft",
 },
@@ -557,8 +557,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/storytelling.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 1.5,
+    challenges: 1.5
   },
   theme: "Sensibilisierung der Stadtgesellschaft",
 },
@@ -582,7 +582,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/schaufensterwettbewerb.png",
   imageSrc: "https://www.lokalkompass.de/hagen/c-ueberregionales/hagen-im-fluss-die-gewinner-des-hagen-schaufensterwettbewerbs_a710019#gallery=default&pid=8789757",
   iconsValuation: {
-    effects: 1,
+    effects: 1.5,
     challenges: 1
   },
   theme: "Sensibilisierung der Stadtgesellschaft",
@@ -607,7 +607,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/tag_der_offenen_tuer_der_innerstaedtischen_produzierenden_betriebe.jpg",
   imageSrc: "https://www.erzgebirge-tourismus.de/tag-des-handwerks/",
   iconsValuation: {
-    effects: 1,
+    effects: 1.5,
     challenges: 1
   },
   theme: "Sensibilisierung der Stadtgesellschaft",
@@ -627,13 +627,13 @@ let actions =
   effects: `<p>Erhöhung der Identifikation mit Produkten sowie Nachfrage</p>`,
   challenges: `<p>Einzelhandel muss räumlich entsprechend ausgestattet sein respektive prosumptive Geschäftsmodelle ermöglichen</p>`,
   interactions: `<ul><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Einzelhandelsflächen</li></ul>`,
-  area: `<p>Stadtteil/Quartier</p>`, //TODO das ist erstmal nur ein dummy.
-  examples: `<p></p>`, //TODO
+  area: `<p>Stadtteil/Quartier</p>`,
+  examples: `<p><ul><li><a href="https://dieurbanisten.de/angebot/eva-lichtobjekt-aus-restholz/" target="_blank">Objekt- und Möbeldesign durch die Urbanisten</a></li></ul></p>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
   imageSrc: "",
-  iconsValuation: { //TODO
-    effects: 1,
-    challenges: 1
+  iconsValuation: {
+    effects: 1.5,
+    challenges: 1.5
   },
   theme: "Sensibilisierung der Stadtgesellschaft",
 },
@@ -657,8 +657,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/netzwerk_und_vernetzung.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2,
+    challenges: 1.5
   },
   theme: "Netzwerk, Vernetzung und Information",
 },
@@ -707,7 +707,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/wochenmaerkte_feierabendmarkt.jpg",
   imageSrc: "https://www.visitberlin.de/de/markthalle-neun",
   iconsValuation: {
-    effects: 1,
+    effects: 2,
     challenges: 1
   },
   theme: "Marktplätze für Urban Produziertes etablieren",
@@ -735,8 +735,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/ausweitung_des_stadtgutscheinsystems.jpg",
   imageSrc: "https://www.gelsenkirchen.de/de/_meta/aktuelles/artikel/49777-premiere-fuer-den-stadtgutschein-in-gelsenkirchen",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2,
+    challenges: 1.5
   },
   theme: "Marktplätze für Urban Produziertes etablieren",
 },
@@ -760,7 +760,7 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/crossmarkteting-formate.jpg",
   imageSrc: "",
   iconsValuation: {
-    effects: 1,
+    effects: 1.5,
     challenges: 1
   },
   theme: "Marktplätze für Urban Produziertes etablieren",
@@ -785,8 +785,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/urbane_logistik.jpg",
   imageSrc: "https://www.urbanelogistik.de/quartierslogistik/",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2.5,
+    challenges: 2.5
   },
   theme: "Urbane Logistik und City-Hubs",
 },
@@ -810,8 +810,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/gemeinschaftsgaerten.jpg",
   imageSrc: "https://dieurbanisten.de/urbanisten-projekt/westgarten-dortmund/",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 1.5,
+    challenges: 1.5
   },
   theme: "Urbane Landwirtschaft",
 },
@@ -835,8 +835,8 @@ let actions =
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/solidarische_landwirtschaft.jpg",
   imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
   iconsValuation: {
-    effects: 1,
-    challenges: 1
+    effects: 2,
+    challenges: 2
   },
   theme: "Urbane Landwirtschaft",
 },
@@ -859,9 +859,9 @@ let actions =
   examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerenseble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li><li><a href="https://www.morgenfarm.berlin/"target="_blank">Morgenfarm Berlin</a></li><li><a href="https://www.vhs-gesundheitsbildung.de/2019/01/06/urban-gardening-an-der-vhs-bremen/"target="_blank">Rooftop Gardening auf dem Dach der VHS Bremen</a></li><li><a href="https://www.hannover.de/Leben-in-der-Region-Hannover/Verwaltungen-Kommunen/Die-Verwaltung-der-Landeshauptstadt-Hannover/Dezernate-und-Fachbereiche-der-LHH/Wirtschaft-und-Umwelt/Fachbereich-Umwelt-und-Stadtgr%C3%BCn/%22City-Roofwalks%22-verbinden-begr%C3%BCnte-D%C3%A4cher-in-der-Innenstadt"target="_blank">"City Roofwalks"Hannover</a></li><li><a href="https://www.db-bauzeitung.de/news/bunker-stpauli-gruener-bergpfad-fuer-hamburg/"target="_blank">Grüner Bergpfad für Hamburg</a></li><li><a href="http://www.dachfarmberlin.com"target="_blank">Grüner Bergpfad für Hamburg</a></li><li><a href="https://altmarktgarten-oberhausen.de/"target="_blank">ALTMARKTgarten Oberhausen</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
   imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
-  iconsValuation: { //TODO
-    effects: 1,
-    challenges: 1
+  iconsValuation: {
+    effects: 2,
+    challenges: 2.5
   },
   theme: "Urbane Landwirtschaft",
 }]
