@@ -511,6 +511,12 @@ a:hover {
     cursor: pointer;
 }
 
+.actionDetailsModalExamples li a {
+    color: #7f1b3f !important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .link::marker {
     color: black;
 }
