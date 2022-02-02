@@ -681,10 +681,10 @@ function updateDetailsTable(action) {
     });
 
     for(let i=0; i<iconSources.length; i++) {
-        // get the icon name from the path   img/personalCost.png
+        // get the icon name from the path
         let srcPath = iconSources[i]
-        let iconName = srcPath.slice(srcPath.indexOf("/")+1, srcPath.indexOf("."));
-
+        let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
+        
         for(let j=1; j<=3;j++) { // three icons per row
             let imgElement = document.createElement("img");
             let status = "";
@@ -693,7 +693,7 @@ function updateDetailsTable(action) {
             } else if (j-0.5 <= action.iconsValuation[iconName]) {
                 status = "-half-highlighted";
             }
-            srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
+            srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4); // .png = 4 letters
             imgElement.src = srcPath;
             imgElement.classList.add("icon");
             imgElement.classList.add("me-2");
@@ -1330,7 +1330,7 @@ function setupStaticPdfPageElements(doc, action) {
         for(let j=0;j<posX.length;j++) {
 
             let srcPath = iconSources[i];
-            let iconName = srcPath.slice(srcPath.indexOf("/")+1, srcPath.indexOf("."));
+            let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
             let status = "";
             if(j <= action.iconsValuation[iconName]) {
                 status = "-highlighted";
