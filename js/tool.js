@@ -8,6 +8,12 @@ const iconSources = [
     "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/challenges.png"
 ]
 
+const areaIconPaths = [
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/grundstueck.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadtteil.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/gesamtstadt.png"
+];
+
 
 
 let selectedActionIds = []
@@ -703,17 +709,15 @@ function updateDetailsTable(action) {
     }
 
     // the last icon has a different path schema (file names) and needs to be be done separately
-    let names = ["https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/grundstueck.png",
-        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadtteil.png",
-        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadt.png"];
-    for(let i=0;i<names.length;i++) {
+    for(let i=0;i<areaIconPaths.length;i++) {
         let imgElement = document.createElement("img");
-        let srcPath = names[i];
+        let srcPath = areaIconPaths[i];
         let status = "";
-        if(i <= action.iconsValuation["area"]) {
+        let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
+        if(iconName === "grundstueck") // replace ue with ü
+            iconName = "grundstück";
+        if(action["area"].toLowerCase().includes(iconName.toLocaleLowerCase())) {
             status = "-highlighted";
-        } else if (i-0.5 <= action.iconsValuation["area"]) {
-            status = "-half-highlighted";
         }
         srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
         imgElement.src = srcPath;
@@ -1359,17 +1363,17 @@ function setupStaticPdfPageElements(doc, action) {
     }
 
     // the last icon has a different path schema (file names) and needs to be be done separately
-    let lastIconPaths = ["https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/grundstueck.png",
-        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadtteil.png",
-        "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadt.png"];
-    for(let i=0;i<lastIconPaths.length;i++) {
-        let srcPath = lastIconPaths[i];
+    for(let i=0;i<areaIconPaths.length;i++) {
+        let srcPath = areaIconPaths[i];
         let status = "";
-        if(i <= action.iconsValuation["area"]) {
+        let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
+        if(iconName === "grundstueck") // replace ue with ü
+            iconName = "grundstück";
+
+        if(action["area"].toLowerCase().includes(iconName.toLocaleLowerCase())) {
             status = "-highlighted";
-        } else if (i-0.5 <= action.iconsValuation["area"]) {
-            status = "-half-highlighted";
         }
+
         srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
             
         let imgElement = document.createElement("img");
