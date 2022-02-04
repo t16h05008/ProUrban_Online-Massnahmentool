@@ -54,7 +54,7 @@ let actions =
   interactions: `<ul><li>Einzelhandelsflächen</li><li>Zwischennutzung</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://www.mhkbg.nrw/sites/default/files/media/document/file/2021-10-29_MHKBG_SoPro-Innenstadt_fin0.pdf" target="_blank">Sofortprogramm zur Stärkung unserer Innenstädte und Zentren des Bundeslandes Nordrhein-Westfalen</a></li><li><a href="https://www.nbank.de/Öffentliche-Einrichtungen/Infrastruktur/Sonderprogramm-Perspektive-Innenstadt/index.jsp" target="_blank">Sofortprogramm Perspektive Innenstadt des Bundeslandes Niedersachsen</a></li><li><a href="https://www.innenstaedte-beleben.bayern.de/foerderung/index.php" target="_blank">Sonderfonds Innenstädte beleben des Bundeslandes Bayern</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/foerderprogramme_innenstadt.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/foerderprogramme_innenstadt.jpg",
   imageSrc: "",
   iconsValuation: {
     effects: 3,
@@ -179,7 +179,7 @@ let actions =
   interactions: `<ul><li>Städtebauförderprogramm</li><li>Ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li><li>Wissenstransfer in die Stadtgesellschaft</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://kofabrik.de/"target="_blank">KoFabrik in Bochum</a></li><li>Produktionsschule Berlin-Mitte<ul><li><a href="https://www.zukunftsbau.de/taetigkeitsfelder/statt-schule-move/move-stern"target="_blank">https://www.zukunftsbau.de/taetigkeitsfelder/statt-schule-move/move-stern</li><li><a href="https://urbaneproduktion.ruhr/beispiel/produktionsschule-mitte/"target="_blank">https://urbaneproduktion.ruhr/beispiel/produktionsschule-mitte/</li></ul></li><li><a href="https://urbaneproduktion.ruhr/beispiel/hei-haus-der-eigenarbeit/"target="_blank">Haus der Eigenarbeit in München</a></li><li><a href="https://www.dasa-dortmund.de/"target="_blank">Deutsche Arbeitsschutzausstellung(DASA)Dortmund</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/halle-1/"target="_blank">Halle 1 in Gelsenkirchen</a></li><li><a href="https://dieurbanisten.de/offene-werkstatt-laedt-zum-selbermachen-ein/"target="_blank">Union Gewerbehof in Dortmund</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/schokofabrik/"target="_blank">Schokofabrik in Berlin-Kreuzberg(Workshops gezielt für Frauen)</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/inkubator(en)_und_praktische _lernorte_fuer_die_stadtgesellschaft.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/inkubator(en)_und_praktische _lernorte_fuer_die_stadtgesellschaft.jpg",
   imageSrc: "",
   iconsValuation: {
     effects: 2,
@@ -229,7 +229,7 @@ let actions =
   interactions: `<ul><li>Zwischennutzung</li><li>Einbindung von Universitäten / Hochschulen</li><li>Netzwerk und Vernetzung</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
   examples: `<ul><li><a href="https://urbaneproduktion.ruhr/sonderpreis-urbane-produktion-im-senkrechtstarter-und-der-gewinner-ist" target="_blank">Gründungswettbewerb der Senkrechtstarter Bochum</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/sonderpreis_urbane_produktion.png", //TODO
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/sonderpreis_urbane_produktion.jpg",
   imageSrc: "",
   iconsValuation: {
     effects: 2,
@@ -279,7 +279,7 @@ let actions =
   interactions: `<ul><li>Städtebauförderprogramm</li><li>Ehemalige Industrieflächen / Zechenstandorte</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Nutzungsmischung / Planungsrecht / Bauordnungsrecht</li><li>Urbane Logistik</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
   examples: `<ul><li><a href="https://www.nuernberg.de/imperia/md/wirtschaft/dokumente/gewerbeimmobilie/masterplan_gewerbeflaechen_nuernberg_2020.pdf"target="_blank">Masterplan Gewerbeflächen Nürnberg</a></li><li><a href="https://www.heidelberg.de/site/Heidelberg_ROOT/get/documents_E-881126943/heidelberg/Objektdatenbank/80/PDF/80_pdf_wirtschaftsfl%C3%A4chenkonzept-cima_by_stadt_heidelberg_19.12.2012.pdf"target="_blank">Wirtschaftsflächenkonzept Heidelberg</a></li><li><a href="https://www.stadtentwicklung.berlin.de/planen/stadtentwicklungsplanung/download/wirtschaft/2020_Leitfaden_SenSW_WiKo.pdf"target="_blank">Bezirkliche Wirtschaftsflächenkonzepte(WiKo)Berlin</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/integriertes_wirtschaftsflaechenkonzept.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/integriertes_wirtschaftsflaechenkonzept.jpg",
   imageSrc: "https://www.nuernberg.de/imperia/md/wirtschaft/dokumente/gewerbeimmobilie/masterplan_gewerbeflaechen_nuernberg_2020.pdf",
   iconsValuation: {
     effects: 3,
@@ -354,7 +354,7 @@ let actions =
   interactions: `<ul><li>Ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Etablierung von Dachgärten</li></ul>`,
   area: `<p>Immobilie/Grundstück</p>`,
   examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerensemble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
   imageSrc: "",
   iconsValuation: {
       effects: 3,
@@ -404,7 +404,7 @@ let actions =
   interactions: `<ul><li>Raumtypisierung für Urbane Produktion</li><li>Netzwerk und Vernetzung</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://www.business.ruhr/fileadmin/user_upload/Dokumente/Publikationen/Investorenservice/ruhrAGIS-Handbuch_Stand_2012.pdf"target="_blank">Atlas der Gewerbe-und Industriestandorte Metropole Ruhr(ruhrAGIS)</a></li><li><a href="https://www.stadt-koeln.de/wirtschaft/ausschreibungsservice/unternehmensdatenbank/index.html"target="_blank">Unternehmensdatenbank Stadt Köln</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
   imageSrc: "",
   iconsValuation: {
       effects: 3,
@@ -579,7 +579,7 @@ let actions =
   interactions: `<ul><li>Städtebauförderprogramm</li><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Storytelling</li><li>Ausweitung des Stadtgutscheinsystems</li><li>Crossmarketing-Formate</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
   examples: `<ul><li><a href="https://www.lokalkompass.de/tag/schaufensterwettbewerb"target="_blank">Schaufensterwettbewerb Hagen</a></li><li><a href="https://www.wf-hamm.de/hamm-bietet/schaufensterwettbewerb/"target="_blank">Schaufensterwettbewerb Hamm</a></li><li>Schaufensterwettbewerb Mülheim an der Ruhr<ul><li><a href="https://www.muelheim-ruhr.de/cms/auf_die_fenster_fertig_los.html"target="_blank">2011</a></li><li><a href="https://www.muelheim-ruhr.de/cms/auf_die_fenster_fertig_los1.html"target="_blank">2012</a></li></ul></li><li><a href="https://www.coburg.de/desktopdefault.aspx/tabid-1319/866_read-7784/"target="_blank">Schaufensterwettbewerb"Goldenes Coburg"</a></li><li>Schaufensterwettbewerb Eller<ul><li><a href="https://rp-online.de/nrw/staedte/duesseldorf/stadtteile/wettbewerb-der-schaufenster-in-eller_aid-15084541"target="_blank">https://rp-online.de/nrw/staedte/duesseldorf/stadtteile/wettbewerb-der-schaufenster-in-eller_aid-15084541<li><a href="https://individueller.de/aktionen/start/tag/schaufensterwettbewerb/"target="_blank">https://individueller.de/aktionen/start/tag/schaufensterwettbewerb/</ul></li><li><a href="https://www.xn--aktiv-fr-ratingen-82b.de/single-post/2018/09/11/4-ratinger-schaufensterwettbewerb"target="_blank">Schaufensterwettbewerb Ratingen „Unsere Stadt – Unsere Vereine“</a></li><li><a href="https://www.schwarzwaelder-bote.de/inhalt.calw-schaufensterwettbewerb-preise-vergeben.cff3ca6c-5cf4-42e4-b5b3-7ccec0934f12.html"target="_blank">Schaufensterwettbewerb Calw</a></li><li><a href="http://www.faires-saarland.de/schaufensterwettbewerb/"target="_blank">Schaufensterwettbewerb „Saarbrücken bewegt Welt„</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/schaufensterwettbewerb.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/schaufensterwettbewerb.jpg",
   imageSrc: "https://www.lokalkompass.de/hagen/c-ueberregionales/hagen-im-fluss-die-gewinner-des-hagen-schaufensterwettbewerbs_a710019#gallery=default&pid=8789757",
   iconsValuation: {
     effects: 1.5,
@@ -629,7 +629,7 @@ let actions =
   interactions: `<ul><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Einzelhandelsflächen</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
   examples: `<p><ul><li><a href="https://dieurbanisten.de/angebot/eva-lichtobjekt-aus-restholz/" target="_blank">Objekt- und Möbeldesign durch die Urbanisten</a></li></ul></p>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
   imageSrc: "",
   iconsValuation: {
     effects: 1.5,
@@ -857,7 +857,7 @@ let actions =
   interactions: `<ul><li>Gemeinschaftsgärten</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerenseble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li><li><a href="https://www.morgenfarm.berlin/"target="_blank">Morgenfarm Berlin</a></li><li><a href="https://www.vhs-gesundheitsbildung.de/2019/01/06/urban-gardening-an-der-vhs-bremen/"target="_blank">Rooftop Gardening auf dem Dach der VHS Bremen</a></li><li><a href="https://www.hannover.de/Leben-in-der-Region-Hannover/Verwaltungen-Kommunen/Die-Verwaltung-der-Landeshauptstadt-Hannover/Dezernate-und-Fachbereiche-der-LHH/Wirtschaft-und-Umwelt/Fachbereich-Umwelt-und-Stadtgr%C3%BCn/%22City-Roofwalks%22-verbinden-begr%C3%BCnte-D%C3%A4cher-in-der-Innenstadt"target="_blank">"City Roofwalks"Hannover</a></li><li><a href="https://www.db-bauzeitung.de/news/bunker-stpauli-gruener-bergpfad-fuer-hamburg/"target="_blank">Grüner Bergpfad für Hamburg</a></li><li><a href="http://www.dachfarmberlin.com"target="_blank">Dachfarm Berlin</a></li><li><a href="https://altmarktgarten-oberhausen.de/"target="_blank">ALTMARKTgarten Oberhausen</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
   imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
   iconsValuation: {
     effects: 2,

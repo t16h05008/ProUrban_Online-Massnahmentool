@@ -234,21 +234,21 @@
 	<!-- Template for action card -->
 	<div id="actionCardTemplate" class="card action my-3 grid-item" style="display:none">
 		<div class="card-body">
-			<h5 class="card-title">
-				<img class="card-image" src="https://via.placeholder.com/440x147.webp?text=Platzhalter" /
+			<h4 class="card-title">
+				<img class="card-image" src="https://via.placeholder.com/440x147.webp?text=Platzhalter"
 				data-bs-toggle='collapse' data-bs-target='' aria-expanded='false' width="100%">
 
-        		<button class='btn collapsed' type='button' data-bs-toggle='collapse'
+				<button class='btn collapsed' type='button' data-bs-toggle='collapse'
 					data-bs-target='' aria-expanded='false'>
 				</button>
-        	</h5>
-        	<div class='actionCardBody collapse'>
+			</h4>
+			<div class='actionCardBody collapse'>
 				<p class="card-text card-problem"></p>
 				<p class="card-text card-solution"></p>
 				<p class="card-text card-effects"></p>
 				<button class="btn btn-primary selectActionBtn" data-action-id="" onclick="toggleActionSelection(event)">Maßnahme auswählen</button>
 				<button class="btn btn-primary actionDetailsBtn" data-action-id="" onclick="showDetails(event)">Details anzeigen</button>
-        	</div>
+			</div>
 		</div>
 	</div>
 
@@ -256,7 +256,7 @@
 	<!-- Template for area card-->
 	<div id="areaCardTemplate" class="card area my-3 grid-item" style="display:none">
 		<div class="card-body">
-			<h5 class="card-title"></h5>
+			<h4 class="card-title"></h4>
 			<!-- <img class="card-image" src="https://via.placeholder.com/440x100.webp?text=Platzhalter" /> -->
 			<p class="card-text"></p>
         	<button class="btn btn-primary" onclick="resetHighlightBtn()">Maßnahmen für diesen Wirkungsbereich anzeigen</button>
@@ -267,7 +267,7 @@
 	<!-- Template for actor card -->
 	<div id="actorCardTemplate" class="card actor my-3 grid-item" style="display:none">
 		<div class="card-body">
-			<h5 class="card-title"></h5>
+			<h4 class="card-title"></h4>
 			<p class="card-text"></p>
         	<button class="btn btn-primary" onclick="resetHighlightBtn()">Maßnahmen für diesen Akteur anzeigen</button>
 		</div>
@@ -276,7 +276,7 @@
 	<!-- Template for theme card -->
 	<div id="themeCardTemplate" class="card theme my-3 grid-item" style="display:none">
 		<div class="card-body">
-			<h5 class="card-title"></h5>
+			<h4 class="card-title"></h4>
 			<p class="card-text"></p>
         	<button class="btn btn-primary" onclick="resetHighlightBtn()">Maßnahmen für dieses Thema anzeigen</button>
 		</div>

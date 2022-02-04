@@ -124,12 +124,12 @@ function createActionCards(actions, collapsed) {
         element.id = "actionCard" + action.id;
         element.dataset.actionId = action.id;
 
-        let titleBtn = element.querySelector("h5 button");
+        let titleBtn = element.querySelector("h4 button");
         titleBtn.dataset.bsTarget = "#actionCardBody" + action.id;
         titleBtn.setAttribute("aria-controls", "actionCardBody" + action.id);
         titleBtn.innerHTML = action.title;
 
-        let titleImg = element.querySelector("h5 img");
+        let titleImg = element.querySelector("h4 img");
         titleImg.dataset.bsTarget = "#actionCardBody" + action.id;
         titleImg.setAttribute("aria-controls", "actionCardBody" + action.id);
         titleImg.src = action.image;
