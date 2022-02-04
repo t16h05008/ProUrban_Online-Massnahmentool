@@ -686,6 +686,7 @@ function updateDetailsTable(action) {
         element.innerHTML = "";
     });
 
+
     for(let i=0; i<iconSources.length; i++) {
         // get the icon name from the path
         let srcPath = iconSources[i]
@@ -1555,6 +1556,7 @@ function quantifyActionProperty(action, property) {
                 let startIdx = splitted[0].indexOf("(") + 1; // exclude '('
                 let endIdx = splitted[0].indexOf(")");
                 let match = splitted[0].slice(startIdx, endIdx).toLowerCase();
+
                 if(match in iconsValuationMapping) {
                     if(splitted[0].toLowerCase().includes("personal")) {
                         action.iconsValuation["personalCost"] = iconsValuationMapping[match];
@@ -1565,7 +1567,10 @@ function quantifyActionProperty(action, property) {
                 if(splitted[1]) {
                     startIdx = splitted[1].indexOf("(") + 1;
                     endIdx = splitted[1].indexOf(")");
+                    if(endIdx < 0) // not found
+                        endIdx = splitted[1].length;
                     match = splitted[1].slice(startIdx, endIdx).toLowerCase();
+
                     if(match in iconsValuationMapping) {
                         if(splitted[1].toLowerCase().includes("personal")) {
                             action.iconsValuation["personalCost"] = iconsValuationMapping[match];
