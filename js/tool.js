@@ -1113,7 +1113,7 @@ async function createPDF() {
                 
             }
         } catch (e) {
-            console.error("Beim export des PDF ist ein Fehler aufgetreten:");
+            console.error("Beim Export des PDF ist ein Fehler aufgetreten:");
             console.error(e);
             showPDFExportResultOverlay("error");
         }
@@ -1170,13 +1170,17 @@ function setupCoverPage(doc, toc) {
     let dy = cmToPt(1);
     let linesOnFirstPage = 0
     let secondPageAdded = false; // tracks of we already added the second toc page
+    let xPosNumber = cmToPt(1.5);
+    let xPosTitle = cmToPt(3.2);
+    let xPosPageNr = cmToPt(19);
+
     for(let i=0; i<toc.length; i++) {
         let tocEntry = toc[i];
         let yPos = tocStartY + i * dy;
 
         if(yPos < tocBreakpointY) {
             // we don't know it there will be one or two toc pages so we can't add links yet.
-            // this is why we don't add anything to the doc here and do that leter in a second iteration.
+            // this is why we don't add anything to the doc here and do that later in a second iteration.
             linesOnFirstPage += 1;
         } else {
             // if it is the first tocEntry that doesn't fit on first page
@@ -1189,12 +1193,12 @@ function setupCoverPage(doc, toc) {
             let tocStartOnSecondPage = cmToPt(3.2);
             let yPosSecondPage = tocStartOnSecondPage + (i-linesOnFirstPage) * dy;
             
-            doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPosSecondPage, { pageNumber: tocEntry.pageNr+2 } ); // number
-            doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPosSecondPage, {
+            doc.textWithLink(tocEntry.action.number, xPosNumber, yPosSecondPage, { pageNumber: tocEntry.pageNr+2 } ); // number
+            doc.textWithLink(tocEntry.action.title, xPosTitle, yPosSecondPage, {
                 maxWidth: cmToPt(15),
                 pageNumber: tocEntry.pageNr+2
             }); // title
-            doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPosSecondPage, {
+            doc.textWithLink(tocEntry.pageNr.toString(), xPosPageNr, yPosSecondPage, {
                 align: 'right',
                 pageNumber: tocEntry.pageNr+2
             }); // page number
@@ -1207,26 +1211,25 @@ function setupCoverPage(doc, toc) {
     for(let i=0; i<toc.length; i++) {
         let tocEntry = toc[i];
         let yPos = tocStartY + i * dy;
-        
         if(yPos < tocBreakpointY) {
             // add a different number to the page number depending on how many toc pages there are
             if(secondPageAdded) {
-                doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPos, { pageNumber: tocEntry.pageNr+2 }); // number
-                doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPos, {
+                doc.textWithLink(tocEntry.action.number, xPosNumber, yPos, { pageNumber: tocEntry.pageNr+2 }); // number
+                doc.textWithLink(tocEntry.action.title, xPosTitle, yPos, {
                         maxWidth: cmToPt(15),
                         pageNumber: tocEntry.pageNr+2
                 }); // title
-                doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
+                doc.textWithLink(tocEntry.pageNr.toString(), xPosPageNr, yPos, {
                         align: 'right',
                         pageNumber: tocEntry.pageNr+2
                 }); // page number
             } else {
-                doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPos, { pageNumber: tocEntry.pageNr+1 }); // number
-                doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPos, {
+                doc.textWithLink(tocEntry.action.number, xPosNumber, yPos, { pageNumber: tocEntry.pageNr+1 }); // number
+                doc.textWithLink(tocEntry.action.title, xPosTitle, yPos, {
                         maxWidth: cmToPt(15),
                         pageNumber: tocEntry.pageNr+1
                 }); // title
-                doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
+                doc.textWithLink(tocEntry.pageNr.toString(), xPosPageNr, yPos, {
                         align: 'right',
                         pageNumber: tocEntry.pageNr+1
                 }); // page number
