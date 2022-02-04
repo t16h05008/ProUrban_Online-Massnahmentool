@@ -1332,13 +1332,14 @@ function setupStaticPdfPageElements(doc, action) {
     // iterate row-wise from top to bottom, left to right
     for(let i=0;i<posY.length;i++) {
         for(let j=0;j<posX.length;j++) {
-
+            
             let srcPath = iconSources[i];
             let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
             let status = "";
-            if(j <= action.iconsValuation[iconName]) {
+            // we add one because we iterate from 0, not from one as in updateDetailsTable
+            if((j+1) <= action.iconsValuation[iconName]) {
                 status = "-highlighted";
-            } else if (j-0.5 <= action.iconsValuation[iconName]) {
+            } else if ((j+1)-0.5 <= action.iconsValuation[iconName]) {
                 status = "-half-highlighted";
             }
             srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);
