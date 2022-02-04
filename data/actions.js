@@ -54,7 +54,7 @@ let actions =
   interactions: `<ul><li>Einzelhandelsflächen</li><li>Zwischennutzung</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://www.mhkbg.nrw/sites/default/files/media/document/file/2021-10-29_MHKBG_SoPro-Innenstadt_fin0.pdf" target="_blank">Sofortprogramm zur Stärkung unserer Innenstädte und Zentren des Bundeslandes Nordrhein-Westfalen</a></li><li><a href="https://www.nbank.de/Öffentliche-Einrichtungen/Infrastruktur/Sonderprogramm-Perspektive-Innenstadt/index.jsp" target="_blank">Sofortprogramm Perspektive Innenstadt des Bundeslandes Niedersachsen</a></li><li><a href="https://www.innenstaedte-beleben.bayern.de/foerderung/index.php" target="_blank">Sonderfonds Innenstädte beleben des Bundeslandes Bayern</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/foerderprogramme_innenstadt.png",
   imageSrc: "",
   iconsValuation: {
     effects: 3,
@@ -229,7 +229,7 @@ let actions =
   interactions: `<ul><li>Zwischennutzung</li><li>Einbindung von Universitäten / Hochschulen</li><li>Netzwerk und Vernetzung</li></ul>`,
   area: `<p>Gesamtstadt</p>`,
   examples: `<ul><li><a href="https://urbaneproduktion.ruhr/sonderpreis-urbane-produktion-im-senkrechtstarter-und-der-gewinner-ist" target="_blank">Gründungswettbewerb der Senkrechtstarter Bochum</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png", //TODO
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/sonderpreis_urbane_produktion.png", //TODO
   imageSrc: "",
   iconsValuation: {
     effects: 2,
@@ -379,7 +379,7 @@ let actions =
   interactions: `<ul><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Unternehmensdatenbank</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://urbaneproduktion.ruhr/wp-content/uploads/2019/12/Dokumentation_Raumtypisierung.pdf"target="_blank">Raumtypisierung der Stadt Bochum</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/raumtypisierung_fuer_urbane_produktion.jpg",
   imageSrc: "",
   iconsValuation: {
       effects: 2.5,
