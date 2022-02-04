@@ -71,6 +71,8 @@ body {
 .card-title > button {
     width: 100%;
     text-align: left;
+    padding-left: 0;
+    font-size: 1.1em;
 }
 
 .card-title > button::after {
@@ -396,7 +398,7 @@ a:hover {
 }
 
 .ui-slider-horizontal .ui-state-default {
-    background: url(../img/purple-circle.svg) no-repeat scroll 50% 50%;
+    background: url(https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/purple-circle.svg) no-repeat scroll 50% 50%;
     background-size: 20px;
     border: none;
 }
@@ -511,10 +513,24 @@ a:hover {
     cursor: pointer;
 }
 
+.actionDetailsModalExamples li a {
+    color: #7f1b3f !important;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .link::marker {
     color: black;
 }
 
 .link:hover {
     color: #54122a;
+}
+
+#advancedFilterField4 {
+    max-height: none;
+}
+
+#advancedFilterField4 .ui-slider-range {
+    background-color: #7f1b3f;
 }

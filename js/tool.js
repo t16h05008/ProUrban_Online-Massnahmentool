@@ -1,12 +1,18 @@
 "use strict"
 
 const iconSources = [
-    "img/personalCost.png",
-    "img/investmentCost.png",
-    "img/time.png",
-    "img/effects.png",
-    "img/challenges.png"
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/personalCost.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/investmentCost.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/time.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/effects.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/challenges.png"
 ]
+
+const areaIconPaths = [
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/grundstueck.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/stadtteil.png",
+    "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/gesamtstadt.png"
+];
 
 
 
@@ -118,12 +124,12 @@ function createActionCards(actions, collapsed) {
         element.id = "actionCard" + action.id;
         element.dataset.actionId = action.id;
 
-        let titleBtn = element.querySelector("h5 button");
+        let titleBtn = element.querySelector("h4 button");
         titleBtn.dataset.bsTarget = "#actionCardBody" + action.id;
         titleBtn.setAttribute("aria-controls", "actionCardBody" + action.id);
         titleBtn.innerHTML = action.title;
 
-        let titleImg = element.querySelector("h5 img");
+        let titleImg = element.querySelector("h4 img");
         titleImg.dataset.bsTarget = "#actionCardBody" + action.id;
         titleImg.setAttribute("aria-controls", "actionCardBody" + action.id);
         titleImg.src = action.image;
@@ -255,9 +261,17 @@ function filterActions(filterProperty, filterValue) {
         // remove html tags
         let str = removeHtmlTags(obj[filterProperty])
         // split string
-        let split = str.split(",");
+        // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
+        // this is an exception
+        let split = undefined;
+        if(str !== "Netzwerk, Vernetzung und Information") {
+            split = str.split(",");
+        } else {
+           split =  ["Netzwerk, Vernetzung und Information"]
+        }
+        
         split = split.map( el => el.trim());
-
+        console.log(split)
         // check if action meets our filter criteria
         let result = split.some( (el) => {
             return el === filterValue
@@ -339,7 +353,14 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
                 // remove html tags
                 let str = removeHtmlTags(obj[filterProp])
                 // split string
-                let split = str.split(",");
+                // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
+                // this is an exception
+                let split = undefined;
+                if(str !== "Netzwerk, Vernetzung und Information") {
+                    split = str.split(",");
+                } else {
+                    split =  ["Netzwerk, Vernetzung und Information"]
+                }
                 split = split.map( el => el.trim());
                 // check if action meets our filter criteria
                 let result = filterCriteria[filterProp].every( (el) => {
@@ -457,7 +478,12 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
                     return true;
 
                 let str = removeHtmlTags(action[category])
-                let split = str.split(",");
+                let split = undefined;
+                if(str !== "Netzwerk, Vernetzung und Information") {
+                    split = str.split(",");
+                } else {
+                    split =  ["Netzwerk, Vernetzung und Information"]
+                }
                 split = split.map( el => el.trim());
                 if(split.includes(filterTerm)) {
                     counter += 1;
@@ -660,11 +686,12 @@ function updateDetailsTable(action) {
         element.innerHTML = "";
     });
 
-    for(let i=0; i<iconSources.length; i++) {
-        // get the icon name from the path   img/personalCost.png
-        let srcPath = iconSources[i]
-        let iconName = srcPath.slice(srcPath.indexOf("/")+1, srcPath.indexOf("."));
 
+    for(let i=0; i<iconSources.length; i++) {
+        // get the icon name from the path
+        let srcPath = iconSources[i]
+        let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
+        
         for(let j=1; j<=3;j++) { // three icons per row
             let imgElement = document.createElement("img");
             let status = "";
@@ -673,7 +700,7 @@ function updateDetailsTable(action) {
             } else if (j-0.5 <= action.iconsValuation[iconName]) {
                 status = "-half-highlighted";
             }
-            srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
+            srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4); // .png = 4 letters
             imgElement.src = srcPath;
             imgElement.classList.add("icon");
             imgElement.classList.add("me-2");
@@ -683,15 +710,15 @@ function updateDetailsTable(action) {
     }
 
     // the last icon has a different path schema (file names) and needs to be be done separately
-    let names = ["img/grundstueck.png", "img/stadtteil.png", "img/stadt.png"];
-    for(let i=0;i<names.length;i++) {
+    for(let i=0;i<areaIconPaths.length;i++) {
         let imgElement = document.createElement("img");
-        let srcPath = names[i];
+        let srcPath = areaIconPaths[i];
         let status = "";
-        if(i <= action.iconsValuation["area"]) {
+        let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
+        if(iconName === "grundstueck") // replace ue with ü
+            iconName = "grundstück";
+        if(action["area"].toLowerCase().includes(iconName.toLocaleLowerCase())) {
             status = "-highlighted";
-        } else if (i-0.5 <= action.iconsValuation["area"]) {
-            status = "-half-highlighted";
         }
         srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
         imgElement.src = srcPath;
@@ -753,7 +780,7 @@ function openDetailsModal(action) {
         }
     });
 
-    modal.show()
+    $("#actionDetailsModal").appendTo("body").modal('show');
 }
 
 
@@ -1080,14 +1107,14 @@ async function createPDF() {
             // if this was the last action
             if(idx == selectedActionIds.length-1) {
                 setupCoverPage(doc, toc)
-                doc.save("pdf.pdf")
+                doc.save("Urbane-Produktion.Ruhr_Massnahmenkatalog.pdf")
                 //window.open(doc.output('bloburl')); // save
                 // hide loading overlay
                 showPDFExportResultOverlay("success");
                 
             }
         } catch (e) {
-            console.error("Beim export des PDF ist ein Fehler aufgetreten:");
+            console.error("Beim Export des PDF ist ein Fehler aufgetreten:");
             console.error(e);
             showPDFExportResultOverlay("error");
         }
@@ -1099,7 +1126,7 @@ function setupCoverPage(doc, toc) {
     doc.setPage(1);
     doc.setTextColor("#000000");
     let image = new Image();
-    image.src = "img/cover_background.jpg"
+    image.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/cover_background.jpg"
     doc.addImage(
         image,
         "png",
@@ -1112,7 +1139,7 @@ function setupCoverPage(doc, toc) {
         0
     );
 
-    image.src = "img/urbaneproduktion.ruhr-logo-brombeer.png";
+    image.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/urbaneproduktion.ruhr-logo-brombeer.png";
     doc.addImage(
         image,
         "png",
@@ -1144,13 +1171,17 @@ function setupCoverPage(doc, toc) {
     let dy = cmToPt(1);
     let linesOnFirstPage = 0
     let secondPageAdded = false; // tracks of we already added the second toc page
+    let xPosNumber = cmToPt(1.5);
+    let xPosTitle = cmToPt(3.2);
+    let xPosPageNr = cmToPt(19);
+
     for(let i=0; i<toc.length; i++) {
         let tocEntry = toc[i];
         let yPos = tocStartY + i * dy;
 
         if(yPos < tocBreakpointY) {
             // we don't know it there will be one or two toc pages so we can't add links yet.
-            // this is why we don't add anything to the doc here and do that leter in a second iteration.
+            // this is why we don't add anything to the doc here and do that later in a second iteration.
             linesOnFirstPage += 1;
         } else {
             // if it is the first tocEntry that doesn't fit on first page
@@ -1163,12 +1194,12 @@ function setupCoverPage(doc, toc) {
             let tocStartOnSecondPage = cmToPt(3.2);
             let yPosSecondPage = tocStartOnSecondPage + (i-linesOnFirstPage) * dy;
             
-            doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPosSecondPage, { pageNumber: tocEntry.pageNr+2 } ); // number
-            doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPosSecondPage, {
+            doc.textWithLink(tocEntry.action.number, xPosNumber, yPosSecondPage, { pageNumber: tocEntry.pageNr+2 } ); // number
+            doc.textWithLink(tocEntry.action.title, xPosTitle, yPosSecondPage, {
                 maxWidth: cmToPt(15),
                 pageNumber: tocEntry.pageNr+2
             }); // title
-            doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPosSecondPage, {
+            doc.textWithLink(tocEntry.pageNr.toString(), xPosPageNr, yPosSecondPage, {
                 align: 'right',
                 pageNumber: tocEntry.pageNr+2
             }); // page number
@@ -1181,26 +1212,25 @@ function setupCoverPage(doc, toc) {
     for(let i=0; i<toc.length; i++) {
         let tocEntry = toc[i];
         let yPos = tocStartY + i * dy;
-        
         if(yPos < tocBreakpointY) {
             // add a different number to the page number depending on how many toc pages there are
             if(secondPageAdded) {
-                doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPos, { pageNumber: tocEntry.pageNr+2 }); // number
-                doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPos, {
+                doc.textWithLink(tocEntry.action.number, xPosNumber, yPos, { pageNumber: tocEntry.pageNr+2 }); // number
+                doc.textWithLink(tocEntry.action.title, xPosTitle, yPos, {
                         maxWidth: cmToPt(15),
                         pageNumber: tocEntry.pageNr+2
                 }); // title
-                doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
+                doc.textWithLink(tocEntry.pageNr.toString(), xPosPageNr, yPos, {
                         align: 'right',
                         pageNumber: tocEntry.pageNr+2
                 }); // page number
             } else {
-                doc.textWithLink(tocEntry.action.number, cmToPt(1.5), yPos, { pageNumber: tocEntry.pageNr+1 }); // number
-                doc.textWithLink(tocEntry.action.title, cmToPt(2.5), yPos, {
+                doc.textWithLink(tocEntry.action.number, xPosNumber, yPos, { pageNumber: tocEntry.pageNr+1 }); // number
+                doc.textWithLink(tocEntry.action.title, xPosTitle, yPos, {
                         maxWidth: cmToPt(15),
                         pageNumber: tocEntry.pageNr+1
                 }); // title
-                doc.textWithLink(tocEntry.pageNr.toString(), cmToPt(19), yPos, {
+                doc.textWithLink(tocEntry.pageNr.toString(), xPosPageNr, yPos, {
                         align: 'right',
                         pageNumber: tocEntry.pageNr+1
                 }); // page number
@@ -1217,7 +1247,7 @@ function setupCoverPage(doc, toc) {
  */
 function addCoverPageBottomLogo(doc) {
     let image = new Image();
-    image.src = "img/logos_cover.png"
+    image.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/logos_cover.png"
     doc.addImage(
         image,
         "png",
@@ -1256,7 +1286,7 @@ function setupStaticPdfPageElements(doc, action) {
     
     // logo in top left corner
     let logo = new Image()
-    logo.src = "img/logo.png"
+    logo.src = "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/logo.png"
     doc.addImage(logo, 'png', cmToPt(1), cmToPt(0.4), cmToPt(1.6), cmToPt(1.8))
 
     // action number
@@ -1306,13 +1336,14 @@ function setupStaticPdfPageElements(doc, action) {
     // iterate row-wise from top to bottom, left to right
     for(let i=0;i<posY.length;i++) {
         for(let j=0;j<posX.length;j++) {
-
+            
             let srcPath = iconSources[i];
-            let iconName = srcPath.slice(srcPath.indexOf("/")+1, srcPath.indexOf("."));
+            let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
             let status = "";
-            if(j <= action.iconsValuation[iconName]) {
+            // we add one because we iterate from 0, not from one as in updateDetailsTable
+            if((j+1) <= action.iconsValuation[iconName]) {
                 status = "-highlighted";
-            } else if (j-0.5 <= action.iconsValuation[iconName]) {
+            } else if ((j+1)-0.5 <= action.iconsValuation[iconName]) {
                 status = "-half-highlighted";
             }
             srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);
@@ -1337,15 +1368,17 @@ function setupStaticPdfPageElements(doc, action) {
     }
 
     // the last icon has a different path schema (file names) and needs to be be done separately
-    let lastIconPaths = ["img/grundstueck.png", "img/stadtteil.png", "img/stadt.png"];
-    for(let i=0;i<lastIconPaths.length;i++) {
-        let srcPath = lastIconPaths[i];
+    for(let i=0;i<areaIconPaths.length;i++) {
+        let srcPath = areaIconPaths[i];
         let status = "";
-        if(i <= action.iconsValuation["area"]) {
+        let iconName = srcPath.slice(srcPath.lastIndexOf("/")+1, srcPath.lastIndexOf("."));
+        if(iconName === "grundstueck") // replace ue with ü
+            iconName = "grundstück";
+
+        if(action["area"].toLowerCase().includes(iconName.toLocaleLowerCase())) {
             status = "-highlighted";
-        } else if (i-0.5 <= action.iconsValuation["area"]) {
-            status = "-half-highlighted";
         }
+
         srcPath = srcPath.slice(0, -4) + status + srcPath.slice(-4);  
             
         let imgElement = document.createElement("img");
@@ -1523,6 +1556,7 @@ function quantifyActionProperty(action, property) {
                 let startIdx = splitted[0].indexOf("(") + 1; // exclude '('
                 let endIdx = splitted[0].indexOf(")");
                 let match = splitted[0].slice(startIdx, endIdx).toLowerCase();
+
                 if(match in iconsValuationMapping) {
                     if(splitted[0].toLowerCase().includes("personal")) {
                         action.iconsValuation["personalCost"] = iconsValuationMapping[match];
@@ -1533,7 +1567,10 @@ function quantifyActionProperty(action, property) {
                 if(splitted[1]) {
                     startIdx = splitted[1].indexOf("(") + 1;
                     endIdx = splitted[1].indexOf(")");
+                    if(endIdx < 0) // not found
+                        endIdx = splitted[1].length;
                     match = splitted[1].slice(startIdx, endIdx).toLowerCase();
+
                     if(match in iconsValuationMapping) {
                         if(splitted[1].toLowerCase().includes("personal")) {
                             action.iconsValuation["personalCost"] = iconsValuationMapping[match];
@@ -1624,7 +1661,15 @@ function initializeAdvancedFilter(actions) {
         uniqueFilterOptions[category] = [];
    
         actions.forEach((action, idx) => {
-            let arr = action[category].split(",");
+            // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
+            // this is an exception
+            let arr = undefined;
+            if(action[category] !== "Netzwerk, Vernetzung und Information") {
+                arr = action[category].split(",");
+            } else {
+                arr = [action[category]]
+            }
+            
             for(let element of arr) {
                 element = removeHtmlTags(element);
 
@@ -1645,11 +1690,8 @@ function initializeAdvancedFilter(actions) {
         });
     }
 
-    // sort unique categories by relevanye (number of actions that inclde them)
-
-
     for(let category in uniqueFilterOptions) {
-        // sort categories by relevanye (number of actions that inclde them)
+        // sort categories by relevance (number of actions that include them)
 
         // sort descending by second array element, which is the counter of how often this element occurred in all actions.
         uniqueFilterOptions[category].sort( (a, b) => b[1] - a[1] );
@@ -1857,16 +1899,6 @@ function generatePopoverOptions(el) {
                         <h3 class="popover-header imgPopoverHeader"></h3>
                         <div class="popover-body imgPopoverBody"></div>
                     </div>`
-    }
-}
-
-function toggle3DmodalImg() {
-    let el = document.querySelector("#hotspotImg img")
-    let path = el.src
-    if(path.includes("-no-bg")) {
-        el.src = path.replace("-no-bg", "")
-    } else {
-        el.src = path.replace(".png", "-no-bg.png")
     }
 }
 
