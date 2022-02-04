@@ -1106,7 +1106,7 @@ async function createPDF() {
             // if this was the last action
             if(idx == selectedActionIds.length-1) {
                 setupCoverPage(doc, toc)
-                doc.save("pdf.pdf")
+                doc.save("Urbane-Produktion.Ruhr_Massnahmenkatalog.pdf")
                 //window.open(doc.output('bloburl')); // save
                 // hide loading overlay
                 showPDFExportResultOverlay("success");
