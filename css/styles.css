@@ -71,6 +71,8 @@ body {
 .card-title > button {
     width: 100%;
     text-align: left;
+    padding-left: 0;
+    font-size: 1.1em;
 }
 
 .card-title > button::after {
