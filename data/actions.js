@@ -103,7 +103,7 @@ let actions =
   challenges: `<p>Denkmalschutz, Brandschutz, Nutzungsänderungs- und Genehmigungsanträge, oft teure Instandhaltung des Gebäudes.</p>`,
   interactions: `<ul><li>Städtebauförderprogramm</li><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Leerstandserhebung / Gewerbliches Leerstandskataster</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
-  examples:`<ul><li><a href="https://www.lutherlab.de/"target="_blank">LutherLAB</a></li><li><a href="https://www.grubenhelden.de/de/"target="_blank">Grubenhelden Gladbeck</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/baeckerei-zipper/"target="_blank">Bäckerei Zipper</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/le-champignon-urbain/"target="_blank">Chapelle Martray Nantes</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/atelierguidettabrozzetti/"target="_blank">Atelier Guidetta Brozetti</a></li></ul>`,
+  examples:`<ul><li><a href="https://www.lutherlab.de/"target="_blank">LutherLAB</a></li><li><a href="https://www.grubenhelden.de/de/"target="_blank">Grubenhelden Gladbeck</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/le-champignon-urbain/"target="_blank">Chapelle Martray Nantes</a></li><li><a href="https://urbaneproduktion.ruhr/beispiel/atelierguidettabrozzetti/"target="_blank">Atelier Guidetta Brozetti</a></li></ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/produktive_kirchenimmobilien.jpg",
   imageSrc: "",
   iconsValuation: {
