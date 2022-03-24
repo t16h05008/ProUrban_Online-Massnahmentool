@@ -6,7 +6,7 @@ let themes = [
     },
     {
         title: "Immobilienkomplexe und Einzelstandorte mit Strahlkraft",
-        description: "Zur Förderung der Neuansiedlung Urbaner Produktion können Immobilienkomplexe oder Einzelstandorte, die hinsichtlich Urbaner Produktion integriert entwickelt werden und an denen Synergien gebündelt werden eine regionale Strahlkraft zu entfalten. Typisch für Städte des Ruhrgebiets werden hierzu ehemalige Zechenstandorte sowie Kirchenimmobilien betrachtet. Aber auch Einzelhandelsflächen können sich zu einem Standort mit Strahlkraft entwickeln. Diese drei Standorttypen verbindet eine historische Bedeutung sowie ein erhebliches Entwicklungspotenzial.",
+        description: "Zur Förderung der Neuansiedlung Urbaner Produktion können Immobilienkomplexe oder Einzelstandorte, die hinsichtlich Urbaner Produktion integriert entwickelt und an denen Synergien gebündelt werden, eine regionale Strahlkraft entfalten. Typisch für Städte des Ruhrgebiets werden hierzu ehemalige Zechenstandorte sowie Kirchenimmobilien betrachtet. Aber auch Einzelhandelsflächen können sich zu einem Standort mit Strahlkraft entwickeln. Diese drei Standorttypen verbindet eine historische Bedeutung sowie ein erhebliches Entwicklungspotenzial.",
         image: ""
     },
     {
@@ -20,8 +20,8 @@ let themes = [
         image: ""
     },
     {
-        title: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
-        description: "Zur Förderung Urbaner Produktion und Stärkung der Nachfrage an lokal produzierten Gütern ist es wichtig, dass Produzent*innen gemeinsam mit kommunalen Akteuren die Vorteile dieser Produktionsweisen in den Vordergrund stellen. Mithilfe unterschiedlicher Maßnahmen soll lokalen Akteuren und Institutionen die Etablierung Urbaner Produktion erleichtert werden. Dazu gilt es, Eigentümer*innen zu mobilisieren sowie zu sensibilisieren und die Zusammenarbeit mit der Wohnungswirtschaft zu forcieren. Auch örtliche Universitäten und Hochschulen sowie die Studierenden sollten in diese Prozesse miteinbezogen werden.",
+        title: "Gezielte Zusammenarbeit mit lokalen Akteur*innen und Institutionen",
+        description: "Zur Förderung Urbaner Produktion und Stärkung der Nachfrage an lokal produzierten Gütern ist es wichtig, dass Produzent*innen gemeinsam mit kommunalen Akteur*innen die Vorteile dieser Produktionsweisen in den Vordergrund stellen. Mithilfe unterschiedlicher Maßnahmen soll lokalen Akteur*innen und Institutionen die Etablierung Urbaner Produktion erleichtert werden. Dazu gilt es, Eigentümer*innen zu mobilisieren sowie zu sensibilisieren und die Zusammenarbeit mit der Wohnungswirtschaft zu forcieren. Auch örtliche Universitäten und Hochschulen sowie die Studierenden sollten in diese Prozesse miteinbezogen werden.",
         image: ""
     },
     {
@@ -46,7 +46,7 @@ let themes = [
     },
     {
         title: "Urbane Landwirtschaft",
-        description: "Ähnlich wie die Verarbeitung von materiellen Produkten gilt es auch, die Produktion landwirtschaftlicher Güter in den urbanen Raum zu integrieren. Durch den Anbau und die Ernte von Lebensmitteln direkt in der Stadt bzw. im unmittelbaren städtischen Umfeld wird die Landwirtschaft für Bewohner*innen und Besucher*innen auch im urbanen Raum erlebbar. So haben die Menschen vor Ort die Möglichkeit, mehr Informationen über die Lebensmittelerzeugung zu erfahren sowie den öffentlichen Raum mitzugestalten. Gleichzeitig sind mit der Urbanen Landwirtschaft insbesondere aufgrund der Nähe zum Verbraucher wichtige ökonomische Vorteile verbunden. Entscheidend für die Bestimmung der jeweiligen Effekte ist letztlich die Auseinandersetzung mit den unterschiedlichen Formen der Urbanen Landwirtschaft und die Abstimmung dieser auf die vorhandenen Potenzialflächen. Dazu müssen zunächst die folgenden Fragestellungen beantwortet werden: Wer ist der zentrale Akteur*in der gärtnerischen bzw. landwirtschaftlichen Aktivitäten? Welches Schwerpunktinteresse wird mit diesen Aktivitäten verfolgt? und Wem sollen die Erzeugnisse schlussendlich zur Verfügung gestellt werden? Mithilfe der Beantwortung dieser Fragen lassen sich im Anschluss die konkreten Maßnahmen und Handlungsfelder herausarbeiten.",
+        description: "Ähnlich wie die Verarbeitung von materiellen Produkten gilt es auch, die Produktion landwirtschaftlicher Güter in den urbanen Raum zu integrieren. Durch den Anbau und die Ernte von Lebensmitteln direkt in der Stadt bzw. im unmittelbaren städtischen Umfeld wird die Landwirtschaft für Bewohner*innen und Besucher*innen auch im urbanen Raum erlebbar. So haben die Menschen vor Ort die Möglichkeit, mehr Informationen über die Lebensmittelerzeugung zu erfahren sowie den öffentlichen Raum mitzugestalten. Gleichzeitig sind mit der Urbanen Landwirtschaft insbesondere aufgrund der Nähe zum Verbraucher wichtige ökonomische Vorteile verbunden. Entscheidend für die Bestimmung der jeweiligen Effekte ist letztlich die Auseinandersetzung mit den unterschiedlichen Formen der Urbanen Landwirtschaft und die Abstimmung dieser auf die vorhandenen Potenzialflächen. Dazu müssen zunächst die folgenden Fragestellungen beantwortet werden: Wer sind die zentrale Akteur*innen der gärtnerischen bzw. landwirtschaftlichen Aktivitäten? Welches Schwerpunktinteresse wird mit diesen Aktivitäten verfolgt? und wem sollen die Erzeugnisse schlussendlich zur Verfügung gestellt werden? Mithilfe der Beantwortung dieser Fragen lassen sich im Anschluss die konkreten Maßnahmen und Handlungsfelder herausarbeiten.",
         image: ""
     }
 ]
