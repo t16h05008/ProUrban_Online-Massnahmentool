@@ -6,7 +6,7 @@ let areas = [
     },
     {
         title: "Stadtteil/Quartier",
-        description: "Maßnahmen auf Ebene der Stadtteile respektive auf Quartiersebene können mehrere Nachbarschaften umfassen. Oft ist diese räumliche Ebene nicht scharf abgegrenzt und eher vielmehr sozial konstruiert, überschaubar sowie auf alltägliche Lebenswelten und soziale Sphären bezogen.",
+        description: "Maßnahmen auf Ebene der Stadtteile respektive auf Quartiersebene können mehrere Nachbarschaften umfassen. Oft ist diese räumliche Ebene nicht scharf abgegrenzt und eher sozial konstruiert, überschaubar sowie auf alltägliche Lebenswelten und soziale Sphären bezogen.",
         image: ""
     },
     {

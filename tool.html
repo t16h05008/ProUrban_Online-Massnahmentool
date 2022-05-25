@@ -107,12 +107,12 @@
 				</div>
 			</div>	
 		</div>
-		<hr>
+		<hr id="scrollAnchor">
 		<div class="twoColGrid">
 			<div>
-				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllAreas(event)">Auswahl über Wirkungsbereich</button>
-				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllActors(event)">Auswahl über Akteur</button>
-				<button type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="showAllThemes(event)">Auswahl über Themengebiet</button>
+				<button id="selectByAreaBtn" type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="onSelectByAreaClicked(event)">Auswahl über Wirkungsbereich</button>
+				<button id="selectByActorBtn" type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="onSelectByActorClicked(event)">Auswahl über Akteur*innen</button>
+				<button id="selectByThemeBtn" type="button" class="btn btn-outline-light me-2 topRowBtnHighlight" onclick="onSelectByThemeClicked(event)">Auswahl über Themengebiet</button>
 			</div>
 			<div>
 				<button type="button" class="btn btn-outline-light topRowBtn" id="advancedFilterBtn" data-bs-toggle="collapse"
@@ -130,7 +130,7 @@
 					Maßnahmen ausgewählt: <span id="selectedActionsCount">0</span>
 				</div>
 				<div>
-					<button class="btn btn-outline-dark me-2"  type="button" onclick="showAllActions(event)">Alle Maßnahmen anzeigen</button>
+					<button id="showAllActionsBtn" class="btn btn-outline-dark me-2"  type="button" onclick="showAllActions(event)">Alle Maßnahmen anzeigen</button>
 					<button class="btn btn-outline-dark me-2" type="button" onclick="showSelectedActions()">Ausgewählte Maßnahmen anzeigen</button>
 					<button id="createPdfBtn" class="btn btn-outline-dark me-2" type="button" onclick="createPDF()" disabled>PDF erzeugen</button>
 				</div>
@@ -397,14 +397,14 @@
 		</div>
 
 		<div class="imgPopoverContent" data-action-id="1113">
-			<img src="https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.png" width="100%" />
+			<img src="https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/etablierung_von_dachgaerten.jpg" width="100%" />
 			<div>	
 				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
 			</div>
 		</div>
 
 		<div class="imgPopoverContent" data-action-id="153">
-			<img src="https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/leerstandserhebung _gewerbliches_leerstandskataster.jpg" width="100%" />
+			<img src="https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/leerstandserhebung_gewerbliches_leerstandskataster.jpg" width="100%" />
 			<div>	
 				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
 			</div>
@@ -428,7 +428,7 @@
 			</div>
 		</div>
 		<div class="imgPopoverContent" data-action-id="174">
-			<img src="https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/schaufensterwettbewerb.png" width="100%" />
+			<img src="https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/schaufensterwettbewerb.jpg" width="100%" />
 			<div>
 				<span class="link" onclick="showDetailsFromHotspot(event)">Mehr erfahren...</span>
 			</div>

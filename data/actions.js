@@ -46,8 +46,7 @@ let actions =
   actors: `<p>Politik, Stadtverwaltung, Wirtschaftsförderung, Eigentümer*innen, Wohnungswirtschaft, urban produzierende Betriebe</p>`,
   cost: `<p>Personal (mittel), Sachkosten (mittel)</p>`,
   time: `<p>Kurz- bis Mittelfristig</p>`,
-  problem: `<p>Leerstehende Immobilien stoßen Trading-Down-Spirale in Innenstadt an,
-  Leerstehende Immobilien werden Gegenstand von Spekulationen</p>`,
+  problem: `<p>Leerstehende Immobilien stoßen Trading-Down-Spirale in Innenstadt an, Leerstehende Immobilien werden Gegenstand von Spekulationen</p>`,
   solution: `<p>Landesregierungen stellen Städten und Gemeinden umfassende Finanzmittel zur Verfügung, mittels derer diese z.B. Konzepte und Strategien für einzelne Projekte oder die Entwicklung der gesamten Innenstadt auflegen können.</p><p>Zudem wird in einigen Fällen die Anmietung leerstehender oder gefährdeter Ladenlokale mit bis zu 70% des Mietzinses bezuschusst, um dort Zwischennutzungen durch zukunftsfähige Nutzungen – wie z.B. Urbane Produktion – zu ermöglichen.</p>`,
   effects: `<p>Belebung von Leerständen, Förderung der innerstädtischen Aufenthaltsqualität, Unterstützung von urban produzierenden Unternehmen</p>`,
   challenges: `<p>Urbane Produktion wird von manchen Akteur*innen noch nicht als Option für Stadtkonzepte und zur Aufwertung von Städten gesehen. Urbane Produktion muss als neuer Schwerpunkt etabliert werden und konzeptionell und strategisch in Entwicklungen mitgedacht werden</p>`,
@@ -168,8 +167,8 @@ let actions =
   number: "1.3.2",
   title: "Inkubator(en) und praktische Lernorte für die Stadtgesellschaft",
   description: `<p>Um Urbane Produktion ins Stadtbild zu integrieren, braucht es Möglichkeitsräume, in denen sich Produzent*innen ausprobieren und entfalten können. Solche Möglichkeitsräume können unter anderem von Kommunen, Wirtschaftsförderungen, Hochschulen oder auch zivilgesellschaftlichen Organisationen kostenlos oder kostengünstig zur Verfügung gestellt werden. Makerspaces bzw. FabLabs können hier als Innovations- und Partizipationsorte fungieren und stellen Inkubatoren Urbaner Produktion dar. In vielen Städten gibt es dahingehend bereits Anknüpfungspunkte, z.B. in Form von Vereinen oder einzelnen engagierten Bürger*innen, die bei der Etablierung solcher Orte aufgegriffen und genutzt werden können.</p>`,
-  targetgroups: `<p>Bürger*innen, Schüler*innen, Studierende</p>`,
-  actors: `<p>Stadtverwaltung, Kultur, Stadtplanung, Umwelt, Wirtschaftsförderung, urban produzierende Betriebe, Vereine, Universitäten & (Hoch-) Schulen, Volkshochschule, Handwerkskammer</p>`,
+  targetgroups: `<p>Bürger*innen, Schüler*innen / Studierende</p>`,
+  actors: `<p>Stadtverwaltung, Kultur, Stadtplanung, Umwelt, Wirtschaftsförderung, urban produzierende Betriebe, Vereine, Universitäten / Hochschulen, Volkshochschule, Handwerkskammer</p>`,
   cost: `<p>Personal (mittel), Sachkosten (gering bis mittel)</p>`,
   time: `<p>Mittel- bis langfristig</p>`,
   problem: `<p>Fachkräfte und Betriebsnachfolger*innen fehlen im Handwerk und produzierendem Gewerbe auch aufgrund der unzureichenden Bewerbung dieser Berufe oder dem oftmals schlechten Image. Hinzu kommt die fehlende Kenntnis bezüglich Circular-Economy-Ansätze und damit einhergehend die Verschwendung von Ressourcen</p>`,
@@ -219,7 +218,7 @@ let actions =
   title: "Sonderpreis: „Urbane Produktion der Wirtschaftsförderung“",
   description: `<p>Die Gründung von Unternehmen ist für Gründende stets mit großen Herausforderungen und Risiken verbunden – das gilt nicht zuletzt auch für urban produzierenden Betriebe. Hier können Städte z.B. in durch die kommunalen Wirtschaftsförderungen Förderungsmöglichkeiten in Form von (themenbezogenen) Gründungswettbewerben schaffen. Gründende können sich für diese bewerben und werden dann von der Konzepterstellung bis zur eigentlichen Gründung durch die Wirtschaftsförderung und weitere Expert*innen betreut und beraten. Der Gewinner wird auf Grundlage einer Jury-Beurteilung (Bsp.: Wer hat das beste Konzept und den besten Businessplan erarbeitet?) ermittelt und erhält ein Preisgeld, welches in die weitere Unternehmensgründung investiert werden kann. Durch solche Gründungwettbewerbe können urban produzierende Betriebe unterstützt, ein positives Gründungsklima in der Stadt geschaffen und eine größere Aufmerksamkeit für das Thema Urbane Produktion generiert werden.</p>`,
   targetgroups: `<p>urban produzierende Betriebe</p>`,
-  actors: `<p>Wirtschaftsförderung, Industrie- und Handelskammer, WHK</p>`,
+  actors: `<p>Wirtschaftsförderung, Industrie- und Handelskammer</p>`,
   cost: `<p>Personal (mittel), Sachkosten (mittel)</p>`,
   time: `<p>Mittelfristig</p>`,
   problem: `<p>Unternehmensgründungen sind mit einer Vielzahl von Herausforderungen verbunden (Konzepts- & Businessplanerstellung, Kosten, Vernetzung & Marketing)</p>`,
@@ -304,7 +303,7 @@ let actions =
   interactions: `<ul><li>Städtebauförderprogramm</li><li>Förderprogramme Innenstadt</li><li>Ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zwischennutzung</li><li>Inkubator(en) und praktische Lernorte für die Stadtgesellschaft</li><li>Kurator*in zur Förderung von Bestandsunternehmen Urbaner Produktion</li><li>Integriertes Wirtschaftsflächenkonzept</li><li>Mobilisierung der Eigentümer*innen und der Nachbarschaft</li><li>Zusammenarbeit mit der Wohnungswirtschaft</li><li>Urbane Logistik</li></ul>`,
   area: `<p>Stadtteil/Quartier, Gesamtstadt</p>`,
   examples: `<ul><li><a href="https://ruhrsite.business.ruhr/"target="_blank">Ruhrsite</a></li><li><a href="https://www.immovativ.de/produkte/digitales-leerstandsmanagement/"target="_blank">Immovativ</a></li><li><a href="https://www.passau.de/Wirtschaft-Bildung/ServicefuerUnternehmen/Leerstandsmanagement.aspx"target="_blank">Leerstandsmanagement Stadt Passau</a></li><li><a href="https://www.kip.net/frankfurtrheinmain/gewerbe/gewerbeimmobilien"target="_blank">Kommunale Immobilienplattform Frankfurt</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/leerstandserhebung _gewerbliches_leerstandskataster.jpg",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/leerstandserhebung_gewerbliches_leerstandskataster.jpg",
   imageSrc: "",
   iconsValuation: {
       effects: 3,
@@ -354,7 +353,7 @@ let actions =
   interactions: `<ul><li>Ehemalige Industrieflächen / Zechenstandorte</li><li>Produktive Kirchenimmobilien</li><li>Einzelhandelsflächen</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Etablierung von Dachgärten</li></ul>`,
   area: `<p>Immobilie/Grundstück</p>`,
   examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerensemble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/machbarkeitsstudien_zu_urbaner_produktion.jpg",
   imageSrc: "",
   iconsValuation: {
       effects: 3,
@@ -404,7 +403,7 @@ let actions =
   interactions: `<ul><li>Raumtypisierung für Urbane Produktion</li><li>Netzwerk und Vernetzung</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://www.business.ruhr/fileadmin/user_upload/Dokumente/Publikationen/Investorenservice/ruhrAGIS-Handbuch_Stand_2012.pdf"target="_blank">Atlas der Gewerbe-und Industriestandorte Metropole Ruhr(ruhrAGIS)</a></li><li><a href="https://www.stadt-koeln.de/wirtschaft/ausschreibungsservice/unternehmensdatenbank/index.html"target="_blank">Unternehmensdatenbank Stadt Köln</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/unternehmendatenbanken.jpg",
   imageSrc: "",
   iconsValuation: {
       effects: 3,
@@ -435,7 +434,7 @@ let actions =
     effects: 1.5,
     challenges: 1
   },
-  theme: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
+  theme: "Gezielte Zusammenarbeit mit lokalen Akteur*innen und Institutionen",
 },
 
 {
@@ -460,7 +459,7 @@ let actions =
     effects: 1.5,
     challenges: 1
   },
-  theme: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
+  theme: "Gezielte Zusammenarbeit mit lokalen Akteur*innen und Institutionen",
 },
 
 {
@@ -469,7 +468,7 @@ let actions =
   title: "Einbindung von Universitäten / Hochschulen",
   description: `<p>Eine weitere Anlaufstelle für die Vermarktung des Ansatzes Urbaner Produktion und gleichsam für die Wahrnehmungssteigerung des Handwerkes bietet die flächendeckende Hochschullandschaft in Deutschland. Denn die Zahlen der Studierenden an Hochschulen nehmen kontinuierlich zu, zugleich steigt jedoch auch die Anzahl der Studierenden, die ihr Studium aus unterschiedlichen Gründen abbrechen. So brach laut einer landesweiten Umfrage im Jahr 2018 jeder dritte Studierende sein Bachelor-Studium ab (27%) (vgl. Statista 2020). Hier gilt es anzusetzen und Studienaussteiger*innen über Aus- und Weiterbildungsmöglichkeiten beispielsweise im Handwerk zu informieren und somit bestenfalls in der jeweiligen Stadt zu halten.</p>`,
   targetgroups: `<p>Studienaussteiger*innen</p>`,
-  actors: `<p>Handwerkskammer, Industrie- und Handelskammer, Wirtschaftsförderung, Universitäten & (Hoch-) Schulen, urban produzierende Betriebe</p>`,
+  actors: `<p>Handwerkskammer, Industrie- und Handelskammer, Wirtschaftsförderung, Universitäten / Hochschulen, urban produzierende Betriebe</p>`,
   cost: `<p>Personal (mittel)</p>`,
   time: `<p>Mittelfristig</p>`,
   problem: `<p>Viele produzierende Betriebe sind auf der Suche nach Auszubildenden und Fachkräften, finden aber oftmals keine Nachfolge und müssen im schlimmsten Fall ihre Betriebe schließen. Zugleich ist die Anzahl der Studienaussteiger*innen hoch</p>`,
@@ -485,7 +484,7 @@ let actions =
     effects: 1.5,
     challenges: 1
   },
-  theme: "Gezielte Zusammenarbeit mit lokalen Akteuren und Institutionen",
+  theme: "Gezielte Zusammenarbeit mit lokalen Akteur*innen und Institutionen",
 },
 
 {
@@ -493,8 +492,8 @@ let actions =
   number: "1.7.1",
   title: "Wissenstransfer in die Stadtgesellschaft",
   description: `<p>Im Rahmen unterschiedlicher Formate werden Erkenntnisse aus der Forschung vermittelt, diskutiert oder gemeinschaftlich erarbeitet. Der Fokus liegt dabei auf der Erläuterung von den Zusammenhängen Urbaner Produktion mit anderen Themen der Stadt- und Wirtschaftsentwicklung. Vor dem Hintergrund der Stadtentwicklung der Zukunft soll das Thema so inhaltlich zugänglich gemacht werden, sodass letztlich die Potenziale und Mehrwerte deutlich vermittelt werden. Da Urbane Produktion in vielen Aspekten der Planung bisher nicht mitgedacht wird, gilt es hier die beteiligten Akteur*innen und Institutionen zu sensibilisieren.</p>`,
-  targetgroups: `<p>Bürger*innen, Politik, Stadtverwaltung, Universitäten & (Hoch-) Schulen</p>`,
-  actors: `<p>Wirtschaftsförderung, Universitäten & (Hoch-) Schulen</p>`,
+  targetgroups: `<p>Bürger*innen, Politik, Stadtverwaltung, Universitäten / Hochschulen</p>`,
+  actors: `<p>Wirtschaftsförderung, Universitäten / Hochschulen</p>`,
   cost: `<p>Personal (gering)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
   problem: `<p>Bedeutung von Produktion für die Lebenswirklichkeit jedes Einzelnen ist aus dem Bewusstsein gerückt. Produktion und Gewerbe wird im Kontext der Stadtentwicklung oft vernachlässigt</p>`,
@@ -594,7 +593,7 @@ let actions =
   title: "Tag der offenen Tür der innerstädtischen produzierenden Betriebe",
   description: `<p>Durch einen gemeinsamen „Tag der offenen Tür“ kann die Produktionsvielfalt produzierender Betriebe in städtischen Räumen/im Stadtgebiet aufgezeigt werden. Betriebe gewähren interessierten Menschen über Führungen, Mitmach-Workshops, Showproduktion o. ä. einen Einblick in ihre Produktionsweise und stehen für Rückfragen und persönliche Gespräche zur Verfügung. Eine entsprechende (Online-)Broschüre visualisiert das Angebot des Tags der offenen Tür. Dies kann in Kombination mit Kampagnen und weiteren öffentlichkeitswirksamen Maßnahmen geschehen. Als Tag dafür eignen sich z. B. die verkaufsoffenen Sonntage sowie der Abendbereich, da dort auch Räume oder Anlagen vorgestellt werden können, die während des Betriebs unzugänglich sind.</p><p>Die produzierenden Betriebe profitieren dabei durch eine erhöhte Kundenakquise während die Bürger*innen einen Einblick in die Produktionsweise erhalten und gleichzeitig für das Thema der urbanen Produktion sensibilisiert werden.</p>`,
   targetgroups: `<p>Bürger*innen, Gründungsinteressierte</p>`,
-  actors: `<p>urban produzierende Betriebe, Wirtschaftsförderung, Industrie- und Handelskammer, Handwerkskammer, Gewerbevereine, Einzelhandelsverbände</p>`,
+  actors: `<p>urban produzierende Betriebe, Wirtschaftsförderung, Industrie- und Handelskammer, Handwerkskammer, Werbegemeinschaft, Einzelhandelsverbände</p>`,
   cost: `<p>Personalkosten (gering bis mittel)</p>`,
   time: `<p>Kurzfristig</p>`,
   problem: `<p>Fachkräftemangel, fehlende Wertschätzung für Urbane Produktion, fehlendes Bewusstsein für lokale Produkte</p>`,
@@ -629,7 +628,7 @@ let actions =
   interactions: `<ul><li>Wissenstransfer in die Stadtgesellschaft</li><li>Made in Kampagne (Hidden Champions Kampagne)</li><li>Zentrum für Urbane Produktion / Handwerkerhof</li><li>Einzelhandelsflächen</li></ul>`,
   area: `<p>Stadtteil/Quartier</p>`,
   examples: `<p><ul><li><a href="https://dieurbanisten.de/angebot/eva-lichtobjekt-aus-restholz/" target="_blank">Objekt- und Möbeldesign durch die Urbanisten</a></li></ul></p>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/prosumptive_geschaeftsmodelle.jpg",
   imageSrc: "",
   iconsValuation: {
     effects: 1.5,
@@ -644,7 +643,7 @@ let actions =
   title: "Netzwerk und Vernetzung",
   description: `<p>In städtischen Räumen konzentriert sich eine Vielzahl an produzierenden Betrieben, für die sich die Möglichkeit bietet, durch die Vernetzung untereinander sowie mit weiteren relevanten Akteuren (Wirtschaftsförderung, Stadtmarketing, Stadtplanung etc.), sich gegenseitig zu unterstützen und voneinander zu profitieren. Durch zielgerichtete Zusammenschlüsse können Synergieeffekte entstehen, darunter gemeinsame Lieferketten oder gemeinsam genutzt Ressourcen. Die Nutzung oder der Aufbau gemeinsamer Plattformen oder Netzwerke bieten die Möglichkeit, neue Produkte gemeinsam mit anderen Unternehmen anzubieten sowie Nebenprodukte oder Produktionsabfälle einer Weiterverwendung zuzuführen. Je nach Ausgestaltung der Netzwerktätigkeiten können sie auch einen Beitrag zur Aufwertung von Stadtteilen leisten.</p>`,
   targetgroups: `<p>urban produzierende Betriebe</p>`,
-  actors: `<p>Wirtschaftsförderung, Business Metropole Ruhr, Impact Hub, UrbaneProduktion.Ruhr,  Handwerkskammer, Industrie- und Handelskammer</p>`,
+  actors: `<p>Wirtschaftsförderung, UrbaneProduktion.Ruhr,  Handwerkskammer, Industrie- und Handelskammer</p>`,
   cost: `<p>Personal (gering bis mittel)</p>`,
   time: `<p>Kurz- bis mittelfristig</p>`,
   problem: `<p>Potenzielle Wertschöpfungsketten werden nicht ausgeschöpft, fehlender lokaler Knowhow-Transfer, Fachkräftemangel</p>`,
@@ -733,7 +732,7 @@ let actions =
   <li><a href="https://www.gelsenkirchen.de/de/_meta/aktuelles/artikel/49777-premiere-fuer-den-stadtgutschein-in-gelsenkirchen" target="_blank">Stadtgutschein Gelsenkirchen</a></li>
   </ul>`,
   image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/ausweitung_des_stadtgutscheinsystems.jpg",
-  imageSrc: "https://www.gelsenkirchen.de/de/_meta/aktuelles/artikel/49777-premiere-fuer-den-stadtgutschein-in-gelsenkirchen",
+  imageSrc: "",
   iconsValuation: {
     effects: 2,
     challenges: 1.5
@@ -857,7 +856,7 @@ let actions =
   interactions: `<ul><li>Gemeinschaftsgärten</li></ul>`,
   area: `<p>Immobilie/Grundstück, Stadtteil/Quartier</p>`,
   examples: `<ul><li><a href="https://www.online-dialog-iga.gelsenkirchen.de/dito/explore/Machbarkeitsstudie+Kohlenbunkerensemble+%28PDF%29?action=openattachment&id=425&attachmentid=115"target="_blank">Machbarkeitsstudie Kohlenbunkerenseble der Zeche Nordstern Gelsenkirchen</a></li><li><a href="https://andreas-rimkus.de/berlin/bundesbauministerium-gibt-ausgewaehlte-nationale-projekte-des-staedtebaus-2020-bekannt-rund-1-million-euro-fuer-den-bilker-bunker-und-das-vertical-farming-projekt-in-duesseldorf"target="_blank">„Machbarkeitsstudie Vertical Farming Carlsplatz“ in Düsseldorf</a></li><li><a href="https://www.morgenfarm.berlin/"target="_blank">Morgenfarm Berlin</a></li><li><a href="https://www.vhs-gesundheitsbildung.de/2019/01/06/urban-gardening-an-der-vhs-bremen/"target="_blank">Rooftop Gardening auf dem Dach der VHS Bremen</a></li><li><a href="https://www.hannover.de/Leben-in-der-Region-Hannover/Verwaltungen-Kommunen/Die-Verwaltung-der-Landeshauptstadt-Hannover/Dezernate-und-Fachbereiche-der-LHH/Wirtschaft-und-Umwelt/Fachbereich-Umwelt-und-Stadtgr%C3%BCn/%22City-Roofwalks%22-verbinden-begr%C3%BCnte-D%C3%A4cher-in-der-Innenstadt"target="_blank">"City Roofwalks"Hannover</a></li><li><a href="https://www.db-bauzeitung.de/news/bunker-stpauli-gruener-bergpfad-fuer-hamburg/"target="_blank">Grüner Bergpfad für Hamburg</a></li><li><a href="http://www.dachfarmberlin.com"target="_blank">Dachfarm Berlin</a></li><li><a href="https://altmarktgarten-oberhausen.de/"target="_blank">ALTMARKTgarten Oberhausen</a></li></ul>`,
-  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/todo.jpg",
+  image: "https://urbaneproduktion.ruhr/wp-content/uploads/2022/01/Massnahmentool/img/etablierung_von_dachgaerten.jpg",
   imageSrc: "https://www.lindenhof-gelsenkirchen.de/kontakt/",
   iconsValuation: {
     effects: 2,

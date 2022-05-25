@@ -42,6 +42,44 @@ let userDefinedSliderPositions = {};
 const gridColumnWidth = 490;
 
 function main() {
+
+    let url = removeAllUrlParameters();
+    history.replaceState({}, "", url);
+    window.onpopstate = function(event) {
+        if(event.state.hasOwnProperty("showSelectByArea") && event.state["showSelectByArea"]) {
+            let btn = document.querySelector("#selectByAreaBtn");
+            // only click button if areas are not shown already
+            if(btn.style.backgroundColor !== "white") {
+                btn.click();
+            } else {
+                // show all actions
+                let btn = document.querySelector("#showAllActionsBtn");
+                btn.click();
+            }
+            
+        }
+        if(event.state.hasOwnProperty("showSelectByActor") && event.state["showSelectByActor"]) {
+            let btn = document.querySelector("#selectByActorBtn");
+            if(btn.style.backgroundColor !== "white") {
+                btn.click();
+            } else {
+                let btn = document.querySelector("#showAllActionsBtn");
+                btn.click();
+            }
+        }
+
+        if(event.state.hasOwnProperty("showSelectByTheme") && event.state["showSelectByTheme"]) {
+            let btn = document.querySelector("#selectByThemeBtn");
+            if(btn.style.backgroundColor !== "white") {
+                btn.click();
+            } else {
+                let btn = document.querySelector("#showAllActionsBtn");
+                btn.click();
+            }
+        }
+        
+    };
+    
     placeImgHotspots();
     initializeImgPopovers();
 
@@ -178,6 +216,8 @@ function createAreaCards(areas) {
         let btn = element.getElementsByTagName("button")[0];
         btn.addEventListener("click", function(e) {
             filterActions("area", title.innerHTML);
+            scrollToTopOfActionArea();
+            updateUrl();
         });
 
         result.push(element);
@@ -201,7 +241,9 @@ function createActorCards(actors) {
         desc.innerHTML = actor.description;
         let btn = element.getElementsByTagName("button")[0];
         btn.addEventListener("click", function() {
-            filterActions("actors", title.innerHTML)
+            filterActions("actors", title.innerHTML);
+            scrollToTopOfActionArea();
+            updateUrl();
         });
 
         result.push(element);
@@ -226,7 +268,9 @@ function createThemeCards(themes) {
         desc.innerHTML = theme.description;
         let btn = element.getElementsByTagName("button")[0];
         btn.addEventListener("click", function() {
-            filterActions("theme", title.innerHTML)
+            filterActions("theme", title.innerHTML);
+            scrollToTopOfActionArea();
+            updateUrl();
         });
         result.push(element);
     }
@@ -260,6 +304,7 @@ function filterActions(filterProperty, filterValue) {
 
         // remove html tags
         let str = removeHtmlTags(obj[filterProperty])
+
         // split string
         // there is one theme name that includes a comma: Netzwerk, Vernetzung und Information
         // this is an exception
@@ -271,10 +316,10 @@ function filterActions(filterProperty, filterValue) {
         }
         
         split = split.map( el => el.trim());
-        console.log(split)
+
         // check if action meets our filter criteria
         let result = split.some( (el) => {
-            return el === filterValue
+            return el.toLowerCase() === filterValue.toLowerCase();
         });
         return result;
     });
@@ -404,7 +449,7 @@ function filterActionsAdvanced(targetChb, usedSliderId, sliderValue, handleIndex
         rangeSliders.forEach( slider => {
             let category = slider.id.split("-")[0];
             let currentSliderValue = $(slider).slider("option", "values")
-            console.log(category);
+
             
             // if there is a user defined position
             if(userDefinedSliderPositions[category]) {
@@ -735,7 +780,7 @@ function updateDetailsTable(action) {
  */
 function showDetails(event) {
     let element = event.target;
-    console.log(element.dataset);
+
     if(element.dataset.actionId) {
         let id = element.dataset.actionId;
         let action = getActionsByIds(id)[0];
@@ -870,7 +915,7 @@ async function createPDF() {
 
                 let arr = Array.from(aTags).map( (el) => {
                     // only return links that are in the examples row since we don't want to link between actions
-                    console.log(el.parentElement.parentElement);
+
                     let rect = el.getBoundingClientRect();
                     // define an object to store the links information
                     return {
@@ -899,10 +944,8 @@ async function createPDF() {
 
         elements = duplicateDetailsTable.querySelectorAll("tr");
         let sum = 0;
-        console.log(duplicateDetailsTable.getBoundingClientRect().height);
+
         for (let [index, element] of elements.entries()) {
-            console.log("row " + index + ": y = " + sum);
-            console.log("rowPT " + index + ": y = " + pxToPt(sum));
             sum += element.getBoundingClientRect().height;
         }
 
@@ -929,13 +972,11 @@ async function createPDF() {
             // get rows
             let rows = duplicateDetailsTable.querySelectorAll("tr")
             
-            console.log("availablePageHeightPx", availablePageHeightPx);
-            console.log("availablePageHeightPt: ", availablePageHeightPt);
-            console.log("canvas height: ", canvasHeightPt);
+
             
             // if it does we just add it
             if(availablePageHeightPt >= canvasHeightPt) {
-                console.log("canvas fits on page");
+
                
                 doc.addImage(
                     canvas,
@@ -965,26 +1006,21 @@ async function createPDF() {
                 for(let j=0; j<rows.length; j++) {
                     let row = rows[j];
 
-                    console.log("looking at row: " + j);
-                    console.log("inner html: ", row.innerHTML);
-
                     // get height of current row
                     // we don't need to adjust the viewport scroll here since we only need the height, not the absolute position
                     let currentRowHeight = row.getBoundingClientRect().height; 
 
                     // and add it to sum
                     let usedPageHeightPlusRowPt = usedPageHeightPt + pxToPt(currentRowHeight)
-                    console.log("usedPageHeightPlusRowPt is:", usedPageHeightPlusRowPt);
-                    
+
                     // check if row would fit on page
                     if(usedPageHeightPlusRowPt < availablePageHeightPt) {
-                        console.log("row " + j + " fits on page");
-                        console.log("usedPageHeightPlusRowPt: ", usedPageHeightPlusRowPt, " availablePageHeightPt: ", availablePageHeightPt);
+
                         usedPageHeightPt = usedPageHeightPlusRowPt; // update used page height since row does fit
                         
                         // if we reached the last row we have to print the remaining rows
                         if( j == rows.length - 1 ) {
-                            console.log("last row reached");
+
                             // we can use availablePageHeightPt instead of usedPageHeightPt here, because we want to print the whole page height
                             let sx =  0;
                             let sy = ptToPx(totalCanvasHeightUsedPt);
@@ -1003,11 +1039,9 @@ async function createPDF() {
                         }
     
                     } else {
-                        console.log("row " + j + " doesn't fit on page");
 
                         // iterate paragraphs and see how many still fit on page
                         let paragraphs = duplicateDetailsTable.querySelectorAll("tr:nth-child(" + j+1 + ") td:last-child p");
-                        console.log(paragraphs);
                         
                         if(paragraphs && paragraphs.length > 1) {
 
@@ -1016,21 +1050,14 @@ async function createPDF() {
                                 // get height of current paragraph
                                 let paragraphMarginBot = parseInt(paragraph.style.marginBottom.replace("px", ""))
                                 let currentParagraphHeight = paragraph.getBoundingClientRect().height + paragraphMarginBot;
-                                console.log("current paragraph height px: ",  currentParagraphHeight);
-                                console.log("current paragraph height pt: ",  pxToPt(currentParagraphHeight));
+
                                 // and add it to the sum
                                 let usedPageHeightPlusParagraphPt = usedPageHeightPt + pxToPt(currentParagraphHeight) 
                                 
                                 if(usedPageHeightPlusParagraphPt < availablePageHeightPt) {
-                                    console.log("paragraph fits on page");
-                                    console.log("usedPageHeightPlusParagraphPt: ", usedPageHeightPlusParagraphPt, " availablePageHeightPt: ", availablePageHeightPt);
                                     usedPageHeightPt = usedPageHeightPlusParagraphPt; // update used page height since paragraph does fit on page
                                 } else {
                                     // paragraph doesn't fit on page
-                                    console.log("paragraph doesn't fit on page");
-                                    console.log(usedPageHeightPt);
-                                    console.log("usedPageHeightPlusParagraphPt: ", usedPageHeightPlusParagraphPt, " availablePageHeightPt: ", availablePageHeightPt);
-                                    console.log("usedPageHeightPlusParagraphPx: ", ptToPx(usedPageHeightPlusParagraphPt), " availablePageHeightPx: ", ptToPx(availablePageHeightPt));
                                     
                                     let sx =  0;
                                     let sy = ptToPx(totalCanvasHeightUsedPt);
@@ -1043,9 +1070,7 @@ async function createPDF() {
             
                                     let partialCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
                                     totalCanvasHeightUsedPt += pxToPt(partialCanvas.height); // update used total height so that the next canvas continues at this point
-                                    console.log("printed canvas with height: ", partialCanvas.height, ". totalCanvasHeightUsedPt in pixel is: ", ptToPx(totalCanvasHeightUsedPt));
                                     rowHeightSumOfPrevPagesPt += usedPageHeightPt;
-                                    console.log("rowHeightSumOfPrevPagesPt: ", rowHeightSumOfPrevPagesPt);
                                     // then switch to next page and reset used height
                                     doc.addPage("a4", "landscape");
                                     setupStaticPdfPageElements(doc, action);
@@ -1071,9 +1096,7 @@ async function createPDF() {
                             let partialCanvas = printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, detailsTableOffsetX, detailsTableOffsetY);
 
                             totalCanvasHeightUsedPt += pxToPt(partialCanvas.height); // update used total height so that the next canvas continues at this point
-                            console.log("printed canvas with height: ", partialCanvas.height, ". totalCanvasHeightUsedPt in pixel is: ", ptToPx(totalCanvasHeightUsedPt));
                             rowHeightSumOfPrevPagesPt += usedPageHeightPt
-                            console.log("rowHeightSumOfPrevPagesPt: ", rowHeightSumOfPrevPagesPt);
                             // add new page
                             doc.addPage("a4", "landscape");
                             setupStaticPdfPageElements(doc, action);
@@ -1084,7 +1107,6 @@ async function createPDF() {
                             // the row that didn't fit might also be the last one.
                             // in that case we need to print it here since the iteration will end here
                             if( j == rows.length - 1 ) {
-                                console.log("last row reached. It didn't fit on last page.");
                                 // we can use availablePageHeightPt instead of usedPageHeightPt here, because we want to print the whole page height
                                 let sx =  0;
                                 let sy = ptToPx(totalCanvasHeightUsedPt);
@@ -1263,7 +1285,6 @@ function addCoverPageBottomLogo(doc) {
 
 function setupAdditionalTocPage(doc) {
     doc.addPage("a4", "portrait");
-    console.log(doc.internal);
     doc.movePage(doc.internal.getNumberOfPages(), 2);
 
     doc.setFontSize(24);
@@ -1480,7 +1501,6 @@ function ptToPx(pt) {
  * @returns 
  */
 function printPartialCanvas(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, imgX, imgY) {
-    console.log(canvas, doc, canvasScale, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight, imgX, imgY);
     dHeight = dHeight * canvasScale
     sHeight = sHeight * canvasScale;
     let tempCanvas = document.createElement("canvas"),
@@ -1807,23 +1827,12 @@ function capadvancedFilterFieldHeight(advancedFilterWrapper) {
  * @param {int} rowHeightSumOfPrevPagesPt | the sum of row heights from all prior pages.
  */
 function makePdfLinksInteractive(links, doc, idx, detailsTableOffsetX, detailsTableOffsetY, rowHeightSumOfPrevPagesPt=0) {
-    console.log("links in function: ", links);
     
     doc.setFillColor("#FF0000")
     let detailsTableOffsetXPt = cmToPt(detailsTableOffsetX)
     let detailsTableOffsetYPt = cmToPt(detailsTableOffsetY)
 
     for(let link of links) {
-
-        console.log("top: ", link.position.top)
-        console.log("topPt: ", pxToPt(link.position.top))
-        console.log("pxToPt(link.position.top) ", pxToPt(link.position.top));
-        console.log("rowHeightSumOfPrevPagesPt: ", rowHeightSumOfPrevPagesPt);
-        console.log("detailsTableOffsetYPt: ", detailsTableOffsetYPt);
-        console.log("pxToPt(link.position.left + 20000 + (1000 * idx)) + detailsTableOffsetXPt", pxToPt(link.position.left + 20000 + (1000 * idx)) + detailsTableOffsetXPt);
-        console.log("pxToPt(link.position.top) + detailsTableOffsetYPt - rowHeightSumOfPrevPagesPt", pxToPt(link.position.top) + detailsTableOffsetYPt - rowHeightSumOfPrevPagesPt);
-        console.log("pxToPt(link.position.width) ", pxToPt(link.position.width));
-        console.log("pxToPt(link.position.height) ", pxToPt(link.position.height));
         
         // can be used to draw a red rectangle where links are placed for better debugging
         // doc.rect(
@@ -1902,5 +1911,84 @@ function generatePopoverOptions(el) {
     }
 }
 
+function scrollToTopOfActionArea() {
+    
+    let hr = document.querySelector("#scrollAnchor");
+    const rect = hr.getBoundingClientRect();
+    let targetPosition = rect.top + self.pageYOffset - 75; // top banner covers up some space so we scrpp a bit higher
+    window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+    });
+}
+
+
+function onSelectByAreaClicked(event) {
+    showAllAreas(event);
+    updateUrl({
+        'selectByAreaShown': true
+    })
+}
+
+function onSelectByActorClicked(event) {
+    showAllActors(event);
+    updateUrl({
+        'selectByActorShown': true
+    })
+}
+
+function onSelectByThemeClicked(event) {
+    showAllThemes(event);
+    updateUrl({
+        'selectByThemeShown': true
+    })
+}
+
+
+function updateUrl(params) {
+
+    if(params) {
+        let key = Object.keys(params)[0];
+        let url = new URL(window.location);
+        let urlStr = url.toString();
+        let urlSplit = urlStr.split("?");
+        if(urlSplit[1] && urlSplit[1].includes(key)) {
+            // param already exists
+        } else {
+            url.searchParams.append(key, params[key]);
+        }
+
+        // remove the other two params if they exist
+        if(key === "selectByAreaShown" && urlSplit[1]) {
+            url.searchParams.delete("selectByActorShown");
+            url.searchParams.delete("selectByThemeShown");
+        }
+        if(key === "selectByActorShown") {
+            url.searchParams.delete("selectByAreaShown");
+            url.searchParams.delete("selectByThemeShown");
+        }
+        if(key === "selectByThemeShown") {
+            url.searchParams.delete("selectByAreaShown");
+            url.searchParams.delete("selectByActorShown");
+        }
+        
+        let stateObj = {
+            showSelectByArea: key === "selectByAreaShown" ? true : false,
+            showSelectByActor: key === "selectByActorShown" ? true : false,
+            showSelectByTheme: key === "selectByThemeShown" ? true : false
+        }
+        window.history.pushState(stateObj, '', url);
+    } else {
+        let url = removeAllUrlParameters();
+        window.history.pushState({}, '', url);
+    }
+}
+
+function removeAllUrlParameters() {
+    let url = new URL(window.location);
+    url = url.toString();
+    url = url.split("?")[0];
+    return url;
+}
 
 main();

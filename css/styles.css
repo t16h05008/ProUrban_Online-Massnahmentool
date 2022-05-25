@@ -23,6 +23,7 @@ body {
 
 .topRowBtnHighlight:hover {
     color:#006059 !important;
+    background-color: white !important;
 }
 
 .topRowBtn:hover {
